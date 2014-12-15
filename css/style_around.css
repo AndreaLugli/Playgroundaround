@@ -1,0 +1,83 @@
+@font-face {
+	font-family:'OpenSans-Regular';
+	src:local('OpenSans-Regular'), url('../fonts/OpenSans-Regular.ttf') format('truetype');
+}
+@font-face {
+	font-family:'OpenSans-Bold';
+	src:local('OpenSans-Bold'), url('../fonts/OpenSans-Bold.ttf') format('truetype');
+}
+html, body {
+	height:100%;
+	width:100%;
+	background-color:#f7f4ed;
+	color:black;
+	text-align:center;
+}
+
+*{
+	font-family: OpenSans-Regular;
+	font-size:medium;
+}
+b{
+	font-family: OpenSans-Bold,;
+	font-size:medium;
+}
+a, a:hover{ 
+	text-decoration:none;
+	font-weight:900;
+}
+
+.navbar {
+	color:#27c39e !important;
+	background-color:#464646;
+	margin-bottom:0;
+	height:8%;
+	/*border-bottom:1pt solid #27c39e;*/
+}
+.navbar img{
+	height:100%;
+}
+.navbar button{
+	float:right;
+	margin:5pt;
+	background-color:#464646;
+	border:1pt solid black;
+	text-transform:uppercase;
+	font-weight:bold;
+}
+.navbar button:hover{
+	color:#27c39e;
+}
+
+#header{
+	height:38%;
+	background: #27c39e url('../img/bologna.jpg') top no-repeat;
+	border-bottom:5pt solid #27c39e;
+	margin:0;
+	padding:0;
+}
+
+#page{
+	height:50%;
+}
+.block{
+	width:50%;
+	height:50%;
+	float:left;
+	color:white;
+	padding:12% 0;
+}
+.blo1{	background-color:#912A62;	}
+.blo2{	background-color:#E3D56F;	}
+.blo3{	background-color:#DE56A0;	}
+.blo4{	background-color:#319FAB;	}
+
+#footer{
+	height:4%;
+	background-color:#464646;
+	border-top:1pt solid black;
+}
+#footer a{
+	color:#27c39e;
+	font-weight:normal;
+}
