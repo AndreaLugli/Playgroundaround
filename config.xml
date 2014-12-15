@@ -6,29 +6,28 @@
         id        = "com.phonegap.helloworld"
         version   = "1.0.0">
 
-    <name>Hello World</name>
-
+    <name>PlaygroundAroundTheCorner</name>
     <description>
-        Hello World sample application that responds to the deviceready event.
+        Playground Around The Corner App - www.playgroundaroundthecorner.it
     </description>
-
-    <author href="http://phonegap.com" email="support@phonegap.com">
-        PhoneGap Team
+    <author email="info@socialcities.it" href="www.socialcities.it">
+        SocialCities s.r.l.
     </author>
 
-    <!-- Define the main entry-point to the application -->
+    
     <content src="index.html" />
+    <!-- <access origin="*" />  -->
+    <access origin="*" subdomains="true" />
+    
+    <preference name="phonegap-version" value="3.6.3" />
+    <preference name="permissions" value="none" />
 
-    <!--
-        If you do not want any permissions to be added to your app, add the
-        following tag to your config.xml; you will still have the INTERNET
-        permission on your app, which PhoneGap requires.
-    -->
-    <preference name="permissions"                value="none"/>
+    <!-- permessi individuali -->
+    <feature name="http://api.phonegap.com/1.0/device" />
+    <feature name="http://api.phonegap.com/1.0/file"/>
 
-    <!-- Customize your app and platform with the preference element. -->
-    <preference name="phonegap-version"           value="3.5.0" />          <!-- all: current version of PhoneGap -->
-    <preference name="orientation"                value="default" />        <!-- all: default means both landscape and portrait are enabled -->
+    <preference name="orientation" value="portrait" />
+
     <preference name="target-device"              value="universal" />      <!-- all: possible values handset, tablet, or universal -->
     <preference name="fullscreen"                 value="true" />           <!-- all: hides the status bar at the top of the screen -->
     <preference name="webviewbounce"              value="true" />           <!-- ios: control whether the screen 'bounces' when scrolled beyond the top -->
