@@ -9,7 +9,7 @@ function partenza()
 }
 
 
-/****************************/
+/*********************STRUTTURA*/
 function pop(){
 	navbarPop();
 	footerPop();
@@ -19,7 +19,7 @@ function navbarPop(){
 	$('body').prepend('<nav class="navbar navbar-inverse navbar-static-top" role="navigation">'+
           '<div class="container">'+
             '<div class="navbar-header">'+
-              '<a class="navbar-brand" href="#">'+
+              '<a class="navbar-brand" href="index.html">'+
                 '<img alt="brand" src="./img/logo.png">'+
               '</a>'+
               '<button type="button" class="btn navbar-btn" onClick="window.location=\'aggiungi.html\'">Inserisci</button>'+
@@ -40,9 +40,8 @@ function scrollAlto(){
 	$('html, body').animate({scrollTop: 0 }, 'slow');
 }
 
-/************************/
+/****************LOCALIZZAZIONE*/
 
-//Inizializza la geolocalizzazione veloce
 function localize()
 { 
 	var wathcID = navigator.geolocation.getCurrentPosition(handle_localize, error_localize, {enableHighAccuracy: false, maximumAge: 300000, timeout: 10000});
@@ -55,3 +54,10 @@ function handle_localize(position)
 	alert('Ti trovi a: LATI:'+sessionStorage.lat+' LONGI:'+sessionStorage.longi);
 }
 function error_localize(){}
+
+
+/********************GET*PARCHI*VICINI*/
+function apriParco(){
+	alert('ciao!!');
+	window.location='parco.html';
+}

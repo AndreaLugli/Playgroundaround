@@ -22,13 +22,14 @@ b{
 	font-family: OpenSans-Bold,;
 	font-size:medium;
 }
-a, a:hover{ 
+a, a:hover, a:visited{ 
 	text-decoration:none;
 	font-weight:900;
-	text-transform: uppercase;
+	text-transform:uppercase;
 }
 
-/*********NAVBAR*/
+/***********************************STRUTTURA*/
+
 .navbar {
 	color:#27c39e !important;
 	background-color:#464646;
@@ -44,14 +45,13 @@ a, a:hover{
 	float:right;
 	margin:5pt;
 	background-color:#f7f4ed;
-	border:1px solid #27c39e;
+	border:1pt solid #27c39e;
 	text-transform:uppercase;
 	font-weight:bold;
 }
 .navbar button, .navbar button:hover{
 	color:#27c39e;
 }
-/*****************/
 
 #container{
 	height:95%;
@@ -60,6 +60,24 @@ a, a:hover{
 	top:0;
 	padding-top:35pt;
 }
+
+#bottom{
+	height:5%;
+}
+#footer{
+	height:25pt;
+	line-height:25pt;
+	background-color:#464646;
+	border-top:1pt solid black;
+}
+#footer a{
+	color:#27c39e;
+	font-weight:normal;
+	font-size:small;
+}
+
+/***********************************INDEX*/
+
 #header{
 	height:50%;
 	background: #27c39e url('../img/bologna.jpg') center center no-repeat;
@@ -67,16 +85,17 @@ a, a:hover{
 	margin:0;
 	padding:0;
 }
+
 #page{
 	height:50%;
 }
-.block, .block:hover{
+.block, .block:hover, .block:visited{
 	width:50%;
 	height:50%;
 	float:left;
 	color:white;
 	padding:8% 0;
-	text-decoration: none;
+	text-decoration:none;
 }
 .block i{
 	display:block;
@@ -87,16 +106,60 @@ a, a:hover{
 .blo3{	background-color:#DE56A0;	}
 .blo4{	background-color:#319FAB;	}
 
-/*********FOOTER*/
-#footer{
-	height:5%;
-	background-color:#464646;
-	border-top:1px solid black;
+
+
+/************************************VICINI*/
+
+#parchiVicini{
+	padding:5%;
 }
-#footer a{
-	color:#27c39e;
-	font-weight:normal;
-	font-size:x-small;
-	padding:3pt;
+
+.parco, .parco:hover, .parco:visited{
+	display:block;
+	height:74pt;
+	width:100%;
+	margin-bottom:6pt;
+	background-color:#27c39e;
+	color:#f7f4ed;
 }
-/***************/
+.parco img{
+	display:block;
+	margin:2pt;
+	height:70pt;
+	width:70pt;
+	float:left;
+}
+
+.desc{
+	display:block;
+	margin:2pt;
+	height:70pt;
+	line-height:20pt;
+	overflow-y:auto;
+	background: url("../img/click.png") no-repeat right 2pt center;
+	background-size:20pt;
+	padding-right:5pt;
+}
+.titolo{
+	font-size:small;
+}
+.eta{
+	width:50%;
+	float:left;
+	font-size:small;
+}
+.orario{
+	width:50%;
+	float:right;
+	font-size:small;
+}
+.voto{
+	width:50%;
+	float:left;
+	font-size:large;
+}
+.servizi{
+	width:50%;
+	float:right;
+	font-size:large;
+}
