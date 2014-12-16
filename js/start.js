@@ -45,7 +45,7 @@ function scrollAlto(){
 //Inizializza la geolocalizzazione veloce
 function localize()
 { 
-	var wathcID = navigator.geolocation.getCurrentPosition(handle_localize, {enableHighAccuracy: false, maximumAge: 300000, timeout: 10000});
+	var wathcID = navigator.geolocation.getCurrentPosition(handle_localize, error_localize, {enableHighAccuracy: false, maximumAge: 300000, timeout: 10000});
 }
 function handle_localize(position)
 {  	
@@ -54,3 +54,4 @@ function handle_localize(position)
 
 	alert('Ti trovi a: LATI:'+sessionStorage.lat+' LONGI:'+sessionStorage.longi);
 }
+function error_localize(){}
