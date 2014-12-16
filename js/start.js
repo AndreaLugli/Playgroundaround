@@ -60,7 +60,7 @@ function navbarPop(){
               '<a class="navbar-brand" href="#">'+
                 '<img alt="brand" src="./img/logo.png">'+
               '</a>'+
-              '<button type="button" class="btn navbar-btn">Inserisci</button>'+
+              '<button type="button" class="btn navbar-btn" onClick="window.location=\'aggiungi.html\'">Inserisci</button>'+
             '</div>'+
           '</div>'+
         '</nav>');

@@ -37,17 +37,18 @@ a, a:hover{
 	/*border-bottom:1pt solid #27c39e;*/
 }
 .navbar img{
-	height:100%;
+	height:25pt;
+	margin-top: -5pt;
 }
 .navbar button{
 	float:right;
 	margin:5pt;
-	background-color:#464646;
-	border:1pt solid black;
+	background-color:#f7f4ed;
+	border:1px solid #27c39e;
 	text-transform:uppercase;
 	font-weight:bold;
 }
-.navbar button:hover{
+.navbar button, .navbar button:hover{
 	color:#27c39e;
 }
 /*****************/
@@ -61,7 +62,7 @@ a, a:hover{
 }
 #header{
 	height:50%;
-	background: #27c39e url('../img/bologna.jpg') top no-repeat;
+	background: #27c39e url('../img/bologna.jpg') center center no-repeat;
 	border-bottom:5pt solid #27c39e;
 	margin:0;
 	padding:0;
@@ -90,11 +91,12 @@ a, a:hover{
 #footer{
 	height:5%;
 	background-color:#464646;
-	border-top:1pt solid black;
+	border-top:1px solid black;
 }
 #footer a{
 	color:#27c39e;
 	font-weight:normal;
 	font-size:x-small;
+	padding:3pt;
 }
 /***************/
