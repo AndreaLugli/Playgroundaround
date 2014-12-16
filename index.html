@@ -5,47 +5,48 @@
         <title>LocalJob</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
         
-        <link href="css/bootstrap.min.css" rel="stylesheet">
-        <link href="css/style_around.css" rel="stylesheet">
+        <link rel="stylesheet" href="css/bootstrap.min.css">
+        <link rel="stylesheet" href="css/style_around.css">
+        <link rel="stylesheet" href="css/font-awesome.min.css">
 
     </head>
   
-    <body onload="app.initialize();">
+    <body onload="app.initialize(); pop();">
 
-        <nav class="navbar navbar-inverse navbar-static-top" role="navigation">
-          <div class="container">
-            <div class="navbar-header">
-              <a class="navbar-brand" href="#">
-                <img alt="brand" src="./img/logo.png">
-              </a>
-              <button type="button" class="btn navbar-btn">Inserisci</button>
+
+        <!--NAVBAR DINAMICA-->
+
+        <div id="container">
+
+            <div id="header"></div>
+
+            <div id="page">
+                <a class="block blo1" href="vicini.html">
+                    Vicini<i class="fa fa-compass fa-3x"></i>
+                </a>
+                <a class="block blo2" href="ricerca.html">
+                    Ricerca<i class="fa fa-search fa-3x"></i>
+                </a>
+                <a class="block blo3" href="mappa.html">
+                    Mappa<i class="fa fa-globe fa-3x"></i>
+                </a>
+                <a class="block blo4" href="migliori.html">
+                    Migliori<i class="fa fa-star fa-3x"></i>
+                </a>
             </div>
-          </div>
-        </nav>
 
+        </div>  <!--/CONTAINER-->
 
-        <div id="header"></div>
-
-        <div id="page">
-            <div class="block blo1">miao</div>
-            <div class="block blo2">miaomiao</div>
-            <div class="block blo3">miaomiaomiao</div>
-            <div class="block blo4">miaomiaomiaomiao</div>
-        </div>
-
-        <nav id="footer" class="navbar-fixed-bottom">
-            <div class="container">
-                <a href="">aaa</a>
-            </div>
-        </nav>
+ 
+        <div id="bottom"></div>
         
         
-    
         <script src="js/jquery-1.11.1.min.js"></script>
         <script src="js/bootstrap.min.js"></script>
         <script src="cordova.js"></script>
         
         <script src="js/index.js"></script>
+        <script src="js/start.js"></script>
 
     </body>
 </html>
