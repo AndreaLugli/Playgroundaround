@@ -57,7 +57,7 @@ function error_localize(){}
 
 
 /********************GET*PARCHI*VICINI*/
-function apriParco(){
-	alert('ciao!!');
+function apriParco(id){
+	alert(id);
 	window.location='parco.html';
 }

@@ -1,3 +1,10 @@
+/*palette
+grigio background: #e4e3df
+verde acqua: #27c39e
+nero navbar: #464646
+bianco panna: #f7f4ed
+*/
+
 @font-face {
 	font-family:'OpenSans-Regular';
 	src:local('OpenSans-Regular'), url('../fonts/OpenSans-Regular.ttf') format('truetype');
@@ -9,7 +16,7 @@
 html, body {
 	height:100%;
 	width:100%;
-	background-color:#f7f4ed;
+	background-color:#e4e3df;
 	color:black;
 	text-align:center;
 }
@@ -26,6 +33,13 @@ a, a:hover, a:visited{
 	text-decoration:none;
 	font-weight:900;
 	text-transform:uppercase;
+}
+hr{
+	border:none;
+	height:1px;
+	color:white;
+	background-color:red;
+	margin:0;
 }
 
 /***********************************STRUTTURA*/
@@ -162,4 +176,54 @@ a, a:hover, a:visited{
 	width:50%;
 	float:right;
 	font-size:large;
+}
+
+/************************************PARCO*/
+#parcoAperto{
+	margin:5%;
+	padding:0;
+	display:block;
+	height:90%;
+	width:90%;
+	background-color:#27c39e;
+	color:#f7f4ed;
+}
+/****************foto*/
+.big{
+	width:50%;
+	margin:2%;
+	float:left;
+}
+.small{
+	width:21%;
+	margin:4% 2% 0 0;
+	float:left;
+}
+.tiny{
+	width:15%;
+	margin: 0 1.5%;
+}
+#galleriaTiny{
+	clear:both;
+	width:100%;
+	padding: 0 5% 3% 5%;
+}
+/****************info*/
+#parcoInfo{
+	background-color:#f7f4ed;
+	color:#27c39e;
+	width:100%;
+	padding: 2%;
+}
+#parcoInfo div{
+	width:100%;
+	padding:1%;
+	margin:0;
+	clear:both;
+}
+#parcoInfo span{
+	margin:0;
+	display:block;
+	width:50%;
+	float:left;
 }
