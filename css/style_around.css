@@ -68,20 +68,21 @@ hr{
 }
 
 #container{
-	height:95%;
+	height:97%;
 	width:100%;
 	position:absolute;
 	top:0;
 	padding-top:35pt;
-	margin-bottom:0;
 }
 
 #bottom{
-	margin-top:0;
-	height:5%;
+	margin:0;
+	padding:0;
+	background-color:#464646;
 }
 #footer{
-	height:25pt;
+	max-height:3%;
+	min-height:25pt;
 	line-height:25pt;
 	background-color:#464646;
 	border-top:1pt solid black;
