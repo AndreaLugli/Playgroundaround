@@ -73,9 +73,11 @@ hr{
 	position:absolute;
 	top:0;
 	padding-top:35pt;
+	margin-bottom:0;
 }
 
 #bottom{
+	margin-top:0;
 	height:5%;
 }
 #footer{
@@ -180,7 +182,7 @@ hr{
 
 /************************************PARCO*/
 #parcoAperto{
-	margin:5% 5% 15% 5%;
+	margin:20pt 5% 50pt 5%;
 	padding:0;
 	display:block;
 	width:90%;
@@ -245,6 +247,5 @@ hr{
 	background:#f7f4ed url('../img/loader.gif') no-repeat center center;
 	width:100%;
 	color:#912A62;
-	padding:2%;
-	height:200pt;
+	height:150pt;
 }
