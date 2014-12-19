@@ -8,10 +8,11 @@
         <link href="css/bootstrap.min.css" rel="stylesheet">
         <link href="css/style_around.css" rel="stylesheet">
         <link rel="stylesheet" href="css/font-awesome.min.css">
+        <link rel="stylesheet" href="libs/leaflet/leaflet.css" />
 
     </head>
   
-    <body onload="pop();">
+    <body onload="pop(); getMappa();">
 
         <div id="container">
 
@@ -35,7 +36,7 @@
                 </div>
 
                 <div id="parcoInfo">
-                    <div style="background-color:red">
+                    <div>
                         <i class="fa fa-smile-o fa-3x"></i>
                         <i class="fa fa-smile-o fa-3x"></i>
                         <i class="fa fa-smile-o fa-3x"></i>
@@ -50,7 +51,7 @@
                         <span>ORARIO:</span>
                     </div>
 
-                    <div style="background-color:red">
+                    <div>
                         <i class="fa fa-star-o fa-2x"></i>
                         <i class="fa fa-star-o fa-2x"></i>
                         <i class="fa fa-star-o fa-2x"></i>
@@ -60,9 +61,19 @@
 
                 </div>
 
-                <div id="mappa"></div>
+                <div id="articolo">
+                    <p>
+                        bla bla bla cha cha cha sadasd
+                        asdasdas assdasd adsdas  fsfdsf sfsdfsd sdasdas
+                        sadasd asdasdasd  gder gre greg fsdfsgeger egr
+                        fsdsd JEIOJOI WQENDJN ddsads sadasdas dsadasds
+                        sdasd sadasjn khewwuwher weoriwejio ewr wrer dasdas
+                    </p>
+                </div>
 
-            </div>
+                <div id="map"></div>
+
+            </div>  <!--/parcoAperto-->
 
         </div>  <!--/CONTAINER-->
 
@@ -75,6 +86,7 @@
         
         <script src="js/index.js"></script>
         <script src="js/start.js"></script>
+        <script src="libs/leaflet/leaflet.js"></script>
 
     </body>
 </html>

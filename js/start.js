@@ -61,3 +61,24 @@ function apriParco(id){
 	alert(id);
 	window.location='parco.html';
 }
+
+/*********************MAPPA*/
+function getMappa(){
+	initialize_map(sessionStorage.lat, sessionStorage.longi);
+}
+
+//Mostra la mappa
+function initialize_map(lati, longi)
+{		
+	var map = L.map('map').setView([lati, longi], 15);
+
+	//credits mappa
+	L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
+	    attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+	}).addTo(map);
+
+	//poi
+	L.marker([lati, longi]).addTo(map)
+	    .bindPopup('<b style="font-size:small">Ecco il parco!</b>')
+	    .openPopup();	
+}

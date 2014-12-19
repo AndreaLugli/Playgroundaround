@@ -180,10 +180,9 @@ hr{
 
 /************************************PARCO*/
 #parcoAperto{
-	margin:5%;
+	margin:5% 5% 15% 5%;
 	padding:0;
 	display:block;
-	height:90%;
 	width:90%;
 	background-color:#27c39e;
 	color:#f7f4ed;
@@ -221,9 +220,31 @@ hr{
 	margin:0;
 	clear:both;
 }
-#parcoInfo span{
+#parcoInfo div:nth-of-type(2){
+	border-top:2pt solid #27c39e;
+	border-bottom:2pt solid #27c39e;
+}
+#parcoInfo div:nth-of-type(2) span{
 	margin:0;
-	display:block;
-	width:50%;
-	float:left;
+	display:inline-block;
+	width:49%;
+}
+/*****************articolo*/
+#articolo{
+	max-height:200pt;
+	overflow-y:auto;
+	padding:2%;
+}
+#articolo p{
+	clear:both;
+	text-align:justify;
+	font-size:small;
+}
+/*****************mappa*/
+#map{
+	background:#f7f4ed url('../img/loader.gif') no-repeat center center;
+	width:100%;
+	color:#912A62;
+	padding:2%;
+	height:200pt;
 }
