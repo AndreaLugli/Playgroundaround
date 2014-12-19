@@ -67,7 +67,7 @@ hr{
 	color:#27c39e;
 }
 
-#container{
+#container, #containerMappa{
 	height:97%;
 	width:100%;
 	position:absolute;
@@ -246,7 +246,12 @@ hr{
 /*****************mappa*/
 #map{
 	background:#f7f4ed url('../img/loader.gif') no-repeat center center;
-	width:100%;
 	color:#912A62;
 	height:150pt;
+}
+#map1{
+	background:#f7f4ed url('../img/loader.gif') no-repeat center center;
+	color:#912A62;
+	height:100%;
+	margin-bottom:25pt;
 }

@@ -62,13 +62,11 @@ function apriParco(id){
 	window.location='parco.html';
 }
 
-/*********************MAPPA*/
-function getMappa(){
-	initialize_map(sessionStorage.lat, sessionStorage.longi);
+/***************GET MAPPA*/
+function getMappaParco(){
+	initialize_map_parco(sessionStorage.lat, sessionStorage.longi);
 }
-
-//Mostra la mappa
-function initialize_map(lati, longi)
+function initialize_map_parco(lati, longi)
 {		
 	var map = L.map('map').setView([lati, longi], 15);
 
@@ -79,6 +77,24 @@ function initialize_map(lati, longi)
 
 	//poi
 	L.marker([lati, longi]).addTo(map)
-	    .bindPopup('<b style="font-size:small">Ecco il parco!</b>')
+	    .bindPopup('<p style="font-size:small">Ecco il parco!</p>')
 	    .openPopup();	
+}
+
+/***************GET MAPPA GENERICA*/
+function getMappaGenerica(){
+	initialize_map_generica(sessionStorage.lat, sessionStorage.longi);
+}
+function initialize_map_generica(lati, longi)
+{		
+	var map1 = L.map('map1').setView([lati, longi], 15);
+
+	//credits mappa
+	L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
+	    attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+	}).addTo(map1);
+
+	//poi
+	L.marker([lati, longi]).addTo(map1)
+	    .bindPopup('<p style="font-size:small">Ciao!</p>');	
 }
