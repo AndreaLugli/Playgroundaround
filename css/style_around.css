@@ -126,6 +126,12 @@ hr{
 
 
 /************************************VICINI*/
+#loader{
+	background: #e4e3df url('../img/loader.gif') no-repeat center center;
+	position:absolute;
+	padding:46%;
+	width:2%;
+}
 
 #parchiVicini{
 	padding:5%;
@@ -179,6 +185,12 @@ hr{
 	width:50%;
 	float:right;
 	font-size:large;
+}
+.servizi .true{
+	color: green;
+}
+.servizi .false{
+	color: red;
 }
 
 /************************************PARCO*/

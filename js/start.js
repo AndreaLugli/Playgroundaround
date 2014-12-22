@@ -1,3 +1,5 @@
+var indirizzo = 'app.playgroundaroundthecorner.it';
+
 document.addEventListener('deviceready', partenza, true);
 
 //AL CARICAMENTO DELLA PAGINA
@@ -10,12 +12,14 @@ function partenza()
 
 
 /*********************STRUTTURA*/
-function pop(){
+function pop()
+{
 	navbarPop();
 	footerPop();
 }
 
-function navbarPop(){
+function navbarPop()
+{
 	$('body').prepend('<nav class="navbar navbar-inverse navbar-static-top" role="navigation">'+
           '<div class="container">'+
             '<div class="navbar-header">'+
@@ -28,7 +32,8 @@ function navbarPop(){
         '</nav>');
 }
 
-function footerPop(){
+function footerPop()
+{
 	$('#bottom').html('<nav id="footer" class="navbar-fixed-bottom">'+
           '<div class="container">'+
               '<a href="credits.html">credits</a>'+
@@ -36,7 +41,8 @@ function footerPop(){
         '</nav>');
 }
 
-function scrollAlto(){
+function scrollAlto()
+{
 	$('html, body').animate({scrollTop: 0 }, 'slow');
 }
 
@@ -57,13 +63,149 @@ function error_localize(){}
 
 
 /********************GET*PARCHI*VICINI*/
-function apriParco(id){
+//pagina vicini.html
+function openVicini()
+{
+	pop();
+	getVicini();
+}
+function getVicini()
+{
+	distanza= '100';
+
+	$.ajax({
+			type: 'GET',
+			url: indirizzo+'/search_near?lat='+sessionStorage.lat+'&lng='+sessionStorage.longi+'&distanza='+distanza,
+			success: appendVicini,
+			error: errorHandler
+		});
+}
+function appendVicini(data)
+{
+	jsonVicini = data;
+	
+	listaParchiVicini = '';
+
+	for( i=0; i < jsonVicini.length; i++ ){
+
+		servizi = getServizi(jsonVicini[i].picnic, jsonVicini[i].parking, jsonVicini[i].cleaning, jsonVicini[i].fenced_area, jsonVicini[i].toilette, jsonVicini[i].caffe, jsonVicini[i].universally_accessible);
+		voto = getStelline(jsonVicini[i].evaluation);
+
+		listaParchiVicini += '<a class="parco" href="javascript:apriParco('+jsonVicini[i].id+');">'+
+			                    '<img src="img/logo.png"/>'+
+			                   '<span class="desc">'+
+			                        '<p class="titolo">'+jsonVicini[i].name+'</p>'+
+			                        '<span class="eta">'+jsonVicini[i].age_min+'-'+jsonVicini[i].age_max+'</span>'+
+			                        '<span class="orario">'+jsonVicini[i].opening_hours+'</span>'+
+			                        '<span class="voto">'+voto+'</span>'+
+			                        '<span class="servizi">'+servizi+'</span>'+
+			                    '</span>'+
+			                '</a>';
+	}
+
+	if(listaParchiVicini == '')
+	{
+		listaParchiVicini = '<div class="alert">Ooooops! Sembra che non siano ancora stati censiti parchi intorno a te!</div>';
+	}
+	$('#parchiVicini').html(listaParchiVicini);	
+}
+
+//colora le icone se i servizi sono disponibili o meno sul parco
+function getServizi(picnic, parking, cleaning, fenced_area, toilette, caffe, universally_accessible)
+{
+	listaServizi = '';
+
+	if(picnic){
+		listaServizi += '<i class="fa fa-cutlery true"></i>';
+	}else{
+		listaServizi += '<i class="fa fa-cutlery false"></i>';
+	}
+	if(parking){
+		listaServizi += '<i class="fa fa-car true"></i>';
+	}else{
+		listaServizi += '<i class="fa fa-car false"></i>';
+	}
+	if(cleaning){
+		listaServizi += '<i class="fa fa-recycle true"></i>';
+	}else{
+		listaServizi += '<i class="fa fa-recycle false"></i>';
+	}
+	if(fenced_area){
+		listaServizi += '<i class="fa fa-signal true"></i>';
+	}else{
+		listaServizi += '<i class="fa fa-signal false"></i>';
+	}
+	if(toilette){
+		listaServizi += '<i class="fa fa-female true"></i>';
+	}else{
+		listaServizi += '<i class="fa fa-female false"></i>';
+	}
+	if(caffe){
+		listaServizi += '<i class="fa fa-beer true"></i>';
+	}else{
+		listaServizi += '<i class="fa fa-beer false"></i>';
+	}
+	if(universally_accessible){
+		listaServizi += '<i class="fa fa-wheelchair true"></i>';
+	}else{
+		listaServizi += '<i class="fa fa-wheelchair false"></i>';
+	}
+
+	return listaServizi;
+}
+
+//votazione del parco
+function getStelline(valore){
+
+	stelline = '';	
+
+	switch(valore) {
+		case null:
+	        stelline = 'not available';
+	        break;
+	    case 1:
+	        stelline = '<b>1/5</b><i class="fa fa-star"></i><i class="fa fa-star-o"></i><i class="fa fa-star-o"></i><i class="fa fa-star-o"></i><i class="fa fa-star-o"></i>';
+	        break;
+	    case 1.5:
+	        stelline = '<b>1.5/5</b><i class="fa fa-star"></i><i class="fa fa-star-half"></i><i class="fa fa-star-o"></i><i class="fa fa-star-o"></i><i class="fa fa-star-o"></i>';
+	        break;
+	    case 2:
+	        stelline = '<b>2/5</b><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star-o"></i><i class="fa fa-star-o"></i><i class="fa fa-star-o"></i>';
+	        break;
+	    case 2.5:
+	        stelline = '<b>2.5/5</b><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star-half"></i><i class="fa fa-star-o"></i><i class="fa fa-star-o"></i>';
+	        break;
+	    case 3:
+	        stelline = '<b>3/5</b><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star-o"></i><i class="fa fa-star-o"></i>';
+	        break;
+	    case 3.5:
+	        stelline = '<b>3.5/5</b><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star-half"></i><i class="fa fa-star-o"></i>';
+	        break;
+	    case 4:
+	        stelline = '<b>4/5</b><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star-o"></i>';
+	        break;
+	    case 4.5:
+	        stelline = '<b>4.5/5</b><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star-half"></i>';
+	        break;
+	    case 5:
+	        stelline = '<b>5/5</b><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i>';
+	        break;
+	}
+
+	return stelline;
+}
+	
+
+
+function apriParco(id)
+{
 	alert(id);
 	window.location='parco.html';
 }
 
 /***************GET MAPPA*/
-function getMappaParco(){
+function getMappaParco()
+{
 	initialize_map_parco(sessionStorage.lat, sessionStorage.longi);
 }
 function initialize_map_parco(lati, longi)
@@ -82,7 +224,8 @@ function initialize_map_parco(lati, longi)
 }
 
 /***************GET MAPPA GENERICA*/
-function getMappaGenerica(){
+function getMappaGenerica()
+{
 	initialize_map_generica(sessionStorage.lat, sessionStorage.longi);
 }
 function initialize_map_generica(lati, longi)
@@ -97,4 +240,17 @@ function initialize_map_generica(lati, longi)
 	//poi
 	L.marker([lati, longi]).addTo(map1)
 	    .bindPopup('<p style="font-size:small">Ciao!</p>');	
+}
+
+
+
+
+//GESTIONE ERRORI AJAX E JSON GENERICO
+function errorHandler(xhr, textStatus, thrownError)
+{
+	alert("Errore "+xhr.status+" - "+textStatus);
+	/*console.log(xhr.status);
+	console.log(xhr.responseText);
+	console.log(textStatus);
+	console.log(thrownError);*/
 }
