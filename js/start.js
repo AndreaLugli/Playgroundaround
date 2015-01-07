@@ -1,11 +1,11 @@
-var indirizzo = 'app.playgroundaroundthecorner.it';
+var indirizzo = 'http://app.playgroundaroundthecorner.it';
 
 document.addEventListener('deviceready', partenza, true);
 
 //AL CARICAMENTO DELLA PAGINA
 function partenza()
 {	
-	jQuery.support.cors = true;
+	$.support.cors = true;
 
 	document.addEventListener('backbutton', backButtonCallback, true);
 }
@@ -54,8 +54,8 @@ function localize()
 }
 function handle_localize(position)
 {  	
-	sessionStorage.lat = position.coords.latitude;
-	sessionStorage.longi = position.coords.longitude;
+	sessionStorage.lat = position.coords.latitude.toFixed(3);
+	sessionStorage.longi = position.coords.longitude.toFixed(3);
 
 	alert('Ti trovi a: LATI:'+sessionStorage.lat+' LONGI:'+sessionStorage.longi);
 }
@@ -67,19 +67,31 @@ function error_localize(){}
 function openVicini()
 {
 	pop();
-	getVicini();
+	
+	$.ajax({
+			type: 'GET',
+			crossDomain: true,
+			url: indirizzo+'/search_near?lat=44.482&lng=11.260&distanza=10',
+			contentType: 'application/json',
+			error: errorHandler,
+			success: appendVicini
+		});
 }
-function getVicini()
+/*function getVicini()
 {
-	distanza= '100';
+	distanza = 10;
+	alert(distanza);
 
 	$.ajax({
 			type: 'GET',
-			url: indirizzo+'/search_near?lat='+sessionStorage.lat+'&lng='+sessionStorage.longi+'&distanza='+distanza,
+			crossDomain: true,
+			//url: indirizzo+'/search_near?lat='+sessionStorage.lat+'&lng='+sessionStorage.longi+'&distanza='+distanza,
+			url: 'http://app.playgroundaroundthecorner.it/search_near?lat=44.482&lng=11.260&distanza=10',
+			contentType: 'application/json',
 			success: appendVicini,
 			error: errorHandler
-		});
-}
+	});
+}*/
 function appendVicini(data)
 {
 	jsonVicini = data;
@@ -199,8 +211,21 @@ function getStelline(valore){
 
 function apriParco(id)
 {
+	sessionStorage.idParco = id;
 	alert(id);
 	window.location='parco.html';
+}
+function getParco(){
+	$.ajax({
+		type: 'GET',
+		url: indirizzo+'/get_playground?id='+sessionStorage.idParco,
+		success: appendParco,
+		error: errorHandler
+	});
+}
+function appendParco(){
+	
+	getMappaParco();
 }
 
 /***************GET MAPPA*/
