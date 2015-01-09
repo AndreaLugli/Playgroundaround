@@ -166,7 +166,7 @@ hr{
 	padding-right:20pt;
 }
 .titolo{
-	font-size:medium;
+	font-size:large;
 	font-weight:bold;
 	text-transform:uppercase;
 }
@@ -185,6 +185,8 @@ hr{
 .voto{
 	width:50%;
 	float:left;
+}
+.voto i{
 	font-size:large;
 }
 .servizi{
