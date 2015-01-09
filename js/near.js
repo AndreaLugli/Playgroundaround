@@ -34,10 +34,11 @@ function appendVicini(data)
 			target = 'not available';
 		}
 		opening = jsonVicini[i].opening_hours;
-		if(!opening || opening != '' || opening != ' ' || opening.length > 3){}
-		else{
+		alert(opening);
+		if(opening.length < 2){
 			opening = 'not available';
 		}
+		alert(opening);
 
 		listaParchiVicini += '<a class="parco" href="javascript:apriParco('+jsonVicini[i].id+');">'+
 			                    '<img src="img/logo.png"/>'+
