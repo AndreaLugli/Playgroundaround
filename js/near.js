@@ -150,7 +150,7 @@ function apriParco(id)
 
 /**********************OPEN*PARCO*/
 //pagina parco.html
-/*function getParco(){
+function getParco(){
 	$.ajax({
 		type: 'GET',
 		url: indirizzo+'/get_playground?id='+sessionStorage.idParco,
@@ -161,29 +161,29 @@ function apriParco(id)
 function appendParco(data){
 	initialize_map_parco(dati.latitude, dati.longitude);
 
-	servizi = getServizi(data.picnic, data.parking, data.cleaning, data.fenced_area, data.toilette, data.caffe, data.universally_accessible);
-	voto = getStelline(data.evaluation);
+	servizi2 = getServizi(data.picnic, data.parking, data.cleaning, data.fenced_area, data.toilette, data.caffe, data.universally_accessible);
+	voto2 = getStelline(data.evaluation);
 
-	target = data.age_min+' - '+data.age_max+' years';
+	target2 = data.age_min+' - '+data.age_max+' years';
 	if(data.age_min == 0 && data.age_max == 0){
-		target = 'not available';
+		target2 = 'not available';
 	}
-	opening = data.opening_hours;
+	opening2 = data.opening_hours;
 	if(opening.length < 2){
-		opening = 'not available';
+		opening2 = 'not available';
 	}
 	
 	//servizi
-	$('#parcoInfo:nth-child(1)').html(servizi);
+	$('#parcoInfo:nth-child(1)').html(servizi2);
 	//span età | span orario
-	$('#parcoInfo:nth-child(2)').html('<span>ETÀ: +'target'+</span><span>ORARIO: +'opening'+</span>');
+	$('#parcoInfo:nth-child(2)').html('<span>ETÀ: +'target2'+</span><span>ORARIO: +'opening2'+</span>');
 	//rating
-	$('#parcoInfo:nth-child(3)').html(voto);
+	$('#parcoInfo:nth-child(3)').html(voto2);
 
 	//descrizione
 	$('#articolo').html('<p>+'data.description'+</p><p>+'data.description_en'+</p>');
 	
-}*/
+}
 
 /***************GET MAPPA*(PARCO.HTML)*/
 function initialize_map_parco(lati, longi)
