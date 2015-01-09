@@ -12,7 +12,7 @@ function partenza()
 	        message + ". Source File: " + file + ", Line: " + line);
 	}
 
-	document.addEventListener('backbutton', backButtonCallback, true);
+	//document.addEventListener('backbutton', backButtonCallback, true);
 }
 
 

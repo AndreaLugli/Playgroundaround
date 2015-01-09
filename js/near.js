@@ -38,7 +38,6 @@ function appendVicini(data)
 		}
 
 		//manca solo l'immagine dal server
-
 		listaParchiVicini += '<a class="parco" href="javascript:apriParco('+jsonVicini[i].id+');">'+
 			                    '<img src="img/logo.png"/>'+
 			                   '<span class="desc">'+
@@ -151,7 +150,7 @@ function apriParco(id)
 
 /**********************OPEN*PARCO*/
 //pagina parco.html
-function getParco(){
+/*function getParco(){
 	$.ajax({
 		type: 'GET',
 		url: indirizzo+'/get_playground?id='+sessionStorage.idParco,
@@ -184,7 +183,7 @@ function appendParco(data){
 	//descrizione
 	$('#articolo').html('<p>+'data.description'+</p><p>+'data.description_en'+</p>');
 	
-}
+}*/
 
 /***************GET MAPPA*(PARCO.HTML)*/
 function initialize_map_parco(lati, longi)
