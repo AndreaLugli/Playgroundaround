@@ -169,16 +169,16 @@ function appendParco(data){
 		target2 = 'not available';
 	}
 	opening2 = data.opening_hours;
-	if(opening.length < 2){
+	if(opening2.length < 2){
 		opening2 = 'not available';
 	}
 	
 	//servizi
-	$('#parcoInfo:nth-child(1)').html(servizi2);
+	$('#parcoInfo div:first-of-type').html(servizi2);
 	//span età | span orario
-	$('#parcoInfo:nth-child(2)').html('<span>ETÀ: +'target2'+</span><span>ORARIO: +'opening2'+</span>');
+	$('#parcoInfo div:nth-of-type(2)').html('<span>ETÀ: +'target2'+</span><span>ORARIO: +'opening2'+</span>');
 	//rating
-	$('#parcoInfo:nth-child(3)').html(voto2);
+	$('#parcoInfo div:nth-of-type(2)').html(voto2);
 
 	//descrizione
 	$('#articolo').html('<p>+'data.description'+</p><p>+'data.description_en'+</p>');
