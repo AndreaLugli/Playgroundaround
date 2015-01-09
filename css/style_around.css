@@ -184,7 +184,10 @@ hr{
 .servizi{
 	width:50%;
 	float:right;
+}
+.servizi i{
 	font-size:large;
+	margin:0 2pt;
 }
 .servizi .true{
 	color: green;
