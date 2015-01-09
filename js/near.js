@@ -34,7 +34,7 @@ function appendVicini(data)
 			target = 'not available';
 		}
 		opening = jsonVicini[i].opening_hours;
-		if(opening != null){}
+		if(opening != null || opening != undefined){}
 		else{
 			opening = 'not available';
 		}
@@ -109,31 +109,31 @@ function getStelline(evaluation){
 
 	switch(evaluation) {
 	    case '1':
-	        stelline = '<b>1/5</b><i class="fa fa-star"></i><i class="fa fa-star-o"></i><i class="fa fa-star-o"></i><i class="fa fa-star-o"></i><i class="fa fa-star-o"></i>';
+	        stelline = '<b>1/5</b> <i class="fa fa-star"></i><i class="fa fa-star-o"></i><i class="fa fa-star-o"></i><i class="fa fa-star-o"></i><i class="fa fa-star-o"></i>';
 	        break;
 	    case '1.5':
-	        stelline = '<b>1.5/5</b><i class="fa fa-star"></i><i class="fa fa-star-half"></i><i class="fa fa-star-o"></i><i class="fa fa-star-o"></i><i class="fa fa-star-o"></i>';
+	        stelline = '<b>1.5/5</b> <i class="fa fa-star"></i><i class="fa fa-star-half"></i><i class="fa fa-star-o"></i><i class="fa fa-star-o"></i><i class="fa fa-star-o"></i>';
 	        break;
 	    case '2':
-	        stelline = '<b>2/5</b><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star-o"></i><i class="fa fa-star-o"></i><i class="fa fa-star-o"></i>';
+	        stelline = '<b>2/5</b> <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star-o"></i><i class="fa fa-star-o"></i><i class="fa fa-star-o"></i>';
 	        break;
 	    case '2.5':
-	        stelline = '<b>2.5/5</b><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star-half"></i><i class="fa fa-star-o"></i><i class="fa fa-star-o"></i>';
+	        stelline = '<b>2.5/5</b> <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star-half"></i><i class="fa fa-star-o"></i><i class="fa fa-star-o"></i>';
 	        break;
 	    case '3':
-	        stelline = '<b>3/5</b><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star-o"></i><i class="fa fa-star-o"></i>';
+	        stelline = '<b>3/5</b> <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star-o"></i><i class="fa fa-star-o"></i>';
 	        break;
 	    case '3.5':
-	        stelline = '<b>3.5/5</b><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star-half"></i><i class="fa fa-star-o"></i>';
+	        stelline = '<b>3.5/5</b> <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star-half"></i><i class="fa fa-star-o"></i>';
 	        break;
 	    case '4':
-	        stelline = '<b>4/5</b><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star-o"></i>';
+	        stelline = '<b>4/5</b> <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star-o"></i>';
 	        break;
 	    case '4.5':
-	        stelline = '<b>4.5/5</b><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star-half"></i>';
+	        stelline = '<b>4.5/5</b> <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star-half"></i>';
 	        break;
 	    case '5':
-	        stelline = '<b>5/5</b><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i>';
+	        stelline = '<b>5/5</b> <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i>';
 	        break;
 	    default:
 	    	stelline = 'Rate not available';
