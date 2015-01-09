@@ -27,18 +27,17 @@ function appendVicini(data)
 
 		servizi = getServizi(jsonVicini[i].picnic, jsonVicini[i].parking, jsonVicini[i].cleaning, jsonVicini[i].fenced_area, jsonVicini[i].toilette, jsonVicini[i].caffe, jsonVicini[i].universally_accessible);
 		voto = getStelline(jsonVicini[i].evaluation);
-		//alert(voto);
 
 		target = jsonVicini[i].age_min+' - '+jsonVicini[i].age_max+' years';
 		if(jsonVicini[i].age_min == 0 && jsonVicini[i].age_max == 0){
 			target = 'not available';
 		}
 		opening = jsonVicini[i].opening_hours;
-		alert(opening);
 		if(opening.length < 2){
 			opening = 'not available';
 		}
-		alert(opening);
+
+		//manca solo l'immagine dal server
 
 		listaParchiVicini += '<a class="parco" href="javascript:apriParco('+jsonVicini[i].id+');">'+
 			                    '<img src="img/logo.png"/>'+
@@ -147,7 +146,6 @@ function getStelline(evaluation){
 function apriParco(id)
 {
 	sessionStorage.idParco = id;
-	//alert(id);
 	window.location='parco.html';
 }
 
@@ -162,15 +160,33 @@ function getParco(){
 	});
 }
 function appendParco(){
-	getMappaParco();
-	alert('sono il parco # '+sessionStorage.idParco);
+	initialize_map_parco(dati.latitude, dati.longitude);
+
+	servizi = getServizi(data.picnic, data.parking, data.cleaning, data.fenced_area, data.toilette, data.caffe, data.universally_accessible);
+	voto = getStelline(data.evaluation);
+
+	target = data.age_min+' - '+data.age_max+' years';
+	if(data.age_min == 0 && data.age_max == 0){
+		target = 'not available';
+	}
+	opening = data.opening_hours;
+	if(opening.length < 2){
+		opening = 'not available';
+	}
+	
+	//servizi
+	$('#parcoInfo:nth-child(1)').html(servizi);
+	//span età | span orario
+	$('#parcoInfo:nth-child(2)').html('<span>ETÀ: +'target'+</span><span>ORARIO: +'opening'+</span>');
+	//rating
+	$('#parcoInfo:nth-child(3)').html(voto);
+
+	//descrizione
+	$('#articolo').html('<p>+'data.description'+</p><p>+'data.description_en'+</p>');
+	
 }
 
 /***************GET MAPPA*(PARCO.HTML)*/
-function getMappaParco()
-{
-	initialize_map_parco(sessionStorage.lat, sessionStorage.longi);
-}
 function initialize_map_parco(lati, longi)
 {		
 	var map = L.map('map').setView([lati, longi], 15);
