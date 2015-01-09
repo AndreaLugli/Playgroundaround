@@ -27,20 +27,24 @@ function appendVicini(data)
 
 		servizi = getServizi(jsonVicini[i].picnic, jsonVicini[i].parking, jsonVicini[i].cleaning, jsonVicini[i].fenced_area, jsonVicini[i].toilette, jsonVicini[i].caffe, jsonVicini[i].universally_accessible);
 		voto = getStelline(jsonVicini[i].evaluation);
-		alert(voto);
+		//alert(voto);
 
-		target = jsonVicini[i].age_min+' - '+jsonVicini[i].age_max;
+		target = jsonVicini[i].age_min+' - '+jsonVicini[i].age_max+' years';
 		if(target == '0 - 0'){
-			target = 'tutti';
+			target = 'all';
+		}
+		opening = jsonVicini[i].opening_hours;
+		if(opening == ''){
+			opening = 'not available';
 		}
 
 		listaParchiVicini += '<a class="parco" href="javascript:apriParco('+jsonVicini[i].id+');">'+
 			                    '<img src="img/logo.png"/>'+
 			                   '<span class="desc">'+
-			                        '<p class="titolo">'+jsonVicini[i].name+'</p>'+
-			                        '<span class="eta">Target: '+target+' years </span>'+
-			                        '<span class="orario">Opening: '+jsonVicini[i].opening_hours+'</span>'+
-			                        '<span class="voto">'+voto+'</span>'+
+			                        '<p class="titolo">«'+jsonVicini[i].name+'»</p>'+
+			                        '<span class="eta">Target: '+target+'</span>'+
+			                        '<span class="orario">H: '+jsonVicini[i].opening_hours+'</span>'+
+			                        '<span class="voto">Rate: '+voto+'</span>'+
 			                        '<span class="servizi">'+servizi+'</span>'+
 			                    '</span>'+
 			                '</a>';
@@ -103,7 +107,7 @@ function getStelline(valore){
 	stelline = '';	
 
 	switch(valore) {
-		case null:
+		case '':
 	        stelline = 'not available';
 	        break;
 	    case 1:

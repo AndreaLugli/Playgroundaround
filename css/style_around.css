@@ -161,10 +161,12 @@ hr{
 	overflow-y:auto;
 	background: url("../img/click.png") no-repeat right 2pt center;
 	background-size:20pt;
-	padding-right:5pt;
+	padding-right:20pt;
 }
 .titolo{
-	font-size:small;
+	font-size:medium;
+	font-weight:bold;
+
 }
 .eta{
 	width:50%;
