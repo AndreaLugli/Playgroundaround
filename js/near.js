@@ -174,11 +174,11 @@ function appendParco(data){
 	}
 	
 	//servizi
-	$('#parcoInfo div:first-of-type').html(servizi2);
+	//$('#parcoInfo div:first-of-type').html(servizi2);
 	//span età | span orario
-	$('#parcoInfo div:nth-of-type(2)').html('<span>ETÀ: +'target2'+</span><span>ORARIO: +'opening2'+</span>');
+	//$('#parcoInfo div:nth-of-type(2)').html('<span>ETÀ: +'target2'+</span><span>ORARIO: +'opening2'+</span>');
 	//rating
-	$('#parcoInfo div:nth-of-type(2)').html(voto2);
+	//$('#parcoInfo div:nth-of-type(2)').html(voto2);
 
 	//descrizione
 	$('#articolo').html('<p>+'data.description'+</p><p>+'data.description_en'+</p>');
