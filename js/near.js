@@ -30,11 +30,11 @@ function appendVicini(data)
 		//alert(voto);
 
 		target = jsonVicini[i].age_min+' - '+jsonVicini[i].age_max+' years';
-		if(target === '0 - 0 years'){
+		if(jsonVicini[i].age_min == 0 && jsonVicini[i].age_max == 0){
 			target = 'all';
 		}
 		opening = jsonVicini[i].opening_hours;
-		if(opening == undefined){
+		if(opening === undefined){
 			opening = 'not available';
 		}
 
@@ -43,7 +43,7 @@ function appendVicini(data)
 			                   '<span class="desc">'+
 			                        '<p class="titolo">«'+jsonVicini[i].name+'»</p>'+
 			                        '<span class="eta">Target: '+target+'</span>'+
-			                        '<span class="orario">H: '+jsonVicini[i].opening_hours+'</span>'+
+			                        '<span class="orario">H: '+opening+'</span>'+
 			                        '<span class="voto">'+voto+'</span>'+
 			                        '<span class="servizi">'+servizi+'</span>'+
 			                    '</span>'+
