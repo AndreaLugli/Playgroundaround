@@ -44,7 +44,7 @@ function appendVicini(data)
 			                        '<p class="titolo">«'+jsonVicini[i].name+'»</p>'+
 			                        '<span class="eta">Target: '+target+'</span>'+
 			                        '<span class="orario">H: '+jsonVicini[i].opening_hours+'</span>'+
-			                        'Rate: <span class="voto">'+voto+'</span>'+
+			                        '<span class="voto">'+voto+'</span>'+
 			                        '<span class="servizi">'+servizi+'</span>'+
 			                    '</span>'+
 			                '</a>';
@@ -102,14 +102,11 @@ function getServizi(picnic, parking, cleaning, fenced_area, toilette, caffe, uni
 }
 
 //votazione del parco
-function getStelline(voto){
+function getStelline(evaluation){
 
 	stelline = '';	
 
-	switch(voto) {
-		case ' ':
-	        stelline = 'not available';
-	        break;
+	switch(evaluation) {
 	    case 1:
 	        stelline = '<b>1/5</b><i class="fa fa-star"></i><i class="fa fa-star-o"></i><i class="fa fa-star-o"></i><i class="fa fa-star-o"></i><i class="fa fa-star-o"></i>';
 	        break;
@@ -137,6 +134,8 @@ function getStelline(voto){
 	    case 5:
 	        stelline = '<b>5/5</b><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i>';
 	        break;
+	    default:
+	    	stelline = 'Rate not available';
 	}
 
 	return stelline;
