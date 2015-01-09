@@ -160,7 +160,10 @@ function getParco(){
 }
 function appendParco(data){
 	alert(data);
-	//initialize_map_parco(data.latitude, data.longitude);
+}
+/*function appendParco(data){
+	alert(data);
+	initialize_map_parco(data.latitude, data.longitude);
 
 	servizi2 = getServizi(data.picnic, data.parking, data.cleaning, data.fenced_area, data.toilette, data.caffe, data.universally_accessible);
 	voto2 = getStelline(data.evaluation);
@@ -184,7 +187,7 @@ function appendParco(data){
 	//descrizione
 	$('#articolo').html('<p>+'data.description'+</p><p>+'data.description_en'+</p>');
 	
-}
+}*/
 
 /***************GET MAPPA*(PARCO.HTML)*/
 function initialize_map_parco(lati, longi)
