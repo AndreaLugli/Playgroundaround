@@ -7,6 +7,11 @@ function partenza()
 {	
 	$.support.cors = true;
 
+	window.onerror = function (message, file, line) {
+    	alert("Error in Application: " +
+	        message + ". Source File: " + file + ", Line: " + line);
+	}
+
 	document.addEventListener('backbutton', backButtonCallback, true);
 }
 

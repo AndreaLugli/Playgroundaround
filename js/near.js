@@ -159,7 +159,7 @@ function getParco(){
 		error: errorHandler
 	});
 }
-function appendParco(){
+function appendParco(data){
 	initialize_map_parco(dati.latitude, dati.longitude);
 
 	servizi = getServizi(data.picnic, data.parking, data.cleaning, data.fenced_area, data.toilette, data.caffe, data.universally_accessible);
