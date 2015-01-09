@@ -44,7 +44,7 @@ function appendVicini(data)
 			                        '<p class="titolo">«'+jsonVicini[i].name+'»</p>'+
 			                        '<span class="eta">Target: '+target+'</span>'+
 			                        '<span class="orario">H: '+jsonVicini[i].opening_hours+'</span>'+
-			                        '<span class="voto">Rate: '+voto+'</span>'+
+			                        'Rate: <span class="voto">'+voto+'</span>'+
 			                        '<span class="servizi">'+servizi+'</span>'+
 			                    '</span>'+
 			                '</a>';
@@ -102,12 +102,12 @@ function getServizi(picnic, parking, cleaning, fenced_area, toilette, caffe, uni
 }
 
 //votazione del parco
-function getStelline(valore){
+function getStelline(voto){
 
 	stelline = '';	
 
-	switch(valore) {
-		case '':
+	switch(voto) {
+		case ' ':
 	        stelline = 'not available';
 	        break;
 	    case 1:
@@ -141,6 +141,7 @@ function getStelline(valore){
 
 	return stelline;
 }
+
 //on click sul parco
 function apriParco(id)
 {
