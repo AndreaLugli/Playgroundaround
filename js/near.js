@@ -34,7 +34,7 @@ function appendVicini(data)
 			target = 'not available';
 		}
 		opening = jsonVicini[i].opening_hours;
-		if(opening != null || opening != undefined){}
+		if(!opening || opening != '' || opening != ' ' || opening.length > 3){}
 		else{
 			opening = 'not available';
 		}
