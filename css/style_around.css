@@ -123,15 +123,20 @@ hr{
 .blo4{	background-color:#319FAB;	}
 
 
-
-/************************************VICINI*/
+/***********************************LOADER*/
 #loader{
 	background: #e4e3df url('../img/loader.gif') no-repeat center center;
 	position:absolute;
-	padding:46%;
 	width:2%;
 }
+.centrato{	/*lista parchi*/
+	padding:46%;
+}
+.fixato{	/*parco aperto*/
+	padding:48%;
+}
 
+/************************************VICINI*/
 #parchiVicini{
 	padding:5%;
 }
@@ -264,8 +269,8 @@ hr{
 	width:49%;*/
 	display:block;
 }
-#parcoInfo div:nth-of-type(3){	/*rating*/
-	margin:-5pt;
+#parcoInfo div:nth-of-type(3) i {	/*rating*/
+	margin-top:-5pt;
 }
 #parcoInfo div:nth-of-type(3) b{
 	font-size:xx-large;
@@ -287,6 +292,19 @@ hr{
 }
 #articolo b{
 	font-size:small;
+}
+/*****************modal*/
+#modalInfo .modal-body{
+	text-align:left;
+}
+#modalInfo ul{
+	list-style-type:none;
+	padding:0;
+	margin:0;
+}
+#modalInfo ul i{
+	width:20pt;
+	text-align:center;
 }
 /*****************mappa*/
 #map{

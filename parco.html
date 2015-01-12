@@ -15,8 +15,9 @@
     <body onload="pop(); getParco();">
 
         <div id="container">
+            <div id="loader" class='fixato'></div>
 
-            <div id="parcoAperto">
+            <div id="parcoAperto" style="display:none;">
 
                 <div id="galleria">
                     <img class="big" src="img/logo.png"/>
@@ -78,6 +79,25 @@
         </div>  <!--/CONTAINER-->
 
         <div id="bottom"></div>
+
+
+        <!--MODAL-->
+        <div id="modalInfo" class="modal fade">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                        <h4 class="modal-title">About this park</h4>
+                    </div>
+                    <div class="modal-body">
+                        <ul>...</ul>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-lg btn-default btn-block" data-dismiss="modal">Ok</button>
+                    </div>
+                </div><!-- /.modal-content -->
+            </div><!-- /.modal-dialog -->
+        </div><!-- /.modal -->
         
         
         <script src="js/jquery-1.11.1.min.js"></script>
