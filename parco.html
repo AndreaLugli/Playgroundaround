@@ -17,48 +17,35 @@
         <div id="container">
             <div id="loader" class='fixato'></div>
 
-            <div id="parcoAperto" style="display:none;">
+            <div id="parcoAperto">
 
                 <div id="galleria">
+                <!--
                     <img class="big" src="img/logo.png"/>
 
                     <img class="small" src="img/logo.png"/>
                     <img class="small" src="img/logo.png"/>
                     <img class="small" src="img/logo.png"/>
                     <img class="small" src="img/logo.png"/>
-
-                    <div id="galleriaTiny">
-                        <img class="tiny" src="img/logo.png"/>
-                        <img class="tiny" src="img/logo.png"/>
-                        <img class="tiny" src="img/logo.png"/>
-                        <img class="tiny" src="img/logo.png"/>
-                        <img class="tiny" src="img/logo.png"/>
-                    </div>
+                -->
                 </div>
 
+                <!--<div id="galleriaTiny">
+                        <img class="tiny" src="img/logo.png"/>
+                        <img class="tiny" src="img/logo.png"/>
+                        <img class="tiny" src="img/logo.png"/>
+                        <img class="tiny" src="img/logo.png"/>
+                        <img class="tiny" src="img/logo.png"/>
+                    </div>
+                -->
+
                 <div id="parcoInfo">
-                    <div>
-                        <i class="fa fa-smile-o fa-3x"></i>
-                        <i class="fa fa-smile-o fa-3x"></i>
-                        <i class="fa fa-smile-o fa-3x"></i>
-                        <i class="fa fa-smile-o fa-3x"></i>
-                        <i class="fa fa-smile-o fa-3x"></i>
-                        <i class="fa fa-smile-o fa-3x"></i>
-                        <i class="fa fa-smile-o fa-3x"></i>
-                    </div>
 
-                    <div>
-                        <span>ETÀ:</span>
-                        <span>ORARIO:</span>
-                    </div>
+                    <div><!--servizi--></div>
 
-                    <div>
-                        <i class="fa fa-star-o fa-2x"></i>
-                        <i class="fa fa-star-o fa-2x"></i>
-                        <i class="fa fa-star-o fa-2x"></i>
-                        <i class="fa fa-star-o fa-2x"></i>
-                        <i class="fa fa-star-o fa-2x"></i>
-                    </div>
+                    <div><!--target e opening--></div>
+
+                    <div><!--rating--></div>
 
                 </div>
 
@@ -81,8 +68,8 @@
         <div id="bottom"></div>
 
 
-        <!--MODAL-->
-        <div id="modalInfo" class="modal fade">
+        <!--MODAL SERVIZI-->
+        <div id="modalServizi" class="modal fade">
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -98,6 +85,23 @@
                 </div><!-- /.modal-content -->
             </div><!-- /.modal-dialog -->
         </div><!-- /.modal -->
+
+
+        <!--MODAL IMG-->
+        <div id="modalImg" class="modal fade">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    
+                    <div class="modal-body">
+                        ...
+                    </div>
+
+                    <!--<div class="modal-footer">
+                        <button type="button" class="btn btn-lg btn-default btn-block" data-dismiss="modal">Ok</button>
+                    </div>-->
+                </div><!-- /.modal-content -->
+            </div><!-- /.modal-dialog -->
+        </div><!-- /.modal -->
         
         
         <script src="js/jquery-1.11.1.min.js"></script>
@@ -107,6 +111,7 @@
         <script src="js/index.js"></script>
         <script src="js/start.js"></script>
         <script src="js/near.js"></script>
+        <script src="js/map.js"></script>
         
         <script src="libs/leaflet/leaflet.js"></script>
 

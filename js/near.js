@@ -1,20 +1,19 @@
-/********************GET*PARCHI*VICINI*/
-//pagina vicini.html
+/********************GET*PARCHI*VICINI*(VICINI.HTML)*/
+//onload pagina
 function openVicini()
 {
 	pop();
 	
 	distanza = 10;
 	
+	//get lista parchi vicini
 	$.ajax({
 		type: 'GET',
 		url: indirizzo+'/search_near?lat='+sessionStorage.lat+'&lng='+sessionStorage.longi+'&distanza='+distanza,		
 		success: appendVicini,
 		error: errorHandler
 	});
-
 }
-
 function appendVicini(data)
 {
 	jsonVicini = data;
@@ -33,19 +32,18 @@ function appendVicini(data)
 			anteprima = indirizzo+'/'+jsonVicini[i].anteprima_path;
 		}
 		
-
 		target = jsonVicini[i].age_min+' - '+jsonVicini[i].age_max+' years';
 		if(jsonVicini[i].age_min == 0 && jsonVicini[i].age_max == 0){
 			target = 'not available';
 		}
+
 		opening = jsonVicini[i].opening_hours;
 		if(opening.length < 2){
 			opening = 'not available';
 		}
 
-		//manca solo l'immagine dal server
 		listaParchiVicini += '<a class="parco" href="javascript:apriParco('+jsonVicini[i].id+');">'+
-			                    '<img src="'+anteprima+'"/>'+
+			                    '<img src="'+anteprima+'" onError="this.onerror=null;this.src=\'img/logo.png\';"/>'+
 			                   '<span class="desc">'+
 			                        '<p class="titolo">«'+jsonVicini[i].name+'»</p>'+
 			                        '<span class="eta">TARGET: '+target+'</span>'+
@@ -56,6 +54,7 @@ function appendVicini(data)
 			                '</a>';
 	}
 
+	//se nessun parco nelle vicinanze
 	if(listaParchiVicini == '')
 	{
 		listaParchiVicini = '<div class="alert">Ooooops! Sembra che non siano ancora stati censiti parchi intorno a te!</div>';
@@ -63,12 +62,132 @@ function appendVicini(data)
 	$('#parchiVicini').html(listaParchiVicini);
 }
 
-//colora le icone se i servizi sono disponibili o meno sul parco
+//onclick parco
+function apriParco(id)
+{
+	sessionStorage.idParco = id;
+	window.location='parco.html';
+}
+
+
+/**********************OPEN*PARCO*(PARCO.HTML)*/
+//onload pagina
+function getParco(){
+	getImgParco();
+	getInfoParco();
+}
+
+//get immagini parco
+function getImgParco(){
+	url = indirizzo+'/get_immagini?id='+sessionStorage.idParco;
+		
+	$.ajaxSetup({ cache: false });
+	$.getJSON(url, function(json){
+
+		//alert(json.length);
+		   
+		$.each(json, function(i, val)	//i: numero, val: valore
+		{
+			$('#galleria').append('<img src="'+val+'" onError="this.onerror=null;this.src=\'img/logo.png\';"/>');
+		});
+		  
+	})
+	.error(errorHandler)
+	.done(function() {
+		$('#galleria img:first').addClass("big");
+
+		$('#galleria img:nth-of-type(2)').addClass("small");
+		$('#galleria img:nth-of-type(3)').addClass("small");
+		$('#galleria img:nth-of-type(4)').addClass("small");
+		$('#galleria img:nth-of-type(5)').addClass("small");
+
+		$('#galleria img:nth-of-type(6)').prepend('<div id="galleriaTiny">');
+
+		$('#galleria img:nth-of-type(6)').addClass("tiny");
+		$('#galleria img:nth-of-type(7)').addClass("tiny");
+		$('#galleria img:nth-of-type(8)').addClass("tiny");
+		$('#galleria img:nth-of-type(9)').addClass("tiny");
+		$('#galleria img:nth-of-type(10)').addClass("tiny");
+
+		$('#galleria img:nth-of-type(10)').append('</div>');
+
+		modalImg();
+
+	});
+}
+
+//rende cliccabili le immagini
+function modalImg(){
+	$("#galleria img").click(function() {
+
+		$("#modalImg .modal-body").html('<img src="ciao"/>');
+		scrollAlto();
+		
+		$('#modalImg').modal();
+
+	});
+}
+
+//get informazioni parco
+function getInfoParco(){
+	$.ajax({
+		type: 'GET',
+		url: indirizzo+'/get_playground?id='+sessionStorage.idParco,
+		success: appendParco,
+		error: errorHandler
+	});
+}
+function appendParco(data){
+	getMappaParco(data.latitude.toFixed(3), data.longitude.toFixed(3));
+
+	servizi2 = getServizi(data.picnic, data.parking, data.cleaning, data.fenced_area, data.toilette, data.caffe, data.universally_accessible);
+	voto2 = getStelline(data.evaluation);
+
+	target2 = data.age_min+' - '+data.age_max+' years';
+	if(data.age_min == 0 && data.age_max == 0){
+		target2 = 'not available';
+	}
+	opening2 = data.opening_hours;
+	if(opening2.length < 2){
+		opening2 = 'not available';
+	}
+	
+	//servizi
+	$('#parcoInfo div:first-of-type').html(servizi2);
+	//età | orario
+	$('#parcoInfo div:nth-of-type(2)').html('<span>TARGET: '+target2+'</span><span>OPENING: '+opening2+'</span>');
+	//rating
+	$('#parcoInfo div:nth-of-type(3)').html(voto2);
+
+	//descrizione
+	descEng = data.description_en;
+	if(descEng < 2){
+		descEng = 'not available'
+	}
+
+	$('#articolo').html('<p><b>ITA</b> '+data.description+'</p><p><b>ENG</b> '+descEng+'</p>');
+	
+	modalServizi();
+
+	$('#loader').hide();
+}
+//rende cliccabili le icone
+function modalServizi(){
+	$("#modalServizi .modal-body ul").html(sessionStorage.descServizi);
+
+	$("#parcoInfo div:first-of-type i").click(function() {
+		scrollAlto();
+		$('#modalServizi').modal();
+	});
+}
+
+
+//formattazione servizi
 function getServizi(picnic, parking, cleaning, fenced_area, toilette, caffe, universally_accessible)
 {
 	//icone colorate
 	listaServizi = '';
-	//descrizione dei servizi per il modale
+	//descrizione servizi per il modale
 	sessionStorage.descServizi = '';
 
 	if(picnic){
@@ -124,7 +243,7 @@ function getServizi(picnic, parking, cleaning, fenced_area, toilette, caffe, uni
 	return listaServizi;
 }
 
-//votazione del parco
+//formattazione rating
 function getStelline(evaluation){
 
 	stelline = '';	
@@ -162,108 +281,4 @@ function getStelline(evaluation){
 	}
 
 	return stelline;
-}
-
-//on click sul parco
-function apriParco(id)
-{
-	sessionStorage.idParco = id;
-	window.location='parco.html';
-}
-
-/**********************OPEN*PARCO*/
-//pagina parco.html
-function getParco(){
-	$.ajax({
-		type: 'GET',
-		url: indirizzo+'/get_playground?id='+sessionStorage.idParco,
-		success: appendParco,
-		error: errorHandler
-	});
-}
-function appendParco(data){
-	getMappaParco(data.latitude, data.longitude);
-
-	servizi2 = getServizi(data.picnic, data.parking, data.cleaning, data.fenced_area, data.toilette, data.caffe, data.universally_accessible);
-	voto2 = getStelline(data.evaluation);
-
-	target2 = data.age_min+' - '+data.age_max+' years';
-	if(data.age_min == 0 && data.age_max == 0){
-		target2 = 'not available';
-	}
-	opening2 = data.opening_hours;
-	if(opening2.length < 2){
-		opening2 = 'not available';
-	}
-	
-	//servizi
-	$('#parcoInfo div:first-of-type').html(servizi2);
-	//span età | span orario
-	$('#parcoInfo div:nth-of-type(2)').html('<span>TARGET: '+target2+'</span><span>OPENING: '+opening2+'</span>');
-	//rating
-	$('#parcoInfo div:nth-of-type(3)').html(voto2);
-
-	//descrizione
-	descEng = data.description_en;
-	if(descEng < 2){
-		descEng = 'not available'
-	}
-
-	$('#articolo').html('<p><b>ITA</b> '+data.description+'</p><p><b>ENG</b> '+descEng+'</p>');
-	
-	//rende cliccabili le icone e le immagini
-	modalServizi();
-	modalImg();
-
-	$('#loader').hide();
-	$('#parcoAperto').show();
-}
-function modalServizi(){
-	$("#modalInfo .modal-body ul").html(sessionStorage.descServizi);
-
-	$("#parcoInfo div:first-of-type i").click(function() {
-		$('#modalInfo').modal();
-	});
-}
-function modalImg(){
-	$("#galleria img").click(function() {
-		alert('weeeeeeeeeee');
-	});
-}
-
-/***************GET MAPPA*(PARCO.HTML)*/
-function getMappaParco(lati, longi)
-{		
-	var map = L.map('map').setView([lati, longi], 15);
-
-	//credits mappa
-	L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
-	    attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
-	}).addTo(map);
-
-	//poi
-	L.marker([lati, longi]).addTo(map)
-	    .bindPopup('<p style="font-size:small">Ecco il parco!</p>')
-	    .openPopup();	
-}
-
-
-/***************GET MAPPA GENERICA*(MAPPA.HTML)*/
-//pagina mappa.html
-function getMappaGenerica()
-{
-	initialize_map_generica(sessionStorage.lat, sessionStorage.longi);
-}
-function initialize_map_generica(lati, longi)
-{		
-	var map1 = L.map('map1').setView([lati, longi], 15);
-
-	//credits mappa
-	L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
-	    attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
-	}).addTo(map1);
-
-	//poi
-	L.marker([lati, longi]).addTo(map1)
-	    .bindPopup('<p style="font-size:small">Ciao!</p>');	
 }

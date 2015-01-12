@@ -177,44 +177,42 @@ hr{
 	font-size:large;
 	font-weight:bold;
 	text-transform:uppercase;
-	line-height:14pt;
+	line-height:12pt;
 }
 .eta{
-	/*width:50%;
-	float:left;*/
 	display:block;
 	font-size:small;
 	line-height:10pt;
 }
 .orario{
-	/*width:50%;
-	float:right;*/
 	display:block;
 	font-size:small;
 	line-height:10pt;
 }
 .voto{
-	/*width:50%;
-	float:left;*/
 	display:block;
 }
 .voto i{
 	font-size:large;
 }
 .servizi{
-	/*width:50%;
-	float:right;*/
 	display:block;
+	background-color:white;
+	margin:0 10%;
+	border-radius:10pt;
+	text-align:center;
 }
 .servizi i{
 	font-size:large;
 	margin:0 2pt;
 }
 .true{
-	color: green;
+	/*color: green;*/
+	color:#31C331;
 }
 .false{
-	color: red;
+	/*color: red;*/
+	color:#AC131C;
 }
 
 /************************************PARCO*/
@@ -222,7 +220,7 @@ hr{
 	margin:20pt 5% 50pt 5%;
 	padding:0;
 	display:block;
-	width:90%;
+	width:88%;
 	background-color:#27c39e;
 	color:#f7f4ed;
 }
@@ -252,6 +250,7 @@ hr{
 	color:#27c39e;
 	width:100%;
 	padding: 2%;
+	clear:both;
 }
 #parcoInfo div{
 	width:100%;
@@ -294,15 +293,15 @@ hr{
 	font-size:small;
 }
 /*****************modal*/
-#modalInfo .modal-body{
+#modalServizi .modal-body{
 	text-align:left;
 }
-#modalInfo ul{
-	list-style-type:none;
+#modalServizi ul{
+	list-style-type:none !important;
 	padding:0;
 	margin:0;
 }
-#modalInfo ul i{
+#modalServizi ul i{
 	width:20pt;
 	text-align:center;
 }
@@ -311,6 +310,7 @@ hr{
 	background:#f7f4ed url('../img/loader.gif') no-repeat center center;
 	color:#912A62;
 	height:150pt;
+	width:100%;
 }
 #map1{
 	background:#f7f4ed url('../img/loader.gif') no-repeat center center;
