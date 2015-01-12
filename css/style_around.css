@@ -136,29 +136,31 @@ hr{
 	padding:5%;
 }
 
-.parco, .parco:hover, .parco:visited{
+.parco, .parco:hover, .parco:visited, .parco:focus{
 	display:block;
-	height:74pt;
+	height:100pt;
 	width:100%;
-	margin-bottom:6pt;
+	margin-bottom:5pt;
 	background-color:#27c39e;
 	color:#f7f4ed;
+	text-decoration:none;
 }
 .parco:last-of-type{
 	margin-bottom:18pt;
 }
 .parco img{
 	display:block;
-	margin:2pt;
-	height:70pt;
-	width:70pt;
+	margin:5pt;
+	margin-top:25pt;
+	height:50pt;
+	width:50pt;
 	float:left;
 }
 
 .desc{
 	display:block;
 	margin:2pt;
-	height:70pt;
+	height:100pt;
 	line-height:20pt;
 	overflow-y:hidden;
 	background: url("../img/click.png") no-repeat right 2pt center;
@@ -166,41 +168,47 @@ hr{
 	padding-right:20pt;
 }
 .titolo{
+	margin-top:3pt;
 	font-size:large;
 	font-weight:bold;
 	text-transform:uppercase;
+	line-height:14pt;
 }
 .eta{
-	width:50%;
-	float:left;
-	font-size:x-small;
+	/*width:50%;
+	float:left;*/
+	display:block;
+	font-size:small;
 	line-height:10pt;
 }
 .orario{
-	width:50%;
-	float:right;
-	font-size:x-small;
+	/*width:50%;
+	float:right;*/
+	display:block;
+	font-size:small;
 	line-height:10pt;
 }
 .voto{
-	width:50%;
-	float:left;
+	/*width:50%;
+	float:left;*/
+	display:block;
 }
 .voto i{
 	font-size:large;
 }
 .servizi{
-	width:50%;
-	float:right;
+	/*width:50%;
+	float:right;*/
+	display:block;
 }
 .servizi i{
 	font-size:large;
 	margin:0 2pt;
 }
-.servizi .true{
+.true{
 	color: green;
 }
-.servizi .false{
+.false{
 	color: red;
 }
 
@@ -246,14 +254,22 @@ hr{
 	margin:0;
 	clear:both;
 }
-#parcoInfo div:nth-of-type(2){
+#parcoInfo div:nth-of-type(2){	/*target e opening*/
 	border-top:2pt solid #27c39e;
 	border-bottom:2pt solid #27c39e;
 }
 #parcoInfo div:nth-of-type(2) span{
-	margin:0;
+	/*margin:0;
 	display:inline-block;
-	width:49%;
+	width:49%;*/
+	display:block;
+}
+#parcoInfo div:nth-of-type(3){	/*rating*/
+	margin:-5pt;
+}
+#parcoInfo div:nth-of-type(3) b{
+	font-size:xx-large;
+	margin-right:5pt;
 }
 /*****************articolo*/
 #articolo{
@@ -264,6 +280,12 @@ hr{
 #articolo p{
 	clear:both;
 	text-align:justify;
+	font-size:small;
+}
+#articolo p:first-of-type{
+	padding-bottom:8pt;
+}
+#articolo b{
 	font-size:small;
 }
 /*****************mappa*/

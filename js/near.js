@@ -5,16 +5,14 @@ function openVicini()
 	pop();
 	
 	distanza = 10;
-
+	
 	$.ajax({
-			type: 'GET',
-			crossDomain: true,
-			url: indirizzo+'/search_near?lat='+sessionStorage.lat+'&lng='+sessionStorage.longi+'&distanza='+distanza,
-			//url: indirizzo+'/search_near?lat=44.482&lng=11.260&distanza=10',
-			contentType: 'application/json',
-			success: appendVicini,
-			error: errorHandler
+		type: 'GET',
+		url: indirizzo+'/search_near?lat='+sessionStorage.lat+'&lng='+sessionStorage.longi+'&distanza='+distanza,		
+		success: appendVicini,
+		error: errorHandler
 	});
+
 }
 
 function appendVicini(data)
@@ -28,6 +26,14 @@ function appendVicini(data)
 		servizi = getServizi(jsonVicini[i].picnic, jsonVicini[i].parking, jsonVicini[i].cleaning, jsonVicini[i].fenced_area, jsonVicini[i].toilette, jsonVicini[i].caffe, jsonVicini[i].universally_accessible);
 		voto = getStelline(jsonVicini[i].evaluation);
 
+		if(jsonVicini[i].anteprima_path === null){
+			anteprima = "img/logo.png";
+		}
+		else{
+			anteprima = indirizzo+'/'+jsonVicini[i].anteprima_path;
+		}
+		
+
 		target = jsonVicini[i].age_min+' - '+jsonVicini[i].age_max+' years';
 		if(jsonVicini[i].age_min == 0 && jsonVicini[i].age_max == 0){
 			target = 'not available';
@@ -39,7 +45,7 @@ function appendVicini(data)
 
 		//manca solo l'immagine dal server
 		listaParchiVicini += '<a class="parco" href="javascript:apriParco('+jsonVicini[i].id+');">'+
-			                    '<img src="img/logo.png"/>'+
+			                    '<img src="'+anteprima+'"/>'+
 			                   '<span class="desc">'+
 			                        '<p class="titolo">«'+jsonVicini[i].name+'»</p>'+
 			                        '<span class="eta">TARGET: '+target+'</span>'+
@@ -63,39 +69,39 @@ function getServizi(picnic, parking, cleaning, fenced_area, toilette, caffe, uni
 	listaServizi = '';
 
 	if(picnic){
-		listaServizi += '<i class="fa fa-cutlery true"></i> ';
+		listaServizi += '<i class="fa fa-cutlery fa-2x true"></i> ';
 	}else{
-		listaServizi += '<i class="fa fa-cutlery false"></i> ';
+		listaServizi += '<i class="fa fa-cutlery fa-2x false"></i> ';
 	}
 	if(parking){
-		listaServizi += '<i class="fa fa-car true"></i> ';
+		listaServizi += '<i class="fa fa-car fa-2x true"></i> ';
 	}else{
-		listaServizi += '<i class="fa fa-car false"></i> ';
+		listaServizi += '<i class="fa fa-car fa-2x false"></i> ';
 	}
 	if(cleaning){
-		listaServizi += '<i class="fa fa-recycle true"></i> ';
+		listaServizi += '<i class="fa fa-recycle fa-2x true"></i> ';
 	}else{
-		listaServizi += '<i class="fa fa-recycle false"></i> ';
+		listaServizi += '<i class="fa fa-recycle fa-2x false"></i> ';
 	}
 	if(fenced_area){
-		listaServizi += '<i class="fa fa-signal true"></i> ';
+		listaServizi += '<i class="fa fa-signal fa-2x true"></i> ';
 	}else{
-		listaServizi += '<i class="fa fa-signal false"></i> ';
+		listaServizi += '<i class="fa fa-signal fa-2x false"></i> ';
 	}
 	if(toilette){
-		listaServizi += '<i class="fa fa-female true"></i> ';
+		listaServizi += '<i class="fa fa-female fa-2x true"></i> ';
 	}else{
-		listaServizi += '<i class="fa fa-female false"></i> ';
+		listaServizi += '<i class="fa fa-female fa-2x false"></i> ';
 	}
 	if(caffe){
-		listaServizi += '<i class="fa fa-beer true"></i> ';
+		listaServizi += '<i class="fa fa-beer fa-2x true"></i> ';
 	}else{
-		listaServizi += '<i class="fa fa-beer false"></i> ';
+		listaServizi += '<i class="fa fa-beer fa-2x false"></i> ';
 	}
 	if(universally_accessible){
-		listaServizi += '<i class="fa fa-wheelchair true"></i>';
+		listaServizi += '<i class="fa fa-wheelchair fa-2x true"></i>';
 	}else{
-		listaServizi += '<i class="fa fa-wheelchair false"></i>';
+		listaServizi += '<i class="fa fa-wheelchair fa-2x false"></i>';
 	}
 
 	return listaServizi;
@@ -108,31 +114,31 @@ function getStelline(evaluation){
 
 	switch(evaluation) {
 	    case '1':
-	        stelline = '<b>1/5</b> <i class="fa fa-star"></i><i class="fa fa-star-o"></i><i class="fa fa-star-o"></i><i class="fa fa-star-o"></i><i class="fa fa-star-o"></i>';
+	        stelline = '<b>1/5</b> <i class="fa fa-star fa-2x"></i><i class="fa fa-star-o fa-2x"></i><i class="fa fa-star-o fa-2x"></i><i class="fa fa-star-o fa-2x"></i><i class="fa fa-star-o fa-2x"></i>';
 	        break;
 	    case '1.5':
-	        stelline = '<b>1.5/5</b> <i class="fa fa-star"></i><i class="fa fa-star-half"></i><i class="fa fa-star-o"></i><i class="fa fa-star-o"></i><i class="fa fa-star-o"></i>';
+	        stelline = '<b>1.5/5</b> <i class="fa fa-star fa-2x"></i><i class="fa fa-star-half fa-2x"></i><i class="fa fa-star-o fa-2x"></i><i class="fa fa-star-o fa-2x"></i><i class="fa fa-star-o fa-2x"></i>';
 	        break;
 	    case '2':
-	        stelline = '<b>2/5</b> <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star-o"></i><i class="fa fa-star-o"></i><i class="fa fa-star-o"></i>';
+	        stelline = '<b>2/5</b> <i class="fa fa-star fa-2x"></i><i class="fa fa-star fa-2x"></i><i class="fa fa-star-o fa-2x"></i><i class="fa fa-star-o fa-2x"></i><i class="fa fa-star-o fa-2x"></i>';
 	        break;
 	    case '2.5':
-	        stelline = '<b>2.5/5</b> <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star-half"></i><i class="fa fa-star-o"></i><i class="fa fa-star-o"></i>';
+	        stelline = '<b>2.5/5</b> <i class="fa fa-star fa-2x"></i><i class="fa fa-star fa-2x"></i><i class="fa fa-star-half fa-2x"></i><i class="fa fa-star-o fa-2x"></i><i class="fa fa-star-o fa-2x"></i>';
 	        break;
 	    case '3':
-	        stelline = '<b>3/5</b> <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star-o"></i><i class="fa fa-star-o"></i>';
+	        stelline = '<b>3/5</b> <i class="fa fa-star fa-2x"></i><i class="fa fa-star fa-2x"></i><i class="fa fa-star fa-2x"></i><i class="fa fa-star-o fa-2x"></i><i class="fa fa-star-o fa-2x"></i>';
 	        break;
 	    case '3.5':
-	        stelline = '<b>3.5/5</b> <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star-half"></i><i class="fa fa-star-o"></i>';
+	        stelline = '<b>3.5/5</b> <i class="fa fa-star fa-2x"></i><i class="fa fa-star fa-2x"></i><i class="fa fa-star fa-2x"></i><i class="fa fa-star-half fa-2x"></i><i class="fa fa-star-o fa-2x"></i>';
 	        break;
 	    case '4':
-	        stelline = '<b>4/5</b> <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star-o"></i>';
+	        stelline = '<b>4/5</b> <i class="fa fa-starfa-2x fa-2x"></i><i class="fa fa-star fa-2x"></i><i class="fa fa-star fa-2x"></i><i class="fa fa-star fa-2x"></i><i class="fa fa-star-o fa-2x"></i>';
 	        break;
 	    case '4.5':
-	        stelline = '<b>4.5/5</b> <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star-half"></i>';
+	        stelline = '<b>4.5/5</b> <i class="fa fa-star fa-2x"></i><i class="fa fa-star fa-2x"></i><i class="fa fa-star fa-2x"></i><i class="fa fa-star fa-2x"></i><i class="fa fa-star-half fa-2x"></i>';
 	        break;
 	    case '5':
-	        stelline = '<b>5/5</b> <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i>';
+	        stelline = '<b>5/5</b> <i class="fa fa-star fa-2x"></i><i class="fa fa-star fa-2x"></i><i class="fa fa-star fa-2x"></i><i class="fa fa-star fa-2x"></i><i class="fa fa-star fa-2x"></i>';
 	        break;
 	    default:
 	    	stelline = 'Rate not available';
@@ -159,11 +165,7 @@ function getParco(){
 	});
 }
 function appendParco(data){
-	alert(data);
-}
-/*function appendParco(data){
-	alert(data);
-	initialize_map_parco(data.latitude, data.longitude);
+	getMappaParco(data.latitude, data.longitude);
 
 	servizi2 = getServizi(data.picnic, data.parking, data.cleaning, data.fenced_area, data.toilette, data.caffe, data.universally_accessible);
 	voto2 = getStelline(data.evaluation);
@@ -180,17 +182,17 @@ function appendParco(data){
 	//servizi
 	$('#parcoInfo div:first-of-type').html(servizi2);
 	//span età | span orario
-	$('#parcoInfo div:nth-of-type(2)').html('<span>ETÀ: +'target2'+</span><span>ORARIO: +'opening2'+</span>');
+	$('#parcoInfo div:nth-of-type(2)').html('<span>TARGET: '+target2+'</span><span>OPENING: '+opening2+'</span>');
 	//rating
-	$('#parcoInfo div:nth-of-type(2)').html(voto2);
+	$('#parcoInfo div:nth-of-type(3)').html(voto2);
 
 	//descrizione
-	$('#articolo').html('<p>+'data.description'+</p><p>+'data.description_en'+</p>');
+	$('#articolo').html('<p><b>ITA</b> '+data.description+'</p><p><b>ENG</b> '+data.description_en+'</p>');
 	
-}*/
+}
 
 /***************GET MAPPA*(PARCO.HTML)*/
-function initialize_map_parco(lati, longi)
+function getMappaParco(lati, longi)
 {		
 	var map = L.map('map').setView([lati, longi], 15);
 
