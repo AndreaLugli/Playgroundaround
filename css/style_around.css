@@ -32,7 +32,7 @@ b{
 a, a:hover, a:visited{ 
 	text-decoration:none;
 	font-weight:900;
-	/*text-transform:uppercase*/}
+}
 hr{
 	border:none;
 	height:1px;
@@ -93,6 +93,14 @@ hr{
 }
 
 /***********************************INDEX*/
+#cortina{
+	width:100%;
+	height:100%;
+	position:absolute;
+	z-index:99;
+	background-color:white;
+	opacity: 0.6;
+}
 
 #header{
 	height:50%;
@@ -105,22 +113,33 @@ hr{
 #page{
 	height:50%;
 }
+
 .block, .block:hover, .block:visited{
 	width:50%;
-	height:50%;
 	float:left;
 	color:white;
-	padding:8% 0;
+	padding:3pt;
 	text-decoration:none;
 }
-.block i{
-	display:block;
-	margin-top:3pt;
+.block img{
+	height:65%;
 }
-.blo1{	background-color:#912A62;	}
-.blo2{	background-color:#2D912A;	}
-.blo3{	background-color:#DE56A0;	}
-.blo4{	background-color:#319FAB;	}
+.blo1{
+	/*background-color:#912A62;*/
+	background-color:#942d74;
+}
+.blo2{
+	/*background-color:#2D912A;*/
+	background-color:#428c7d;
+}
+.blo3{
+	/*background-color:#DE56A0;*/
+	background-color:#9bcc5f;
+}
+.blo4{
+	/*background-color:#319FAB;*/
+	background-color:#e45141;
+}
 
 
 /***********************************LOADER*/
@@ -263,9 +282,6 @@ hr{
 	border-bottom:2pt solid #27c39e;
 }
 #parcoInfo div:nth-of-type(2) span{
-	/*margin:0;
-	display:inline-block;
-	width:49%;*/
 	display:block;
 }
 #parcoInfo div:nth-of-type(3) i {	/*rating*/
@@ -304,6 +320,9 @@ hr{
 #modalServizi ul i{
 	width:20pt;
 	text-align:center;
+}
+#modalImg img{
+	width:100%;
 }
 /*****************mappa*/
 #map{

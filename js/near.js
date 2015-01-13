@@ -26,7 +26,7 @@ function appendVicini(data)
 		voto = getStelline(jsonVicini[i].evaluation);
 
 		if(jsonVicini[i].anteprima_path === null){
-			anteprima = "img/logo.png";
+			anteprima = "img/not_available.png";
 		}
 		else{
 			anteprima = indirizzo+'/'+jsonVicini[i].anteprima_path;
@@ -43,7 +43,7 @@ function appendVicini(data)
 		}
 
 		listaParchiVicini += '<a class="parco" href="javascript:apriParco('+jsonVicini[i].id+');">'+
-			                    '<img src="'+anteprima+'" onError="this.onerror=null;this.src=\'img/logo.png\';"/>'+
+			                    '<img src="'+anteprima+'" onError="this.onerror=null;this.src=\'img/logo.jpg\';"/>'+
 			                   '<span class="desc">'+
 			                        '<p class="titolo">«'+jsonVicini[i].name+'»</p>'+
 			                        '<span class="eta">TARGET: '+target+'</span>'+
@@ -88,7 +88,7 @@ function getImgParco(){
 		   
 		$.each(json, function(i, val)	//i: numero, val: valore
 		{
-			$('#galleria').append('<img src="'+val+'" onError="this.onerror=null;this.src=\'img/logo.png\';"/>');
+			$('#galleria').append('<img src="'+val+'" onError="this.onerror=null;this.src=\'img/logo.jpg\';" />');
 		});
 		  
 	})
@@ -120,7 +120,9 @@ function getImgParco(){
 function modalImg(){
 	$("#galleria img").click(function() {
 
-		$("#modalImg .modal-body").html('<img src="ciao"/>');
+		imgUrl = $(this).attr("src");
+
+		$("#modalImg .modal-body").html('<a data-dismiss="modal"><img src="'+imgUrl+'" onError="this.onerror=null;this.src=\'img/logo.jpg\';" /></a>');
 		scrollAlto();
 		
 		$('#modalImg').modal();

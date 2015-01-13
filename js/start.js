@@ -62,7 +62,10 @@ function handle_localize(position)
 	sessionStorage.lat = position.coords.latitude.toFixed(3);
 	sessionStorage.longi = position.coords.longitude.toFixed(3);
 
-	alert('Ti trovi a: LATI:'+sessionStorage.lat+' LONGI:'+sessionStorage.longi);
+	$('#cortina').hide();
+
+
+	//alert('Ti trovi a: LATI:'+sessionStorage.lat+' LONGI:'+sessionStorage.longi);
 }
 function error_localize(){}
 
