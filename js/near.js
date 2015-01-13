@@ -17,6 +17,7 @@ function listaVicini(distanza)
 	}
 
 	//get lista parchi vicini
+	$.ajaxSetup({ cache: false });
 	$.ajax({
 		type: 'GET',
 		url: indirizzo+'/search_near?lat='+sessionStorage.lat+'&lng='+sessionStorage.longi+'&distanza='+distanza,		
