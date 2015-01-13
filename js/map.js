@@ -69,6 +69,8 @@ function appendMappa(data)
 	$.each(data, function(i, item) {
     	latitude = item.latitude;
     	longitude = item.longitude;
-    	L.marker([latitude, longitude], {icon: greenIcon}).addTo(map1);
+
+    	var parchetto = L.marker([latitude, longitude], {icon: greenIcon}).addTo(map1);
+    	parchetto.bindPopup("<p style='font-size:small'>"+item.name+"</p>");
 	});
 }
