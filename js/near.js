@@ -1,11 +1,21 @@
 /********************GET*PARCHI*VICINI*(VICINI.HTML)*/
 //onload pagina
-function openVicini()
-{
+function openVicini(){
 	pop();
-	
-	distanza = 10;
-	
+	listaVicini('min');
+	switchOn();
+}
+function listaVicini(distanza)
+{
+	distanza = distanza;
+
+	if(distanza == 'min'){
+		distanza = 1;
+	}
+	else if(distanza == 'max'){
+		distanza = 10;
+	}
+
 	//get lista parchi vicini
 	$.ajax({
 		type: 'GET',
@@ -60,6 +70,30 @@ function appendVicini(data)
 		listaParchiVicini = '<div class="alert">Ooooops! Sembra che non siano ancora stati censiti parchi intorno a te!</div>';
 	}
 	$('#parchiVicini').html(listaParchiVicini);
+}
+
+//scelta distanza
+function switchOn(){
+
+	$('#myonoffswitch').click(function() {
+
+		$('#loader').show();
+
+		if(sessionStorage.switchato == "true")
+		{
+			listaVicini('min');
+			sessionStorage.switchato = "false";
+			//alert(sessionStorage.switchato);
+		}
+		else
+		{
+			listaVicini('max');
+			sessionStorage.switchato = "true";
+			//alert(sessionStorage.switchato);
+		}
+
+	});
+	
 }
 
 //onclick parco
