@@ -1,6 +1,7 @@
 /********************GET*PARCHI*VICINI*(VICINI.HTML)*/
 //onload pagina
-function openVicini(){
+function openVicini()
+{
 	pop();
 	listaVicini('min');
 	switchOn();
