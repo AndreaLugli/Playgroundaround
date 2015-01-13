@@ -48,6 +48,8 @@ hr{
 	background-color:#464646;
 	margin-bottom:0;
 	height:25pt;
+	position:fixed;
+	width:100%;
 	/*border-bottom:1pt solid #27c39e;*/
 }
 .navbar img{
@@ -246,7 +248,16 @@ hr{
 	background-color:#27c39e;
 	color:#f7f4ed;
 }
+#parcoAperto h3{
+	text-transform: uppercase;
+	font-size:x-large;
+}
 /****************foto*/
+#galleriaTiny{
+	clear:both;
+	width:100%;
+	padding: 0 5% 3% 5%;
+}
 .big{
 	width:50%;
 	margin:2%;
@@ -258,13 +269,9 @@ hr{
 	float:left;
 }
 .tiny{
+	margin-top:20pt;
 	width:15%;
 	margin: 0 1.5%;
-}
-#galleriaTiny{
-	clear:both;
-	width:100%;
-	padding: 0 5% 3% 5%;
 }
 /****************info*/
 #parcoInfo{

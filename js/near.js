@@ -85,13 +85,11 @@ function switchOn(){
 		{
 			listaVicini('min');
 			sessionStorage.switchato = "false";
-			//alert(sessionStorage.switchato);
 		}
 		else
 		{
 			listaVicini('max');
 			sessionStorage.switchato = "true";
-			//alert(sessionStorage.switchato);
 		}
 
 	});
@@ -137,7 +135,7 @@ function getImgParco(){
 		$('#galleria img:nth-of-type(4)').addClass("small");
 		$('#galleria img:nth-of-type(5)').addClass("small");
 
-		$('#galleria img:nth-of-type(6)').prepend('<div id="galleriaTiny">');
+		$('#galleria img:nth-of-type(6)').before('<div id="galleriaTiny">');
 
 		$('#galleria img:nth-of-type(6)').addClass("tiny");
 		$('#galleria img:nth-of-type(7)').addClass("tiny");
@@ -145,7 +143,7 @@ function getImgParco(){
 		$('#galleria img:nth-of-type(9)').addClass("tiny");
 		$('#galleria img:nth-of-type(10)').addClass("tiny");
 
-		$('#galleria img:nth-of-type(10)').append('</div>');
+		//$('#galleria img:last-child').after('</div>');
 
 		modalImg();
 
@@ -177,6 +175,8 @@ function getInfoParco(){
 }
 function appendParco(data){
 	getMappaParco(data.latitude.toFixed(3), data.longitude.toFixed(3));
+
+	$('#parcoAperto h3').html(data.name);
 
 	servizi2 = getServizi(data.picnic, data.parking, data.cleaning, data.fenced_area, data.toilette, data.caffe, data.universally_accessible);
 	voto2 = getStelline(data.evaluation);
