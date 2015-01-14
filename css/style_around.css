@@ -90,8 +90,8 @@ hr{
 }
 #footer a{
 	color:#27c39e;
-	font-weight:normal;
 	font-size:small;
+	text-transform: uppercase;
 }
 
 /***********************************INDEX*/
@@ -241,8 +241,9 @@ hr{
 
 /************************************PARCO*/
 #parcoAperto{
-	margin:20pt 5% 50pt 5%;
+	margin:5%;
 	padding:0;
+	padding-bottom:5%;
 	display:block;
 	width:88%;
 	background-color:#27c39e;
@@ -251,6 +252,7 @@ hr{
 #parcoAperto h3{
 	text-transform: uppercase;
 	font-size:x-large;
+	padding:1% 0;
 }
 /****************foto*/
 .big{
@@ -397,4 +399,19 @@ hr{
 }
 .onoffswitch-checkbox:checked + .onoffswitch-label .onoffswitch-switch {
     right: 0px; 
+}
+
+/*************CREDITS*/
+#panel{
+	padding:5%;
+	color:white;
+	background-color:#27c39e;
+	height:100%;
+	/*background-color:#428c7d;*/
+}
+#panel a{
+	color:white;
+}
+#panel img{
+	margin:5%;
 }

@@ -10,7 +10,8 @@ function getMappaParco(lati, longi)
 
 	//poi
 	L.marker([lati, longi]).addTo(map)
-	    .bindPopup('<p style="font-size:small">The park in here</p>');	
+	    //.bindPopup('<p style="font-size:small">The park in here</p>');
+	    .bindPopup('<p style="font-size:small">Questo è il parco</p>');	
 }
 
 
@@ -36,7 +37,8 @@ function initialize_map_generica(lati, longi)
 	cloudmade.addTo(map1);		
 
 	var marker = L.marker([centroLat, centroLng]).addTo(map1);
-	marker.bindPopup("<p style='font-size:small'>You\'re here</p>")
+	//marker.bindPopup("<p style='font-size:small'>You\'re here</p>")
+	marker.bindPopup("<p style='font-size:small'>Ti trovi qui</p>")
 			.openPopup();
 
 	//get parchi vicini

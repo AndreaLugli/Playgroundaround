@@ -58,8 +58,10 @@ function appendVicini(data)
 			                    '<img src="'+anteprima+'" onError="this.onerror=null;this.src=\'img/logo.jpg\';"/>'+
 			                   '<span class="desc">'+
 			                        '<p class="titolo">«'+jsonVicini[i].name+'»</p>'+
-			                        '<span class="eta">TARGET: '+target+'</span>'+
-			                        '<span class="orario">OPENING: '+opening+'</span>'+
+			                        //'<span class="eta">TARGET: '+target+'</span>'+
+			                        //'<span class="orario">OPENING: '+opening+'</span>'+
+			                        '<span class="eta">ETÀ: '+target+'</span>'+
+			                        '<span class="orario">ORARI: '+opening+'</span>'+
 			                        '<span class="voto">'+voto+'</span>'+
 			                        '<span class="servizi">'+servizi+'</span>'+
 			                    '</span>'+
@@ -69,7 +71,8 @@ function appendVicini(data)
 	//se nessun parco nelle vicinanze
 	if(listaParchiVicini == '')
 	{
-		listaParchiVicini = '<div class="alert">Ooooops! Sembra che non siano ancora stati censiti parchi intorno a te!</div>';
+		//listaParchiVicini = '<div class="alert">Ooooops! Seems you\'re in a desert area, there are no parks near you :( </div>';
+		listaParchiVicini = '<div class="alert">Ooooops! Non ci sono parchi vicino a te, ti trovi per caso nel deserto? :( </div>';
 	}
 	$('#parchiVicini').html(listaParchiVicini);
 }
@@ -183,17 +186,20 @@ function appendParco(data){
 
 	target2 = data.age_min+' - '+data.age_max+' years';
 	if(data.age_min == 0 && data.age_max == 0){
-		target2 = 'not available';
+		//target2 = 'not available';
+		target2 = 'non disponibile';
 	}
 	opening2 = data.opening_hours;
 	if(opening2.length < 2){
-		opening2 = 'not available';
+		//opening2 = 'not available';
+		opening2 = 'non disponibile';
 	}
 	
 	//servizi
 	$('#parcoInfo div:first-of-type').html(servizi2);
 	//età | orario
-	$('#parcoInfo div:nth-of-type(2)').html('<span>TARGET: '+target2+'</span><span>OPENING: '+opening2+'</span>');
+	//$('#parcoInfo div:nth-of-type(2)').html('<span>TARGET: '+target2+'</span><span>OPENING: '+opening2+'</span>');
+	$('#parcoInfo div:nth-of-type(2)').html('<span>ETÀ: '+target2+'</span><span>ORARI: '+opening2+'</span>');
 	//rating
 	$('#parcoInfo div:nth-of-type(3)').html(voto2);
 
@@ -230,52 +236,66 @@ function getServizi(picnic, parking, cleaning, fenced_area, toilette, caffe, uni
 
 	if(picnic){
 		listaServizi += '<i class="fa fa-cutlery fa-2x true"></i> ';
-		sessionStorage.descServizi += '<li><i class="fa fa-cutlery true"></i> Picnic area available</li>';
+		//sessionStorage.descServizi += '<li><i class="fa fa-cutlery true"></i> Picnic area available</li>';
+		sessionStorage.descServizi += '<li><i class="fa fa-cutlery true"></i> Dispone di area picnic</li>';
 	}else{
 		listaServizi += '<i class="fa fa-cutlery fa-2x false"></i> ';
-		sessionStorage.descServizi += '<li><i class="fa fa-cutlery false"></i> Picnic area NOT available</li>';
+		//sessionStorage.descServizi += '<li><i class="fa fa-cutlery false"></i> Picnic area NOT available</li>';
+		sessionStorage.descServizi += '<li><i class="fa fa-cutlery false"></i> NON dispone di area picnic</li>';
 	}
 	if(parking){
 		listaServizi += '<i class="fa fa-car fa-2x true"></i> ';
-		sessionStorage.descServizi += '<li><i class="fa fa-car true"></i> Parking area available</li>';
+		//sessionStorage.descServizi += '<li><i class="fa fa-car true"></i> Parking area available</li>';
+		sessionStorage.descServizi += '<li><i class="fa fa-car true"></i> Dispone di area parcheggio</li>';
 	}else{
 		listaServizi += '<i class="fa fa-car fa-2x false"></i> ';
-		sessionStorage.descServizi += '<li><i class="fa fa-car false"></i> Parking area NOT available</li>';
+		//sessionStorage.descServizi += '<li><i class="fa fa-car false"></i> Parking area NOT available</li>';
+		sessionStorage.descServizi += '<li><i class="fa fa-car false"></i> NON dispone di area parcheggio</li>';
 	}
 	if(cleaning){
 		listaServizi += '<i class="fa fa-recycle fa-2x true"></i> ';
-		sessionStorage.descServizi += '<li><i class="fa fa-recycle true"></i> Cleaning service available</li>';
+		//sessionStorage.descServizi += '<li><i class="fa fa-recycle true"></i> Cleaning service available</li>';
+		sessionStorage.descServizi += '<li><i class="fa fa-recycle true"></i> Con servizio di pulizia</li>';
 	}else{
 		listaServizi += '<i class="fa fa-recycle fa-2x false"></i> ';
-		sessionStorage.descServizi += '<li><i class="fa fa-recycle false"></i> Cleaning service NOT available</li>';
+		//sessionStorage.descServizi += '<li><i class="fa fa-recycle false"></i> Cleaning service NOT available</li>';
+		sessionStorage.descServizi += '<li><i class="fa fa-recycle false"></i> SENZA servizio di pulizia</li>';
 	}
 	if(fenced_area){
 		listaServizi += '<i class="fa fa-signal fa-2x true"></i> ';
-		sessionStorage.descServizi += '<li><i class="fa fa-signal true"></i> This park is fenced</li>';
+		//sessionStorage.descServizi += '<li><i class="fa fa-signal true"></i> This park is fenced</li>';
+		sessionStorage.descServizi += '<li><i class="fa fa-signal true"></i> Recintato</li>';
 	}else{
 		listaServizi += '<i class="fa fa-signal fa-2x false"></i> ';
-		sessionStorage.descServizi += '<li><i class="fa fa-signal false"></i> This park is NOT fenced</li>';
+		//sessionStorage.descServizi += '<li><i class="fa fa-signal false"></i> This park is NOT fenced</li>';
+		sessionStorage.descServizi += '<li><i class="fa fa-signal false"></i> NON recintato</li>';
 	}
 	if(toilette){
 		listaServizi += '<i class="fa fa-female fa-2x true"></i> ';
-		sessionStorage.descServizi += '<li><i class="fa fa-female true"></i> Toilettes available</li>';
+		//sessionStorage.descServizi += '<li><i class="fa fa-female true"></i> Toilettes available</li>';
+		sessionStorage.descServizi += '<li><i class="fa fa-female true"></i> Con toilettes</li>';
 	}else{
 		listaServizi += '<i class="fa fa-female fa-2x false"></i> ';
-		sessionStorage.descServizi += '<li><i class="fa fa-female false"></i> Toilettes NOT available</li>';
+		//sessionStorage.descServizi += '<li><i class="fa fa-female false"></i> Toilettes NOT available</li>';
+		sessionStorage.descServizi += '<li><i class="fa fa-female false"></i> SENZA toilettes</li>';
 	}
 	if(caffe){
 		listaServizi += '<i class="fa fa-beer fa-2x true"></i> ';
-		sessionStorage.descServizi += '<li><i class="fa fa-beer true"></i> Snack area available</li>';
+		//sessionStorage.descServizi += '<li><i class="fa fa-beer true"></i> Snack area available</li>';
+		sessionStorage.descServizi += '<li><i class="fa fa-beer true"></i> Dispone di area snack</li>';
 	}else{
 		listaServizi += '<i class="fa fa-beer fa-2x false"></i> ';
-		sessionStorage.descServizi += '<li><i class="fa fa-beer false"></i> Snack area NOT available</li>';
+		//sessionStorage.descServizi += '<li><i class="fa fa-beer false"></i> Snack area NOT available</li>';
+		sessionStorage.descServizi += '<li><i class="fa fa-beer false"></i> NON dispone di area snack</li>';
 	}
 	if(universally_accessible){
 		listaServizi += '<i class="fa fa-wheelchair fa-2x true"></i>';
-		sessionStorage.descServizi += '<li><i class="fa fa-wheelchair true"></i> Handicap accessible</li>';
+		//sessionStorage.descServizi += '<li><i class="fa fa-wheelchair true"></i> Handicap accessible</li>';
+		sessionStorage.descServizi += '<li><i class="fa fa-wheelchair true"></i> Accessibile a portatori di handicap</li>';
 	}else{
 		listaServizi += '<i class="fa fa-wheelchair fa-2x false"></i>';
-		sessionStorage.descServizi += '<li><i class="fa fa-wheelchair false"></i> Physical obstacles - Handicap NOT accessible</li>';
+		//sessionStorage.descServizi += '<li><i class="fa fa-wheelchair false"></i> Physical obstacles - Handicap NOT accessible</li>';
+		sessionStorage.descServizi += '<li><i class="fa fa-wheelchair false"></i> Con barriere architettoniche - NON accessibile a portatori di handicap</li>';
 	}
 
 	return listaServizi;
@@ -315,7 +335,8 @@ function getStelline(evaluation){
 	        stelline = '<b>5/5</b> <i class="fa fa-star fa-2x"></i><i class="fa fa-star fa-2x"></i><i class="fa fa-star fa-2x"></i><i class="fa fa-star fa-2x"></i><i class="fa fa-star fa-2x"></i>';
 	        break;
 	    default:
-	    	stelline = 'Rate not available';
+	    	//stelline = 'Rate not available';
+	    	stelline = 'Voto non disponibile';
 	}
 
 	return stelline;

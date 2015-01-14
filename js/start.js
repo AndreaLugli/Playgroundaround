@@ -5,8 +5,6 @@ document.addEventListener('deviceready', partenza, true);
 //AL CARICAMENTO DELLA PAGINA
 function partenza()
 {	
-	$.support.cors = true;
-
 	window.onerror = function (message, file, line) {
     	alert("Error in Application: " +
 	        message + ". Source File: " + file + ", Line: " + line);
