@@ -50,9 +50,9 @@ hr{
 	height:25pt;
 	position:fixed;
 	width:100%;
-	/*border-bottom:1pt solid #27c39e;*/
 }
-.navbar img{
+#logoNav img{
+/*.navbar img{*/
 	height:25pt;
 	margin-top: -5pt;
 }
@@ -253,11 +253,6 @@ hr{
 	font-size:x-large;
 }
 /****************foto*/
-#galleriaTiny{
-	clear:both;
-	width:100%;
-	padding: 0 5% 3% 5%;
-}
 .big{
 	width:50%;
 	margin:2%;
@@ -272,6 +267,11 @@ hr{
 	margin-top:20pt;
 	width:15%;
 	margin: 0 1.5%;
+}
+.spacing{
+	clear:both;
+	width:100%;
+	padding:1%;
 }
 /****************info*/
 #parcoInfo{

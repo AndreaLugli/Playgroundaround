@@ -17,24 +17,32 @@ function partenza()
 
 
 /*********************STRUTTURA*/
-function pop()
+function pop(page)
 {
-	navbarPop();
+	//page: 'home' per la pagina index.html o 'back' per tutte le altre
+	navbarPop(page);
 	footerPop();
 }
 
-function navbarPop()
+function navbarPop(page)
 {
 	$('body').prepend('<nav class="navbar navbar-inverse navbar-static-top" role="navigation">'+
           '<div class="container">'+
             '<div class="navbar-header">'+
-              '<a class="navbar-brand" href="index.html">'+
+              '<a id="logoNav" class="navbar-brand" href="index.html">'+
                 '<img alt="brand" src="./img/logo.png">'+
               '</a>'+
               '<button type="button" class="btn navbar-btn" onClick="window.location=\'aggiungi.html\'">Inserisci</button>'+
             '</div>'+
           '</div>'+
         '</nav>');
+
+	//se non sono in home-page modifico il tasto della navbar
+	if(page != 'home')
+	{
+		$('#logoNav').attr('href', 'javascript:history.go(-1);');
+		$('#logoNav img').attr('src', './img/back2.png');
+	}
 }
 
 function footerPop()

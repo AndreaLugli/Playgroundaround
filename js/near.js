@@ -2,7 +2,7 @@
 //onload pagina
 function openVicini()
 {
-	pop();
+	pop('back');
 	listaVicini('min');
 	switchOn();
 }
@@ -11,10 +11,10 @@ function listaVicini(distanza)
 	distanza = distanza;
 
 	if(distanza == 'min'){
-		distanza = 1;
+		distanza = 5;
 	}
 	else if(distanza == 'max'){
-		distanza = 10;
+		distanza = 15;
 	}
 
 	//get lista parchi vicini
@@ -135,7 +135,7 @@ function getImgParco(){
 		$('#galleria img:nth-of-type(4)').addClass("small");
 		$('#galleria img:nth-of-type(5)').addClass("small");
 
-		$('#galleria img:nth-of-type(6)').before('<div id="galleriaTiny">');
+		$('#galleria img:nth-of-type(6)').before('<div class="spacing"></div>');
 
 		$('#galleria img:nth-of-type(6)').addClass("tiny");
 		$('#galleria img:nth-of-type(7)').addClass("tiny");
@@ -143,7 +143,7 @@ function getImgParco(){
 		$('#galleria img:nth-of-type(9)').addClass("tiny");
 		$('#galleria img:nth-of-type(10)').addClass("tiny");
 
-		//$('#galleria img:last-child').after('</div>');
+		$('#galleria img:last-of-type').after('<div class="spacing"></div>');
 
 		modalImg();
 

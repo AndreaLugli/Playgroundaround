@@ -46,7 +46,7 @@ function initialize_map_generica(lati, longi)
 //parchi vicini su mappa
 function mappaVicini()
 {
-	distanza = 5;
+	distanza = 25;
 
 	$.ajaxSetup({ cache: false });
 	$.ajax({
