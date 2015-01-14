@@ -26,7 +26,7 @@ html, body {
 	font-size:medium;
 }
 b{
-	font-family: OpenSans-Bold,;
+	font-family: OpenSans-Bold;
 	font-size:medium;
 }
 a, a:hover, a:visited, button{ 
@@ -128,23 +128,23 @@ hr{
 	text-decoration:none;
 }
 .block img{
-	height:100%;
+	height:65%;
 }
 .blo1{
 	/*background-color:#912A62;*/
-	background-color:#942d74;
+	background:#942d74 url('../img/1_near.png') center center no-repeat;
 }
 .blo2{
 	/*background-color:#2D912A;*/
-	background-color:#428c7d;
+	background:#428c7d url('../img/2_search.png') center center no-repeat;
 }
 .blo3{
 	/*background-color:#DE56A0;*/
-	background-color:#9bcc5f;
+	background:#9bcc5f url('../img/3_map.png') center center no-repeat;
 }
 .blo4{
 	/*background-color:#319FAB;*/
-	background-color:#e45141;
+	background:#e45141 url('../img/4_best.png') center center no-repeat;
 }
 
 
@@ -229,7 +229,6 @@ hr{
 }
 .servizi i{
 	font-size:large;
-	margin:0 1pt;
 }
 .true{
 	color:#31C331;
