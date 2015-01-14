@@ -24,7 +24,7 @@ function pop(page)
 
 function navbarPop(page)
 {
-	$('body').prepend('<nav class="navbar navbar-inverse navbar-static-top" role="navigation">'+
+	$('body').prepend('<nav id="navbar" class="navbar navbar-inverse navbar-static-top" role="navigation">'+
           '<div class="container">'+
             '<div class="navbar-header">'+
               '<a id="logoNav" class="navbar-brand" href="index.html">'+

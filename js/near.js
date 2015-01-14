@@ -203,18 +203,27 @@ function appendParco(data){
 	//rating
 	$('#parcoInfo div:nth-of-type(3)').html(voto2);
 
-	//descrizione
-	descEng = data.description_en;
-	if(descEng < 2){
-		descEng = 'not available'
+
+	$('#articolo').html('<p id="descIta"><img class="flag" src="img/flag_ita.png" />'+data.description+'</p><p id="descEng" style="display:none;"><img class="flag" src="img/flag_eng.png" />'+data.description_en+'</p>');
+
+	if(data.description_en.length > 2){
+		$('#articolo').append('<a id="clickEng" href="javascript:clickEng();">English version available ></a><a id="clickIta" style="display:none;" href="javascript:clickIta();">Back to italian version ></a>');
 	}
 
-	$('#articolo').html('<p><b>ITA</b> '+data.description+'</p><p><b>ENG</b> '+descEng+'</p>');
-	
 	modalServizi();
 
 	$('#loader').hide();
 }
+//traduzione descrizione
+function clickEng(){
+	$('#descIta, #clickEng').hide();
+	$('#descEng, #clickIta').show();
+}
+function clickIta(){
+	$('#descEng, #clickIta').hide();
+	$('#descIta, #clickEng').show();
+}
+
 //rende cliccabili le icone
 function modalServizi(){
 	$("#modalServizi .modal-body ul").html(sessionStorage.descServizi);
