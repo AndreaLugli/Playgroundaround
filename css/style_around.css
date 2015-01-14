@@ -29,17 +29,22 @@ b{
 	font-family: OpenSans-Bold;
 	font-size:medium;
 }
-a, a:hover, a:visited, button{ 
-	text-decoration:none;
-	font-weight:900;
-	text-transform:uppercase;
-}
 hr{
 	border:none;
 	height:1px;
 	color:white;
 	background-color:red;
 	margin:0;
+}
+/*bottoni e link*/
+a, a:hover, a:visited, button{ 
+	text-decoration:none;
+	font-weight:900;
+	text-transform:uppercase;
+}
+.play, .play:hover, .play:focus{
+	background-color:#f7f4ed;
+	color:#27c39e;
 }
 
 /***********************************STRUTTURA*/
@@ -62,12 +67,7 @@ hr{
 .navbar button{
 	float:right;
 	margin:5pt;
-	background-color:#f7f4ed;
 	border:1pt solid #27c39e;
-	font-weight:bold;
-}
-.navbar button, .navbar button:hover{
-	color:#27c39e;
 }
 
 #container, #containerMappa{
@@ -93,7 +93,6 @@ hr{
 #footer a{
 	color:#27c39e;
 	font-size:small;
-	text-transform: uppercase;
 }
 
 /***********************************INDEX*/
@@ -173,7 +172,6 @@ hr{
 	margin-bottom:5pt;
 	background-color:#27c39e;
 	color:#f7f4ed;
-	text-decoration:none;
 }
 .parco:last-of-type{
 	margin-bottom:18pt;
@@ -208,11 +206,15 @@ hr{
 	display:block;
 	font-size:small;
 	line-height:10pt;
+	text-transform:none;
+	font-weight: normal;
 }
 .orario{
 	display:block;
 	font-size:small;
 	line-height:10pt;
+	text-transform:none;
+	font-weight: normal;
 }
 .voto{
 	display:block;

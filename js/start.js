@@ -30,7 +30,7 @@ function navbarPop(page)
               '<a id="logoNav" class="navbar-brand" href="index.html">'+
                 '<img alt="brand" src="./img/logo.png">'+
               '</a>'+
-              '<button type="button" class="btn navbar-btn" onClick="window.location=\'aggiungi.html\'">Inserisci</button>'+
+              '<button type="button" class="btn navbar-btn play" onClick="window.location=\'aggiungi.html\'">Inserisci</button>'+
             '</div>'+
           '</div>'+
         '</nav>');

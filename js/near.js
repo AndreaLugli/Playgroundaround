@@ -48,13 +48,13 @@ function appendVicini(data)
 		target = jsonVicini[i].age_min+' - '+jsonVicini[i].age_max+' anni';
 		if(jsonVicini[i].age_min == 0 && jsonVicini[i].age_max == 0){
 			//target = 'not available';
-			target = '-';
+			target = 'non disponibile';
 		}
 
 		opening = jsonVicini[i].opening_hours;
 		if(opening.length < 2){
 			//opening = 'not available';
-			opening = '-';
+			opening = 'non disponibile';
 		}
 
 		listaParchiVicini += '<a class="parco" href="javascript:apriParco('+jsonVicini[i].id+');">'+
@@ -211,7 +211,7 @@ function appendParco(data){
 	$('#articolo').html('<p id="descIta"><img class="flag" src="img/flag_ita.png" />'+data.description+'</p><p id="descEng" style="display:none;"><img class="flag" src="img/flag_eng.png" />'+data.description_en+'</p>');
 
 	if(data.description_en.length > 2){
-		$('#articolo').append('<button id="clickEng" class="btn bnt-sm" onClick="clickEng();">English version available</button><button id="clickIta" class="btn bnt-sm" style="display:none;" onClick="clickIta();">Back to italian version</button>');
+		$('#articolo').append('<button id="clickEng" class="btn bnt-sm play" onClick="clickEng();">English version</button><button id="clickIta" class="btn bnt-sm play" style="display:none;" onClick="clickIta();">Versione italiana</button>');
 	}
 
 	modalServizi();
