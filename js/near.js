@@ -44,14 +44,17 @@ function appendVicini(data)
 			anteprima = indirizzo+'/'+jsonVicini[i].anteprima_path;
 		}
 		
-		target = jsonVicini[i].age_min+' - '+jsonVicini[i].age_max+' years';
+		//target = jsonVicini[i].age_min+' - '+jsonVicini[i].age_max+' years';
+		target = jsonVicini[i].age_min+' - '+jsonVicini[i].age_max+' anni';
 		if(jsonVicini[i].age_min == 0 && jsonVicini[i].age_max == 0){
-			target = 'not available';
+			//target = 'not available';
+			target = '-';
 		}
 
 		opening = jsonVicini[i].opening_hours;
 		if(opening.length < 2){
-			opening = 'not available';
+			//opening = 'not available';
+			opening = '-';
 		}
 
 		listaParchiVicini += '<a class="parco" href="javascript:apriParco('+jsonVicini[i].id+');">'+
@@ -346,7 +349,7 @@ function getStelline(evaluation){
 	        break;
 	    default:
 	    	//stelline = 'Rate not available';
-	    	stelline = 'Voto non disponibile';
+	    	stelline = 'NO VOTI';
 	}
 
 	return stelline;
