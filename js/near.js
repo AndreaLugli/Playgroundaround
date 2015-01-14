@@ -75,6 +75,7 @@ function appendVicini(data)
 		listaParchiVicini = '<div class="alert">Ooooops! Non ci sono parchi vicino a te, ti trovi per caso nel deserto? :( </div>';
 	}
 	$('#parchiVicini').html(listaParchiVicini);
+	$('#interruttore').show();
 }
 
 //scelta distanza
@@ -179,7 +180,7 @@ function getInfoParco(){
 function appendParco(data){
 	getMappaParco(data.latitude.toFixed(3), data.longitude.toFixed(3));
 
-	$('#parcoAperto h3').html(data.name);
+	$('#parcoAperto h3').html('«'+data.name+'»');
 
 	servizi2 = getServizi(data.picnic, data.parking, data.cleaning, data.fenced_area, data.toilette, data.caffe, data.universally_accessible);
 	voto2 = getStelline(data.evaluation);
@@ -207,7 +208,7 @@ function appendParco(data){
 	$('#articolo').html('<p id="descIta"><img class="flag" src="img/flag_ita.png" />'+data.description+'</p><p id="descEng" style="display:none;"><img class="flag" src="img/flag_eng.png" />'+data.description_en+'</p>');
 
 	if(data.description_en.length > 2){
-		$('#articolo').append('<a id="clickEng" href="javascript:clickEng();">English version available ></a><a id="clickIta" style="display:none;" href="javascript:clickIta();">Back to italian version ></a>');
+		$('#articolo').append('<button id="clickEng" class="btn bnt-sm" onClick="clickEng();">English version available</button><button id="clickIta" class="btn bnt-sm" style="display:none;" onClick="clickIta();">Back to italian version</button>');
 	}
 
 	modalServizi();
