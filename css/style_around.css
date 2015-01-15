@@ -113,7 +113,11 @@ a, a:hover, a:visited, button{
 
 #header{
 	height:50%;
-	background: #27c39e url('../img/bologna.jpg') center center no-repeat;
+	/*background: #27c39e url('../img/bologna.jpg') center center no-repeat;*/
+	background-color: #27c39e;
+	background-image:url('../img/bologna.jpg');
+	background-position: center center;
+	background-repeat: no-repeat;
 	border-bottom:5pt solid #27c39e;
 	margin:0;
 	padding:0;

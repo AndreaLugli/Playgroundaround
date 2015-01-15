@@ -68,33 +68,60 @@ function handle_localize(position)
 	sessionStorage.lat = position.coords.latitude.toFixed(3);
 	sessionStorage.longi = position.coords.longitude.toFixed(3);
 
-	$('#cortina').hide();
+	getCover();
 
-	resolution();
+	$('#cortina').hide();
 
 	//alert('Ti trovi a: LATI:'+sessionStorage.lat+' LONGI:'+sessionStorage.longi);
 }
 
-/*function getCover(){
+//get copertina della città più vicina
+function getCover()
+{
+	resolution();
 
 	$.ajaxSetup({ cache: false });
 	$.ajax({
 		type: 'GET',
-		url: indirizzo+'/get_copertina?lat='+sessionStorage.lat+'&lng='+sessionStorage.longi,		
+		url: indirizzo+'/get_copertina?lat='+sessionStorage.lat+'&lng='+sessionStorage.longi,
+		//url: indirizzo+'/get_copertina?lat=44.495&lng=1.35',	
 		success: appendCover,
 		error: errorHandler
 	});
 }
-function appendCover(data){
+function appendCover(data)
+{
+	//alert(data.small_path+' '+data.big_path);
 
-}*/
+	//img di default - da sostiutire
+	imgPath = '../img/bologna.jpg';
+
+	//se non ho copertine entro 20km
+	if(data != 'no_copertina')
+	{
+		//scelgo risoluzione copertina
+		if(sessionStorage.deviceHeight <= 1000)
+		{
+			//200px × 130px ????
+			imgPath = data.small_path;
+		}
+		else
+		{
+			imgPath = data.big_path;
+		}
+	}
+
+	$('#header').css('background-image','url('+indirizzo+imgPath+')');
+	//alert(indirizzo+imgPath);
+
+}
 
 /*********************RISOLUZIONE*/
 function resolution(){
 	sessionStorage.deviceWidth = screen.width;
 	sessionStorage.deviceHeight = screen.height;
 
-	alert('Risoluzione screen: '+sessionStorage.deviceWidth+' '+sessionStorage.deviceHeight);
+	//alert('Risoluzione screen: '+sessionStorage.deviceWidth+' '+sessionStorage.deviceHeight);
 }
 
 /*****************ERRORI*/
