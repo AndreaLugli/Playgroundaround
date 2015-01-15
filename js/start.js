@@ -70,12 +70,36 @@ function handle_localize(position)
 
 	$('#cortina').hide();
 
+	resolution();
 
 	//alert('Ti trovi a: LATI:'+sessionStorage.lat+' LONGI:'+sessionStorage.longi);
 }
-function error_localize(){}
+
+/*function getCover(){
+
+	$.ajaxSetup({ cache: false });
+	$.ajax({
+		type: 'GET',
+		url: indirizzo+'/get_copertina?lat='+sessionStorage.lat+'&lng='+sessionStorage.longi,		
+		success: appendCover,
+		error: errorHandler
+	});
+}
+function appendCover(data){
+
+}*/
+
+/*********************RISOLUZIONE*/
+function resolution(){
+	sessionStorage.deviceWidth = screen.width;
+	sessionStorage.deviceHeight = screen.height;
+
+	alert('Risoluzione screen: '+sessionStorage.deviceWidth+' '+sessionStorage.deviceHeight);
+}
 
 /*****************ERRORI*/
+
+function error_localize(){}
 
 function errorHandler(xhr, textStatus, thrownError)
 {
