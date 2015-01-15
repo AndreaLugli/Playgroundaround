@@ -73,6 +73,6 @@ function appendMappa(data)
     	longitude = item.longitude;
 
     	var parchetto = L.marker([latitude, longitude], {icon: greenIcon}).addTo(map1);
-    	parchetto.bindPopup("<button class='btn btn-sm play' onClick='apriParco("+item.id+")'>"+item.name+"</button>");
+    	parchetto.bindPopup("<button class='btn btn-sm around' onClick='apriParco("+item.id+")'>"+item.name+"</button>");
 	});
 }

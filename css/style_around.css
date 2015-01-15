@@ -45,6 +45,12 @@ a, a:hover, a:visited, button{
 .play, .play:hover, .play:focus{
 	background-color:#f7f4ed;
 	color:#27c39e;
+	font-weight:bold;
+}
+.around, .around:hover, .around:focus{
+	background-color:#27c39e;
+	color:#f7f4ed;
+	font-weight:bold;
 }
 
 /***********************************STRUTTURA*/
@@ -167,7 +173,7 @@ a, a:hover, a:visited, button{
 
 .parco, .parco:hover, .parco:visited, .parco:focus{
 	display:block;
-	height:100pt;
+	height:110pt;
 	width:100%;
 	margin-bottom:5pt;
 	background-color:#27c39e;
@@ -188,7 +194,7 @@ a, a:hover, a:visited, button{
 .desc{
 	display:block;
 	margin:2pt;
-	height:100pt;
+	height:110pt;
 	line-height:20pt;
 	overflow-y:hidden;
 	background: url("../img/click.png") no-repeat right 2pt center;
@@ -225,7 +231,7 @@ a, a:hover, a:visited, button{
 .servizi{
 	display:block;
 	background-color:white;
-	margin:0 10%;
+	margin:0 7%;
 	border-radius:10pt;
 	text-align:center;
 }
@@ -295,11 +301,16 @@ a, a:hover, a:visited, button{
 #parcoInfo div:nth-of-type(2) span{
 	display:block;
 }
+#parcoInfo div:nth-of-type(3){
+	padding:0;
+	margin:-2pt;
+}
 #parcoInfo div:nth-of-type(3) i {	/*rating*/
 	margin-top:-5pt;
 }
 #parcoInfo div:nth-of-type(3) b{
 	font-size:xx-large;
+	font-weight:normal;
 	margin-right:5pt;
 }
 /*****************articolo*/

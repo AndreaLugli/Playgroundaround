@@ -64,7 +64,7 @@ function appendVicini(data)
 			                        //'<span class="eta">TARGET: '+target+'</span>'+
 			                        //'<span class="orario">OPENING: '+opening+'</span>'+
 			                        '<span class="eta">ETÀ: '+target+'</span>'+
-			                        '<span class="orario">ORARI: '+opening+'</span>'+
+			                        '<span class="orario">ORARIO: '+opening+'</span>'+
 			                        '<span class="voto">'+voto+'</span>'+
 			                        '<span class="servizi">'+servizi+'</span>'+
 			                    '</span>'+
@@ -349,7 +349,7 @@ function getStelline(evaluation){
 	        break;
 	    default:
 	    	//stelline = 'Rate not available';
-	    	stelline = 'NO VOTI';
+	    	stelline = '<i class="fa fa-star-o fa-2x"></i><i class="fa fa-star-o fa-2x"></i><i class="fa fa-star-o fa-2x"></i><i class="fa fa-star-o fa-2x"></i><i class="fa fa-star-o fa-2x"></i>';
 	}
 
 	return stelline;
