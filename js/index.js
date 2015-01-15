@@ -21,7 +21,6 @@ var app = {
         this.bindEvents();
         
         localize();
-        getCover();
     },
     
     bindEvents: function() {

@@ -318,7 +318,7 @@ a, a:hover, a:visited, button{
 	line-height:32pt;
 	font-weight:normal;
 	margin:0;
-	margin-right:5pt;
+	margin:0 5pt;
 }
 #parcoInfo div:nth-of-type(3) i{
 	line-height:32pt;
