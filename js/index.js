@@ -19,7 +19,9 @@
 var app = {
     initialize: function() {
         this.bindEvents();
+        
         localize();
+        getCover();
     },
     
     bindEvents: function() {

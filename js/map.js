@@ -8,6 +8,8 @@ function getMappaParco(lati, longi)
 	    attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
 	}).addTo(map);
 
+	map.dragging.disable();
+
 	//poi
 	L.marker([lati, longi]).addTo(map)
 	    //.bindPopup('<p style="font-size:small">The park in here</p>');
