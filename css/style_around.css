@@ -31,10 +31,10 @@ b{
 }
 hr{
 	border:none;
-	height:1px;
-	color:white;
-	background-color:red;
-	margin:0;
+	height:1pt;
+	color:#27c39e;
+	background-color:#27c39e;
+	margin:3pt;
 }
 /*bottoni e link*/
 a, a:hover, a:visited, button{ 
@@ -281,10 +281,13 @@ a, a:hover, a:visited, button{
 	width:15%;
 	margin: 0 1.5%;
 }
-.spacing{
+.spacing, .maxiSpacing{
 	clear:both;
 	width:100%;
 	padding:1%;
+}
+.maxiSpacing{
+	padding:3%;
 }
 /****************info*/
 #parcoInfo{
@@ -296,29 +299,32 @@ a, a:hover, a:visited, button{
 }
 #parcoInfo div{
 	width:100%;
-	padding:1%;
-	margin:0;
+	padding:0;
+	margin:2%;
 	clear:both;
 }
-#parcoInfo div:nth-of-type(2){	/*target e opening*/
-	border-top:2pt solid #27c39e;
-	border-bottom:2pt solid #27c39e;
-}
+/*#parcoInfo div:nth-of-type(2){
+	border-top:1pt solid #27c39e;
+	border-bottom:1pt solid #27c39e;
+}*/
 #parcoInfo div:nth-of-type(2) span{
 	display:block;
 }
 #parcoInfo div:nth-of-type(3){
-	padding:0;
 	margin:-2pt;
-}
-#parcoInfo div:nth-of-type(3) i {	/*rating*/
-	margin-top:-5pt;
 }
 #parcoInfo div:nth-of-type(3) b{
 	font-size:xx-large;
+	line-height:32pt;
 	font-weight:normal;
+	margin:0;
 	margin-right:5pt;
 }
+#parcoInfo div:nth-of-type(3) i{
+	line-height:32pt;
+	margin:0;
+}
+
 /*****************articolo*/
 #articolo{
 	max-height:200pt;
