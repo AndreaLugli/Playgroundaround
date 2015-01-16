@@ -117,6 +117,7 @@ function appendCover(data)
 
 	$('#header').css('background-image','url('+indirizzo+sessionStorage.imgPath+')');
 	$('#header h2').html(sessionStorage.headTitle);
+	$('#header h2').show();
 	//alert(indirizzo+imgPath);
 
 }
