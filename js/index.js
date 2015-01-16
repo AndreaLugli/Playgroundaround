@@ -19,8 +19,15 @@
 var app = {
     initialize: function() {
         this.bindEvents();
-        
-        localize();
+
+        if(sessionStorage.lat && sessionStorage.imgPath)
+        {
+            $('#header').css('background-image','url('+indirizzo+sessionStorage.imgPath+')');
+            $('#cortina').hide();
+
+        }else{
+            localize();
+        }
     },
     
     bindEvents: function() {

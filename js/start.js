@@ -30,7 +30,8 @@ function navbarPop(page)
               '<a id="logoNav" class="navbar-brand" href="index.html">'+
                 '<img alt="brand" src="./img/logo.png">'+
               '</a>'+
-              '<button type="button" class="btn navbar-btn play" onClick="window.location=\'aggiungi.html\'">Inserisci</button>'+
+              //'<button type="button" class="btn navbar-btn play" onClick="window.location=\'aggiungi.html\'">Inserisci</button>'+
+              '<button type="button" class="btn navbar-btn play" onClick="alert(\'prossimamente!\');">Inserisci</button>'+
             '</div>'+
           '</div>'+
         '</nav>');
@@ -81,19 +82,20 @@ function getCover()
 
 	$.ajaxSetup({ cache: false });
 	$.ajax({
-		type: 'GET',
-		url: indirizzo+'/get_copertina?lat='+sessionStorage.lat+'&lng='+sessionStorage.longi,
-		//url: indirizzo+'/get_copertina?lat=44.495&lng=1.35',	
+		type:'GET',
+		//url: indirizzo+'get_copertina?lat='+sessionStorage.lat+'&lng='+sessionStorage.longi,
+		url: 'http://app.playgroundaroundthecorner.it/get_copertina?lat='+sessionStorage.lat+'&lng='+sessionStorage.longi,
 		success: appendCover,
 		error: errorHandler
 	});
+
 }
 function appendCover(data)
 {
 	//alert(data.small_path+' '+data.big_path);
 
 	//img di default - da sostiutire
-	imgPath = '../img/bologna.jpg';
+	sessionStorage.imgPath = '../img/bologna.jpg';
 
 	//se non ho copertine entro 20km
 	if(data != 'no_copertina')
@@ -102,15 +104,15 @@ function appendCover(data)
 		if(sessionStorage.deviceHeight <= 1000)
 		{
 			//200px × 130px ????
-			imgPath = data.small_path;
+			sessionStorage.imgPath = data.small_path;
 		}
 		else
 		{
-			imgPath = data.big_path;
+			sessionStorage.imgPath = data.big_path;
 		}
 	}
 
-	$('#header').css('background-image','url('+indirizzo+imgPath+')');
+	$('#header').css('background-image','url('+indirizzo+sessionStorage.imgPath+')');
 	//alert(indirizzo+imgPath);
 
 }
