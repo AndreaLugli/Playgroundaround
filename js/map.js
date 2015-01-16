@@ -10,10 +10,21 @@ function getMappaParco(lati, longi)
 
 	map.dragging.disable();
 
-	//poi
-	L.marker([lati, longi]).addTo(map)
+	//icona personalizzata parchi
+	var greenIcon = L.icon({
+		iconUrl: 'img/poi.png',
+		iconAnchor:   [25, 41], // point of the icon which will correspond to marker's location
+		popupAnchor:  [-12.5, -35] // point from which the popup should open relative to the iconAnchor
+	});
+
+	//poi parco
+	L.marker([lati, longi], {icon: greenIcon}).addTo(map)
 	    //.bindPopup('<p style="font-size:small">The park in here</p>');
 	    .bindPopup('<p style="font-size:small">Questo è il parco</p>');	
+
+	//poi mia posizione
+	L.marker([sessionStorage.lat, sessionStorage.longi]).addTo(map)
+	.bindPopup('<p style="font-size:small">Ti trovi qui</p>');	
 }
 
 

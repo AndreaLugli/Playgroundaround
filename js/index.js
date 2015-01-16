@@ -23,6 +23,8 @@ var app = {
         if(sessionStorage.lat && sessionStorage.imgPath)
         {
             $('#header').css('background-image','url('+indirizzo+sessionStorage.imgPath+')');
+            $('#header h2').html(sessionStorage.headTitle);
+            
             $('#cortina').hide();
 
         }else{

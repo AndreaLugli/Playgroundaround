@@ -124,6 +124,14 @@ a, a:hover, a:visited, button{
 	margin:0;
 	padding:0;
 }
+#header h2{
+	width:100%;
+	position:absolute;
+	color:white;
+	text-align:center;
+	font-size:large;
+	text-transform:uppercase;
+}
 
 #page{
 	height:50%;

@@ -94,8 +94,9 @@ function appendCover(data)
 {
 	//alert(data.small_path+' '+data.big_path);
 
-	//img di default - da sostiutire
+	//img e testo di default - da sostiutire
 	sessionStorage.imgPath = '../img/bologna.jpg';
+	sessionStorage.headTitle = 'benvenuto';
 
 	//se non ho copertine entro 20km
 	if(data != 'no_copertina')
@@ -110,9 +111,12 @@ function appendCover(data)
 		{
 			sessionStorage.imgPath = data.big_path;
 		}
+
+		sessionStorage.headTitle = data.descrizione_it;
 	}
 
 	$('#header').css('background-image','url('+indirizzo+sessionStorage.imgPath+')');
+	$('#header h2').html(sessionStorage.headTitle);
 	//alert(indirizzo+imgPath);
 
 }
