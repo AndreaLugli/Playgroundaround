@@ -70,8 +70,6 @@ function handle_localize(position)
 	sessionStorage.longi = position.coords.longitude.toFixed(3);
 
 	getCover();
-	
-	$('#cortina').hide();
 
 	//alert('Ti trovi a: LATI:'+sessionStorage.lat+' LONGI:'+sessionStorage.longi);
 }
@@ -115,9 +113,11 @@ function appendCover(data)
 		sessionStorage.headTitle = data.descrizione_it;
 	}
 
-	$('#header').css('background-image','url('+indirizzo+sessionStorage.imgPath+')');
 	$('#header h2').html(sessionStorage.headTitle);
-	$('#header h2').show();
+	$('#header .imgCover').css('background-image','url('+indirizzo+sessionStorage.imgPath+')');
+	$('#header .imgCover').fadeIn('slow');
+
+	$('#cortina').hide();
 	//alert(indirizzo+imgPath);
 
 }

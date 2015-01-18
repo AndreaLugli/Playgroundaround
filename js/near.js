@@ -3,19 +3,11 @@
 function openVicini()
 {
 	pop('back');
-	listaVicini('min');
+	listaVicini(3);
 	switchOn();
 }
 function listaVicini(distanza)
 {
-	distanza = distanza;
-
-	if(distanza == 'min'){
-		distanza = 5;
-	}
-	else if(distanza == 'max'){
-		distanza = 15;
-	}
 
 	//get lista parchi vicini
 	$.ajaxSetup({ cache: false });
@@ -78,6 +70,7 @@ function appendVicini(data)
 		listaParchiVicini = '<div class="alert">Ooooops! Non ci sono parchi vicino a te, ti trovi per caso nel deserto? :( </div>';
 	}
 	$('#parchiVicini').html(listaParchiVicini);
+	$('#loader').hide();
 	$('#interruttore').show();
 }
 
@@ -88,15 +81,16 @@ function switchOn(){
 
 		$('#loader').show();
 
-		if(sessionStorage.switchato == "true")
+		if(sessionStorage.switchato == 'true')
 		{
-			listaVicini('min');
-			sessionStorage.switchato = "false";
+			sessionStorage.switchato = false;
+			listaVicini(3);
+			
 		}
 		else
 		{
-			listaVicini('max');
-			sessionStorage.switchato = "true";
+			sessionStorage.switchato = true;
+			listaVicini(10);
 		}
 
 	});

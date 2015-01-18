@@ -114,27 +114,35 @@ a, a:hover, a:visited, button{
 }
 
 #header{
+	position:relative;
 	height:50%;
 	/*background: #27c39e url('../img/bologna.jpg') center center no-repeat;*/
 	background-color: #27c39e;
+	margin:0;
+	padding:0;
+	border-bottom:5pt solid #27c39e;
+}
+#header .imgCover{
+	width:100%;
+	height:100%;
+	margin:0;
+	padding:0;
 	background-image:url('../img/bologna.jpg');
 	background-position: center top;
 	background-repeat: no-repeat;
-	border-bottom:5pt solid #27c39e;
-	margin:0;
-	padding:0;
+	background-size: 110% auto;
 }
 #header h2{
-	width:100%;
 	position:absolute;
+	bottom:1%;
+	width:100%;
 	color:white;
-	text-align:center;
 	font-size:large;
-	text-transform:uppercase;
-	background-color:#27c39e;
 	color: #f7f4ed;
-	padding:1%;
-	opacity:0.8;
+	text-transform:uppercase;
+	/*background-color:#27c39e;
+	padding:2%;
+	opacity:0.8;*/
 }
 
 #page{
@@ -142,6 +150,7 @@ a, a:hover, a:visited, button{
 }
 
 .block, .block:hover, .block:visited{
+	position:relative;
 	width:50%;
 	min-height:50%;
 	max-height:50%;
@@ -150,8 +159,12 @@ a, a:hover, a:visited, button{
 	padding:2pt;
 	text-decoration:none;
 }
-.block img{
-	height:65%;
+.block span{
+	position:absolute;
+	width:99%;
+	display:block;
+	bottom:10%;
+	font-weight:normal;
 }
 .blo1{
 	/*background-color:#912A62;*/
@@ -418,12 +431,14 @@ a, a:hover, a:visited, button{
     -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box;
 }
 .onoffswitch-inner:before {
-    content: "DISTANZA MIN";
+    /*content: "DISTANZA MIN";*/
+    content: "ENTRO 3KM";
     padding-left: 10px;
     background-color: #27C39E; color: #F7F4ED;
 }
 .onoffswitch-inner:after {
-    content: "DISTANZA MAX";
+    /*content: "DISTANZA MAX";*/
+    content: "ENTRO 10KM";
     padding-right: 10px;
     background-color: #F7F4ED; color: #27C39E;
     text-align: right;
