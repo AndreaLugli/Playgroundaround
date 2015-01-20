@@ -144,15 +144,15 @@ a, a:hover, a:visited, button{
 }
 #header h2{
 	position:absolute;
-	bottom:1%;
+	bottom:-8pt;
 	width:100%;
 	color:white;
 	font-size:x-large;
 	color: #f7f4ed;
 	text-transform:uppercase;
 	background-color:#27c39e;
-	padding:2%;
-	opacity:0.8;
+	padding:1%;
+	/*opacity:0.8;*/
 	font-weight:bold;
 	/*-webkit-text-stroke: 1px black;*/
 }
