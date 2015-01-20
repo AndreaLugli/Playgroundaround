@@ -120,7 +120,7 @@ a, a:hover, a:visited, button{
 	background-color: #27c39e;
 	margin:0;
 	padding:0;
-	border-bottom:5pt solid #27c39e;
+	border-bottom:3pt solid #27c39e;
 }
 #header .imgCover{
 	width:100%;
@@ -128,9 +128,9 @@ a, a:hover, a:visited, button{
 	margin:0;
 	padding:0;
 	background-image:url('../img/bologna.jpg');
-	background-position: center top;
+	background-position: center center;
 	background-repeat: no-repeat;
-	background-size: 110% auto;
+	background-size:cover;
 }
 #header h2{
 	position:absolute;

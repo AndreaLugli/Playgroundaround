@@ -92,10 +92,6 @@ function appendCover(data)
 {
 	//alert(data.small_path+' '+data.big_path);
 
-	//img e testo di default - da sostiutire
-	sessionStorage.imgPath = '../img/bologna.jpg';
-	sessionStorage.headTitle = 'benvenuto';
-
 	//se non ho copertine entro 20km
 	if(data != 'no_copertina')
 	{
@@ -103,18 +99,24 @@ function appendCover(data)
 		if(sessionStorage.deviceHeight <= 1000)
 		{
 			//200px × 130px ????
-			sessionStorage.imgPath = data.small_path;
+			sessionStorage.imgPath = indirizzo+data.small_path;
 		}
 		else
 		{
-			sessionStorage.imgPath = data.big_path;
+			sessionStorage.imgPath = indirizzo+data.big_path;
 		}
 
 		sessionStorage.headTitle = data.descrizione_it;
+		$('#header .imgCover').css('background-image','url('+sessionStorage.imgPath+')');
+	}
+	else{
+		//img e testo di default - da sostituire
+		//sessionStorage.imgPath = '../img/bologna.jpg';
+		//alert(sessionStorage.imgPath);
+		sessionStorage.headTitle = 'benvenuto';
 	}
 
 	$('#header h2').html(sessionStorage.headTitle);
-	$('#header .imgCover').css('background-image','url('+indirizzo+sessionStorage.imgPath+')');
 	$('#header .imgCover').fadeIn('slow');
 
 	$('#cortina').hide();
