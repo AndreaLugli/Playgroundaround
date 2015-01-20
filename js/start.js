@@ -134,11 +134,20 @@ function resolution(){
 
 /*****************ERRORI*/
 
-function error_localize(){}
+function error_localize()
+{
+	modalGPS();
+}
+function modalGPS()
+{
+	scrollAlto();
+	$('#attivaGPS').modal();
+}
 
 function errorHandler(xhr, textStatus, thrownError)
 {
 	alert("Errore "+xhr.status+" - "+textStatus);
+
 	/*console.log(xhr.status);
 	console.log(xhr.responseText);
 	console.log(textStatus);

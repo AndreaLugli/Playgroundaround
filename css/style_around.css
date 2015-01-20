@@ -142,7 +142,8 @@ a, a:hover, a:visited, button{
 	text-transform:uppercase;
 	/*background-color:#27c39e;
 	padding:2%;
-	opacity:0.8;*/
+	opacity:0.8;
+	font-weight:bold;*/
 }
 
 #page{
@@ -165,6 +166,7 @@ a, a:hover, a:visited, button{
 	display:block;
 	bottom:10%;
 	font-weight:normal;
+	font-size:small;
 }
 .blo1{
 	/*background-color:#912A62;*/
