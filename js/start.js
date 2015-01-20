@@ -29,6 +29,7 @@ function navbarPop(page)
             '<div class="navbar-header">'+
               '<a id="logoNav" class="navbar-brand" href="index.html">'+
                 '<img alt="brand" src="./img/logo.png">'+
+                '<span>Playground Around The Corner</span>'+
               '</a>'+
               //'<button type="button" class="btn navbar-btn play" onClick="window.location=\'aggiungi.html\'">Inserisci</button>'+
               '<button type="button" class="btn navbar-btn play" onClick="alert(\'prossimamente!\');">Inserisci</button>'+
@@ -107,20 +108,19 @@ function appendCover(data)
 		}
 
 		sessionStorage.headTitle = data.descrizione_it;
-		$('#header .imgCover').css('background-image','url('+sessionStorage.imgPath+')');
 	}
 	else{
-		//img e testo di default - da sostituire
-		//sessionStorage.imgPath = '../img/bologna.jpg';
-		//alert(sessionStorage.imgPath);
+	
 		sessionStorage.headTitle = 'benvenuto';
+		$('#header .imgCover').hide();
 	}
 
+	//setto l'immagine e titolo
+	$('#header .imgCover').css('background-image','url('+sessionStorage.imgPath+')');
 	$('#header h2').html(sessionStorage.headTitle);
-	$('#header .imgCover').fadeIn('slow');
 
+	$('#header .imgCover').fadeIn('slow');
 	$('#cortina').hide();
-	//alert(indirizzo+imgPath);
 
 }
 

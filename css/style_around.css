@@ -57,6 +57,10 @@ a, a:hover, a:visited, button{
 
 /***********************************STRUTTURA*/
 
+#navbar{
+	top:0;
+	z-index:99;
+}
 .navbar {
 	color:#27c39e !important;
 	background-color:#464646;
@@ -65,17 +69,23 @@ a, a:hover, a:visited, button{
 	position:fixed;
 	width:100%;
 }
-#navbar{
-	top:0;
-}
-#logoNav img{
-	height:25pt;
-	margin-top: -5pt;
-}
 .navbar button{
 	float:right;
 	margin:5pt;
 	border:1pt solid #27c39e;
+}
+#logoNav img{
+	height:25pt;
+	margin-top: -5pt;
+	display:inline;
+	margin-right:5pt;
+}
+#logoNav span{
+	font-size:small;
+	float:right;
+	display:inline;
+	text-transform: none;
+	color:white;
 }
 
 #container, #containerMappa{
@@ -116,8 +126,8 @@ a, a:hover, a:visited, button{
 #header{
 	position:relative;
 	height:50%;
-	/*background: #27c39e url('../img/bologna.jpg') center center no-repeat;*/
-	background-color: #27c39e;
+	background: #f6f4ec url('../img/segnaposto.png') center center no-repeat;
+	background-size: auto 30%;
 	margin:0;
 	padding:0;
 	border-bottom:3pt solid #27c39e;
@@ -127,7 +137,7 @@ a, a:hover, a:visited, button{
 	height:100%;
 	margin:0;
 	padding:0;
-	background-image:url('../img/bologna.jpg');
+	background-image:url('../img/segnaposto.png');
 	background-position: center center;
 	background-repeat: no-repeat;
 	background-size:cover;
@@ -137,13 +147,14 @@ a, a:hover, a:visited, button{
 	bottom:1%;
 	width:100%;
 	color:white;
-	font-size:large;
+	font-size:x-large;
 	color: #f7f4ed;
 	text-transform:uppercase;
-	/*background-color:#27c39e;
+	background-color:#27c39e;
 	padding:2%;
 	opacity:0.8;
-	font-weight:bold;*/
+	font-weight:bold;
+	/*-webkit-text-stroke: 1px black;*/
 }
 
 #page{
@@ -330,10 +341,10 @@ a, a:hover, a:visited, button{
 	margin:2%;
 	clear:both;
 }
-/*#parcoInfo div:nth-of-type(2){
-	border-top:1pt solid #27c39e;
-	border-bottom:1pt solid #27c39e;
-}*/
+
+#parcoInfo div:first-of-type i{
+	padding:2pt;
+}
 #parcoInfo div:nth-of-type(2) span{
 	display:block;
 }
@@ -376,6 +387,18 @@ a, a:hover, a:visited, button{
 	margin:5%;
 	margin-top:-3%;
 }
+/********************indirizzo*/
+#address{
+	background-color:#27c39e;
+	color:#f7f4ed;
+	padding: 2%;
+	font-size:small;
+}
+.accanto{
+	padding:3pt;
+}
+
+
 /*****************modal*/
 #modalServizi .modal-body{
 	text-align:left;
@@ -398,7 +421,6 @@ a, a:hover, a:visited, button{
 	color:#912A62;
 	height:150pt;
 	width:100%;
-	margin-bottom:40pt;
 }
 #map1{
 	background:#f7f4ed url('../img/loader.gif') no-repeat center center;
@@ -406,10 +428,14 @@ a, a:hover, a:visited, button{
 	height:100%;
 	margin-bottom:25pt;
 }
+.imgNuvoletta{
+	width:40pt;
+	margin-bottom:10pt;
+}
 
 /*************switch*/
 #interruttore{
-	padding-top:15pt;
+	padding:20pt 0;
 }
 .onoffswitch {
     position: relative; width: 200px;
@@ -468,8 +494,9 @@ a, a:hover, a:visited, button{
 	height:100%;
 	/*background-color:#428c7d;*/
 }
-#panel a{
+#panel p, #panel a{
 	color:white;
+	font-size:small;
 }
 #panel img{
 	margin:5%;
