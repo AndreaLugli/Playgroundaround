@@ -123,6 +123,7 @@ function appendCover(data)
 }
 //se abbiamo l'immagine di copertina la facciamo apparire
 function checkCover(){
+
 	if(sessionStorage.imgPath){
 		$('#header .imgCover').css('background-image','url('+sessionStorage.imgPath+')');
 		$('#header .imgCover').fadeIn('slow');
