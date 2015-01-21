@@ -54,14 +54,9 @@
     <gap:plugin name="org.apache.cordova.network-information" />
     <gap:plugin name="org.apache.cordova.splashscreen" />
 
-    <!-- Third party plugins -->
-    <!-- A list of available plugins are available at https://build.phonegap.com/plugins -->
-    <!--
-        <gap:plugin name="com.phonegap.plugins.barcodescanner" />
-    -->
-
     <!-- Define app icon for each platform. -->
-    <icon src="icon.png" />
+    <icon src="res/icon.png" />
+
     <icon src="www/res/icon/android/icon-36-ldpi.png"   gap:platform="android"    gap:qualifier="ldpi" />
     <icon src="www/res/icon/android/icon-48-mdpi.png"   gap:platform="android"    gap:qualifier="mdpi" />
     <icon src="www/res/icon/android/icon-72-hdpi.png"   gap:platform="android"    gap:qualifier="hdpi" />
@@ -78,13 +73,12 @@
     <gap:splash src="www/res/screen/android/screen-mdpi-portrait.png"       gap:platform="android" gap:qualifier="port-mdpi" />
     <gap:splash src="www/res/screen/android/screen-hdpi-portrait.png"       gap:platform="android" gap:qualifier="port-hdpi" />
     <gap:splash src="www/res/screen/android/screen-xhdpi-portrait.png"      gap:platform="android" gap:qualifier="port-xhdpi" />
-    <gap:splash src="www/res/screen/blackberry/screen-225.png"              gap:platform="blackberry" />
+    
     <gap:splash src="www/res/screen/ios/screen-iphone-portrait.png"         gap:platform="ios"     width="320" height="480" />
     <gap:splash src="www/res/screen/ios/screen-iphone-portrait-2x.png"      gap:platform="ios"     width="640" height="960" />
     <gap:splash src="www/res/screen/ios/screen-iphone-portrait-568h-2x.png" gap:platform="ios"     width="640" height="1136" />
     <gap:splash src="www/res/screen/ios/screen-ipad-portrait.png"           gap:platform="ios"     width="768" height="1024" />
     <gap:splash src="www/res/screen/ios/screen-ipad-landscape.png"          gap:platform="ios"     width="1024" height="768" />
-    <gap:splash src="www/res/screen/windows-phone/screen-portrait.jpg"      gap:platform="winphone" />
 
     <!--
         Define access to external domains.
