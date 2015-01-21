@@ -434,7 +434,13 @@ a, a:hover, a:visited, button{
 
 /*************switch*/
 #interruttore{
-	padding:20pt 0;
+	padding:20pt 0 5pt 0;
+}
+#contatoreParchi{
+	font-size:large;
+	color:#27c39e;
+	margin-top:10pt;
+	font-weight:bold;
 }
 .onoffswitch {
     position: relative; width: 200px;

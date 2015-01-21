@@ -3,6 +3,8 @@
 function openVicini()
 {
 	pop('back');
+	//l'interruttore quando ricarico la pagina deve essere sempre checkato
+	$('#myonoffswitch').prop('checked', true);
 	listaVicini(3);
 	switchOn();
 }
@@ -21,10 +23,12 @@ function listaVicini(distanza)
 function appendVicini(data)
 {
 	jsonVicini = data;
+
+	quantiParchi = jsonVicini.length;
 	
 	listaParchiVicini = '';
 
-	for( i=0; i < jsonVicini.length; i++ ){
+	for( i=0; i < quantiParchi; i++ ){
 
 		servizi = getServizi(jsonVicini[i].picnic, jsonVicini[i].parking, jsonVicini[i].cleaning, jsonVicini[i].fenced_area, jsonVicini[i].toilette, jsonVicini[i].caffe, jsonVicini[i].universally_accessible);
 		voto = getStelline(jsonVicini[i].evaluation);
@@ -70,18 +74,15 @@ function appendVicini(data)
 		listaParchiVicini = '<div class="alert">Ooooops! Non ci sono parchi vicino a te, ti trovi per caso nel deserto? :( </div>';
 	}
 	$('#parchiVicini').html(listaParchiVicini);
+	$('#contatoreParchi').html('Ci sono '+quantiParchi+' parchi');
+
 	$('#loader').hide();
+
 	$('#interruttore').show();
 }
 
 //scelta distanza
 function switchOn(){
-
-	//se ho già cliccato sull'interruttore e vado in un altra pagina
-	//se torno indietro lo trovo come lo avevo lasciato
-	if(sessionStorage.switchato == "true"){
-		$('#myonoffswitch').prop('checked', false);
-	}
 
 	$('#myonoffswitch').click(function() {
 
@@ -91,7 +92,6 @@ function switchOn(){
 		{
 			sessionStorage.switchato = false;
 			listaVicini(3);
-			
 		}
 		else
 		{
