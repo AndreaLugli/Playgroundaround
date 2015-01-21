@@ -127,10 +127,11 @@ function checkCover(){
 	if(sessionStorage.imgPath){
 		$('#header .imgCover').css('background-image','url('+sessionStorage.imgPath+')');
 		$('#header .imgCover').fadeIn('slow');
+		$('#cortina').hide();
 	}
 
 	$('#header h2').html(sessionStorage.headTitle);
-	$('#cortina').hide();
+	
 }
 
 /*********************RISOLUZIONE*/

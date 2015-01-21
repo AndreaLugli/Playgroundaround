@@ -77,6 +77,12 @@ function appendVicini(data)
 //scelta distanza
 function switchOn(){
 
+	//se ho già cliccato sull'interruttore e vado in un altra pagina
+	//se torno indietro lo trovo come lo avevo lasciato
+	if(sessionStorage.switchato == "true"){
+		$('#myonoffswitch').prop('checked', false);
+	}
+
 	$('#myonoffswitch').click(function() {
 
 		$('#loader').show();
@@ -200,6 +206,9 @@ function appendParco(data){
 	$('#parcoInfo div:nth-of-type(2)').html('<span>ETÀ: '+target2+'</span><span>ORARI: '+opening2+'</span>');
 	//rating
 	$('#parcoInfo div:nth-of-type(3)').html(voto2);
+
+	//nascosto - lo faccio apparire per estetica del caricamento
+	$('#parcoInfo').show();
 
 
 	$('#articolo').html('<p id="descIta"><img class="flag" src="img/flag_ita.png" />'+data.description+'</p><p id="descEng" style="display:none;"><img class="flag" src="img/flag_eng.png" />'+data.description_en+'</p>');

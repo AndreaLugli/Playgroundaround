@@ -176,6 +176,7 @@ a, a:hover, a:visited, button{
 	bottom:10%;
 	font-weight:normal;
 	font-size:small;
+	color:white;
 }
 .blo1{
 	/*background-color:#912A62;*/
@@ -197,15 +198,12 @@ a, a:hover, a:visited, button{
 
 /***********************************LOADER*/
 #loader{
-	background: #e4e3df url('../img/loader.gif') no-repeat center center;
+	background: #e4e3df url('../img/loader.gif') center center no-repeat;
 	position:absolute;
-	width:2%;
-}
-.centrato{	/*lista parchi*/
-	padding:46%;
-}
-.fixato{	/*parco aperto*/
-	padding:48%;
+	top:0;
+	left:0;
+	width:100%;
+	height:100%;
 }
 
 /************************************VICINI*/
@@ -398,6 +396,9 @@ a, a:hover, a:visited, button{
 
 
 /*****************modal*/
+.modal-body p{
+	text-align:justify;
+}
 #modalServizi .modal-body{
 	text-align:left;
 }
