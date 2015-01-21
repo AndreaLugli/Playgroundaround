@@ -42,7 +42,12 @@ function navbarPop(page)
 	{
 		$('#logoNav').attr('href', 'javascript:history.go(-1);');
 		$('#logoNav img').attr('src', './img/back2.png');
-	}
+	}/*else{
+		if(sessionStorage.headTitle == 'benvenuto'){
+
+		}
+
+	}*/
 }
 
 function footerPop()
@@ -106,22 +111,25 @@ function appendCover(data)
 		{
 			sessionStorage.imgPath = indirizzo+data.big_path;
 		}
-
+		
 		sessionStorage.headTitle = data.descrizione_it;
 	}
-	else{
-	
+	else
+	{	
 		sessionStorage.headTitle = 'benvenuto';
-		$('#header .imgCover').hide();
 	}
 
-	//setto l'immagine e titolo
-	$('#header .imgCover').css('background-image','url('+sessionStorage.imgPath+')');
+	checkCover();
+}
+//se abbiamo l'immagine di copertina la facciamo apparire
+function checkCover(){
+	if(sessionStorage.imgPath){
+		$('#header .imgCover').css('background-image','url('+sessionStorage.imgPath+')');
+		$('#header .imgCover').fadeIn('slow');
+	}
+
 	$('#header h2').html(sessionStorage.headTitle);
-
-	$('#header .imgCover').fadeIn('slow');
 	$('#cortina').hide();
-
 }
 
 /*********************RISOLUZIONE*/
