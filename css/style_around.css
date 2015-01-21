@@ -48,12 +48,6 @@ a, a:hover, a:visited, button{
 	color:#27c39e;
 	font-weight:bold;
 }
-/*classe bottone scritta bianca su sfondo celeste*/
-.around, .around:hover, .around:focus{
-	background-color:#27c39e;
-	color:#f7f4ed;
-	font-weight:bold;
-}
 
 /***********************************STRUTTURA*/
 
@@ -151,7 +145,7 @@ a, a:hover, a:visited, button{
 	background-color:#27c39e;
 	padding:1%;
 	font-weight:bold;
-	/*opacity:0.8;*/
+	opacity:0.9;
 	/*-webkit-text-stroke: 1px black;*/
 }
 
@@ -428,8 +422,16 @@ a, a:hover, a:visited, button{
 	margin-bottom:25pt;
 }
 .imgNuvoletta{
-	width:40pt;
+	width:60pt;
 	margin-bottom:10pt;
+}
+/*classe bottone scritta bianca su sfondo celeste*/
+.around, .around:hover, .around:focus{
+	background-color:#27c39e;
+	color:#f7f4ed;
+	font-weight:bold;
+	max-width:150pt;
+	overflow:hidden;
 }
 
 /*************switch*/

@@ -5,6 +5,9 @@ function openVicini()
 	pop('back');
 	//l'interruttore quando ricarico la pagina deve essere sempre checkato
 	$('#myonoffswitch').prop('checked', true);
+	//e la variabile azzerata
+	sessionStorage.switchato = '';
+
 	listaVicini(3);
 	switchOn();
 }
