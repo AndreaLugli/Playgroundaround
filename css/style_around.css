@@ -74,20 +74,21 @@ a, a:hover, a:visited, button{
 	display:inline;
 	margin-right:5pt;
 }
-/*#logoNav span{
-	font-size:small;
-	float:right;
-	display:inline;
-	text-transform: none;
-	color:white;
-}*/
 
-#container, #containerMappa{
-	height:97%;
+#container{
+	height:100%;
 	width:100%;
 	position:absolute;
 	top:0;
 	padding-top:35pt;
+}
+#containerMappa{
+	height:100%;
+	width:100%;
+	position:absolute;
+	top:0;
+	padding-top:35pt;
+	padding-bottom:25pt;
 }
 
 #bottom{
@@ -150,10 +151,12 @@ a, a:hover, a:visited, button{
 }
 
 #page{
-	height:48%;
+	height:49%;
+	padding-bottom:23pt;
+	background-color:#27c39e;
 }
 #underFooter{
-	height:2%;
+	height:1%;
 }
 
 .block, .block:hover, .block:visited{
