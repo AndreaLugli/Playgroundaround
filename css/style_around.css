@@ -74,13 +74,13 @@ a, a:hover, a:visited, button{
 	display:inline;
 	margin-right:5pt;
 }
-#logoNav span{
+/*#logoNav span{
 	font-size:small;
 	float:right;
 	display:inline;
 	text-transform: none;
 	color:white;
-}
+}*/
 
 #container, #containerMappa{
 	height:97%;
@@ -150,7 +150,10 @@ a, a:hover, a:visited, button{
 }
 
 #page{
-	height:50%;
+	height:48%;
+}
+#underFooter{
+	height:2%;
 }
 
 .block, .block:hover, .block:visited{

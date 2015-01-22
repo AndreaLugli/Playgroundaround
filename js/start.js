@@ -28,8 +28,8 @@ function navbarPop(page)
           '<div class="container">'+
             '<div class="navbar-header">'+
               '<a id="logoNav" class="navbar-brand" href="index.html">'+
-                '<img alt="brand" src="./img/logo.png">'+
-                '<span>Playground Around The Corner</span>'+
+                '<img alt="brand" src="./img/segnaposto_trasp.png">'+
+                //'<span>Playground Around The Corner</span>'+
               '</a>'+
               //'<button type="button" class="btn navbar-btn play" onClick="window.location=\'aggiungi.html\'">Inserisci</button>'+
               '<button type="button" class="btn navbar-btn play" onClick="alert(\'prossimamente!\');">Inserisci</button>'+
@@ -41,13 +41,8 @@ function navbarPop(page)
 	if(page != 'home')
 	{
 		$('#logoNav').attr('href', 'javascript:history.go(-1);');
-		$('#logoNav img').attr('src', './img/back2.png');
-	}/*else{
-		if(sessionStorage.headTitle == 'benvenuto'){
-
-		}
-
-	}*/
+		//$('#logoNav img').attr('src', './img/back2.png');
+	}
 }
 
 function footerPop()
