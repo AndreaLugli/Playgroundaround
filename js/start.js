@@ -121,7 +121,7 @@ function checkCover(){
 
 	if(sessionStorage.imgPath){
 		$('#header .imgCover').css('background-image','url('+sessionStorage.imgPath+')');
-		$('#header .imgCover').fadeIn('slow');
+		$('#header .imgCover').fadeIn(3000);
 		$('#cortina').hide();
 	}
 

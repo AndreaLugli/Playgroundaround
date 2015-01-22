@@ -40,7 +40,7 @@ function appendVicini(data)
 			anteprima = "img/not_available.png";
 		}
 		else{
-			anteprima = indirizzo+'/'+jsonVicini[i].anteprima_path;
+			anteprima = indirizzo+'/media/'+jsonVicini[i].anteprima_path;
 		}
 		
 		//target = jsonVicini[i].age_min+' - '+jsonVicini[i].age_max+' years';
@@ -132,7 +132,8 @@ function getImgParco(){
 		   
 		$.each(json, function(i, val)	//i: numero, val: valore
 		{
-			$('#galleria').append('<img src="'+val+'" onError="this.onerror=null;this.src=\'img/logo.jpg\';" />');
+			pathImgParcoAperto = indirizzo+'/media/'+val;
+			$('#galleria').append('<img src="'+pathImgParcoAperto+'" onError="this.onerror=null;this.src=\'img/logo.jpg\';" />');
 		});
 		  
 	})

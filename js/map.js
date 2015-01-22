@@ -96,7 +96,7 @@ function appendMappa(data)
 			anteprimina = "img/not_available_black.png";
 		}
 		else{
-			anteprimina = indirizzo+'/'+item.anteprima_path;
+			anteprimina = indirizzo+'/media/'+item.anteprima_path;
 		}
 
     	var parchetto = L.marker([latitude, longitude], {icon: greenIcon}).addTo(map1);
