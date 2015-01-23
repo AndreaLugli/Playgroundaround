@@ -120,8 +120,7 @@ function appendCover(data)
 function checkCover(){
 
 	if(sessionStorage.imgPath){
-		//$('#header .imgCover').css('background-image','url('+sessionStorage.imgPath+')');
-		$('#header .imgCover').css('background-image','url(./img/trento.jpg)');
+		$('#header .imgCover').css('background-image','url('+sessionStorage.imgPath+')');
 		
 		//gestione caricamento immagine cover
 		var img = new Image();
@@ -134,8 +133,7 @@ function checkCover(){
 
 	}
 
-	//$('#header h2').html(sessionStorage.headTitle);
-	$('#header h2').html('Trento');
+	$('#header h2').html(sessionStorage.headTitle);
 	
 }
 
