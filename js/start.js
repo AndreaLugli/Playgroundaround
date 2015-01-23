@@ -120,24 +120,22 @@ function appendCover(data)
 function checkCover(){
 
 	if(sessionStorage.imgPath){
-		$('#header .imgCover').css('background-image','url('+sessionStorage.imgPath+')');
+		//$('#header .imgCover').css('background-image','url('+sessionStorage.imgPath+')');
+		$('#header .imgCover').css('background-image','url(./img/trento.jpg)');
 		
-		// Create new image
+		//gestione caricamento immagine cover
 		var img = new Image();
-		 // Create var for image source
 		var imageSrc = sessionStorage.imgPath;
-		 // define what happens once the image is loaded.
 		img.onload = function() {
 		    $('#header .imgCover').fadeIn('slow');
 		    $('#cortina').hide();
 		};
-		  // Attach the source last. 
-		  // The onload function will now trigger once it's loaded.
 		img.src = imageSrc;
 
 	}
 
-	$('#header h2').html(sessionStorage.headTitle);
+	//$('#header h2').html(sessionStorage.headTitle);
+	$('#header h2').html('Trento');
 	
 }
 
