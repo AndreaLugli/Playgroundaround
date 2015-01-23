@@ -41,7 +41,7 @@ function navbarPop(page)
 	if(page != 'home')
 	{
 		$('#logoNav').attr('href', 'javascript:history.go(-1);');
-		//$('#logoNav img').attr('src', './img/back2.png');
+		$('#logoNav img').attr('src', './img/segnaposto_trasp_back.png');
 	}
 }
 

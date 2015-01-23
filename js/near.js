@@ -3,17 +3,10 @@
 function openVicini()
 {
 	pop('back');
-	//l'interruttore quando ricarico la pagina deve essere sempre checkato
-	$('#myonoffswitch').prop('checked', true);
-	//e la variabile azzerata
-	sessionStorage.switchato = '';
-
 	listaVicini(3);
-	switchOn();
 }
 function listaVicini(distanza)
 {
-
 	//get lista parchi vicini
 	$.ajaxSetup({ cache: false });
 	$.ajax({
@@ -44,16 +37,16 @@ function appendVicini(data)
 		}
 		
 		//target = jsonVicini[i].age_min+' - '+jsonVicini[i].age_max+' years';
-		target = jsonVicini[i].age_min+' - '+jsonVicini[i].age_max+' anni';
+		target = jsonVicini[i].age_min+'-'+jsonVicini[i].age_max+' anni';
 		if(jsonVicini[i].age_min == 0 && jsonVicini[i].age_max == 0){
 			//target = 'not available';
-			target = 'non disponibile';
+			target = '0-99 anni';
 		}
 
 		opening = jsonVicini[i].opening_hours;
 		if(opening.length < 2){
 			//opening = 'not available';
-			opening = 'non disponibile';
+			opening = '0-24';
 		}
 
 		listaParchiVicini += '<a class="parco" href="javascript:apriParco('+jsonVicini[i].id+');">'+
@@ -77,33 +70,26 @@ function appendVicini(data)
 		listaParchiVicini = '<div class="alert">Ooooops! Non ci sono parchi vicino a te, ti trovi per caso nel deserto? :( </div>';
 	}
 	$('#parchiVicini').html(listaParchiVicini);
-	$('#contatoreParchi').html('Ci sono '+quantiParchi+' parchi');
+	$('#contatoreParchi').html(quantiParchi+' parchi trovati');
 
 	$('#loader').hide();
 
 	$('#interruttore').show();
 }
-
-//scelta distanza
-function switchOn(){
-
-	$('#myonoffswitch').click(function() {
-
-		$('#loader').show();
-
-		if(sessionStorage.switchato == 'true')
-		{
-			sessionStorage.switchato = false;
-			listaVicini(3);
-		}
-		else
-		{
-			sessionStorage.switchato = true;
-			listaVicini(10);
-		}
-
-	});
-	
+//bottone modifica distanza
+function allargaRaggio()
+{
+	$('#interruttore').hide();
+	$('#interruttore button').html('Restringi il raggio di ricerca');
+	$('#interruttore button').attr('onClick', 'restringiRaggio();');
+	listaVicini(10);
+}
+function restringiRaggio()
+{
+	$('#interruttore').hide();
+	$('#interruttore button').html('Allarga il raggio di ricerca');
+	$('#interruttore button').attr('onClick', 'allargaRaggio();');
+	listaVicini(3);
 }
 
 //onclick parco
@@ -192,19 +178,19 @@ function appendParco(data){
 	servizi2 = getServizi(data.picnic, data.parking, data.cleaning, data.fenced_area, data.toilette, data.caffe, data.universally_accessible);
 	voto2 = getStelline(data.evaluation);
 
-	target2 = data.age_min+' - '+data.age_max+' years';
+	target2 = data.age_min+'-'+data.age_max+' anni';
 	if(data.age_min == 0 && data.age_max == 0){
 		//target2 = 'not available';
-		target2 = 'non disponibile';
+		target2 = '0-99 anni';
 	}
 	opening2 = data.opening_hours;
 	if(opening2.length < 2){
 		//opening2 = 'not available';
-		opening2 = 'non disponibile';
+		opening2 = '0-24';
 	}
 	
 	//servizi
-	$('#parcoInfo div:first-of-type').html(servizi2);
+	$('#parcoInfo div:first-of-type').html('<button class="btn btn-default" onClick="modalServizi();">'+servizi2+'</button>');
 	//età | orario
 	//$('#parcoInfo div:nth-of-type(2)').html('<span>TARGET: '+target2+'</span><span>OPENING: '+opening2+'</span>');
 	$('#parcoInfo div:nth-of-type(2)').html('<span>ETÀ: '+target2+'</span><span>ORARI: '+opening2+'</span>');
@@ -223,8 +209,6 @@ function appendParco(data){
 		$('#articolo').append('<button id="clickEng" class="btn bnt-sm play" onClick="clickEng();">English version</button><button id="clickIta" class="btn bnt-sm play" style="display:none;" onClick="clickIta();">Versione italiana</button>');
 	}
 
-	modalServizi();
-
 	$('#loader').hide();
 }
 //traduzione descrizione
@@ -241,10 +225,8 @@ function clickIta(){
 function modalServizi(){
 	$("#modalServizi .modal-body ul").html(sessionStorage.descServizi);
 
-	$("#parcoInfo div:first-of-type i").click(function() {
-		scrollAlto();
-		$('#modalServizi').modal();
-	});
+	scrollAlto();
+	$('#modalServizi').modal();
 }
 
 

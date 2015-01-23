@@ -47,6 +47,7 @@ a, a:hover, a:visited, button{
 	background-color:#f7f4ed;
 	color:#27c39e;
 	font-weight:bold;
+	border:1pt solid #27c39e;
 }
 
 /***********************************STRUTTURA*/
@@ -66,7 +67,6 @@ a, a:hover, a:visited, button{
 .navbar button{
 	float:right;
 	margin:5pt;
-	border:1pt solid #27c39e;
 }
 #logoNav img{
 	height:25pt;
@@ -440,63 +440,14 @@ a, a:hover, a:visited, button{
 	overflow:hidden;
 }
 
-/*************switch*/
+/*************switch*raggio*ricerca*/
 #interruttore{
 	padding:20pt 0 5pt 0;
 }
 #contatoreParchi{
-	font-size:large;
 	color:#27c39e;
-	margin-top:10pt;
+	margin-bottom:5pt;
 	font-weight:bold;
-}
-.onoffswitch {
-    position: relative; width: 200px;
-    -webkit-user-select:none; -moz-user-select:none; -ms-user-select: none;
-}
-.onoffswitch-checkbox {
-    display: none;
-}
-.onoffswitch-label {
-    display: block; overflow: hidden; cursor: pointer;
-    border: 2px solid #999999; border-radius: 20px;
-}
-.onoffswitch-inner {
-    display: block; width: 200%; margin-left: -100%;
-    -moz-transition: margin 0.3s ease-in 0s; -webkit-transition: margin 0.3s ease-in 0s;
-    -o-transition: margin 0.3s ease-in 0s; transition: margin 0.3s ease-in 0s;
-}
-.onoffswitch-inner:before, .onoffswitch-inner:after {
-    display: block; float: left; width: 50%; height: 30px; padding: 0; line-height: 30px;
-    font-size: 14px; color: white; font-family: Trebuchet, Arial, sans-serif; font-weight: bold;
-    -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box;
-}
-.onoffswitch-inner:before {
-    /*content: "DISTANZA MIN";*/
-    content: "ENTRO 3KM";
-    padding-left: 10px;
-    background-color: #27C39E; color: #F7F4ED;
-}
-.onoffswitch-inner:after {
-    /*content: "DISTANZA MAX";*/
-    content: "ENTRO 10KM";
-    padding-right: 10px;
-    background-color: #F7F4ED; color: #27C39E;
-    text-align: right;
-}
-.onoffswitch-switch {
-    display: block; width: 18px; margin: 6px;
-    background: #FFFFFF;
-    border: 2px solid #999999; border-radius: 20px;
-    position: absolute; top: 0; bottom: 0; right: 166px;
-    -moz-transition: all 0.3s ease-in 0s; -webkit-transition: all 0.3s ease-in 0s;
-    -o-transition: all 0.3s ease-in 0s; transition: all 0.3s ease-in 0s; 
-}
-.onoffswitch-checkbox:checked + .onoffswitch-label .onoffswitch-inner {
-    margin-left: 0;
-}
-.onoffswitch-checkbox:checked + .onoffswitch-label .onoffswitch-switch {
-    right: 0px; 
 }
 
 /*************CREDITS*/
