@@ -80,14 +80,14 @@ function appendVicini(data)
 function allargaRaggio()
 {
 	$('#interruttore').hide();
-	$('#interruttore button').html('Restringi il raggio di ricerca');
+	$('#interruttore button').html('Restringi la ricerca');
 	$('#interruttore button').attr('onClick', 'restringiRaggio();');
 	listaVicini(10);
 }
 function restringiRaggio()
 {
 	$('#interruttore').hide();
-	$('#interruttore button').html('Allarga il raggio di ricerca');
+	$('#interruttore button').html('Allarga la ricerca');
 	$('#interruttore button').attr('onClick', 'allargaRaggio();');
 	listaVicini(3);
 }

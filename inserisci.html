@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>LocalJob</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+        
+        <link rel="stylesheet" href="css/bootstrap.min.css">
+        <link rel="stylesheet" href="css/style_around.css">
+        <link rel="stylesheet" href="css/font-awesome.min.css">
+
+    </head>
+  
+    <body onload="pop('back'); checkAll();">
+
+
+        <!--NAVBAR DINAMICA-->
+
+        <div id="container">
+
+            <form id="formInsParco">
+
+                <div class="input-group">
+                  <span class="input-group-addon">Nome</span>
+                  <input type="text" class="form-control" placeholder="" />
+                </div>
+
+                <div class="input-group">
+                  <span class="input-group-addon">Indirizzo</span>
+                  <input type="text" class="form-control" placeholder="" />
+                </div>
+
+                <div class="input-group">
+                  <span class="input-group-addon">Orari</span>
+                  <input type="text" class="form-control" placeholder="" />
+                </div>
+
+                <div class="input-group">
+                  <span class="input-group-addon">Età</span>
+                  <input type="text" class="form-control mezzo" placeholder="Min" />
+                  <input type="text" class="form-control mezzo" placeholder="Max" />
+                </div>
+
+
+                <div class="form-group">
+                  <label>Descrizione</label>
+                  <textarea class="form-control" rows="4"></textarea>
+                </div>
+
+                
+                <div class="alert alert-danger">
+                    <input type="checkbox"/> <span>Recintato</span>
+                </div>
+                <div class="alert alert-danger">
+                    <input type="checkbox"/> <span>Area Picnic</span>
+                </div>
+                <div class="alert alert-danger">
+                    <input type="checkbox"/> <span>Area Ristoro</span>
+                </div>
+                <div class="alert alert-danger">
+                    <input type="checkbox"/> <span>Parcheggio</span>
+                </div>
+                <div class="alert alert-danger">
+                    <input type="checkbox"/> <span>Toilettes</span>
+                </div>
+                <div class="alert alert-danger">
+                    <input type="checkbox"/> <span>Accessibile</span>
+                </div>
+
+
+            </form>
+
+        </div>  <!--/CONTAINER-->
+
+ 
+        <div id="bottom"></div>
+        
+        
+        <script src="js/jquery-1.11.1.min.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+        <script src="cordova.js"></script>
+        
+        <script src="js/start.js"></script>
+        <script src="js/new.js"></script>
+
+    </body>
+</html>

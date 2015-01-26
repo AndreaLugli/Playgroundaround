@@ -491,3 +491,40 @@ a, a:hover, a:visited, button{
 #panel img{
 	margin:5%;
 }
+
+/***************INSERISCI*/
+#formInsParco{
+	margin:10% 5%;
+	width:90%;
+}
+#formInsParco .input-group{
+	width:100%;
+	margin-bottom:2%;
+}
+#formInsParco .input-group-addon{
+	width:30%;
+	text-align:left;
+	background-color:#27c39e;
+	color:#f7f4ed;
+}
+#formInsParco .mezzo{
+	width:50%;
+	text-align:center;
+}
+#formInsParco .mezzo:first-of-type{ /*min*/
+	border-right:0;
+}
+.form-group label{
+	display:block;
+	text-align:left;
+	font-weight:normal;
+	color:#99999b;
+}
+
+#formInsParco .alert{
+	width:48%;
+	float:left;
+	margin:1%;
+	padding:4pt;
+	text-align:left;
+}
