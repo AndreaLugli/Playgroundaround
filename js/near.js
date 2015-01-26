@@ -142,6 +142,8 @@ function getImgParco(){
 
 		$('#galleria img:last-of-type').after('<div class="spacing"></div>');
 
+		$('#galleria').append("<a href='#'><i class='fa fa-2x fa-photo'></i></a>");
+
 		modalImg();
 
 	});
@@ -190,7 +192,7 @@ function appendParco(data){
 	}
 	
 	//servizi
-	$('#parcoInfo div:first-of-type').html('<button class="btn btn-default" onClick="modalServizi();">'+servizi2+'</button>');
+	$('#parcoInfo div:first-of-type').html('<button class="btn btn-block btn-default" onClick="modalServizi();">'+servizi2+'</button>');
 	//età | orario
 	//$('#parcoInfo div:nth-of-type(2)').html('<span>TARGET: '+target2+'</span><span>OPENING: '+opening2+'</span>');
 	$('#parcoInfo div:nth-of-type(2)').html('<span>ETÀ: '+target2+'</span><span>ORARI: '+opening2+'</span>');
@@ -204,10 +206,13 @@ function appendParco(data){
 	$('#articolo').html('<p id="descIta"><img class="flag" src="img/flag_ita.png" />'+data.description+'</p><p id="descEng" style="display:none;"><img class="flag" src="img/flag_eng.png" />'+data.description_en+'</p>');
 
 	$('#address').html(data.address);
+	$('#address').append("<button class='btn btn-block btn-md play' onClick='location.href='geo:"+sessionStorage.lat+","+sessionStorage.longi+"?q="+data.latitude+","+data.longitude+"'>Come arrivare</button>");
 
 	if(data.description_en.length > 2){
-		$('#articolo').append('<button id="clickEng" class="btn bnt-sm play" onClick="clickEng();">English version</button><button id="clickIta" class="btn bnt-sm play" style="display:none;" onClick="clickIta();">Versione italiana</button>');
+		$('#articolo').append('<button id="clickEng" class="btn bnt-lg play" onClick="clickEng();">English version</button><button id="clickIta" class="btn bnt-lg play" style="display:none;" onClick="clickIta();">Versione italiana</button>');
 	}
+	$('#articolo').append("<a href='#'><i class='fa fa-2x fa-comment'></i></a>");
+
 
 	$('#loader').hide();
 }

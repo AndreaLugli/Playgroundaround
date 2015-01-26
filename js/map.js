@@ -100,6 +100,6 @@ function appendMappa(data)
 		}
 
     	var parchetto = L.marker([latitude, longitude], {icon: greenIcon}).addTo(map1);
-    	parchetto.bindPopup("<center><img class='imgNuvoletta' src='"+anteprimina+"' onError='this.onerror=null;this.src=\"./img/logo.jpg\";' /></center><button class='btn btn-sm around' onClick='apriParco("+item.id+")'>"+item.name+"</button>");
+    	parchetto.bindPopup("<center><a href='javascript:apriParco("+item.id+")'><img class='imgNuvoletta' src='"+anteprimina+"' onError='this.onerror=null;this.src=\"./img/logo.jpg\";' /></a></center><button class='btn btn-sm around' onClick='apriParco("+item.id+")'>"+item.name+"</button>");
 	});
 }
