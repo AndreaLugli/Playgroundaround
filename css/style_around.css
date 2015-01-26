@@ -310,19 +310,25 @@ a, a:hover, a:visited, button{
 	margin:5%;
 	margin-top:-3%;
 	color:white;
+	display:block;
+}
+#articolo #meta{	/*link destinazioni*/
+	display:block;
+	clear:both;
+	width:94%;
+	margin:3%;
+}
+#parcoInfo div:first-of-type button{	/*servizi*/
+	width:94%;
+	margin-left:2pt;
 }
 #clickEng, #clickIta{	/*ita|eng version*/
-	font-size:small;
 	background-color:#f7f4ed;
 	color:#27c39e;
 	font-weight:bold;
 	margin:5%;
 	margin-top:-3%;
 	float:left;
-}
-#parcoInfo div:first-of-type button{	/*servizi*/
-	width:94%;
-	margin-left:2pt;
 }
 #address button{	/*come arrivare*/
 	margin-top:2%;

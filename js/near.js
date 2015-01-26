@@ -202,17 +202,17 @@ function appendParco(data){
 	//nascosto - lo faccio apparire per estetica del caricamento
 	$('#parcoInfo').show();
 
-
 	$('#articolo').html('<p id="descIta"><img class="flag" src="img/flag_ita.png" />'+data.description+'</p><p id="descEng" style="display:none;"><img class="flag" src="img/flag_eng.png" />'+data.description_en+'</p>');
-
-	$('#address').html(data.address);
-	$('#address').append("<button class='btn btn-block btn-md play' onClick='location.href=\"geo:"+sessionStorage.lat+","+sessionStorage.longi+"?q="+data.latitude+","+data.longitude+"\";'>Come arrivare</button>");
-
 	if(data.description_en.length > 2){
 		$('#articolo').append('<button id="clickEng" class="btn bnt-lg play" onClick="clickEng();">English version</button><button id="clickIta" class="btn bnt-lg play" style="display:none;" onClick="clickIta();">Versione italiana</button>');
 	}
+	
 	$('#articolo').append("<a href='#'><i class='fa fa-2x fa-comment'></i></a>");
+	$('#articolo').append("<a href='#'><i class='fa fa-2x fa-suitcase'></i></a>");
 
+
+	$('#address').html(data.address);
+	$('#address').append("<button class='btn btn-block btn-lg play' onClick='location.href=\"geo:"+sessionStorage.lat+","+sessionStorage.longi+"?q="+data.latitude+","+data.longitude+"\";'>Come arrivare</button>");
 
 	$('#loader').hide();
 }
