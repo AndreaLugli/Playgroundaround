@@ -17,7 +17,7 @@ html, body {
 	height:100%;
 	width:100%;
 	background-color:#e4e3df;
-	color:black;
+	color:#27c39e;
 	text-align:center;
 }
 
@@ -48,6 +48,11 @@ a, a:hover, a:visited, button{
 	color:#27c39e;
 	font-weight:bold;
 	border:1pt solid #27c39e;
+}
+.btn-primary, .btn-primary:hover, .btn-primary:focus{
+	background-color:#27c39e;
+	color:white;
+	border:#cccccc;
 }
 
 /***********************************STRUTTURA*/
@@ -471,7 +476,6 @@ a, a:hover, a:visited, button{
 	padding:20pt 0 5pt 0;
 }
 #contatoreParchi{
-	color:#27c39e;
 	margin-bottom:5pt;
 	font-weight:bold;
 }
@@ -482,7 +486,6 @@ a, a:hover, a:visited, button{
 	color:white;
 	background-color:#27c39e;
 	height:100%;
-	/*background-color:#428c7d;*/
 }
 #panel p, #panel a{
 	color:white;
@@ -520,11 +523,52 @@ a, a:hover, a:visited, button{
 	font-weight:normal;
 	color:#99999b;
 }
+#formInsParco textarea{
+	min-height:80pt;
+}
 
 #formInsParco .alert{
 	width:48%;
 	float:left;
 	margin:1%;
-	padding:4pt;
+	padding:2.5%;
 	text-align:left;
+}
+/**************INSERISCI*INDIRIZZO*/
+#formIndirizzo{
+	margin:10% 5%;
+	width:90%;
+}
+#formIndirizzo #map{
+	margin: 5% 0;
+	border-radius: 5pt;
+}
+#via{
+	width:75%;
+	float:left;
+	border-radius: 5pt 0 0 0;
+	border-right:0;
+}
+#civico{
+	width:25%;
+	border-radius: 0 5pt 0 0;
+}
+#citta{
+	width:100%;
+	border-radius:0;
+	border-top:0;
+	border-bottom:0;
+}
+#cap{
+	width:50%;
+	float:left;
+	border-radius: 0 0 0 5pt;
+	margin-bottom:2%;
+}
+#prov{
+	width:50%;
+	float:left;
+	border-radius: 0 0 5pt 0;
+	border-left:0;
+	margin-bottom:5%;
 }

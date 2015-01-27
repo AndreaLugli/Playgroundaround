@@ -31,7 +31,7 @@ function navbarPop(page)
                 '<img alt="brand" src="./img/segnaposto_trasp.png">'+
                 //'<span>Playground Around The Corner</span>'+
               '</a>'+
-              '<button type="button" class="btn navbar-btn play" onClick="window.location=\'inserisci.html\'">Inserisci</button>'+
+              '<button type="button" class="btn navbar-btn play" onClick="window.location=\'inserisci_2.html\'">Inserisci</button>'+
               //'<button type="button" class="btn navbar-btn play" onClick="alert(\'prossimamente!\');">Inserisci</button>'+
             '</div>'+
           '</div>'+

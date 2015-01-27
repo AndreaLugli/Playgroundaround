@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>LocalJob</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+        
+        <link rel="stylesheet" href="css/bootstrap.min.css">
+        <link rel="stylesheet" href="css/style_around.css">
+        <link rel="stylesheet" href="css/font-awesome.min.css">
+        <link rel="stylesheet" href="libs/leaflet/leaflet.css" />
+
+    </head>
+  
+    <body onload="openGeo();">
+
+
+        <!--NAVBAR DINAMICA-->
+
+        <div id="container">
+
+            <form id="formIndirizzo">
+
+                <h2>Dove si trova il parco?</h2>
+                <p>Se non è qui, inserisci l'indirizzo manualmente.</p>
+
+                <!--<div class="input-group input-group-lg">
+                  <span class="input-group-addon">Indirizzo</span>
+                  <input type="text" class="form-control" placeholder="" />
+                </div>-->
+
+
+            
+                <div id="map"></div>
+                
+                <input id="via" type="text" class="form-control input-lg" placeholder="Indirizzo" disabled>
+                <input id="civico" type="text" class="form-control input-lg" placeholder="Civico" disabled>
+                <input id="citta" type="text" class="form-control input-lg" placeholder="Città" disabled>
+                <input id="cap" type="tel" class="form-control input-lg" placeholder="CAP" disabled>
+                <input id="prov" type="text" class="form-control input-lg" placeholder="Prov" disabled>
+                
+                <button class="btn btn-lg btn-block btn-primary" type="button" onClick="window.location="inserisci_1.html"">Continua</button>
+
+                <button style="display:none;" class="btn btn-lg btn-block btn-primary" type="button" onClick="new_Geocoding();">Correggi</button>
+                    
+            </form>
+
+        </div>  <!--/CONTAINER-->
+
+ 
+        <div id="bottom"></div>
+        
+        
+        <script src="js/jquery-1.11.1.min.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+        <script src="cordova.js"></script>
+        
+        <script src="js/start.js"></script>
+        <script src="js/new.js"></script>
+        <script src="js/map.js"></script>
+
+        <script src="libs/leaflet/leaflet.js"></script>
+
+        <script type="text/javascript"
+          src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCx8-RhXkc2itBSbo765GVrOnsaOKT8-YA&sensor=true&libraries=places">
+        </script>
+
+    </body>
+</html>

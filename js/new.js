@@ -1,3 +1,4 @@
+//rende pannelli servizi cliccabili
 function checkAll()
 {
 	$(".alert").click(function()
@@ -8,11 +9,11 @@ function checkAll()
 		{
 			//$(this).find('input').prop('checked', true);
 			tocheck.prop('checked', false);
-			$(this).attr('class', 'alert alert-danger');
+			$(this).attr('class', 'alert alert-danger input-lg');
 		}else
 		{
 			tocheck.prop('checked', true);
-			$(this).attr('class', 'alert alert-success');
+			$(this).attr('class', 'alert alert-success input-lg');
 		}
 	});
 }
