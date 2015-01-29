@@ -494,12 +494,21 @@ a, a:hover, a:visited, button{
 	background-color:#27c39e;
 	height:100%;
 }
+#panel.ok p{
+	text-align:justify;
+}
 #panel p, #panel a{
 	color:white;
-	font-size:small;
+	font-size:medium;
+}
+#panel p {
+	margin-bottom:5%;
 }
 #panel img{
 	margin:5%;
+}
+#panel h2{
+	margin-bottom:5%;
 }
 
 /**************INSERISCI*COORD*PARCO*/
@@ -597,6 +606,10 @@ a, a:hover, a:visited, button{
 	padding:2.5%;
 	text-align:left;
 }
+.alert + .input-group{	/*campo email*/
+	clear:both;
+	padding-top:5%;
+}
 #containerBottoni{
 	clear:both;
 	padding-top:5%;
@@ -612,4 +625,10 @@ a, a:hover, a:visited, button{
 .error{
 	background-color: #fc8181;
 	color:#f7f4ed;
+}
+
+/********************ricerca*/
+#panel.cerca a{
+	display:block;
+	height:50%;
 }

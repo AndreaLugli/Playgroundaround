@@ -148,6 +148,7 @@ function getDati()
 function inviaDati()
 {
 	alert(sessionStorage.newLati+' '+sessionStorage.newLongi+' '+sessionStorage.newAddress+' '+sessionStorage.newTitle+' '+sessionStorage.newOpening+' '+sessionStorage.newTarget_min+' '+sessionStorage.newTarget_max+' '+sessionStorage.newDesc+' '+sessionStorage.fenced+' '+sessionStorage.picnic+' '+sessionStorage.snack+' '+sessionStorage.park+' '+sessionStorage.toilette+' '+sessionStorage.handicap);
+	window.location='inserisci_ok.html';
 	/*
 	sessionStorage.newLati
 	sessionStorage.newLongi
