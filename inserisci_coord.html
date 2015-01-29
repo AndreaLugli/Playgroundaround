@@ -19,19 +19,13 @@
 
         <div id="container">
 
-            <form id="formIndirizzo">
+            <div id="formIndirizzo">
 
                 <h2>Dove si trova il parco?</h2>
-                <p>Se non è qui, inserisci l'indirizzo manualmente.</p>
 
-                <!--<div class="input-group input-group-lg">
-                  <span class="input-group-addon">Indirizzo</span>
-                  <input type="text" class="form-control" placeholder="" />
-                </div>-->
-
-
-            
                 <div id="map"></div>
+
+                <p>Se ti trovi lontano dal parco oppure l'indirizzo non è esatto puoi correggerlo manualmente qui sotto.</p>
                 
                 <input id="via" type="text" class="form-control input-lg" placeholder="Indirizzo" disabled>
                 <input id="civico" type="text" class="form-control input-lg" placeholder="Civico" disabled>
@@ -39,11 +33,11 @@
                 <input id="cap" type="tel" class="form-control input-lg" placeholder="CAP" disabled>
                 <input id="prov" type="text" class="form-control input-lg" placeholder="Prov" disabled>
                 
-                <button class="btn btn-lg btn-block btn-primary" type="button" onClick="window.location="inserisci_1.html"">Continua</button>
+                <button id="continua" style="display:none;" class="btn btn-lg btn-block btn-primary" type="button" onClick="window.location='inserisci_dati.html';">Conferma <i class="fa fa-tree"></i></button>
 
-                <button style="display:none;" class="btn btn-lg btn-block btn-primary" type="button" onClick="new_Geocoding();">Correggi</button>
+                <button id="correggi" style="display:none;" class="btn btn-lg btn-block btn-primary" type="button" onClick="new_Geocoding();">Aggiorna la mappa <i class="fa fa-pencil-square-o"></i></button>
                     
-            </form>
+            </div>  <!--formIndirizzo-->
 
         </div>  <!--/CONTAINER-->
 
@@ -55,15 +49,20 @@
         <script src="js/bootstrap.min.js"></script>
         <script src="cordova.js"></script>
         
+        <!--API LJ-->
+        <script type="text/javascript"
+          src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCx8-RhXkc2itBSbo765GVrOnsaOKT8-YA&sensor=true&libraries=places">
+        </script>
+        
+        <!--<script type="text/javascript"
+          src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB6yTjSwQ43iQIUycG1GrkWhQ9-VNJMdnU">
+        </script>-->
+        
         <script src="js/start.js"></script>
         <script src="js/new.js"></script>
         <script src="js/map.js"></script>
 
         <script src="libs/leaflet/leaflet.js"></script>
-
-        <script type="text/javascript"
-          src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCx8-RhXkc2itBSbo765GVrOnsaOKT8-YA&sensor=true&libraries=places">
-        </script>
 
     </body>
 </html>

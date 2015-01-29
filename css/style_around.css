@@ -427,6 +427,9 @@ a, a:hover, a:visited, button{
 
 
 /*****************modal*/
+.modal{
+	color:black;
+}
 .modal-body p{
 	text-align:justify;
 }
@@ -451,6 +454,10 @@ a, a:hover, a:visited, button{
 	color:#912A62;
 	height:150pt;
 	width:100%;
+	border:3pt solid #27c39e;
+}
+#parcoAperto #map{
+	border:none;
 }
 #map1{
 	background:#f7f4ed url('../img/loader.gif') no-repeat center center;
@@ -495,53 +502,22 @@ a, a:hover, a:visited, button{
 	margin:5%;
 }
 
-/***************INSERISCI*/
-#formInsParco{
-	margin:10% 5%;
-	width:90%;
-}
-#formInsParco .input-group{
-	width:100%;
-	margin-bottom:2%;
-}
-#formInsParco .input-group-addon{
-	width:30%;
-	text-align:left;
-	background-color:#27c39e;
-	color:#f7f4ed;
-}
-#formInsParco .mezzo{
-	width:50%;
-	text-align:center;
-}
-#formInsParco .mezzo:first-of-type{ /*min*/
-	border-right:0;
-}
-.form-group label{
-	display:block;
-	text-align:left;
-	font-weight:normal;
-	color:#99999b;
-}
-#formInsParco textarea{
-	min-height:80pt;
-}
-
-#formInsParco .alert{
-	width:48%;
-	float:left;
-	margin:1%;
-	padding:2.5%;
-	text-align:left;
-}
-/**************INSERISCI*INDIRIZZO*/
+/**************INSERISCI*COORD*PARCO*/
 #formIndirizzo{
-	margin:10% 5%;
-	width:90%;
+	margin:10%;
+	width:80%;
+}
+#formIndirizzo h2{
+	font-size: x-large;
+	margin-top:-5%;
 }
 #formIndirizzo #map{
 	margin: 5% 0;
 	border-radius: 5pt;
+}
+#formIndirizzo #map + p{
+	text-align:justify;
+	margin-bottom:5%;
 }
 #via{
 	width:75%;
@@ -571,4 +547,69 @@ a, a:hover, a:visited, button{
 	border-radius: 0 0 5pt 0;
 	border-left:0;
 	margin-bottom:5%;
+}
+
+/***************INSERISCI*DATI*PARCO*/
+#formInsParco{
+	margin:10%;
+	width:80%;
+}
+#formInsParco h2{
+	font-size: x-large;
+	margin-top:-5%;
+}
+#formInsParco input{
+	font-size:medium;
+}
+#formInsParco label{
+	display:block;
+	text-align:left;
+	font-weight:normal;
+	/*color:#99999b;*/
+	font-size:large;
+}
+#formInsParco textarea{
+	min-height:80pt;
+	font-size:medium;
+}
+#formInsParco .input-group{
+	width:100%;
+	margin-bottom:2%;
+}
+#formInsParco .input-group-addon{
+	width:30%;
+	text-align:left;
+	background-color:#27c39e;
+	color:#f7f4ed;
+	font-size:medium;
+}
+#formInsParco .mezzo{	/*input metà block*/
+	width:50%;
+	text-align:center;
+}
+#formInsParco .mezzo:first-of-type{ /*min*/
+	border-right:0;
+}
+#formInsParco .alert{
+	width:48%;
+	float:left;
+	margin:1%;
+	padding:2.5%;
+	text-align:left;
+}
+#containerBottoni{
+	clear:both;
+	padding-top:5%;
+}
+#containerBottoni button{
+	margin-bottom:2%;
+}
+#containerBottoni div{
+	padding:0 5% 5% 5%;
+}
+
+/********************input*required*/
+.error{
+	background-color: #fc8181;
+	color:#f7f4ed;
 }

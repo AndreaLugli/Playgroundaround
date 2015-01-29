@@ -4,14 +4,15 @@ function getMappaParco(lati, longi)
 	var map = L.map('map').setView([lati, longi], 15);
 
 	//credits mappa
+	L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png').addTo(map);
 	/*L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
 	    attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
 	}).addTo(map);*/
-	L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png').addTo(map);
 
+	//disabilito scroll mappa
 	map.dragging.disable();
 
-	//icona personalizzata parchi
+	//icona personalizzata poi parco
 	var greenIcon = L.icon({
 		iconUrl: 'img/poi.png',
 		iconAnchor:   [25, 41], // point of the icon which will correspond to marker's location
@@ -42,15 +43,14 @@ function initialize_map_generica(lati, longi)
 
 	map1 = L.map('map1').setView([centroLat, centroLng], 15);
 			
-	/*var cloudmadeUrl = 'http://{s}.mqcdn.com/tiles/1.0.0/osm/{z}/{x}/{y}.png',
-		subDomains = ['otile1','otile2','otile3','otile4'],
-		cloudmadeAttrib = '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors';*/
-	
 	var cloudmadeUrl = 'http://{s}.mqcdn.com/tiles/1.0.0/osm/{z}/{x}/{y}.png',
 		subDomains = ['otile1','otile2','otile3','otile4'],
 		cloudmadeAttrib = '';
+	/*var cloudmadeUrl = 'http://{s}.mqcdn.com/tiles/1.0.0/osm/{z}/{x}/{y}.png',
+	subDomains = ['otile1','otile2','otile3','otile4'],
+	cloudmadeAttrib = '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors';*/
 	
-	var cloudmade = new L.TileLayer(cloudmadeUrl, {maxZoom: 18, attribution: cloudmadeAttrib, subdomains: subDomains});
+	var cloudmade = new L.TileLayer(cloudmadeUrl, {maxZoom: 15, attribution: cloudmadeAttrib, subdomains: subDomains});
 
 	cloudmade.addTo(map1);		
 
@@ -59,11 +59,10 @@ function initialize_map_generica(lati, longi)
 	marker.bindPopup("<p style='font-size:small'>Ti trovi qui</p>")
 			.openPopup();
 
-	//get parchi vicini
+	//get lista parchi vicini
 	mappaVicini();
 }
 
-//parchi vicini su mappa
 function mappaVicini()
 {
 	distanza = 25;
@@ -90,8 +89,6 @@ function appendMappa(data)
     	latitude = item.latitude;
     	longitude = item.longitude;
 
-    	//alert(item.anteprima_path);
-
     	if(item.anteprima_path === null){
 			anteprimina = "img/not_available_black.png";
 		}
@@ -104,17 +101,14 @@ function appendMappa(data)
 	});
 }
 
-/************************MAPPA*NUOVO*PARCO*/
-function openGeo(){
-	pop('back');
-	//mostra mappa
-	localizzaMap(sessionStorage.lat, sessionStorage.longi);
-	//mostra indirizzo
-	codeLatLng(sessionStorage.lat, sessionStorage.longi);
-}
-
+/*******************NUOVO*PARCO*(INSERISCI_COORD)*/
 function localizzaMap(lati, longi)
 {
+	//salvo le coordinate
+	sessionStorage.newLati = lati;
+	sessionStorage.newLongi = longi;
+	//alert(sessionStorage.latiNuovoParco +' '+sessionStorage.longiNuovoParco);
+
 	map = L.map('map').setView([lati, longi], 15);
 
 	L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png').addTo(map);
@@ -128,7 +122,7 @@ function creaPOI(lat,lng, testo) {
 	return punto
 }
 
-//funzione di Reverse Geocoding (Usando le API di Google)
+//funzione di Reverse Geocoding (con API di Google)
 function codeLatLng(position_lat, position_long)
 {
 	geocoder = new google.maps.Geocoder();
@@ -163,24 +157,32 @@ function codeLatLng(position_lat, position_long)
 	    				break;
 	    		}
 	    	}
-	    	$('input').attr('placeholder','');
-	    	$('input').removeAttr('disabled');
-
+	    	
 	    	//Inserisce i valori nella form
 	    	$('#via').val(indirizzo);
 	    	$('#civico').val(nciv);
 	    	$('#citta').val(citta);
 	    	$('#cap').val(cap);
-	    	$('#prov').val(provincia);	
+	    	$('#prov').val(provincia);
+
+	    	sessionStorage.newAddress = indirizzo+', '+nciv+', '+cap+', '+citta+', '+provincia;
+	    	//alert(sessionStorage.newAddress);
+
+	    	//rimuovo blocchi
+	    	$('input').attr('placeholder','');
+	    	$('input').removeAttr('disabled');
+
+	    	$('#continua').show();
+	    	correggi();
 	    }
 
 	  });
 }
 
-//funzione che fa get dell'indirizzo e ricalcola coordinate
+//funzione per get indirizzo e ricalcolo coordinate
 function new_Geocoding()
 {
-	$('#formIndirizzo button').attr('disabled','disabled');
+	$('#continua').hide();
 	$('input').attr('disabled','disabled');
 	
 	new_via = $('#via').val();
@@ -190,6 +192,9 @@ function new_Geocoding()
 	new_prov = $('#prov').val();
 	
 	query = new_via+", "+new_civico+", "+new_citta+", "+new_cap;
+
+	sessionStorage.newAddress = query+", "+new_prov;
+	//alert(sessionStorage.newAddress);
 	
 	codeAddress(query);
 }
@@ -215,18 +220,26 @@ function codeAddress(query) {
 	    	new_long = $.trim(array_split[1]);
 	    	
 	    	new_lat = parseFloat(new_lat);
-	    	sessionStorage.latiNuovoParco = new_lat;
 	    	new_long = parseFloat(new_long);
-	    	sessionStorage.longiNuovoParco = new_long;
+
+	    	//salvo le coordinate
+	    	sessionStorage.newLati = new_lat;
+	    	sessionStorage.newLongi = new_long;
+			//alert(sessionStorage.latiNuovoParco +' '+sessionStorage.longiNuovoParco);
 
 	    	//distruggo e ricreo mappa
 	    	map.removeLayer(parchetto);
 		    map.setView([new_lat, new_long], 15);	
 		    parchetto = L.marker([new_lat, new_long]).addTo(map);
 	    }    	    
-	    	
-	    //mostro tasto di conferma
-	    //$('#formIndirizzo button').html('Eccolo! Continua');  	
-	    $('input, #formIndirizzo button').removeAttr('disabled');  	
+	    
+	    //rimuove blocchi	
+	    $('input').removeAttr('disabled');
+
+	    $('#correggi').hide();
+	    $('#continua').show();
+	    
+	    //on focus cambio bottoni continua/correggi
+	    correggi();
 	});
 }

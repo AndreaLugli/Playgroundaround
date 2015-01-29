@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>LocalJob</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+        
+        <link rel="stylesheet" href="css/bootstrap.min.css">
+        <link rel="stylesheet" href="css/style_around.css">
+        <link rel="stylesheet" href="css/font-awesome.min.css">
+
+    </head>
+  
+    <body onload="pop('back'); checkAll();">
+
+
+        <!--NAVBAR DINAMICA-->
+
+        <div id="container">
+
+            <form id="formInsParco">
+
+                <h2>Cosa sai dirci sul parco?</h2>
+
+                <div class="input-group input-group-lg">
+                  <span class="input-group-addon">Nome*</span>
+                  <input id="title" type="text" class="form-control required" />
+                </div>
+
+                <div class="input-group input-group-lg">
+                  <span class="input-group-addon">Orari</span>
+                  <input id="opening" type="text" class="form-control" />
+                </div>
+
+                <div class="input-group input-group-lg">
+                  <span class="input-group-addon">Età</span>
+                  <input id="target_min" type="text" class="form-control mezzo" placeholder="Min" maxlength="2" type="tel"/>
+                  <input id="target_max" type="text" class="form-control mezzo" placeholder="Max" maxlength="2" type="tel"/>
+                </div>
+
+
+                <div class="form-group input-group-lg">
+                  <label>Descrizione*</label>
+                  <textarea id="description" class="form-control required"></textarea>
+                </div>
+
+                <label>Servizi disponibili</label>
+                <div class="alert alert-danger input-lg">
+                    <input id="fenced" type="checkbox"/> <span>Recintato</span>
+                </div>
+                <div class="alert alert-danger input-lg">
+                    <input id="picnic" type="checkbox"/> <span>Area Picnic</span>
+                </div>
+                <div class="alert alert-danger input-lg">
+                    <input id="snack" type="checkbox"/> <span>Area Ristoro</span>
+                </div>
+                <div class="alert alert-danger input-lg">
+                    <input id="park" type="checkbox"/> <span>Parcheggio</span>
+                </div>
+                <div class="alert alert-danger input-lg">
+                    <input id="toilette" type="checkbox"/> <span>Toilettes</span>
+                </div>
+                <div class="alert alert-danger input-lg">
+                    <input id="handicap" type="checkbox"/> <span>Accessibile</span>
+                </div>
+
+
+                <div id="containerBottoni">
+                    <div style="display:none;">anteprime foto</div>
+
+                    <button id="addPhoto" class="btn btn-lg btn-block btn-primary" type="button" onClick="">Aggiungi foto <i class="fa fa-picture-o"></i></button>
+
+                    <button id="completa" class="btn btn-lg btn-block btn-primary" type="button" onClick="checkRequired();">Completa <i class="fa fa-tree"></i></button>
+                </div>
+
+            </form>  <!--formInsParco-->
+
+        </div>  <!--/CONTAINER-->
+
+ 
+        <div id="bottom"></div>
+
+
+        <!--MODAL GPS NON ATTIVO-->
+        <div id="datiMancanti" class="modal fade">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                        <h4 class="modal-title">Dati mancanti</h4>
+                    </div>
+                    <div class="modal-body">
+                        <p>Il nome del parco e la descrizione sono obbligatori.</p>
+                        <p>Più informazioni inserirai sul parco, più sarai utile alle altre mamme.</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-lg btn-default btn-block" data-dismiss="modal">Chiudi</button>
+                    </div>
+                </div><!-- /.modal-content -->
+            </div><!-- /.modal-dialog -->
+        </div><!-- /.modal -->
+        
+        
+        <script src="js/jquery-1.11.1.min.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+        <script src="cordova.js"></script>
+        
+        <script src="js/start.js"></script>
+        <script src="js/new.js"></script>
+
+    </body>
+</html>
