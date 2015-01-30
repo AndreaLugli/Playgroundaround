@@ -1,18 +1,54 @@
-/********************************************RICERCA*/
-function getTitle(){
+/*****************************************RICERCA*TITOLO*/
+function getTitolo()
+{
 	sessionStorage.titleSearch = $('#titleSearch').val();
-	window.location='trovati.html';
+	window.location='trovati_nome.html';
 }
-//on load trivati.html
+//on load ricerca per nome (trovati.html) 
 function searchTitolo()
 {
 	pop('back');
 
-	//get lista parchi vicini
+	//get lista parchi trovati
 	$.ajaxSetup({ cache: false });
 	$.ajax({
 		type: 'GET',
 		url: indirizzo+'/ricerca_titolo?testo='+sessionStorage.titleSearch,		
+		success: appendVicini,
+		error: errorHandler
+	});
+}
+
+/******************************************RICERCA*LUOGO*/
+function autocompletamento()
+{	
+	//quando ricarico la pagina azzero
+	$('input').val('');
+
+	var input = (document.getElementById('positionSearch')); 
+	var autocomplete = new google.maps.places.Autocomplete(input);
+	 
+	google.maps.event.addListener(autocomplete, 'place_changed', function() {
+		
+		var place = autocomplete.getPlace();
+		
+		sessionStorage.latiSearch = place.geometry.location.lat();
+		sessionStorage.longiSearch = place.geometry.location.lng();
+		//alert(sessionStorage.latitudine_nuova+' '+sessionStorage.longitudine_nuova);
+	});
+}
+//on load ricerca per posizione (trovati.html) 
+function searchPosizione()
+{
+	pop('back');
+
+	distanza = 10;
+
+	//get lista parchi trovati
+	$.ajaxSetup({ cache: false });
+	$.ajax({
+		type: 'GET',
+		url: indirizzo+'/search_near?lat='+sessionStorage.latiSearch+'&lng='+sessionStorage.longiSearch+'&distanza='+distanza,		
 		success: appendVicini,
 		error: errorHandler
 	});

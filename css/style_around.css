@@ -637,12 +637,18 @@ textarea{
 	height:48%;
 	display:block;
 }
-#ricerca .input-group, #ricerca button{
+#ricerca input{
+	border-radius: 5pt;
+}
+#ricerca .input-group{
 	width:80%;
 	margin:15% 0;
 	margin-left:10%;
 }
 #ricerca button{
+	width:80%;
+	margin:15% 0;
+	margin-left:10%;
 	margin-top:-10%;
 }
 #ricerca form:first-of-type{

@@ -11,7 +11,7 @@
 
     </head>
   
-    <body onload="pop('back');">
+    <body onload="pop('back'); autocompletamento();">
 
         <div id="container">
 
@@ -21,11 +21,10 @@
                     <h3>Cerca per nome</h3>
 
                     <div class="input-group input-group-lg">
-                        <span class="input-group-addon">Nome</span>
-                        <input id="titleSearch" type="text" class="form-control" />
+                        <input id="titleSearch" type="text" class="form-control" placeholder="Inserisci il nome del parco" />
                     </div>
 
-                    <button id="okTitolo" class="btn btn-lg btn-block btn-primary" type="button" onClick="getTitle();">Cerca <i class="fa fa-search"></i></button>
+                    <button id="okTitolo" class="btn btn-lg btn-block btn-primary" type="button" onClick="getTitolo();">Cerca <i class="fa fa-search"></i></button>
 
                 </form>
 
@@ -33,11 +32,10 @@
                     <h3>Cerca per luogo</h3>
 
                     <div class="input-group input-group-lg">
-                        <span class="input-group-addon">Città</span>
-                        <input id="titleSearch" type="text" class="form-control" />
+                        <input id="positionSearch" type="text" class="form-control input-lg" />
                     </div>
 
-                    <button id="okLuogo"class="btn btn-lg btn-block btn-primary" type="button" onClick="">Cerca <i class="fa fa-search"></i></button>
+                    <button id="okLuogo"class="btn btn-lg btn-block btn-primary" type="button" onClick="window.location='trovati_posizione.html';">Cerca <i class="fa fa-search"></i></button>
 
                 </form>
 
@@ -55,6 +53,9 @@
         <script src="js/index.js"></script>
         <script src="js/start.js"></script>
         <script src="js/near.js"></script>
+
+        <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script>
+        <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false&libraries=places"></script>
 
     </body>
 </html>
