@@ -1,3 +1,24 @@
+/********************************************RICERCA*/
+function getTitle(){
+	sessionStorage.titleSearch = $('#titleSearch').val();
+	window.location='trovati.html';
+}
+//on load trivati.html
+function searchTitolo()
+{
+	pop('back');
+
+	//get lista parchi vicini
+	$.ajaxSetup({ cache: false });
+	$.ajax({
+		type: 'GET',
+		url: indirizzo+'/ricerca_titolo?testo='+sessionStorage.titleSearch,		
+		success: appendVicini,
+		error: errorHandler
+	});
+}
+
+
 /********************GET*PARCHI*VICINI*(VICINI.HTML)*/
 //onload pagina
 function openVicini()
@@ -67,7 +88,8 @@ function appendVicini(data)
 	if(listaParchiVicini == '')
 	{
 		//listaParchiVicini = '<div class="alert">Ooooops! Seems you\'re in a desert area, there are no parks near you :( </div>';
-		listaParchiVicini = '<div class="alert">Ooooops! Non ci sono parchi vicino a te, ti trovi per caso nel deserto? :( </div>';
+		listaParchiVicini = '<div class="warning"><h3>Ooooops!</h3> Nessun parco all\'orizzonte<center><img src="img/8_nothing.png"/></center></div>';
+		
 	}
 	$('#parchiVicini').html(listaParchiVicini);
 	$('#contatoreParchi').html(quantiParchi+' parchi trovati');
