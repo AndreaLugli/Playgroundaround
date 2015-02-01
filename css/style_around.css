@@ -3,6 +3,7 @@ grigio background: #e4e3df
 verde acqua: #27c39e
 nero navbar: #464646
 bianco panna: #f7f4ed
+viola jolly: #912A62;
 */
 
 @font-face {
@@ -43,23 +44,30 @@ a, a:hover, a:visited, button{
 	font-weight:900;
 	text-transform:uppercase;
 }
-.play, .play:hover, .play:focus{
-	background-color:#f7f4ed;
-	color:#27c39e;
-	font-weight:bold;
-	border:1pt solid #27c39e;
-}
-.around, .around:hover, .around:focus{
+.around, .around:hover, .around:focus{	/*nuvoletta mappa*/
 	background-color:#27c39e;
 	color:#f7f4ed;
 	font-weight:bold;
 	max-width:150pt;
 	overflow:hidden;
 }
+.btn-default, .btn-default:hover, .btn-default:focus{
+	background-color:#f7f4ed;
+	color:#27c39e;
+	border:1pt solid #f7f4ed;
+}
 .btn-primary, .btn-primary:hover, .btn-primary:focus{
 	background-color:#27c39e;
-	color:white;
-	border:#cccccc;
+	color:#f7f4ed;
+	border:1pt solid #27c39e;
+}
+.btn-success, .btn-success:hover, .btn-success:focus{
+	background-color:#912A62;
+	color:#f7f4ed;
+	border:1pt solid #912A62;
+}
+.purple{
+	color:#912A62;
 }
 /**************************************INPUT*/
 input{
@@ -200,6 +208,15 @@ textarea{
 #formIndirizzo #map{
 	margin: 5% 0;
 	border-radius: 5pt;
+}
+
+/****************************NO*RISULTATI*/
+.warning{
+	font-weight:bold;
+}
+.warning img{
+	display:block;
+	margin:5%;
 }
 
 
@@ -405,9 +422,6 @@ textarea{
 	margin-left:2pt;
 }
 #clickEng, #clickIta{	/*ita|eng version*/
-	background-color:#f7f4ed;
-	color:#27c39e;
-	font-weight:bold;
 	margin:5%;
 	margin-top:-3%;
 	float:left;
@@ -630,40 +644,26 @@ textarea{
 }
 
 /***********************************RICERCA*/
-#ricerca{
-	height:95%;
+#container.ricerca{
+	color:#f7f4ed;
+	background-color: #27c39e;
 }
-#ricerca form{
-	height:48%;
+#container.ricerca form{
 	display:block;
+	padding:4%;
+	margin:5%;
+	background-color:#f7f4ed;
+	color: #27c39e;
+	height:38%;
 }
-#ricerca input{
+#container.ricerca input{
 	border-radius: 5pt;
 }
-#ricerca .input-group{
-	width:80%;
-	margin:15% 0;
-	margin-left:10%;
+#container.ricerca .input-group, #container.ricerca button{
+	width:100%;
 }
-#ricerca button{
-	width:80%;
-	margin:15% 0;
-	margin-left:10%;
-	margin-top:-10%;
-}
-#ricerca form:first-of-type{
-	border-bottom:2.5pt solid #27c39e;
-}
-#ricerca form:nth-of-type(2){
-	border-top:2.5pt solid #27c39e;
-}
-#ricerca h2{
-	margin:0pt;
-}
-.warning{
-	font-weight:bold;
-}
-.warning img{
-	display:block;
-	margin:5%;
+#container.ricerca h3{
+	margin-top:0;
+	margin-bottom:4%;
+	text-transform:uppercase;
 }
