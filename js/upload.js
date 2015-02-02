@@ -1,5 +1,4 @@
-﻿sessionStorage.photo;
-var newURI;
+﻿var newURI;
 var img_size;
 
 function capturePhoto()
@@ -7,7 +6,7 @@ function capturePhoto()
 	navigator.camera.getPicture(onSuccess, onFail, { quality: 50,
 	destinationType: Camera.DestinationType.FILE_URI,
     sourceType: Camera.PictureSourceType.PHOTOLIBRARY,
-    targetWidth: 800,
+    targetWidth: 250,
     correctOrientation: true});
 }
 
@@ -25,7 +24,8 @@ function onSuccessCamera(imageURI)
 	sessionStorage.photo = imageURI;	
 	sessionStorage.photoPreview = imageURI;
 	
-	if(sessionStorage.photo){
+	if(sessionStorage.photo)
+	{
 		$('#containerBottoni div').append('<img src="'+imageURI+'" />');
 		$('#containerBottoni div').show();
 	}
@@ -86,10 +86,7 @@ function append_src_img(newURI)
 	sessionStorage.photoPreview = newURI;	
 }
 
-function onFail(message)
-{
-
-}
+function onFail(message){}
 
 function uploadAvatar(imageData)
 {
@@ -122,7 +119,4 @@ function fail(error)
 	$('#modalErrore').modal();
 }
 
-function successo_upload_avatar(r)
-{
-	
-}
+function successo_upload_avatar(r){}

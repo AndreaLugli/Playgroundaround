@@ -91,7 +91,7 @@ function getCover()
 }
 function appendCover(data)
 {
-	//alert(data.small_path+' '+data.big_path);
+	sessionStorage.headTitle = 'Mamma mi porti al parco giochi?';
 
 	//se non ho copertine entro 20km
 	if(data != 'no_copertina')
@@ -99,7 +99,6 @@ function appendCover(data)
 		//scelgo risoluzione copertina
 		if(sessionStorage.deviceHeight <= 1000)
 		{
-			//200px × 130px ????
 			sessionStorage.imgPath = indirizzo+data.small_path;
 		}
 		else
@@ -108,10 +107,6 @@ function appendCover(data)
 		}
 		
 		sessionStorage.headTitle = data.descrizione_it;
-	}
-	else
-	{	
-		sessionStorage.headTitle = 'benvenuto';
 	}
 
 	checkCover();
@@ -130,7 +125,10 @@ function checkCover(){
 		    $('#cortina').hide();
 		};
 		img.src = imageSrc;
-
+	}
+	else //se non c'è nessuna copertina
+	{	
+		$('#cortina').hide();
 	}
 
 	$('#header h2').html(sessionStorage.headTitle);
