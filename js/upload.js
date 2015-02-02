@@ -1,6 +1,11 @@
 ﻿var newURI;
 var img_size;
 
+function ciao()
+{
+	alert('ciaooooooooooooooooo');
+}
+
 function capturePhoto()
 {
 	navigator.camera.getPicture(onSuccess, onFail, { quality: 50,
@@ -90,28 +95,27 @@ function onFail(message){}
 
 function uploadAvatar(imageData)
 {
-		var options = new FileUploadOptions();
-	    options.fileKey="file";
-	    options.fileName=imageData.substr(imageData.lastIndexOf('/')+1);
-	    options.mimeType="image/png";
-	
-	    var params = new Object();
-	    params.name = "file";
-	
-	    options.params = params;
-	    options.chunkedMode = false;
-	
-	    var ft = new FileTransfer();
-	    try
-	    {
-	    	ft.upload(imageData, indirizzo+"/django/upload_avatar", successo_upload_avatar, fail, options);
-	    }
-	    catch(e)
-	    {
-	    	scrollAlto();
-	    	$('#modalErrore').modal();
-	    }
-	}
+	var options = new FileUploadOptions();
+    options.fileKey="file";
+    options.fileName=imageData.substr(imageData.lastIndexOf('/')+1);
+    options.mimeType="image/png";
+
+    var params = new Object();
+    params.name = "file";
+
+    options.params = params;
+    options.chunkedMode = false;
+
+    var ft = new FileTransfer();
+    try
+    {
+    	ft.upload(imageData, indirizzo+"/django/upload_avatar", successo_upload_avatar, fail, options);
+    }
+    catch(e)
+    {
+    	scrollAlto();
+    	$('#modalErrore').modal();
+    }
 }
 function fail(error)
 {
