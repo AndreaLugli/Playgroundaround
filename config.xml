@@ -56,6 +56,8 @@
     <gap:plugin name="org.apache.cordova.network-information" />
     <gap:plugin name="org.apache.cordova.splashscreen" />
 
+    <gap:plugin name="org.apache.cordova.camera" version="0.3.2" />
+
     <!-- Define app icon for each platform. -->
     <icon src="res/icon.png" />
 
