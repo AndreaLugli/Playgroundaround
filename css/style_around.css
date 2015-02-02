@@ -261,7 +261,7 @@ textarea{
 	height:1%;
 }
 
-.block, .block:hover, .block:visited{
+.block, .block:hover, .block:visited, .block:focus{
 	position:relative;
 	width:50%;
 	min-height:50%;
@@ -420,6 +420,7 @@ textarea{
 #parcoInfo div:first-of-type button{	/*servizi*/
 	width:94%;
 	margin-left:2pt;
+	border:1pt solid #cccccc;
 }
 #clickEng, #clickIta{	/*ita|eng version*/
 	margin:5%;
@@ -445,6 +446,7 @@ textarea{
 	margin-top:20pt;
 	width:15%;
 	margin: 0 1.5%;
+	margin-bottom:-8%;
 }
 .spacing, .maxiSpacing{
 	clear:both;
@@ -643,6 +645,12 @@ textarea{
 	padding:0 5% 5% 5%;
 }
 
+/*modal*/
+#caricaFoto a{
+	width:50%;
+	padding:5%;
+}
+
 /***********************************RICERCA*/
 #container.ricerca{
 	color:#f7f4ed;
@@ -658,9 +666,8 @@ textarea{
 }
 #container.ricerca input{
 	border-radius: 5pt;
-}
-#container.ricerca .input-group, #container.ricerca button{
-	width:100%;
+	margin-top:5%;
+	margin-bottom:2%;
 }
 #container.ricerca h3{
 	margin-top:0;
