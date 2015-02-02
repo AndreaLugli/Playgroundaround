@@ -644,6 +644,10 @@ textarea{
 #containerBottoni div{
 	padding:0 5% 5% 5%;
 }
+#containerBottoni img{
+	width:21%;
+	padding:2%;
+}
 
 /*modal*/
 #caricaFoto a{
