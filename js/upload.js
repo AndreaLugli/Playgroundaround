@@ -2,30 +2,11 @@
 var listaURI = [];
 var img_size;
 
-function capturePhoto()
-{
-	alert(listaUri.length);
-
-	if(listaUri.length <= 10){
-		$('#caricaFoto').modal();
-
-		navigator.camera.getPicture(onSuccess, onFail, { quality: 75,
-		destinationType: Camera.DestinationType.FILE_URI,
-	    sourceType: Camera.PictureSourceType.PHOTOLIBRARY,
-	    correctOrientation: true});
-	}
-	else
-	{
-		scrollAlto();
-		$('#modalErrore').modal();
-	}
-}
-
 function capturePhoto_camera()
 {
-	alert(listaUri.length);
+	//alert(listaUri.length);
 
-	if(listaUri.length <= 10){
+	if(jQuery.isEmptyObject(listaURI) || listaUri.length < 11){
 		$('#caricaFoto').modal();
 
 		navigator.camera.getPicture(onSuccessCamera, onFail, { quality: 75,
@@ -53,7 +34,26 @@ function onSuccessCamera(imageURI)
 	}
 }
 
-//upload - controllo grandezza immagine
+function capturePhoto()
+{
+	//alert(listaUri.length);
+
+	if(jQuery.isEmptyObject(listaURI) || listaUri.length < 11){
+		$('#caricaFoto').modal();
+
+		navigator.camera.getPicture(onSuccess, onFail, { quality: 75,
+		destinationType: Camera.DestinationType.FILE_URI,
+	    sourceType: Camera.PictureSourceType.PHOTOLIBRARY,
+	    correctOrientation: true});
+	}
+	else
+	{
+		scrollAlto();
+		$('#modalErrore').modal();
+	}
+}
+
+//gallaria - controllo grandezza immagine
 function onSuccess(imageData)
 {
 	//salvo dimensioni img nella variabile img_size

@@ -122,7 +122,7 @@ function checkCover(){
 		var imageSrc = sessionStorage.imgPath;
 		img.onload = function() {
 		    $('#header .imgCover').fadeIn('slow');
-		    $('#cortina').hide();
+		    //$('#cortina').hide();
 		};
 		img.src = imageSrc;
 	}
