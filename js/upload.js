@@ -1,26 +1,43 @@
 ﻿var newURI;
+var listaURI = [];
 var img_size;
-
-function ciao()
-{
-	alert('ciaooooooooooooooooo');
-}
 
 function capturePhoto()
 {
-	navigator.camera.getPicture(onSuccess, onFail, { quality: 50,
-	destinationType: Camera.DestinationType.FILE_URI,
-    sourceType: Camera.PictureSourceType.PHOTOLIBRARY,
-    targetWidth: 250,
-    correctOrientation: true});
+	alert(listaUri.length);
+
+	if(listaUri.length <= 10){
+		$('#caricaFoto').modal();
+
+		navigator.camera.getPicture(onSuccess, onFail, { quality: 75,
+		destinationType: Camera.DestinationType.FILE_URI,
+	    sourceType: Camera.PictureSourceType.PHOTOLIBRARY,
+	    correctOrientation: true});
+	}
+	else
+	{
+		scrollAlto();
+		$('#modalErrore').modal();
+	}
 }
 
 function capturePhoto_camera()
 {
-	navigator.camera.getPicture(onSuccessCamera, onFail, { quality: 50,
-	destinationType: Camera.DestinationType.FILE_URI,
-    sourceType: Camera.PictureSourceType.CAMERA,
-    correctOrientation: true});
+	alert(listaUri.length);
+
+	if(listaUri.length <= 10){
+		$('#caricaFoto').modal();
+
+		navigator.camera.getPicture(onSuccessCamera, onFail, { quality: 75,
+		destinationType: Camera.DestinationType.FILE_URI,
+	    sourceType: Camera.PictureSourceType.CAMERA,
+	    correctOrientation: true});
+	}
+	else
+	{
+		scrollAlto();
+		$('#modalErrore').modal();
+	}
 }
 
 //camera - non controllo grandezza immagine
@@ -87,13 +104,16 @@ function append_src_img(newURI)
 	$('#containerBottoni div').append('<img src="'+newURI+'" />');
 	$('#containerBottoni div').show();
 	
-	sessionStorage.photo = newURI;	
-	sessionStorage.photoPreview = newURI;	
+	//sessionStorage.photo = newURI;
+	listaUri.push(newUri);
+	alert(listaUri.length);
+
+	//sessionStorage.photoPreview = newURI;	
 }
 
 function onFail(message){}
 
-function uploadAvatar(imageData)
+/*function uploadAvatar(imageData)
 {
 	var options = new FileUploadOptions();
     options.fileKey="file";
@@ -123,4 +143,4 @@ function fail(error)
 	$('#modalErrore').modal();
 }
 
-function successo_upload_avatar(r){}
+function successo_upload_avatar(r){}*/

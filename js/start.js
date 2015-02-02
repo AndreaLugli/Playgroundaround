@@ -126,12 +126,9 @@ function checkCover(){
 		};
 		img.src = imageSrc;
 	}
-	else //se non c'è nessuna copertina
-	{	
-		$('#cortina').hide();
-	}
 
 	$('#header h2').html(sessionStorage.headTitle);
+	$('#cortina').hide();
 	
 }
 

@@ -637,6 +637,7 @@ textarea{
 #containerBottoni{
 	clear:both;
 	padding-top:5%;
+	margin-bottom:5%;
 }
 #containerBottoni button{
 	margin-bottom:2%;
