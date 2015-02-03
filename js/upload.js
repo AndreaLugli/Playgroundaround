@@ -117,10 +117,10 @@ function controlloSize(img_size, imageData)
 	}
 }
 
-/*function URL_success(fileEntry)
+function URL_success(fileEntry)
 { 
 	append_src_img(fileEntry.toURL());
-}*/
+}
 
 //Prendi l'uri e appendilo nel box
 function append_src_img(newURI)

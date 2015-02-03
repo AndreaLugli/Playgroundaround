@@ -173,6 +173,7 @@ function codeLatLng(position_lat, position_long)
 	    	$('input').removeAttr('disabled');
 
 	    	$('#continua').show();
+	    	$('#cortina').hide();
 	    	correggi();
 	    }
 

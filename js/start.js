@@ -112,8 +112,8 @@ function appendCover(data)
 	checkCover();
 }
 //se abbiamo l'immagine di copertina la facciamo apparire
-function checkCover(){
-
+function checkCover()
+{
 	if(sessionStorage.imgPath){
 		$('#header .imgCover').css('background-image','url('+sessionStorage.imgPath+')');
 		
@@ -122,18 +122,21 @@ function checkCover(){
 		var imageSrc = sessionStorage.imgPath;
 		img.onload = function() {
 		    $('#header .imgCover').fadeIn('slow');
-		    //$('#cortina').hide();
+		    $('#header h2').html(sessionStorage.headTitle);
+		    $('#cortina').hide();
 		};
 		img.src = imageSrc;
+	}else
+	{
+		$('#header h2').html(sessionStorage.headTitle);
+		$('#cortina').hide();
 	}
-
-	$('#header h2').html(sessionStorage.headTitle);
-	$('#cortina').hide();
 	
 }
 
 /*********************RISOLUZIONE*/
-function resolution(){
+function resolution()
+{
 	sessionStorage.deviceWidth = screen.width;
 	sessionStorage.deviceHeight = screen.height;
 

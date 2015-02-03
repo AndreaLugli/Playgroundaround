@@ -27,6 +27,8 @@ function autocompletamento()
 
 	var input = (document.getElementById('positionSearch')); 
 	var autocomplete = new google.maps.places.Autocomplete(input);
+
+	$('#cortina').hide();
 	 
 	google.maps.event.addListener(autocomplete, 'place_changed', function() {
 		
