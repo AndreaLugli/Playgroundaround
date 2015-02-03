@@ -48,10 +48,12 @@ function capturePhoto_camera()
 //camera - non controllo grandezza immagine
 function onSuccessCamera(imageURI)
 {
-	//sessionStorage.photo = imageURI;	
-	//sessionStorage.photoPreview = imageURI;
-	listaUri.push(imageURI);
+	sessionStorage.photo = imageURI;	
+	sessionStorage.photoPreview = imageURI;
+
+	listaUri.push(sessionStorage.photo);
 	alert(listaUri.length);
+	alert(listaUri[0]);
 	
 	if(sessionStorage.photo)
 	{
@@ -125,9 +127,10 @@ function URL_success(fileEntry)
 //Prendi l'uri e appendilo nel box
 function append_src_img(newURI)
 {
-	//sessionStorage.photo = newURI;
-	//sessionStorage.photoPreview = newURI;	
-	listaUri.push(imageURI);
+	sessionStorage.photo = newURI;
+	sessionStorage.photoPreview = newURI;	
+	
+	listaUri.push(sessionStorage.photo);
 	alert(listaUri.length);
 
 	$('#containerFoto div').append('<img src="'+newURI+'" />');
