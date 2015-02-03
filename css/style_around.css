@@ -88,7 +88,7 @@ textarea{
 	margin-bottom:2%;
 }
 .input-group-addon{
-	width:33%;
+	width:25%;
 	text-align:left;
 	background-color:#27c39e;
 	color:#f7f4ed;
@@ -608,7 +608,7 @@ textarea{
 	margin-bottom:5%;
 }
 
-/*****************************INSERISCI*DATI*PARCO*/
+/***************************INSERISCI*DATI*PARCO*/
 #formInsParco{
 	margin:10% 5%;
 	width:90%;
@@ -617,6 +617,9 @@ textarea{
 	font-size: x-large;
 	margin-top:-5%;
 	padding-bottom:2%;
+}
+#formInsParco .input-group{
+	margin:2% 0;
 }
 #formInsParco .mezzo{	/*input metà block*/
 	width:50%;
@@ -632,23 +635,32 @@ textarea{
 	padding:2.5%;
 	text-align:left;
 }
-#formInsParco .form-group label{
+#formInsParco .alert:nth-of-type(9), #formInsParco .alert:nth-of-type(10){
+	margin-bottom:8%;
+}
+#formInsParco .form-group label{	/*descrizione*/
 	padding-top:3%;
 }
-#containerFoto{
-	clear:both;
-	padding-top:5%;
-	margin-bottom:5%;
+#addPhoto{
+	margin:8% 0;
 }
-#containerFoto button{
-	margin-bottom:7%;
+
+/***************************INSERISCI*FOTO*PARCO*/
+#containerFoto{
+	margin:10% 5%;
+	width:90%;
+}
+#containerFoto h2{
+	font-size: x-large;
+	margin-top:-5%;
+	padding-bottom:2%;
 }
 #containerFoto div{
 	padding:0 5% 5% 5%;
 }
 #containerFoto img{
 	width:18%;
-	padding:2%;
+	margin:2%;
 	border:2pt solid #27c39e;
 }
 

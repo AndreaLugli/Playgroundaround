@@ -29,7 +29,7 @@ function modalDimensioni()
 /****************scatto*o*carico*/
 function capturePhoto_camera()
 {
-	if(jQuery.isEmptyObject(arrayUri) || arrayUri.length < 11)
+	if(jQuery.isEmptyObject(arrayUri) || arrayUri.length < 10)
 	{
 		$('#caricaFoto').modal('hide');
 
@@ -138,6 +138,8 @@ function append_src_img(newURI)
 
 function onFail(message){}
 
+
+/**************upload*via*form*/
 /*function uploadAvatar(imageData)
 {
 	var options = new FileUploadOptions();
@@ -154,7 +156,7 @@ function onFail(message){}
     var ft = new FileTransfer();
     try
     {
-    	ft.upload(imageData, indirizzo+"/django/upload_avatar", successo_upload_avatar, fail, options);
+    	ft.upload(imageData, indirizzo+"/upload_parco", successo_upload_avatar, fail, options);
     }
     catch(e)
     {
