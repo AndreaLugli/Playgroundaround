@@ -2,12 +2,36 @@
 var listaURI = [];
 var img_size;
 
+
+/*****************modali*errore*/
+function modalTroppe()
+{
+	scrollAlto();
+	$('#modalErrore .modal-title').html('Stooooooop! Troppe foto');
+	$('#modalErrore .modal-body').html('<p>Puoi caricare al massimo 10 foto.</p>');
+	$('#modalErrore').modal();
+}
+function modalGenerico()
+{
+	scrollAlto();
+	$('#modalErrore .modal-title').html('Ooooooops! Errore imprevisto');
+	$('#modalErrore .modal-body').html('<p>Qualcosa è andato storto nella selezione o nello scatto dell\'immagine.<br />Riprova.</p>');
+	$('#modalErrore').modal();
+}
+function modalDimensioni()
+{
+	scrollAlto();
+	$('#modalErrore .modal-title').html('Ooooooops! Errore imprevisto');
+	$('#modalErrore .modal-body').html('<p>L\'immagine che hai selezionato è troppo grande.<br /> Scegline una di dimensioni minori.</p>');
+	$('#modalErrore').modal();
+}
+
+/****************scatto*o*carico*/
 function capturePhoto_camera()
 {
-	//alert(listaUri.length);
-
-	if(jQuery.isEmptyObject(listaURI) || listaUri.length < 11){
-		$('#caricaFoto').modal();
+	if(jQuery.isEmptyObject(listaURI) || listaUri.length < 11)
+	{
+		$('#caricaFoto').modal('hide');
 
 		navigator.camera.getPicture(onSuccessCamera, onFail, { quality: 75,
 		destinationType: Camera.DestinationType.FILE_URI,
@@ -16,8 +40,8 @@ function capturePhoto_camera()
 	}
 	else
 	{
-		scrollAlto();
-		$('#modalErrore').modal();
+		//modal più di 10 foto
+		modalTroppe();
 	}
 }
 
@@ -36,10 +60,9 @@ function onSuccessCamera(imageURI)
 
 function capturePhoto()
 {
-	//alert(listaUri.length);
-
-	if(jQuery.isEmptyObject(listaURI) || listaUri.length < 11){
-		$('#caricaFoto').modal();
+	if(jQuery.isEmptyObject(listaURI) || listaUri.length < 11)
+	{
+		$('#caricaFoto').modal('hide');
 
 		navigator.camera.getPicture(onSuccess, onFail, { quality: 75,
 		destinationType: Camera.DestinationType.FILE_URI,
@@ -48,8 +71,8 @@ function capturePhoto()
 	}
 	else
 	{
-		scrollAlto();
-		$('#modalErrore').modal();
+		//modal più di 10 foto
+		modalTroppe();
 	}
 }
 
@@ -62,14 +85,14 @@ function onSuccess(imageData)
 				function(fileEntry) {
 					fileEntry.file(function(fileObj) {
 						img_size = fileObj.size;
-					}, function(error){ 
-							scrollAlto();
-							$('#modalErrore').modal();
+					}, function(error){
+							//modal errore generico
+							modalGenerico();
 					});
 				},
 				function(error){ 
-					scrollAlto();
-					$('#modalErrore').modal();
+					//modal errore generico
+					modalGenerico();
 				}
 		);
 					
@@ -81,12 +104,11 @@ function onSuccess(imageData)
 
 function controlloSize(img_size, imageData)
 {
-	//controllo la dimensione dell'immagine
-	if(img_size > 2621440){
-		//Immagine troppo grande (> 2,5MB)
-		$('#modalErrore .modal-body').html('<p>L\'immagine che hai selezionato è troppo grande.<br /> Scegline un\'altra di dimensioni minori.</p>');
-		scrollAlto();
-		$('#modalErrore').modal();
+	//controllo se immagine troppo grande (> 2,5MB)
+	if(img_size > 2621440)
+	{
+		//modal errore dimensioni
+		modalDimensioni()
 	}
 	else{	
 		append_src_img(imageData);

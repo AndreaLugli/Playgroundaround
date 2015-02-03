@@ -64,21 +64,23 @@
                     <input id="handicap" type="checkbox"/> <span>Accessibile</span>
                 </div>
 
-                <div class="input-group input-group-lg">
-                  <span class="input-group-addon">Email*</span>
-                  <input id="email" type="text" class="form-control required" />
-                </div>
-
-
-                <div id="containerBottoni">
+                <div id="containerFoto">
+                    <label>Foto</label>
                     <div style="display:none;"></div>
 
-                    <button id="addPhoto" class="btn btn-lg btn-block btn-primary" type="button" onClick="$('#caricaFoto').modal();">Aggiungi foto <i class="fa fa-picture-o"></i></button>
-
-                    <button id="completa" class="btn btn-lg btn-block btn-success" type="button" onClick="checkRequired();">Completa <i class="fa fa-tree"></i></button>
+                    <button id="addPhoto" class="btn btn-lg btn-block btn-primary" type="button" onClick="$('#caricaFoto').modal();">Aggiungi <i class="fa fa-picture-o"></i></button>
                 </div>
 
+                <div class="input-group input-group-lg">
+                    <span class="input-group-addon">Email*</span>
+                    <input id="email" type="text" class="form-control required" />
+                </div>
+
+                <button id="completa" class="btn btn-lg btn-block btn-success" type="button" onClick="checkRequired();">Completa <i class="fa fa-tree"></i></button>
+
             </form>  <!--formInsParco-->
+
+            <div class="maxiSpacing"></div>
 
         </div>  <!--/CONTAINER-->
 
@@ -95,7 +97,7 @@
                         <h4 class="modal-title">Dati mancanti</h4>
                     </div>
                     <div class="modal-body">
-                        <p>Il nome del parco e la descrizione sono obbligatori.</p>
+                        <p>Il nome del parco, la descrizione e il tuo indirizzo email sono obbligatori.</p>
                         <p>Più informazioni inserirai sul parco, più sarai utile alle altre mamme.</p>
                     </div>
                     <div class="modal-footer">
@@ -110,13 +112,14 @@
         <div id="caricaFoto" class="modal fade">
             <div class="modal-dialog">
                 <div class="modal-content">
-                    <div class="modal-header">
+                    <!--<div class="modal-header">
                         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                        <h4 class="modal-title">Carica o scatta una foto</h4>
-                    </div>
+                        <h4 class="modal-title">Scatta o seleziona una foto</h4>
+                    </div>-->
                     <div class="modal-body">
-                        <a href="javascript:capturePhoto_camera();"><img src="img/photo_camera.png"/></a>
-                        <a href="javascript:capturePhoto();"><img src="img/photo_galleria.png"/></a>
+                        <a href="javascript:capturePhoto_camera();"><img src="img/photo_camera.png"/><span>SCATTA</span></a>
+                        <a href="javascript:capturePhoto();"><img src="img/photo_galleria.png"/><span>SELEZIONA</span></a>
+                        <div class="spacing"></div>
                     </div>
                 </div><!-- /.modal-content -->
             </div><!-- /.modal-dialog -->
@@ -129,11 +132,9 @@
                 <div class="modal-content">
                     <div class="modal-header">
                         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                        <h4 class="modal-title">Ooooooops! Errore imprevisto</h4>
+                        <h4 class="modal-title">...</h4>
                     </div>
-                    <div class="modal-body">
-                        <p>Qualcosa è andato storto nella selezione dell\'immagine.<br />Riprova a caricarla.</p>
-                    </div>
+                    <div class="modal-body">...</div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-lg btn-default btn-block" data-dismiss="modal">Chiudi</button>
                     </div>

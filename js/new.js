@@ -48,6 +48,14 @@ function checkRequired()
 	    }
 	});
 
+	$('#email').click(function()
+	{
+	    if($(this).val().indexOf('@') === -1 || $(this).val().indexOf('.') === -1)
+	    { 
+	    	$(this).addClass("error");
+	    }
+	});
+
 	//se mancanti blocco
 	if( $("#formInsParco .error").length > 0)
 	{

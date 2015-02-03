@@ -615,6 +615,7 @@ textarea{
 #formInsParco h2{
 	font-size: x-large;
 	margin-top:-5%;
+	padding-bottom:2%;
 }
 #formInsParco .mezzo{	/*input metà block*/
 	width:50%;
@@ -630,31 +631,46 @@ textarea{
 	padding:2.5%;
 	text-align:left;
 }
-.alert + .input-group{	/*campo email*/
-	clear:both;
-	padding-top:5%;
+#formInsParco .form-group label{
+	padding-top:3%;
 }
-#containerBottoni{
+#containerFoto{
 	clear:both;
 	padding-top:5%;
 	margin-bottom:5%;
 }
-#containerBottoni button{
-	margin-bottom:2%;
+#containerFoto button{
+	margin-bottom:7%;
 }
-#containerBottoni div{
+#containerFoto div{
 	padding:0 5% 5% 5%;
 }
-#containerBottoni img{
+#containerFoto img{
 	width:21%;
 	padding:2%;
 }
 
 /*modal*/
+#caricaFoto{
+	height:auto;
+}
 #caricaFoto a{
 	width:50%;
 	padding:5%;
+	display:block;
+	float:left;
+	color:black;
+	font-weight: normal;
 }
+#caricaFoto span{
+	display:block;
+}
+/*#caricaFoto a{
+	width:50%;
+	padding:5%;
+	display:block;
+	float:left;
+}*/
 
 /***********************************RICERCA*/
 #container.ricerca{
