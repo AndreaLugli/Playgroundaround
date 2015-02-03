@@ -566,8 +566,8 @@ textarea{
 
 /***************************INSERISCI*COORD*PARCO*/
 #formIndirizzo{
-	margin:10%;
-	width:80%;
+	margin:10% 5%;
+	width:90%;
 }
 #formIndirizzo h2{
 	font-size: x-large;
@@ -609,8 +609,8 @@ textarea{
 
 /*****************************INSERISCI*DATI*PARCO*/
 #formInsParco{
-	margin:10%;
-	width:80%;
+	margin:10% 5%;
+	width:90%;
 }
 #formInsParco h2{
 	font-size: x-large;
