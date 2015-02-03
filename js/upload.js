@@ -48,8 +48,10 @@ function capturePhoto_camera()
 //camera - non controllo grandezza immagine
 function onSuccessCamera(imageURI)
 {
-	sessionStorage.photo = imageURI;	
-	sessionStorage.photoPreview = imageURI;
+	//sessionStorage.photo = imageURI;	
+	//sessionStorage.photoPreview = imageURI;
+	listaUri.push(imageURI);
+	alert(listaUri.length);
 	
 	if(sessionStorage.photo)
 	{
@@ -115,22 +117,22 @@ function controlloSize(img_size, imageData)
 	}
 }
 
-function URL_success(fileEntry)
+/*function URL_success(fileEntry)
 { 
 	append_src_img(fileEntry.toURL());
-}
+}*/
 
 //Prendi l'uri e appendilo nel box
 function append_src_img(newURI)
 {
+	//sessionStorage.photo = newURI;
+	//sessionStorage.photoPreview = newURI;	
+	listaUri.push(imageURI);
+	alert(listaUri.length);
+
 	$('#containerFoto div').append('<img src="'+newURI+'" />');
 	$('#containerFoto div').show();
 	
-	//sessionStorage.photo = newURI;
-	listaUri.push(newUri);
-	alert(listaUri.length);
-
-	//sessionStorage.photoPreview = newURI;	
 }
 
 function onFail(message){}

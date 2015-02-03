@@ -208,6 +208,7 @@ textarea{
 #formIndirizzo #map{
 	margin: 5% 0;
 	border-radius: 5pt;
+	height:200pt;
 }
 
 /****************************NO*RISULTATI*/
@@ -646,7 +647,7 @@ textarea{
 	padding:0 5% 5% 5%;
 }
 #containerFoto img{
-	width:21%;
+	width:18%;
 	padding:2%;
 }
 
