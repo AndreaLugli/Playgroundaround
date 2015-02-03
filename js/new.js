@@ -48,9 +48,9 @@ function checkRequired()
 	    }
 	});
 
-	$('#email').click(function()
+	$('#email').each(function()
 	{
-	    if($(this).val().indexOf('@') === -1 || $(this).val().indexOf('.') === -1)
+	    if($(this).val().length < 5 || $(this).val().indexOf('@') === -1 || $(this).val().indexOf('.') === -1)
 	    { 
 	    	$(this).addClass("error");
 	    }
@@ -75,6 +75,10 @@ function checkRequired()
 function noErrorOnClick()
 {
 	$('.required').focus(function()
+	{	
+		$(this).removeClass("error");
+	});
+	$('#email').focus(function()
 	{	
 		$(this).removeClass("error");
 	});
@@ -119,6 +123,13 @@ function getDati()
 	{
 		sessionStorage.toilette = false
 	}
+	if($('#cleaning').is(':checked'))
+	{
+		sessionStorage.cleaning = true;
+	}else
+	{
+		sessionStorage.cleaning = false
+	}
 	if($('#handicap').is(':checked'))
 	{
 		sessionStorage.handicap = true;
@@ -133,6 +144,7 @@ function getDati()
 	sessionStorage.newTarget_min = $('#target_min').val();
 	sessionStorage.newTarget_max = $('#target_max').val();
 	sessionStorage.newDesc = $('#description').val();
+	sessionStorage.email = $('#email').val();
 
 	//completo se dati mancanti
 	if(sessionStorage.newOpening == '')
@@ -155,23 +167,43 @@ function getDati()
 //invio dati al server
 function inviaDati()
 {
-	alert(sessionStorage.newLati+' '+sessionStorage.newLongi+' '+sessionStorage.newAddress+' '+sessionStorage.newTitle+' '+sessionStorage.newOpening+' '+sessionStorage.newTarget_min+' '+sessionStorage.newTarget_max+' '+sessionStorage.newDesc+' '+sessionStorage.fenced+' '+sessionStorage.picnic+' '+sessionStorage.snack+' '+sessionStorage.park+' '+sessionStorage.toilette+' '+sessionStorage.handicap);
-	window.location='inserisci_ok.html';
-	/*
-	sessionStorage.newLati
-	sessionStorage.newLongi
-	sessionStorage.newAddress
-	sessionStorage.newTitle
-	sessionStorage.newOpening
-	sessionStorage.newTarget_min
-	sessionStorage.newTarget_max
-	sessionStorage.newDesc
+	alert(sessionStorage.newLati+' '+sessionStorage.newLongi+' '+sessionStorage.newAddress+' '+sessionStorage.newTitle+' '+sessionStorage.newOpening+' '+sessionStorage.newTarget_min+' '+sessionStorage.newTarget_max+' '+sessionStorage.newDesc+' '+sessionStorage.email+' '+sessionStorage.fenced+' '+sessionStorage.picnic+' '+sessionStorage.snack+' '+sessionStorage.park+' '+sessionStorage.toilette+' '+sessionStorage.handicap);
 
-	sessionStorage.fenced
-	sessionStorage.picnic
-	sessionStorage.snack
-	sessionStorage.park
-	sessionStorage.toilette
-	sessionStorage.handicap
-	*/
+	$.ajax({
+		type: 'POST',
+		url: indirizzo+'/inserimento_parco',
+		data: {
+			'name' : sessionStorage.newTitle,
+			'indirizzo' : sessionStorage.newAddress,
+			'longitude' : sessionStorage.newLongi,
+			'latitude' : sessionStorage.newLati,
+			'descrizione_it_parco' : sessionStorage.newDesc,
+			'descrizione_en_parco' : '',
+			'age_min' : sessionStorage.newTarget_min,
+			'age_max' : sessionStorage.newTarget_max,
+			'opening_hours' : sessionStorage.newOpening,
+			'picnic' : sessionStorage.picnic,
+			'parking' : sessionStorage.park,
+			'fenced_area' : sessionStorage.fenced,
+			'toilette' : sessionStorage.toilette,
+			'caffe' : sessionStorage.snack,
+			'cleaning' :sessionStorage.cleaning,
+			'universally_accessible' : sessionStorage.handicap,
+			'other' : '',
+			'evaluation' : '',
+			'email' : sessionStorage.email,
+			'promozionale' : 'false'
+		},
+		contentType: 'application/x-www-form-urlencoded',
+		error: errorHandler,
+		success: datiInviati
+	})
+
+}
+function datiInviati(data)
+{
+	idParco = data;
+	alert(idParco);
+
+	window.location='inserisci_ok.html';
 }

@@ -55,7 +55,7 @@ function onSuccessCamera(imageURI)
 	if(sessionStorage.photo)
 	{
 		$('#containerFoto div').append('<img src="'+imageURI+'" />');
-		$('#containerFoto div').show();
+		$('#completa').show();
 	}
 	alert('Camera ok: '+arrayUri);
 }
@@ -130,7 +130,7 @@ function append_src_img(newURI)
 	arrayUri.push(sessionStorage.photo);
 
 	$('#containerFoto div').append('<img src="'+newURI+'" />');
-	$('#containerFoto div').show();
+	$('#completa').show();
 
 	alert('Galleria ok '+arrayUri);
 	
