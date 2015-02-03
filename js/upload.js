@@ -1,5 +1,5 @@
 ﻿var newURI;
-var listaURI = [];
+var arrayUri = [];
 var img_size;
 
 
@@ -29,7 +29,7 @@ function modalDimensioni()
 /****************scatto*o*carico*/
 function capturePhoto_camera()
 {
-	if(jQuery.isEmptyObject(listaURI) || listaUri.length < 11)
+	if(jQuery.isEmptyObject(arrayUri) || arrayUri.length < 11)
 	{
 		$('#caricaFoto').modal('hide');
 
@@ -50,17 +50,19 @@ function onSuccessCamera(imageURI)
 {
 	sessionStorage.photo = imageURI;	
 	sessionStorage.photoPreview = imageURI;
+	arrayUri.push(sessionStorage.photo);
 	
 	if(sessionStorage.photo)
 	{
 		$('#containerFoto div').append('<img src="'+imageURI+'" />');
 		$('#containerFoto div').show();
 	}
+	alert('Camera ok: '+arrayUri);
 }
 
 function capturePhoto()
 {
-	if(jQuery.isEmptyObject(listaURI) || listaUri.length < 11)
+	if(jQuery.isEmptyObject(arrayUri) || arrayUri.length < 11)
 	{
 		$('#caricaFoto').modal('hide');
 
@@ -124,10 +126,13 @@ function URL_success(fileEntry)
 function append_src_img(newURI)
 {
 	sessionStorage.photo = newURI;
-	sessionStorage.photoPreview = newURI;	
+	sessionStorage.photoPreview = newURI;
+	arrayUri.push(sessionStorage.photo);
 
 	$('#containerFoto div').append('<img src="'+newURI+'" />');
 	$('#containerFoto div').show();
+
+	alert('Galleria ok '+arrayUri);
 	
 }
 

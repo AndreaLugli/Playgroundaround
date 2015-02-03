@@ -649,12 +649,10 @@ textarea{
 #containerFoto img{
 	width:18%;
 	padding:2%;
+	border:2pt solid #27c39e;
 }
 
 /*modal*/
-#caricaFoto{
-	height:auto;
-}
 #caricaFoto a{
 	width:50%;
 	padding:5%;
@@ -666,12 +664,6 @@ textarea{
 #caricaFoto span{
 	display:block;
 }
-/*#caricaFoto a{
-	width:50%;
-	padding:5%;
-	display:block;
-	float:left;
-}*/
 
 /***********************************RICERCA*/
 #container.ricerca{
