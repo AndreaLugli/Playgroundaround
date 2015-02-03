@@ -53,8 +53,8 @@ function onSuccessCamera(imageURI)
 	
 	if(sessionStorage.photo)
 	{
-		$('#containerBottoni div').append('<img src="'+imageURI+'" />');
-		$('#containerBottoni div').show();
+		$('#containerFoto div').append('<img src="'+imageURI+'" />');
+		$('#containerFoto div').show();
 	}
 }
 
@@ -123,8 +123,8 @@ function URL_success(fileEntry)
 //Prendi l'uri e appendilo nel box
 function append_src_img(newURI)
 {
-	$('#containerBottoni div').append('<img src="'+newURI+'" />');
-	$('#containerBottoni div').show();
+	$('#containerFoto div').append('<img src="'+newURI+'" />');
+	$('#containerFoto div').show();
 	
 	//sessionStorage.photo = newURI;
 	listaUri.push(newUri);
