@@ -91,8 +91,8 @@ function getCover()
 }
 function appendCover(data)
 {
-	sessionStorage.headTitle = 'Liguria';
-	//sessionStorage.headTitle = 'San Marino';
+	//sessionStorage.headTitle = 'Liguria';
+	sessionStorage.headTitle = 'San Marino';
 
 	//se non ho copertine entro 20km
 	if(data != 'no_copertina')
@@ -130,8 +130,8 @@ function checkCover()
 	}else
 	{
 		$('#header h2').html(sessionStorage.headTitle);
-		$('#header .imgCover').css('background-image','url(\'img/5_terre.jpg\')');
-		//$('#header .imgCover').css('background-image','url(\'img/marino.jpg\')');
+		//$('#header .imgCover').css('background-image','url(\'img/5_terre.jpg\')');
+		$('#header .imgCover').css('background-image','url(\'img/marino.jpg\')');
 		$('#cortina').hide();
 		$('#header .imgCover').show();
 	}
