@@ -38,6 +38,9 @@ hr{
 	background-color:#27c39e;
 	margin:3pt;
 }
+h2, h2 span{
+	font-size: x-large;
+}
 
 /*******************************LINK*E*BOTTONI*/
 a, a:hover, a:visited, button{ 
@@ -381,11 +384,8 @@ textarea{
 
 /*switch*raggio*/
 #interruttore{
-	padding:20pt 0 5pt 0;
-}
-#contatoreParchi{
-	margin-bottom:5pt;
-	font-weight:bold;
+	margin:10pt 5%;
+	width:90%;
 }
 
 
@@ -576,7 +576,6 @@ textarea{
 	width:90%;
 }
 #formIndirizzo h2{
-	font-size: x-large;
 	margin-top:-5%;
 }
 #formIndirizzo #map + p{
@@ -619,7 +618,6 @@ textarea{
 	width:90%;
 }
 #formInsParco h2{
-	font-size: x-large;
 	margin-top:-5%;
 	padding-bottom:2%;
 }
@@ -656,7 +654,6 @@ textarea{
 	width:90%;
 }
 #containerFoto h2{
-	font-size: x-large;
 	margin-top:-5%;
 }
 #containerFoto h3{

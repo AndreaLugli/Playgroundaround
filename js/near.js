@@ -130,7 +130,7 @@ function appendVicini(data)
 		
 	}
 	$('#parchiVicini').html(listaParchiVicini);
-	$('#contatoreParchi').html(quantiParchi+' parchi trovati');
+	$('#contatoreParchi span').html(quantiParchi);
 
 	$('#loader').hide();
 
@@ -140,15 +140,15 @@ function appendVicini(data)
 function allargaRaggio()
 {
 	$('#interruttore').hide();
-	$('#interruttore button').html('Restringi la ricerca');
-	$('#interruttore button').attr('onClick', 'restringiRaggio();');
+	$('#interruttore').html('Restringi la ricerca');
+	$('#interruttore').attr('onClick', 'restringiRaggio();');
 	listaVicini(10);
 }
 function restringiRaggio()
 {
 	$('#interruttore').hide();
-	$('#interruttore button').html('Allarga la ricerca');
-	$('#interruttore button').attr('onClick', 'allargaRaggio();');
+	$('#interruttore').html('Allarga la ricerca');
+	$('#interruttore').attr('onClick', 'allargaRaggio();');
 	listaVicini(3);
 }
 

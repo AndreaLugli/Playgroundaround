@@ -5,16 +5,16 @@ var img_size;
 //posso aggiungere foto sia nei nuovi che nei vecchi parchi
 function goPhotoUpload(provenienza)
 {
-	SessionStorage.provenienza = provenienza;
+	sessionStorage.provenienza = provenienza;
 	window.location='inserisci_foto.html';
 }
 function openPhotoUpload()
 {
-	if(SessionStorage.provenienza == 'nuovo')
+	if(sessionStorage.provenienza == 'nuovo')
 	{
 		$('#containerFoto form').attr('action', indirizzo+'/upload_parco');
 	}
-	else if(SessionStorage.provenienza == 'vecchio')
+	else if(sessionStorage.provenienza == 'vecchio')
 	{
 		$('#containerFoto form').attr('action', indirizzo+'/upload_parco');
 	}
