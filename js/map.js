@@ -90,7 +90,7 @@ function appendMappa(data)
     	longitude = item.longitude;
 
     	if(item.anteprima_path === null){
-			anteprimina = "img/not_available_black.png";
+			anteprimina = "img/logo.jpg";
 		}
 		else{
 			anteprimina = indirizzo+'/media/'+item.anteprima_path;
@@ -112,6 +112,9 @@ function localizzaMap(lati, longi)
 	map = L.map('map').setView([lati, longi], 15);
 
 	L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png').addTo(map);
+
+	//disabilito scroll mappa
+	map.dragging.disable();
 
 	parchetto = creaPOI(lati,longi,"<p style='font-size:small'>Questo è il parco</p>");
 	map.panTo(new L.LatLng(lati, longi));

@@ -89,7 +89,7 @@ function appendVicini(data)
 		voto = getStelline(jsonVicini[i].evaluation);
 
 		if(jsonVicini[i].anteprima_path === null){
-			anteprima = "img/not_available.png";
+			anteprima = "img/logo.jpg";
 		}
 		else{
 			anteprima = indirizzo+'/media/'+jsonVicini[i].anteprima_path;
@@ -202,7 +202,10 @@ function getImgParco(){
 
 		$('#galleria img:last-of-type').after('<div class="spacing"></div>');
 
-		$('#galleria').append("<a href='#'><i class='fa fa-2x fa-photo purple'></i></a>");
+		if($('#galleria img').length < 10)
+		{
+			$('#galleria').append("<a href='javascript:goPhotoUpload(\'vecchio\');'><i class='fa fa-2x fa-photo purple'></i></a>");
+		}	
 
 		modalImg();
 
