@@ -1,6 +1,5 @@
 /*palette
-grigio background: #e4e3df
-grigino: #e5e5e5;
+grigio background: #e5e5e5;
 verde acqua: #27c39e
 nero navbar: #464646
 bianco panna: #f7f4ed
@@ -18,7 +17,7 @@ viola jolly: #912A62;
 html, body {
 	height:100%;
 	width:100%;
-	background-color:#e4e3df;
+	background-color:#e5e5e5;
 	color:#27c39e;
 	text-align:center;
 }
@@ -184,7 +183,7 @@ textarea{
 	opacity: 0.6;
 }
 #loader{
-	background: #e4e3df url('../img/loader.gif') center center no-repeat;
+	background: #e5e5e5 url('../img/loader.gif') center center no-repeat;
 	position:absolute;
 	top:0;
 	left:0;
@@ -334,7 +333,7 @@ textarea{
 	height:100pt;
 	line-height:20pt;
 	overflow-y:auto;
-	background: url("../img/click.png") no-repeat right 2pt center;
+	background: url("../img/click3.png") no-repeat right 2pt center;
 	background-size:20pt;
 	padding-right:20pt;
 }
@@ -684,21 +683,31 @@ textarea{
 
 /***********************************RICERCA*/
 #container.ricerca{
-	color:#f7f4ed;
 	background-color: #27c39e;
 }
 #container.ricerca form{
 	display:block;
 	padding:10%;
-	margin:5%;
-	background-color:#f7f4ed;
-	color: #27c39e;
-	height:38%;
+	/*background-color:#f7f4ed;*/
+	color: #f7f4ed;
+	height:47%;
 }
+#container.ricerca form:first-of-type{
+	background: #9bcc5f url('../img/10_ricercaLuogo.png') bottom right no-repeat;
+	margin-bottom:5pt;
+}
+#container.ricerca form:nth-of-type(2){
+	background: #19b590 url('../img/9_ricercaNome.png') bottom right no-repeat;
+}
+
 #container.ricerca input{
 	border-radius: 5pt;
 	margin-top:5%;
 	margin-bottom:2%;
+}
+#container.ricerca button{
+	float:left;
+	width:50%;
 }
 #container.ricerca h3{
 	margin-top:0;

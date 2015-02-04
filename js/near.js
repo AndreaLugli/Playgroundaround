@@ -8,6 +8,7 @@ function getTitolo()
 function searchTitolo()
 {
 	pop('back');
+	$('h2 span').html(sessionStorage.titleSearch);
 
 	//get lista parchi trovati
 	$.ajaxSetup({ cache: false });
@@ -33,6 +34,8 @@ function autocompletamento()
 	google.maps.event.addListener(autocomplete, 'place_changed', function() {
 		
 		var place = autocomplete.getPlace();
+
+		sessionStorage.place = $('#positionSearch').val();
 		
 		sessionStorage.latiSearch = place.geometry.location.lat();
 		sessionStorage.longiSearch = place.geometry.location.lng();
@@ -43,6 +46,8 @@ function autocompletamento()
 function searchPosizione()
 {
 	pop('back');
+
+	$('h2 span').html(sessionStorage.place);
 
 	distanza = 10;
 
@@ -204,7 +209,7 @@ function getImgParco(){
 
 		if($('#galleria img').length < 10)
 		{
-			$('#galleria').append("<a href='javascript:goPhotoUpload(\'vecchio\');'><i class='fa fa-2x fa-photo purple'></i></a>");
+			$('#galleria').append("<a href='javascript:goPhotoUpload(\"vecchio\");'><i class='fa fa-2x fa-photo purple'></i></a>");
 		}	
 
 		modalImg();
