@@ -62,6 +62,7 @@ h1{			/*titolo index*/
 	font-weight:bold;
 	width:100%;
 	margin:0;
+	margin-bottom:-2pt;
 	padding:1%;
 	color: #f7f4ed;
 	text-transform:uppercase;
@@ -360,10 +361,10 @@ textarea{
 	overflow-y:auto;
 	background: url("../img/click3.png") no-repeat right 2pt center;
 	background-size:20pt;
+	padding:2% 0;
 	padding-right:20pt;
 }
 .titolo{
-	margin-top:5%;
 	font-size:large;
 	font-weight:bold;
 	text-transform:uppercase;
@@ -705,6 +706,7 @@ textarea{
 /***********************************RICERCA*/
 #container.ricerca h2{
 	margin-top:5%;
+	margin-bottom:-3%;
 	padding: 0 5%;
 }
 #container.ricerca #primo{		/*primo titolo*/
@@ -717,7 +719,7 @@ textarea{
 #container.ricerca form{
 	width:90%;
 	margin:5%;
-	padding:8% 5%;
+	padding:5%;
 	background-color:#27c39e;
 	color:#f7f4ed;
 }
@@ -725,7 +727,7 @@ textarea{
 	background:#27c39e url("../img/fune.png") no-repeat left bottom 40%;
 }
 #container.ricerca #secondo + form{
-	background:#27c39e url("../img/dondolo.png") no-repeat right -200% center;
+	background:#27c39e url("../img/dondolo.png") no-repeat right -110pt center;
 }
 
 #container.ricerca input{
@@ -736,7 +738,7 @@ textarea{
 	width:50%;
 }
 #container.ricerca hr{
-	 margin:7% 0 5% 0;
+	 margin:10% 0 8% 0;
 }
 
 /*******************************TROVATI*/

@@ -2,7 +2,19 @@
 function getTitolo()
 {
 	sessionStorage.titleSearch = $('#titleSearch').val();
-	window.location='trovati_nome.html';
+	if(sessionStorage.titleSearch != '')
+	{
+		window.location='trovati_nome.html';
+		
+	}else
+	{
+		$('#titleSearch').addClass("error");
+
+		$('#titleSearch').focus(function()
+		{	
+			$(this).removeClass("error");
+		});
+	}
 }
 //on load ricerca per nome (trovati.html) 
 function searchTitolo()
@@ -34,13 +46,28 @@ function autocompletamento()
 	google.maps.event.addListener(autocomplete, 'place_changed', function() {
 		
 		var place = autocomplete.getPlace();
-
-		sessionStorage.place = $('#positionSearch').val();
 		
 		sessionStorage.latiSearch = place.geometry.location.lat();
 		sessionStorage.longiSearch = place.geometry.location.lng();
-		//alert(sessionStorage.latitudine_nuova+' '+sessionStorage.longitudine_nuova);
 	});
+}
+function getPosto()
+{
+	sessionStorage.place = $('#positionSearch').val();
+	if(sessionStorage.place.length > 5)
+	{
+		window.location='trovati_posizione.html';
+		
+	}else
+	{
+		$('#positionSearch').addClass("error");
+
+		$('#positionSearch').focus(function()
+		{	
+			$(this).removeClass("error");
+		});
+	}
+	
 }
 //on load ricerca per posizione (trovati.html) 
 function searchPosizione()
