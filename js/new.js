@@ -1,7 +1,7 @@
 /**********************POSIZIONE*PARCO*/
 function openGeo()
 {
-	pop('back');
+	popBack();
 	//mostra mappa e indirizzo
 	localizzaMap(sessionStorage.lat, sessionStorage.longi);
 	codeLatLng(sessionStorage.lat, sessionStorage.longi);

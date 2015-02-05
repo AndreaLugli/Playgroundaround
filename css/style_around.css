@@ -37,8 +37,29 @@ hr{
 	background-color:#27c39e;
 	margin:3pt;
 }
-h2, h2 span{
-	font-size: x-large;
+/**************************************TITOLI*/
+h1{			/*titolo index*/
+	font-size:large;
+	font-weight:bold;
+	width:100%;
+	margin:0;
+	padding:1%;
+	color: #f7f4ed;
+	text-transform:uppercase;
+	background-color:#27c39e;
+	opacity:0.9;
+}
+h2, h2 span{	/*titoli pagine*/
+	font-size:x-large;
+	font-weight:bold;
+	width:100%;
+	margin-top:0;
+	margin-bottom:5%;
+}
+h3{				/*spiegazioni pagine*/
+	font-size: large;
+	width:100%;
+	margin:5% 0;
 }
 
 /*******************************LINK*E*BOTTONI*/
@@ -73,25 +94,24 @@ a, a:hover, a:visited, button{
 	color:#912A62;
 }
 /**************************************INPUT*/
-input{
-	font-size:medium;
-}
+
 label{
 	display:block;
 	text-align:left;
 	font-weight:normal;
 	font-size:large;
+	padding:1%;
 }
 textarea{
-	min-height:80pt;
-	font-size:medium;
+	min-height:70pt;
 }
-.input-group{
+.input-group, .form-group{
 	width:100%;
 	margin-bottom:2%;
+	clear:both;
 }
 .input-group-addon{
-	width:25%;
+	width:27%;
 	text-align:left;
 	background-color:#27c39e;
 	color:#f7f4ed;
@@ -179,8 +199,8 @@ textarea{
 	height:100%;
 	position:absolute;
 	z-index:99;
-	background-color:white;
-	opacity: 0.6;
+	background-color:#f7f4ed;
+	opacity: 0.7;
 }
 #loader{
 	background: #e5e5e5 url('../img/loader.gif') center center no-repeat;
@@ -215,16 +235,26 @@ textarea{
 #formIndirizzo #map{
 	margin: 5% 0;
 	border-radius: 5pt;
-	height:200pt;
+	height:100pt;
 }
 
 /****************************NO*RISULTATI*/
-.warning{
-	font-weight:bold;
-}
-.warning img{
+#noPark{
 	display:block;
-	margin:5%;
+	height:200pt;
+	width:100%;
+	padding:5%;
+	background:url("../img/dondolo.png") no-repeat center bottom;
+	background-size:50%;
+	margin-top:-7%;
+}
+#noPark h2{
+	background-color: #27c39e;
+	color:#f7f4ed;
+	text-transform: none;
+	width:80%;
+	margin:10%;
+	margin-top:150pt;
 }
 
 
@@ -246,18 +276,9 @@ textarea{
 	background: #f6f4ec url('../img/segnaposto.png') center center no-repeat;
 	background-size:cover;
 }
-#header h2{
+#header h1{
 	position:absolute;
-	bottom:-10pt;
-	width:100%;
-	color:white;
-	font-size:large;
-	color: #f7f4ed;
-	text-transform:uppercase;
-	background-color:#27c39e;
-	padding:1%;
-	font-weight:bold;
-	opacity:0.9;
+	bottom:0;
 }
 
 #page{
@@ -298,7 +319,9 @@ textarea{
 	background:#9bcc5f url('../img/3_map.png') center center no-repeat;
 }
 .blo4{
-	background:#e45141 url('../img/4_best.png') center center no-repeat;
+	/*background:#e45141 url('../img/4_best.png') center center no-repeat;*/
+	background:#e45141 url('../img/promo_content.png') center center no-repeat;
+	background-size: 100%;
 }
 
 
@@ -306,14 +329,17 @@ textarea{
 #parchiVicini{
 	padding:5%;
 }
+#contatoreParchi{
+	margin-top:10%;
+}
 
 .parco, .parco:hover, .parco:visited, .parco:focus{
 	display:block;
 	height:100pt;
 	width:100%;
 	margin-bottom:5pt;
-	background-color:#27c39e;
 	color:#f7f4ed;
+	background:#27c39e url("../img/fune.png") no-repeat left bottom;
 }
 .parco:last-of-type{
 	margin-bottom:18pt;
@@ -325,6 +351,8 @@ textarea{
 	height:50pt;
 	width:50pt;
 	float:left;
+	border:3pt solid #f7f4ed;
+	border-radius: 25pt
 }
 
 .desc{
@@ -366,24 +394,27 @@ textarea{
 }
 .servizi{
 	display:block;
-	background-color:white;
-	margin:0 5%;
-	border-radius:10pt;
+	background-color:#f7f4ed;
 	text-align:center;
+	width:85%;
+	margin:0 7.5%;
 }
 .servizi i{
 	font-size:large;
+	padding:2%;
 }
 .true{
 	color:#31C331;
+	/*color:#B1E2E4;*/
 }
 .false{
 	color:#AC131C;
+	/*color:#22433B;*/
 }
 
 /*switch*raggio*/
 #interruttore{
-	margin:10pt 5%;
+	margin:5pt 5%;
 	width:90%;
 }
 
@@ -574,13 +605,6 @@ textarea{
 	margin:10% 5%;
 	width:90%;
 }
-#formIndirizzo h2{
-	margin-top:-5%;
-}
-#formIndirizzo #map + p{
-	text-align:justify;
-	margin-bottom:5%;
-}
 #via{
 	width:75%;
 	float:left;
@@ -616,10 +640,6 @@ textarea{
 	margin:10% 5%;
 	width:90%;
 }
-#formInsParco h2{
-	margin-top:-5%;
-	padding-bottom:2%;
-}
 #formInsParco .input-group{
 	margin:2% 0;
 }
@@ -637,12 +657,6 @@ textarea{
 	padding:2.5%;
 	text-align:left;
 }
-#formInsParco .alert:nth-of-type(11){
-	margin-bottom:8%;
-}
-#formInsParco .form-group label{	/*descrizione*/
-	padding-top:3%;
-}
 #addPhoto{
 	margin:8% 0;
 }
@@ -651,9 +665,6 @@ textarea{
 #containerFoto{
 	margin:10% 5%;
 	width:90%;
-}
-#containerFoto h2{
-	margin-top:-5%;
 }
 #containerFoto h3{
 	font-size: large;

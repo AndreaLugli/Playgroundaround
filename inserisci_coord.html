@@ -26,7 +26,7 @@
 
                 <div id="map"></div>
 
-                <p>Se ti trovi lontano dal parco oppure l'indirizzo non è esatto puoi correggerlo manualmente qui sotto.</p>
+                <h3>Questa è la tua posizione. Se l'indirizzo non è esatto, correggilo qui sotto:</h3>
                 
                 <input id="via" type="text" class="form-control input-lg" placeholder="Indirizzo" disabled>
                 <input id="civico" type="text" class="form-control input-lg" placeholder="Civico" disabled>
@@ -34,9 +34,9 @@
                 <input id="cap" type="tel" class="form-control input-lg" placeholder="CAP" disabled>
                 <input id="prov" type="text" class="form-control input-lg" placeholder="Prov" disabled>
                 
-                <button id="continua" style="display:none;" class="btn btn-lg btn-block btn-success" type="button" onClick="window.location='inserisci_dati.html';">Conferma <i class="fa fa-tree"></i></button>
+                <button id="continua" style="display:none;" class="btn btn-lg btn-block btn-success" type="button" onClick="window.location='inserisci_dati.html';">Conferma <i class="fa fa-check-circle-o"></i></button>
 
-                <button id="correggi" style="display:none;" class="btn btn-lg btn-block btn-primary" type="button" onClick="new_Geocoding();">Aggiorna la mappa <i class="fa fa-pencil-square-o"></i></button>
+                <button id="correggi" style="display:none;" class="btn btn-lg btn-block btn-primary" type="button" onClick="new_Geocoding();">Aggiorna posizione <i class="fa fa-refresh"></i></button>
                     
             </div>  <!--formIndirizzo-->
 

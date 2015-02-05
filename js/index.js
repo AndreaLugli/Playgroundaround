@@ -26,8 +26,6 @@ var app = {
             $('#header .imgCover').css('background-image','url('+indirizzo+sessionStorage.imgPath+')');
             $('#header .imgCover').fadeIn('slow');
 
-            //$('#cortina').hide();
-
         }else{
             localize();
         }

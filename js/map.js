@@ -176,7 +176,7 @@ function codeLatLng(position_lat, position_long)
 	    	$('input').removeAttr('disabled');
 
 	    	$('#continua').show();
-	    	$('#cortina').hide();
+	    	$('#cortina').fadeOut();
 	    	correggi();
 	    }
 
@@ -186,7 +186,7 @@ function codeLatLng(position_lat, position_long)
 //funzione per get indirizzo e ricalcolo coordinate
 function new_Geocoding()
 {
-	$('#continua').hide();
+	$('#continua').fadeOut();
 	$('input').attr('disabled','disabled');
 	
 	new_via = $('#via').val();

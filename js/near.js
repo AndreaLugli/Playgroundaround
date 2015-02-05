@@ -7,7 +7,7 @@ function getTitolo()
 //on load ricerca per nome (trovati.html) 
 function searchTitolo()
 {
-	pop('back');
+	popBack();
 	$('h2 span').html(sessionStorage.titleSearch);
 
 	//get lista parchi trovati
@@ -29,7 +29,7 @@ function autocompletamento()
 	var input = (document.getElementById('positionSearch')); 
 	var autocomplete = new google.maps.places.Autocomplete(input);
 
-	$('#cortina').hide();
+	$('#cortina').fadeOut();
 	 
 	google.maps.event.addListener(autocomplete, 'place_changed', function() {
 		
@@ -45,7 +45,7 @@ function autocompletamento()
 //on load ricerca per posizione (trovati.html) 
 function searchPosizione()
 {
-	pop('back');
+	popBack();
 
 	$('h2 span').html(sessionStorage.place);
 
@@ -66,7 +66,7 @@ function searchPosizione()
 //onload pagina
 function openVicini()
 {
-	pop('back');
+	popBack();
 	listaVicini(3);
 }
 function listaVicini(distanza)
@@ -131,7 +131,7 @@ function appendVicini(data)
 	if(listaParchiVicini == '')
 	{
 		//listaParchiVicini = '<div class="alert">Ooooops! Seems you\'re in a desert area, there are no parks near you :( </div>';
-		listaParchiVicini = '<div class="warning"><h3>Ooooops!</h3> Nessun parco all\'orizzonte<center><img src="img/8_nothing.png"/></center></div>';
+		listaParchiVicini = '<a id="noPark" href="inserisci_coord.html"><h2>Ne vuoi inserire uno?</h2></a>';
 		
 	}
 	$('#parchiVicini').html(listaParchiVicini);
@@ -145,14 +145,16 @@ function appendVicini(data)
 function allargaRaggio()
 {
 	$('#interruttore').hide();
-	$('#interruttore').html('Restringi la ricerca');
+	$('#noPark').hide();
+	$('#interruttore').html('<i class="fa fa-compass"></i> Restringi la ricerca');
 	$('#interruttore').attr('onClick', 'restringiRaggio();');
 	listaVicini(10);
 }
 function restringiRaggio()
 {
 	$('#interruttore').hide();
-	$('#interruttore').html('Allarga la ricerca');
+	$('#noPark').hide();
+	$('#interruttore').html('<i class="fa fa-compass"></i> Allarga la ricerca');
 	$('#interruttore').attr('onClick', 'allargaRaggio();');
 	listaVicini(3);
 }
@@ -339,13 +341,13 @@ function getServizi(picnic, parking, cleaning, fenced_area, toilette, caffe, uni
 		sessionStorage.descServizi += '<li><i class="fa fa-recycle false"></i> SENZA servizio di pulizia</li>';
 	}
 	if(fenced_area){
-		listaServizi += '<i class="fa fa-signal fa-2x true"></i> ';
+		listaServizi += '<i class="fa fa-bookmark fa-rotate-180 fa-2x true"></i> ';
 		//sessionStorage.descServizi += '<li><i class="fa fa-signal true"></i> This park is fenced</li>';
-		sessionStorage.descServizi += '<li><i class="fa fa-signal true"></i> Recintato</li>';
+		sessionStorage.descServizi += '<li><i class="fa fa-bookmark fa-rotate-180 true"></i> Recintato</li>';
 	}else{
-		listaServizi += '<i class="fa fa-signal fa-2x false"></i> ';
+		listaServizi += '<i class="fa fa-bookmark fa-2x fa-rotate-180 false"></i> ';
 		//sessionStorage.descServizi += '<li><i class="fa fa-signal false"></i> This park is NOT fenced</li>';
-		sessionStorage.descServizi += '<li><i class="fa fa-signal false"></i> NON recintato</li>';
+		sessionStorage.descServizi += '<li><i class="fa fa-bookmark fa-rotate-180 false"></i> NON recintato</li>';
 	}
 	if(toilette){
 		listaServizi += '<i class="fa fa-female fa-2x true"></i> ';
@@ -357,13 +359,13 @@ function getServizi(picnic, parking, cleaning, fenced_area, toilette, caffe, uni
 		sessionStorage.descServizi += '<li><i class="fa fa-female false"></i> SENZA toilettes</li>';
 	}
 	if(caffe){
-		listaServizi += '<i class="fa fa-beer fa-2x true"></i> ';
+		listaServizi += '<i class="fa fa-coffee fa-2x true"></i> ';
 		//sessionStorage.descServizi += '<li><i class="fa fa-beer true"></i> Snack area available</li>';
-		sessionStorage.descServizi += '<li><i class="fa fa-beer true"></i> Dispone di area snack</li>';
+		sessionStorage.descServizi += '<li><i class="fa fa-coffee true"></i> Dispone di area snack</li>';
 	}else{
-		listaServizi += '<i class="fa fa-beer fa-2x false"></i> ';
+		listaServizi += '<i class="fa fa-coffee fa-2x false"></i> ';
 		//sessionStorage.descServizi += '<li><i class="fa fa-beer false"></i> Snack area NOT available</li>';
-		sessionStorage.descServizi += '<li><i class="fa fa-beer false"></i> NON dispone di area snack</li>';
+		sessionStorage.descServizi += '<li><i class="fa fa-coffee false"></i> NON dispone di area snack</li>';
 	}
 	if(universally_accessible){
 		listaServizi += '<i class="fa fa-wheelchair fa-2x true"></i>';

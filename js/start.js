@@ -15,34 +15,37 @@ function partenza()
 
 
 /*********************STRUTTURA*/
-//page: 'home' per la pagina index.html o 'back' per tutte le altre
-function pop(page)
+function popHome()
 {
-	navbarPop(page);
+	//logo normale + refresh pagina
+	$('body').prepend('<nav id="navbar" class="navbar navbar-inverse navbar-static-top" role="navigation">'+
+      '<div class="container">'+
+        '<div class="navbar-header">'+
+          '<a id="logoNav" class="navbar-brand" href="index.html">'+
+            '<img alt="brand" src="./img/segnaposto_trasp.png">'+
+          '</a>'+
+          '<button type="button" class="btn navbar-btn around" onClick="window.location=\'inserisci_coord.html\'"><i class="fa fa-child"></i> Inserisci</button>'+
+        '</div>'+
+      '</div>'+
+    '</nav>');
+
 	footerPop();
 }
-
-function navbarPop(page)
+function popBack()
 {
+	//logo con freccia + pagina back
 	$('body').prepend('<nav id="navbar" class="navbar navbar-inverse navbar-static-top" role="navigation">'+
-          '<div class="container">'+
-            '<div class="navbar-header">'+
-              '<a id="logoNav" class="navbar-brand" href="index.html">'+
-                '<img alt="brand" src="./img/segnaposto_trasp.png">'+
-                //'<span>Playground Around The Corner</span>'+
-              '</a>'+
-              '<button type="button" class="btn navbar-btn around" onClick="window.location=\'inserisci_coord.html\'">Inserisci <i class="fa fa-tree"></i></button>'+
-              //'<button type="button" class="btn navbar-btn play" onClick="alert(\'prossimamente!\');">Inserisci</button>'+
-            '</div>'+
-          '</div>'+
-        '</nav>');
+      '<div class="container">'+
+        '<div class="navbar-header">'+
+          '<a id="logoNav" class="navbar-brand" href="javascript:history.go(-1);">'+
+            '<img alt="brand" src="./img/segnaposto_trasp_back.png">'+
+          '</a>'+
+          '<button type="button" class="btn navbar-btn around" onClick="window.location=\'inserisci_coord.html\'"><i class="fa fa-child"></i> Inserisci</button>'+
+        '</div>'+
+      '</div>'+
+    '</nav>');
 
-	//se non sono in home-page modifico il tasto della navbar
-	if(page != 'home')
-	{
-		$('#logoNav').attr('href', 'javascript:history.go(-1);');
-		$('#logoNav img').attr('src', './img/segnaposto_trasp_back.png');
-	}
+	footerPop();
 }
 
 function footerPop()
@@ -91,8 +94,6 @@ function getCover()
 }
 function appendCover(data)
 {
-	sessionStorage.headTitle = 'Mamma mi porti al parco giochi?';
-
 	//se non ho copertine entro 20km
 	if(data != 'no_copertina')
 	{
@@ -122,14 +123,13 @@ function checkCover()
 		var imageSrc = sessionStorage.imgPath;
 		img.onload = function() {
 		    $('#header .imgCover').fadeIn('slow');
-		    $('#header h2').html(sessionStorage.headTitle);
-		    $('#cortina').hide();
+		    $('#header h1').html(sessionStorage.headTitle);
+		    $('#cortina').fadeOut();
 		};
 		img.src = imageSrc;
 	}else
 	{
-		$('#header h2').html(sessionStorage.headTitle);
-		$('#cortina').hide();
+		$('#cortina').fadeOut();
 	}
 	
 }
