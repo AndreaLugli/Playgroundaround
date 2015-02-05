@@ -30,12 +30,31 @@ b{
 	font-family: OpenSans-Bold;
 	font-size:medium;
 }
+/*****************************************HR*/
 hr{
 	border:none;
 	height:1pt;
 	color:#27c39e;
 	background-color:#27c39e;
 	margin:3pt;
+}
+hr.purpleHr{
+    border: 0;
+    height: 1px;
+    background: #912A62;
+    background-image: -webkit-linear-gradient(left, #e5e5e5, #912A62, #e5e5e5); 
+    background-image:    -moz-linear-gradient(left, #e5e5e5, #912A62, #e5e5e5); 
+    background-image:     -ms-linear-gradient(left, #e5e5e5, #912A62, #e5e5e5); 
+    background-image:      -o-linear-gradient(left, #e5e5e5, #912A62, #e5e5e5); 
+}
+hr.blueHr{
+    border: 0;
+    height: 1px;
+    background: #27c39e;
+    background-image: -webkit-linear-gradient(left, #e5e5e5, #27c39e, #e5e5e5); 
+    background-image:    -moz-linear-gradient(left, #e5e5e5, #27c39e, #e5e5e5); 
+    background-image:     -ms-linear-gradient(left, #e5e5e5, #27c39e, #e5e5e5); 
+    background-image:      -o-linear-gradient(left, #e5e5e5, #27c39e, #e5e5e5); 
 }
 /**************************************TITOLI*/
 h1{			/*titolo index*/
@@ -78,7 +97,7 @@ a, a:hover, a:visited, button{
 .btn-default, .btn-default:hover, .btn-default:focus{
 	background-color:#f7f4ed;
 	color:#27c39e;
-	border:1pt solid #f7f4ed;
+	border:1pt solid #cccccc;
 }
 .btn-primary, .btn-primary:hover, .btn-primary:focus{
 	background-color:#27c39e;
@@ -344,7 +363,7 @@ textarea{
 	padding-right:20pt;
 }
 .titolo{
-	margin-top:3pt;
+	margin-top:5%;
 	font-size:large;
 	font-weight:bold;
 	text-transform:uppercase;
@@ -392,7 +411,7 @@ textarea{
 
 /*switch*raggio*/
 #interruttore{
-	margin:5pt 5%;
+	margin:-1% 5%;
 	width:90%;
 	position:relative;
 }
@@ -402,7 +421,7 @@ textarea{
 	display:block;
 	width:100%;
 	background-size:40%;
-	margin-top:-8%;
+	margin-top:-5%;
 	z-index:-1;
 }
 #noPark img{
@@ -412,28 +431,28 @@ textarea{
 
 /********************************PARCO*APERTO*/
 #parcoAperto{
-	margin:7%;
+	margin:5%;
 	padding:0;
 	display:block;
-	width:86%;
+	width:90%;
 	background-color:#27c39e;
 	color:#f7f4ed;
 }
-#parcoAperto h3{
-	text-transform: uppercase;
-	font-size:x-large;
-	padding:3% 5% 0 5%;
+#titoloParcoAperto{
+	margin:5% 5% -3% 5%;
+	max-width:90%;
 }
 
 /*bottoni*/
-#galleria a{		/*aggiungi foto*/
+#galleria .spacing a{		/*aggiungi foto - ho già foto*/
 	float:right;
-	padding: 2% 5%;
 	color:white;
+	padding-right:3%;
+	padding-bottom:3%;
 }
 #articolo a{		/*aggiungi commenti*/
 	float:right;
-	margin:5%;
+	margin:3%;
 	margin-top:-3%;
 	color:white;
 	display:block;
@@ -447,7 +466,7 @@ textarea{
 #parcoInfo div:first-of-type button{	/*servizi*/
 	width:94%;
 	margin-left:2pt;
-	border:1pt solid #e5e5e5;
+	border:1pt solid #cccccc;
 }
 #clickEng, #clickIta{	/*ita|eng version*/
 	margin:5%;
@@ -684,35 +703,43 @@ textarea{
 }
 
 /***********************************RICERCA*/
-#container.ricerca{
-	background-color: #27c39e;
+#container.ricerca h2{
+	margin-top:5%;
+	padding: 0 5%;
 }
+#container.ricerca #primo{		/*primo titolo*/
+	text-align:left;
+}
+#container.ricerca #secondo{	/*secondo titolo*/
+	text-align:right;
+}
+
 #container.ricerca form{
-	display:block;
-	padding:10%;
-	/*background-color:#f7f4ed;*/
-	color: #f7f4ed;
-	height:47%;
+	width:90%;
+	margin:5%;
+	padding:8% 5%;
+	background-color:#27c39e;
+	color:#f7f4ed;
 }
-#container.ricerca form:first-of-type{
-	background: #9bcc5f url('../img/10_ricercaLuogo.png') bottom right no-repeat;
-	margin-bottom:5pt;
+#container.ricerca #primo + form{
+	background:#27c39e url("../img/fune.png") no-repeat left bottom 40%;
 }
-#container.ricerca form:nth-of-type(2){
-	background: #19b590 url('../img/9_ricercaNome.png') bottom right no-repeat;
+#container.ricerca #secondo + form{
+	background:#27c39e url("../img/dondolo.png") no-repeat right -200% center;
 }
 
 #container.ricerca input{
 	border-radius: 5pt;
-	margin-top:5%;
-	margin-bottom:2%;
+	margin-bottom:4%;
 }
 #container.ricerca button{
-	float:left;
 	width:50%;
 }
-#container.ricerca h3{
-	margin-top:0;
-	margin-bottom:4%;
-	text-transform:uppercase;
+#container.ricerca hr{
+	 margin:7% 0 5% 0;
+}
+
+/*******************************TROVATI*/
+#trovati{
+	margin-top:5%;
 }

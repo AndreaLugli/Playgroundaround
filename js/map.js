@@ -1,6 +1,7 @@
 /***************GET MAPPA*(PARCO.HTML)*/
 function getMappaParco(lati, longi)
-{		
+{	
+	$('#parcoAperto').fadeIn();
 	var map = L.map('map').setView([lati, longi], 15);
 
 	//credits mappa

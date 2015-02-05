@@ -14,11 +14,12 @@
     <body onload="searchTitolo();">
 
         <div id="container">
+            <div id="loader"><i class="fa fa-spinner fa-4x fa-pulse"></i></div>
 
-            <h2>Parchi trovati con<br/>"<span></span>"</h2>
+            <h2 id="trovati">Parchi trovati con<br/>«<span></span>»</h2>
+            <button id="interruttore" style="display:none;" class="btn btn-lg btn-success btn-block" onClick="window.location='ricerca.html';"><i class="fa fa-search-plus"></i> Modifica ricerca</button>
 
             <div id="parchiVicini">
-                <div id="loader"></div>
 
                 <!--ESEMPIO DI PARCHI IN LISTA
                 <a class="parco" href="javascript:apriParco(1);">

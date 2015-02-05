@@ -184,13 +184,19 @@ function getImgParco(){
 	$.ajaxSetup({ cache: false });
 	$.getJSON(url, function(json){
 
-		//alert(json.length);
-		   
-		$.each(json, function(i, val)	//i: numero, val: valore
+		
+		if ( json.length == 0 )
 		{
-			pathImgParcoAperto = indirizzo+'/media/'+val;
-			$('#galleria').append('<img src="'+pathImgParcoAperto+'" onError="this.onerror=null;this.src=\'img/logo.jpg\';" />');
-		});
+			$('#galleria').append("<div class='maxiSpacing'><a class='centra' href='javascript:goPhotoUpload(\"vecchio\");'><i class='fa fa-2x fa-photo purple'></i></a></div>");
+		}
+		else{
+		   
+			$.each(json, function(i, val)	//i: numero, val: valore
+			{
+				pathImgParcoAperto = indirizzo+'/media/'+val;
+				$('#galleria').append('<img src="'+pathImgParcoAperto+'" onError="this.onerror=null;this.src=\'img/logo.jpg\';" />');
+			});
+		}
 		  
 	})
 	.error(errorHandler)
@@ -214,7 +220,7 @@ function getImgParco(){
 
 		if($('#galleria img').length < 10)
 		{
-			$('#galleria').append("<a href='javascript:goPhotoUpload(\"vecchio\");'><i class='fa fa-2x fa-photo purple'></i></a>");
+			$('#galleria .spacing:last-of-type').append("<a href='javascript:goPhotoUpload(\"vecchio\");'><i class='fa fa-2x fa-photo purple'></i></a>");
 		}	
 
 		modalImg();
@@ -248,7 +254,7 @@ function getInfoParco(){
 function appendParco(data){
 	getMappaParco(data.latitude.toFixed(3), data.longitude.toFixed(3));
 
-	$('#parcoAperto h3').html('«'+data.name+'»');
+	$('#titoloParcoAperto').html('«'+data.name+'»');
 
 	servizi2 = getServizi(data.picnic, data.parking, data.cleaning, data.fenced_area, data.toilette, data.caffe, data.universally_accessible);
 	voto2 = getStelline(data.evaluation);
@@ -268,7 +274,7 @@ function appendParco(data){
 	$('#parcoInfo div:first-of-type').html('<button class="btn btn-block btn-default" onClick="modalServizi();">'+servizi2+'</button>');
 	//età | orario
 	//$('#parcoInfo div:nth-of-type(2)').html('<span>TARGET: '+target2+'</span><span>OPENING: '+opening2+'</span>');
-	$('#parcoInfo div:nth-of-type(2)').html('<span>ETÀ: '+target2+'</span><span>ORARI: '+opening2+'</span>');
+	$('#parcoInfo div:nth-of-type(2)').html('<span>ETÀ: '+target2+'</span><span>ORARIO APERTURA: '+opening2+'</span>');
 	//rating
 	$('#parcoInfo div:nth-of-type(3)').html(voto2);
 
@@ -285,8 +291,9 @@ function appendParco(data){
 
 
 	$('#address').html(data.address);
-	$('#address').append("<button class='btn btn-block btn-lg btn-success' onClick='location.href=\"geo:"+sessionStorage.lat+","+sessionStorage.longi+"?q="+data.latitude+","+data.longitude+"\";'>Come arrivare</button>");
+	$('#address').append("<button class='btn btn-block btn-lg btn-success' onClick='location.href=\"geo:"+sessionStorage.lat+","+sessionStorage.longi+"?q="+data.latitude+","+data.longitude+"\";'><i class='fa fa-compass'></i> Come arrivare</button>");
 
+	//il parco appare nel metodo che crea la mappa
 	$('#loader').hide();
 }
 //traduzione descrizione
