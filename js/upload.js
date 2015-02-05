@@ -9,7 +9,10 @@ function goPhotoUpload(provenienza)
 	window.location='inserisci_foto.html';
 }
 function openPhotoUpload()
-{
+{	
+	//quante foto posso caricare ancora? - vecchio parco
+	$('h3 span').html(sessionStorage.fotoMancanti);
+
 	if(sessionStorage.provenienza == 'nuovo')
 	{
 		$('#containerFoto form').attr('action', indirizzo+'/upload_parco');

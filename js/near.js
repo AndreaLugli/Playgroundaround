@@ -211,6 +211,8 @@ function getImgParco(){
 	$.ajaxSetup({ cache: false });
 	$.getJSON(url, function(json){
 
+		//quante foto posso ancora caricare?
+		sessionStorage.fotoMancanti = 10 - json.length;
 		
 		if ( json.length == 0 )
 		{

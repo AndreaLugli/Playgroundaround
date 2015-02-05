@@ -11,16 +11,16 @@
 
     </head>
   
-    <body onload="popBack(); checkAll();">
+    <body onload="popBack(); valuta(); checkAll();">
 
 
         <!--NAVBAR DINAMICA-->
 
         <div id="container">
 
-            <form id="formInsParco">
+            <h2>Cosa sai dirci sul parco?</h2>
 
-                <h2>Cosa sai dirci sul parco?</h2>
+            <form id="formInsParco">
 
                 <div class="input-group input-group-lg">
                   <span class="input-group-addon">Nome*</span>
@@ -33,21 +33,25 @@
                   <input id="target_max" type="text" class="form-control mezzo" placeholder="max" maxlength="2" type="tel"/>
                 </div>
 
-                <!--<div class="input-group input-group-lg">
-                  <span class="input-group-addon">Orari</span>
-                  <input id="opening" type="text" class="form-control" />
-                </div>-->
-
                 <div class="form-group input-group-lg">
-                  <!--<label>Orario di apertura</label>-->
                   <textarea id="opening" class="form-control" placeholder="Orario di apertura"></textarea>
                 </div>
 
 
                 <div class="form-group input-group-lg">
-                  <!--<label>Descrizione*</label>-->
-                  <textarea id="description" class="form-control required" placeholder="Descrizione"></textarea>
+                  <textarea id="description" class="form-control required" placeholder="Descrizione*"></textarea>
                 </div>
+
+                <span id="rate">
+                    <label>Valutazione</label>
+                    <i class="fa fa fa-3x fa-star-o"></i>
+                    <i class="fa fa fa-3x fa-star-o"></i>
+                    <i class="fa fa fa-3x fa-star-o"></i>
+                    <i class="fa fa fa-3x fa-star-o"></i>
+                    <i class="fa fa fa-3x fa-star-o"></i>
+                </span>
+
+                <hr class="purpleHr">
 
                 <label>Servizi disponibili</label>
                 <div class="alert alert-danger input-lg">
@@ -73,19 +77,22 @@
                 </div>
 
                 <div class="form-group input-group-lg">
-                  <!--<label>Note</label>-->
                   <textarea id="note" class="form-control" placeholder="Note"></textarea>
                 </div>
 
+                <hr class="purpleHr">
+
                 
-                <button id="addPhoto" class="btn btn-lg btn-block btn-primary" type="button" onClick="goPhotoUpload('nuovo');">Aggiungi foto <i class="fa fa-picture-o"></i></button>
+                <button id="addPhoto" class="btn btn-lg btn-block btn-primary" type="button" onClick="goPhotoUpload('nuovo');"><i class="fa fa-picture-o"></i> Aggiungi foto </button>
+
+                <hr class="purpleHr">
 
                 <div class="input-group input-group-lg">
                     <span class="input-group-addon">Email*</span>
                     <input id="email" type="text" class="form-control" />
                 </div>
 
-                <button id="completa" class="btn btn-lg btn-block btn-success" type="button" onClick="checkRequired();">Completa <i class="fa fa-tree"></i></button>
+                <button id="completa" class="btn btn-lg btn-block btn-success" type="button" onClick="checkRequired();"><i class="fa fa-check-circle-o"></i> Completa</button>
 
             </form>  <!--formInsParco-->
 
@@ -106,8 +113,8 @@
                         <h4 class="modal-title">Dati mancanti</h4>
                     </div>
                     <div class="modal-body">
-                        <p>Il nome del parco, la descrizione e il tuo indirizzo email sono obbligatori.</p>
-                        <p>Più informazioni inserirai sul parco, più sarai utile alle altre mamme.</p>
+                        <p>Alcuni dati sul parco e il tuo indirizzo e-mail sono obbligatori.</p>
+                        <p>Più informazioni inserirai sul nuovo parco, più sarai utile alle altre mamme.</p>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-lg btn-block" data-dismiss="modal">Chiudi</button>

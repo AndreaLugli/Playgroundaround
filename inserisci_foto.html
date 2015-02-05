@@ -18,19 +18,19 @@
 
         <div id="container">
 
-            <div id="containerFoto">
+            <h2>Allega foto al parco</h2>
+            <h3>(Puoi sceglierne al massimo <span>#</span>)</h3>
 
-                <h2>Allega foto al parco</h2>
-                <h3>(Puoi sceglierne un massimo di 10)</h3>
+            <div id="containerFoto">
                 
-                *****
+                ******************************
                 <form method="post" enctype="multipart/form-data" action="">
 
                     <input id="id_file" name="file" type="file" />
 
                     <input type="submit" name="submit" value="COMPLETA" class="btn btn-lg btn-block btn-success" />
                 </form>
-                *****
+                ******************************
                 
                 <button id="addPhoto" class="btn btn-lg btn-block btn-primary" type="button" onClick="$('#caricaFoto').modal();">Aggiungi <i class="fa fa-picture-o"></i></button>
                 

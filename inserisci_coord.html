@@ -18,25 +18,23 @@
 
         <!--NAVBAR DINAMICA-->
 
-        <div id="container">
+        <div id="container" class="inserisci">
+
+            <h2>Dove si trova il parco?</h2>
 
             <div id="formIndirizzo">
 
-                <h2>Dove si trova il parco?</h2>
-
-                <div id="map"></div>
-
-                <h3>Questa è la tua posizione. Se l'indirizzo non è esatto, correggilo qui sotto:</h3>
-                
                 <input id="via" type="text" class="form-control input-lg" placeholder="Indirizzo" disabled>
                 <input id="civico" type="text" class="form-control input-lg" placeholder="Civico" disabled>
                 <input id="citta" type="text" class="form-control input-lg" placeholder="Città" disabled>
                 <input id="cap" type="tel" class="form-control input-lg" placeholder="CAP" disabled>
                 <input id="prov" type="text" class="form-control input-lg" placeholder="Prov" disabled>
-                
-                <button id="continua" style="display:none;" class="btn btn-lg btn-block btn-success" type="button" onClick="window.location='inserisci_dati.html';">Conferma <i class="fa fa-check-circle-o"></i></button>
 
-                <button id="correggi" style="display:none;" class="btn btn-lg btn-block btn-primary" type="button" onClick="new_Geocoding();">Aggiorna posizione <i class="fa fa-refresh"></i></button>
+                <button id="continua" style="display:none;" class="btn btn-lg btn-block btn-success" type="button" onClick="window.location='inserisci_dati.html';"><i class="fa fa-check-circle-o"></i> Conferma</button>
+
+                <button id="correggi" style="display:none;" class="btn btn-lg btn-block btn-primary" type="button" onClick="new_Geocoding();"><i class="fa fa-refresh"></i> Aggiorna mappa</button>
+
+                <div id="map"></div>
                     
             </div>  <!--formIndirizzo-->
 

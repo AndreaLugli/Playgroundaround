@@ -73,8 +73,8 @@ h2, h2 span{	/*titoli pagine*/
 	font-size:x-large;
 	font-weight:bold;
 	width:100%;
-	margin-top:0;
-	margin-bottom:5%;
+	margin-top:5%;
+	margin-bottom:3%;
 }
 h3{				/*spiegazioni pagine*/
 	font-size: large;
@@ -208,7 +208,7 @@ textarea{
 	background-color:#464646;
 	border-top:1pt solid black;
 }
-#footer a{
+#footer a, #footer a:visited, #footer a:hover{
 	color:#27c39e;
 	font-size:small;
 }
@@ -235,10 +235,13 @@ textarea{
 	color:#912A62;
 	height:150pt;
 	width:100%;
-	border:3pt solid #27c39e;
+	border:2pt solid #27c39e;
+	margin:0;
 }
-#parcoAperto #map{
-	border:none;
+#formIndirizzo #map{
+	height:120pt;
+	border-radius:5pt;
+	border:3pt solid #27c39e;
 }
 #map1{
 	background:#f7f4ed url('../img/loader.gif') no-repeat center center;
@@ -249,11 +252,6 @@ textarea{
 .imgNuvoletta{
 	width:60pt;
 	margin-bottom:10pt;
-}
-#formIndirizzo #map{
-	margin: 5% 0;
-	border-radius: 5pt;
-	height:100pt;
 }
 
 /***********************************INDEX*/
@@ -326,9 +324,6 @@ textarea{
 /************************************VICINI*/
 #parchiVicini{
 	padding:5%;
-}
-#contatoreParchi{
-	margin-top:5%;
 }
 
 .parco, .parco:hover, .parco:visited, .parco:focus{
@@ -586,34 +581,49 @@ textarea{
 
 
 /****************************************CREDITS*/
-#panel{
-	padding:5%;
-	color:white;
+#container.credits{
+	padding:20% 5%;
+	color:#f7f4ed;
 	background-color:#27c39e;
 	height:100%;
 }
-#panel p, #panel a{
-	color:white;
+#container.credits p{
+	color:#f7f4ed;
+	font-size:medium;
+	margin-bottom:5%;
+}
+#container.credits a{
+	color:#912A62;
 	font-size:medium;
 }
-#panel p {
-	margin-bottom:5%;
-}
-#panel img{
+#container.credits img{
 	margin:5%;
-}
-#panel h2{
-	margin-bottom:5%;
 }
 
 /************************************INSERISCI*OK*/
-#panel.ok p{
+#container.ok{
+	padding:15% 5%;
+	color:#f7f4ed;
+	background-color:#27c39e;
+	height:100%;
+}
+#container.ok p{
 	text-align:justify;
+}
+#container.ok img{
+	margin:5%;
+}
+#container.ok a span{
+	text-align:center;
+	display:block;
+}
+#container.ok a{
+	color:#912A62;
 }
 
 /***************************INSERISCI*COORD*PARCO*/
 #formIndirizzo{
-	margin:10% 5%;
+	margin:0 5%;
 	width:90%;
 }
 #via{
@@ -636,7 +646,7 @@ textarea{
 	width:50%;
 	float:left;
 	border-radius: 0 0 0 5pt;
-	margin-bottom:2%;
+	margin-bottom:5%;
 }
 #prov{
 	width:50%;
@@ -645,11 +655,20 @@ textarea{
 	border-left:0;
 	margin-bottom:5%;
 }
+#formIndirizzo button{
+	margin-bottom:5%;
+}
 
 /***************************INSERISCI*DATI*PARCO*/
 #formInsParco{
-	margin:10% 5%;
+	margin:0 5% 10% 5%;
 	width:90%;
+}
+#formInsParco hr{
+	margin-left:-5%;
+	width:110%;
+	margin-top:5%;
+	margin-bottom:5%;
 }
 #formInsParco .input-group{
 	margin:2% 0;
@@ -661,6 +680,12 @@ textarea{
 #formInsParco .mezzo:first-of-type{ /*min*/
 	border-right:0;
 }
+#formInsParco label{
+	font-weight:bold;
+}
+.purpleHr + label{
+	margin-top:-2%;
+}
 #formInsParco .alert{
 	width:48%;
 	float:left;
@@ -668,8 +693,8 @@ textarea{
 	padding:2.5%;
 	text-align:left;
 }
-#addPhoto{
-	margin:8% 0;
+#formInsParco .alert:nth-of-type(11){
+	margin-bottom:2%;
 }
 
 /***************************INSERISCI*FOTO*PARCO*/
@@ -677,9 +702,14 @@ textarea{
 	margin:10% 5%;
 	width:90%;
 }
-#containerFoto h3{
+h2 + h3{
 	font-size: large;
 	margin-top:-2%;
+	font-weight:bold;
+}
+#containerFoto button, #containerFoto input{
+	margin:5%;
+	width:90%;
 }
 #containerFoto div{
 	padding:5% 0;
@@ -690,23 +720,20 @@ textarea{
 	border:2pt solid #27c39e;
 }
 
-/*modal*/
+/*modale scatta o galleria*/
 #caricaFoto a{
 	width:50%;
 	padding:5%;
 	display:block;
 	float:left;
-	color:black;
-	font-weight: normal;
 }
 #caricaFoto span{
-	display:block;
+	color:black;
+	font-weight:normal;
 }
 
 /***********************************RICERCA*/
 #container.ricerca h2{
-	margin-top:5%;
-	margin-bottom:-3%;
 	padding: 0 5%;
 }
 #container.ricerca #primo{		/*primo titolo*/
@@ -718,7 +745,7 @@ textarea{
 
 #container.ricerca form{
 	width:90%;
-	margin:5%;
+	margin:2% 5% 5% 5%;
 	padding:5%;
 	background-color:#27c39e;
 	color:#f7f4ed;

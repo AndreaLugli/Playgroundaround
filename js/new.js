@@ -37,6 +37,75 @@ function checkAll()
 	});
 }
 
+//rating parco
+function valuta(){
+
+	$('#rate i:first-of-type').click(function() {
+
+		sessionStorage.valutazione = 1;
+
+		//accesi
+		$(this).attr('class', 'fa fa fa-3x fa-star');
+		//spenti
+		$('#rate i:nth-of-type(2)').attr('class', 'fa fa fa-3x fa-star-o');
+		$('#rate i:nth-of-type(3)').attr('class', 'fa fa fa-3x fa-star-o');
+		$('#rate i:nth-of-type(4)').attr('class', 'fa fa fa-3x fa-star-o');
+		$('#rate i:nth-of-type(5)').attr('class', 'fa fa fa-3x fa-star-o');
+	});
+
+	$('#rate i:nth-of-type(2)').click(function() {
+
+		sessionStorage.valutazione = 2;
+
+		//accesi
+		$('#rate i:first-of-type').attr('class', 'fa fa fa-3x fa-star'); 
+		$(this).attr('class', 'fa fa fa-3x fa-star');
+		//spenti
+		$('#rate i:nth-of-type(3)').attr('class', 'fa fa fa-3x fa-star-o');
+		$('#rate i:nth-of-type(4)').attr('class', 'fa fa fa-3x fa-star-o');
+		$('#rate i:nth-of-type(5)').attr('class', 'fa fa fa-3x fa-star-o');
+	});
+
+	$('#rate i:nth-of-type(3)').click(function() {
+
+		sessionStorage.valutazione = 3;
+
+		//accesi
+		$('#rate i:first-of-type').attr('class', 'fa fa fa-3x fa-star');
+		$('#rate i:nth-of-type(2)').attr('class', 'fa fa fa-3x fa-star'); 
+		$(this).attr('class', 'fa fa fa-3x fa-star'); 
+		//spenti
+		$('#rate i:nth-of-type(4)').attr('class', 'fa fa fa-3x fa-star-o');
+		$('#rate i:nth-of-type(5)').attr('class', 'fa fa fa-3x fa-star-o');
+	});
+
+	$('#rate i:nth-of-type(4)').click(function() {
+
+		sessionStorage.valutazione = 4;
+
+		//accesi
+		$('#rate i:first-of-type').attr('class', 'fa fa fa-3x fa-star');
+		$('#rate i:nth-of-type(2)').attr('class', 'fa fa fa-3x fa-star');
+		$('#rate i:nth-of-type(3)').attr('class', 'fa fa fa-3x fa-star'); 
+		$(this).attr('class', 'fa fa fa-3x fa-star');
+		//spenti
+		$('#rate i:nth-of-type(5)').attr('class', 'fa fa fa-3x fa-star-o');
+	});
+
+	$('#rate i:nth-of-type(5)').click(function() {
+
+		sessionStorage.valutazione = 5;
+
+		//accesi
+		$('#rate i:first-of-type').attr('class', 'fa fa fa-3x fa-star');
+		$('#rate i:nth-of-type(2)').attr('class', 'fa fa fa-3x fa-star');
+		$('#rate i:nth-of-type(3)').attr('class', 'fa fa fa-3x fa-star');
+		$('#rate i:nth-of-type(4)').attr('class', 'fa fa fa-3x fa-star'); 
+		$(this).attr('class', 'fa fa fa-3x fa-star'); 
+	});
+}
+
+
 //check dei dati required
 function checkRequired()
 {
@@ -138,12 +207,16 @@ function getDati()
 		sessionStorage.handicap = false
 	}
 
+	//posso caricare al massimo 10 foto
+	sessionStorage.fotoMancanti = 10;
+
 	//get input
 	sessionStorage.newTitle = $('#title').val();
 	sessionStorage.newOpening = $('#opening').val();
 	sessionStorage.newTarget_min = $('#target_min').val();
 	sessionStorage.newTarget_max = $('#target_max').val();
 	sessionStorage.newDesc = $('#description').val();
+	sessionStorage.note = $('#note').val();
 	sessionStorage.email = $('#email').val();
 
 	//completo se dati mancanti
@@ -167,7 +240,7 @@ function getDati()
 //invio dati al server
 function inviaDati()
 {
-	alert(sessionStorage.newLati+' '+sessionStorage.newLongi+' '+sessionStorage.newAddress+' '+sessionStorage.newTitle+' '+sessionStorage.newOpening+' '+sessionStorage.newTarget_min+' '+sessionStorage.newTarget_max+' '+sessionStorage.newDesc+' '+sessionStorage.email+' '+sessionStorage.fenced+' '+sessionStorage.picnic+' '+sessionStorage.snack+' '+sessionStorage.park+' '+sessionStorage.toilette+' '+sessionStorage.handicap);
+	alert(sessionStorage.newLati+' '+sessionStorage.newLongi+' '+sessionStorage.newAddress+' '+sessionStorage.newTitle+' '+sessionStorage.newOpening+' '+sessionStorage.newTarget_min+' '+sessionStorage.newTarget_max+' '+sessionStorage.newDesc+' '+sessionStorage.note+' '+sessionStorage.valutazione+' '+sessionStorage.email+' '+sessionStorage.fenced+' '+sessionStorage.picnic+' '+sessionStorage.snack+' '+sessionStorage.park+' '+sessionStorage.toilette+' '+sessionStorage.handicap);
 
 	$.ajax({
 		type: 'POST',
@@ -189,8 +262,8 @@ function inviaDati()
 			'caffe' : sessionStorage.snack,
 			'cleaning' :sessionStorage.cleaning,
 			'universally_accessible' : sessionStorage.handicap,
-			'other' : '',
-			'evaluation' : '',
+			'other' : sessionStorage.note,
+			'evaluation' : sessionStorage.valutazione,
 			'email' : sessionStorage.email,
 			'promozionale' : 'false'
 		},
