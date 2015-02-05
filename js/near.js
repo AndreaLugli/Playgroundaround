@@ -67,6 +67,7 @@ function searchPosizione()
 function openVicini()
 {
 	popBack();
+	$('#loader').show();
 	listaVicini(3);
 }
 function listaVicini(distanza)
@@ -131,7 +132,7 @@ function appendVicini(data)
 	if(listaParchiVicini == '')
 	{
 		//listaParchiVicini = '<div class="alert">Ooooops! Seems you\'re in a desert area, there are no parks near you :( </div>';
-		listaParchiVicini = '<a id="noPark" href="inserisci_coord.html"><h2>Ne vuoi inserire uno?</h2></a>';
+		listaParchiVicini = '<div id="noPark" href="inserisci_coord.html"><img src="img/dondolo.png"/></div>';
 		
 	}
 	$('#parchiVicini').html(listaParchiVicini);
@@ -139,21 +140,23 @@ function appendVicini(data)
 
 	$('#loader').hide();
 
-	$('#interruttore').show();
+	$('#contatoreParchi, #interruttore').show();
 }
 //bottone modifica distanza
 function allargaRaggio()
 {
-	$('#interruttore').hide();
-	$('#noPark').hide();
+	$('#contatoreParchi, #interruttore, #noPark').hide();
+	$('#parchiVicini').html('');
+	$('#loader').show();
 	$('#interruttore').html('<i class="fa fa-compass"></i> Restringi la ricerca');
 	$('#interruttore').attr('onClick', 'restringiRaggio();');
 	listaVicini(10);
 }
 function restringiRaggio()
 {
-	$('#interruttore').hide();
-	$('#noPark').hide();
+	$('#contatoreParchi, #interruttore, #noPark').hide();
+	$('#parchiVicini').html('');
+	$('#loader').show();
 	$('#interruttore').html('<i class="fa fa-compass"></i> Allarga la ricerca');
 	$('#interruttore').attr('onClick', 'allargaRaggio();');
 	listaVicini(3);

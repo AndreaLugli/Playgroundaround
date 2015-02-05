@@ -14,12 +14,12 @@
     <body onload="openVicini();">
 
         <div id="container">
+            <div id="loader"><i class="fa fa-spinner fa-2x fa-pulse"></i></div>
 
-            <h2 id="contatoreParchi"><span>#</span> parchi nei dintorni</h2>
-            <button id="interruttore" class="btn btn-lg btn-success btn-block" onClick="allargaRaggio();"><i class="fa fa-compass"></i> Allarga la ricerca</button>
+            <h2 id="contatoreParchi" style="display:none;"><span>#</span> parchi nei dintorni</h2>
+            <button id="interruttore" style="display:none;" class="btn btn-lg btn-success btn-block" onClick="allargaRaggio();"><i class="fa fa-compass"></i> Allarga la ricerca</button>
 
             <div id="parchiVicini">
-                <div id="loader"></div>
 
                 <!--ESEMPIO DI PARCHI IN LISTA
                 <a class="parco" href="javascript:apriParco(1);">
