@@ -164,20 +164,7 @@ function getDati()
 	{
 		sessionStorage.fenced = false
 	}
-	if($('#picnic').is(':checked'))
-	{
-		sessionStorage.picnic = true;
-	}else
-	{
-		sessionStorage.picnic = false
-	}
-	if($('#snack').is(':checked'))
-	{
-		sessionStorage.snack = true;
-	}else
-	{
-		sessionStorage.snack = false
-	}
+
 	if($('#park').is(':checked'))
 	{
 		sessionStorage.park = true;
@@ -185,6 +172,23 @@ function getDati()
 	{
 		sessionStorage.park = false
 	}
+
+	if($('#picnic').is(':checked'))
+	{
+		sessionStorage.picnic = true;
+	}else
+	{
+		sessionStorage.picnic = false
+	}
+
+	if($('#snack').is(':checked'))
+	{
+		sessionStorage.snack = true;
+	}else
+	{
+		sessionStorage.snack = false
+	}
+
 	if($('#toilette').is(':checked'))
 	{
 		sessionStorage.toilette = true;
@@ -192,6 +196,7 @@ function getDati()
 	{
 		sessionStorage.toilette = false
 	}
+
 	if($('#cleaning').is(':checked'))
 	{
 		sessionStorage.cleaning = true;
@@ -199,6 +204,7 @@ function getDati()
 	{
 		sessionStorage.cleaning = false
 	}
+
 	if($('#handicap').is(':checked'))
 	{
 		sessionStorage.handicap = true;
@@ -240,7 +246,7 @@ function getDati()
 //invio dati al server
 function inviaDati()
 {
-	alert(sessionStorage.newLati+' '+sessionStorage.newLongi+' '+sessionStorage.newAddress+' '+sessionStorage.newTitle+' '+sessionStorage.newOpening+' '+sessionStorage.newTarget_min+' '+sessionStorage.newTarget_max+' '+sessionStorage.newDesc+' '+sessionStorage.note+' '+sessionStorage.valutazione+' '+sessionStorage.email+' '+sessionStorage.fenced+' '+sessionStorage.picnic+' '+sessionStorage.snack+' '+sessionStorage.park+' '+sessionStorage.toilette+' '+sessionStorage.handicap);
+	alert(sessionStorage.newLati+' '+sessionStorage.newLongi+' '+sessionStorage.newAddress+' '+sessionStorage.newTitle+' '+sessionStorage.newOpening+' '+sessionStorage.newTarget_min+' '+sessionStorage.newTarget_max+' '+sessionStorage.newDesc+' '+sessionStorage.note+' '+sessionStorage.valutazione+' '+sessionStorage.email+' '+sessionStorage.fenced+' '+sessionStorage.picnic+' '+sessionStorage.snack+' '+sessionStorage.park+' '+sessionStorage.toilette+' '+sessionStorage.cleaning+' '+sessionStorage.handicap);
 
 	$.ajax({
 		type: 'POST',

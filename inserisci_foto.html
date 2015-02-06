@@ -23,20 +23,19 @@
 
             <div id="containerFoto">
                 
-                ******************************
-                <form method="post" enctype="multipart/form-data" action="">
+                <!--
+                    ******************************
+                    <form method="post" enctype="multipart/form-data" action="">
 
-                    <input id="id_file" name="file" type="file" />
+                        <input id="id_file" name="file" type="file" />
 
-                    <input type="submit" name="submit" value="COMPLETA" class="btn btn-lg btn-block btn-success" />
-                </form>
-                ******************************
+                        <input type="submit" name="submit" value="COMPLETA" class="btn btn-lg btn-block btn-success" />
+                    </form>
+                    ******************************
+                -->
+
+                    <button id="completa" style="display:none;" class="btn btn-lg btn-block btn-success" type="button" onClick="window.location='inserisci_dati.html';">Completa <i class="fa fa-tree"></i></button>
                 
-                <button id="addPhoto" class="btn btn-lg btn-block btn-primary" type="button" onClick="$('#caricaFoto').modal();">Aggiungi <i class="fa fa-picture-o"></i></button>
-                
-                <div></div>
-
-                <button id="completa" style="display:none;" class="btn btn-lg btn-block btn-success" type="button" onClick="window.location='inserisci_dati.html';">Completa <i class="fa fa-tree"></i></button>
 
             </div>
 

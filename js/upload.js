@@ -2,36 +2,17 @@
 var arrayUri = [];
 var img_size;
 
-//posso aggiungere foto sia nei nuovi che nei vecchi parchi
+
+/************************PARCO.HTML*O*INSERISCI*DATI.HTML*/
+//Link di aggiunta foto (nuove o mancanti)
 function goPhotoUpload(provenienza)
 {
 	sessionStorage.provenienza = provenienza;
 	window.location='inserisci_foto.html';
 }
-function openPhotoUpload()
-{	
-	//quante foto posso caricare ancora? - vecchio parco
-	$('h3 span').html(sessionStorage.fotoMancanti);
 
-	if(sessionStorage.provenienza == 'nuovo')
-	{
-		$('#containerFoto form').attr('action', indirizzo+'/upload_parco');
-	}
-	else if(sessionStorage.provenienza == 'vecchio')
-	{
-		$('#containerFoto form').attr('action', indirizzo+'/upload_parco');
-	}
-}
-
-
-/*****************modali*errore*/
-function modalTroppe()
-{
-	scrollAlto();
-	$('#modalErrore .modal-title').html('Stooooooop! Troppe foto');
-	$('#modalErrore .modal-body').html('<p>Puoi caricare al massimo 10 foto.</p>');
-	$('#modalErrore').modal();
-}
+/*************************************INSERISCI*FOTO.HTML*/
+/*modali*errore*/
 function modalGenerico()
 {
 	scrollAlto();
@@ -47,23 +28,50 @@ function modalDimensioni()
 	$('#modalErrore').modal();
 }
 
+
+function openPhotoUpload()
+{	
+	quanteForm();
+
+	//foto mancanti - parco esistente
+	$('h3 span').html(sessionStorage.fotoMancanti);
+
+	if(sessionStorage.provenienza == 'nuovo')
+	{}
+	else if(sessionStorage.provenienza == 'vecchio')
+	{}
+}
+
+//genero dinamicamente i bottoni/foto di aggiunta
+function quanteForm()
+{
+	for ( var i = 0; i < sessionStorage.fotoMancanti; i++ )
+	{
+    	/*$('#containerFoto').append('<form method="post" enctype="multipart/form-data" action="'+indirizzo+'/upload_parco">'+
+									'<input id="'+i+'" name="file" type="file" />'+
+                        			'<a style="display:none;" type="submit" name="submit" value="COMPLETA" class="btn btn-lg btn-success" ><img src="5_credits.png"/></a>'+
+                    			'</form>');*/
+		
+		$('#containerFoto').append('<a class="addPhoto" href="javascript:openCaricaFoto();"><img src="img/7_photo.png" /></a>');
+
+	}
+}
+//modale carica o scatta
+function openCaricaFoto()
+{
+	$('#caricaFoto').modal();
+}
+
+
 /****************scatto*o*carico*/
 function capturePhoto_camera()
 {
-	if(jQuery.isEmptyObject(arrayUri) || arrayUri.length < 10)
-	{
-		$('#caricaFoto').modal('hide');
+	$('#caricaFoto').modal('hide');
 
-		navigator.camera.getPicture(onSuccessCamera, onFail, { quality: 75,
-		destinationType: Camera.DestinationType.FILE_URI,
-	    sourceType: Camera.PictureSourceType.CAMERA,
-	    correctOrientation: true});
-	}
-	else
-	{
-		//modal più di 10 foto
-		modalTroppe();
-	}
+	navigator.camera.getPicture(onSuccessCamera, onFail, { quality: 75,
+	destinationType: Camera.DestinationType.FILE_URI,
+    sourceType: Camera.PictureSourceType.CAMERA,
+    correctOrientation: true});
 }
 
 //camera - non controllo grandezza immagine
@@ -73,30 +81,20 @@ function onSuccessCamera(imageURI)
 	sessionStorage.photoPreview = imageURI;
 	arrayUri.push(sessionStorage.photo);
 	
-	if(sessionStorage.photo)
-	{
-		$('#containerFoto div').append('<img src="'+imageURI+'" />');
-		$('#completa').show();
-	}
+	$('#containerFoto .addPhoto img').attr('class', imageURI);
+	$('#completa').show();
+	
 	alert('Camera ok: '+arrayUri);
 }
 
 function capturePhoto()
 {
-	if(jQuery.isEmptyObject(arrayUri) || arrayUri.length < 11)
-	{
-		$('#caricaFoto').modal('hide');
+	$('#caricaFoto').modal('hide');
 
-		navigator.camera.getPicture(onSuccess, onFail, { quality: 75,
-		destinationType: Camera.DestinationType.FILE_URI,
-	    sourceType: Camera.PictureSourceType.PHOTOLIBRARY,
-	    correctOrientation: true});
-	}
-	else
-	{
-		//modal più di 10 foto
-		modalTroppe();
-	}
+	navigator.camera.getPicture(onSuccess, onFail, { quality: 75,
+	destinationType: Camera.DestinationType.FILE_URI,
+    sourceType: Camera.PictureSourceType.PHOTOLIBRARY,
+    correctOrientation: true});
 }
 
 //gallaria - controllo grandezza immagine
@@ -150,7 +148,7 @@ function append_src_img(newURI)
 	sessionStorage.photoPreview = newURI;
 	arrayUri.push(sessionStorage.photo);
 
-	$('#containerFoto div').append('<img src="'+newURI+'" />');
+	$('#containerFoto .addPhoto img').attr('class', imageURI);
 	$('#completa').show();
 
 	alert('Galleria ok '+arrayUri);
@@ -192,3 +190,32 @@ function fail(error)
 }
 
 function successo_upload_avatar(r){}*/
+
+
+/*CODICE RIC*/
+/*$(document).on('submit','#foto_per_parco10', function(event) { 
+                 event.preventDefault();
+                 var data = new window.FormData($('#foto_per_parco10')[0]);
+                 uploader_foto_singola(data, 10);
+                });
+
+                function uploader_foto_singola(data, indice) {
+                 $.ajax({
+                        url : "upload_parco", 
+                        type : "POST", 
+                        data: data,
+                        contentType: false,
+                        processData: false,
+                        success : function(data) {
+                         //chiudi_spinner();
+                         id_parco = data[0].id;
+                         array_foto.push(id_parco);
+                         path = data[0].small_path;
+                         $("#foto_per_parco"+indice).html("");
+                         $("#foto_"+indice).attr("src","media/"+path).attr("width","150");
+                        },
+                        error : function(data) {
+                         alert("Errore! "+data.responseText);   
+                        }
+                    }); 
+                }*/

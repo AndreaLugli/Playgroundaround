@@ -714,18 +714,11 @@ h2 + h3{
 	margin-top:-2%;
 	font-weight:bold;
 }
-#containerFoto button, #containerFoto input{
-	margin:5%;
-	width:90%;
-}
-#containerFoto div{
-	padding:5% 0;
-}
 #containerFoto img{
-	width:18%;
-	margin:2%;
-	border:2pt solid #27c39e;
+	width:20%;
+	margin:2.5%;
 }
+
 
 /*modale scatta o galleria*/
 #caricaFoto a{

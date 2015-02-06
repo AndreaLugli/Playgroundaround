@@ -36,7 +36,6 @@ var app = {
             else
             {
                 localStorage.primoAvvio = 'no';
-                localize();
                 window.location='benvenuto.html';
             }
         }
