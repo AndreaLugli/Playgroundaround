@@ -722,14 +722,14 @@ h2 + h3{
 
 /*modale scatta o galleria*/
 #caricaFoto a{
-	width:50%;
-	padding:5%;
+	width:40%;
+	margin:5%;
 	display:block;
 	float:left;
 }
 #caricaFoto span{
+	clear:both;
 	color:black;
-	font-weight:normal;
 }
 
 /***********************************RICERCA*/

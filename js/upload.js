@@ -52,14 +52,20 @@ function quanteForm()
                         			'<a style="display:none;" type="submit" name="submit" value="COMPLETA" class="btn btn-lg btn-success" ><img src="5_credits.png"/></a>'+
                     			'</form>');*/
 		
-		$('#containerFoto').append('<a class="addPhoto" href="javascript:openCaricaFoto();"><img src="img/7_photo.png" /></a>');
+		$('#containerFoto').append('<img class="addPhoto" src="img/7_photo.png" />');
 
+		openCaricaFoto();
 	}
 }
 //modale carica o scatta
 function openCaricaFoto()
 {
-	$('#caricaFoto').modal();
+	$(".addPhoto").click(function()
+	{
+		$(this).addClass('prescelto');
+		$('#caricaFoto').modal();
+
+	});
 }
 
 
@@ -81,7 +87,8 @@ function onSuccessCamera(imageURI)
 	sessionStorage.photoPreview = imageURI;
 	arrayUri.push(sessionStorage.photo);
 	
-	$('#containerFoto .addPhoto img').attr('class', imageURI);
+	$('#containerFoto .prescelto').attr('src', imageURI);
+	$('#containerFoto .prescelto').removeAttr('prescelto');
 	$('#completa').show();
 	
 	alert('Camera ok: '+arrayUri);
@@ -148,7 +155,8 @@ function append_src_img(newURI)
 	sessionStorage.photoPreview = newURI;
 	arrayUri.push(sessionStorage.photo);
 
-	$('#containerFoto .addPhoto img').attr('class', imageURI);
+	$('#containerFoto .prescelto').attr('src', imageURI);
+	$('#containerFoto .prescelto').removeAttr('prescelto');
 	$('#completa').show();
 
 	alert('Galleria ok '+arrayUri);
