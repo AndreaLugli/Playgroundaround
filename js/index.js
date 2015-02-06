@@ -27,7 +27,18 @@ var app = {
             $('#header .imgCover').fadeIn('slow');
 
         }else{
-            localize();
+
+            //se non è il primo avvio, non mostro il tutorial
+            if(localStorage.primoAvvio)
+            {
+                localize();
+            }
+            else
+            {
+                localStorage.primoAvvio = 'no';
+                localize();
+                window.location='benvenuto.html';
+            }
         }
     },
     

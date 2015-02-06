@@ -212,6 +212,9 @@ textarea{
 	color:#27c39e;
 	font-size:small;
 }
+#footer a + a{
+	margin-left:20%;
+}
 
 /******************************CARICAMENTI*/
 #cortina{
@@ -239,7 +242,7 @@ textarea{
 	margin:0;
 }
 #formIndirizzo #map{
-	height:120pt;
+	height:150pt;
 	border-radius:5pt;
 	border:3pt solid #27c39e;
 }
@@ -619,6 +622,10 @@ textarea{
 }
 #container.ok a{
 	color:#912A62;
+	text-transform:none;
+}
+#container.ok a span{
+	text-transform:uppercase;
 }
 
 /***************************INSERISCI*COORD*PARCO*/
@@ -771,4 +778,41 @@ h2 + h3{
 /*******************************TROVATI*/
 #trovati{
 	margin-top:5%;
+}
+
+/******************************TUTORIAL*/
+body.tutorial{
+	width:100%;
+	height:100%;
+	margin:0;
+	background-color:#27c39e;
+	color:#f7f4ed;
+}
+body.tutorial h2{
+	margin:0;
+	padding-top:5%;
+}
+body.tutorial img{
+	width:100%;
+	margin:5% auto;
+}
+body.tutorial p{
+	margin:10% 10% 5% 10%;
+	width:80%;
+	font-weight:bold;
+	font-size:large;
+	text-align:justify;
+}
+body.tutorial p.center{
+	text-align:center;
+}
+body.tutorial a{
+	color:#912A62;
+	font-size:large;
+	text-transform:none;
+}
+body.tutorial button{
+	width:80%;
+	margin-left:10%;
+	margin-bottom:5%;
 }

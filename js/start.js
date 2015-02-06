@@ -52,7 +52,7 @@ function footerPop()
 {
 	$('#bottom').html('<nav id="footer" class="navbar-fixed-bottom">'+
           '<div class="container">'+
-              '<a href="credits.html">credits</a>'+
+              '<a href="benvenuto.html">tutorial</a> <a href="credits.html">credits</a>'+
           '</div>'+
         '</nav>');
 }
