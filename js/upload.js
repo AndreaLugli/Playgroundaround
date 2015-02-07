@@ -141,28 +141,36 @@ function uploadPhoto(imageData)
 
     ft.upload(imageData, indirizzo+"/upload_parco", successo_upload_foto, fail, options);  
 }
-function fail(error)
+function fail(xhr, textStatus, thrownError)
 {
 	$('#cortina').fadeOut();
-	alert(error);
+
+	alert(xhr.status);
+   	alert(thrownError);
+
 	modalGenerico();
 }
 
-function successo_upload_foto(r)
+function successo_upload_foto(data)
 {
-	alert(r.response[0].id);
+	alert(data.response);
+	alert(data.responseText);
+	alert(data.responseText[0]);
+	alert(data.responseText[0].id);
 	/*id_parco = data[0].id;
 	arrayId.push(id_parco);
 	alert(arrayId);*/
 
+	//mostro anteprima
+	$('#containerFoto .upload').attr('src', sessionStorage.photo);
+	$('#containerFoto img').removeClass('upload');
+
 	//aggiorno contatore
 	sessionStorage.fotoMancanti = sessionStorage.fotoMancanti-1;
+	//controllo se posso aggiungere altre foto
 	if(sessionStorage.fotoMancanti != 0){
 		$('#containerFoto').append('<img class="upload" src="img/7_photo.png" />');
 	}
-
-	$('#containerFoto .upload').attr('src', sessionStorage.photo);
-	$('#containerFoto img').removeClass('upload');
 
 	openCaricaFoto();
 
