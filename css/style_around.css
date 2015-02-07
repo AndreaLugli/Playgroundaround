@@ -722,8 +722,12 @@ h2 + h3{
 	font-weight:bold;
 }
 #containerFoto img{
-	width:20%;
+	width:45%;
 	margin:2.5%;
+}
+#containerFoto + button{
+	width:90%;
+	margin-left:5%;
 }
 
 

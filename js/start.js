@@ -24,7 +24,7 @@ function popHome()
           '<a id="logoNav" class="navbar-brand" href="index.html">'+
             '<img alt="brand" src="./img/segnaposto_trasp.png">'+
           '</a>'+
-          '<button type="button" class="btn navbar-btn around" onClick="window.location=\'inserisci_coord.html\'"><i class="fa fa-child"></i> Inserisci</button>'+
+          '<button type="button" class="btn navbar-btn btn-sm around" onClick="window.location=\'inserisci_coord.html\'"><i class="fa fa-child"></i> Inserisci</button>'+
         '</div>'+
       '</div>'+
     '</nav>');
@@ -40,7 +40,7 @@ function popBack()
           '<a id="logoNav" class="navbar-brand" href="javascript:history.go(-1);">'+
             '<img alt="brand" src="./img/segnaposto_trasp_back.png">'+
           '</a>'+
-          '<button type="button" class="btn navbar-btn around" onClick="window.location=\'inserisci_coord.html\'"><i class="fa fa-child"></i> Inserisci</button>'+
+          '<button type="button" class="btn navbar-btn btn-sm around" onClick="window.location=\'inserisci_coord.html\'"><i class="fa fa-child"></i> Inserisci</button>'+
         '</div>'+
       '</div>'+
     '</nav>');

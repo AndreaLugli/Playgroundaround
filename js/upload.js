@@ -31,7 +31,7 @@ function modalDimensioni()
 
 function openPhotoUpload()
 {	
-	quanteForm();
+	openCaricaFoto();
 
 	//foto mancanti - parco esistente
 	$('h3 span').html(sessionStorage.fotoMancanti);
@@ -42,27 +42,11 @@ function openPhotoUpload()
 	{}
 }
 
-//genero dinamicamente i bottoni/foto di aggiunta
-function quanteForm()
-{
-	for ( var i = 0; i < sessionStorage.fotoMancanti; i++ )
-	{
-    	/*$('#containerFoto').append('<form method="post" enctype="multipart/form-data" action="'+indirizzo+'/upload_parco">'+
-									'<input id="'+i+'" name="file" type="file" />'+
-                        			'<a style="display:none;" type="submit" name="submit" value="COMPLETA" class="btn btn-lg btn-success" ><img src="5_credits.png"/></a>'+
-                    			'</form>');*/
-		
-		$('#containerFoto').append('<img class="addPhoto" src="img/7_photo.png" />');
 
-		openCaricaFoto();
-	}
-}
-//modale carica o scatta
 function openCaricaFoto()
 {
-	$(".addPhoto").click(function()
+	$("#containerFoto .upload").click(function()
 	{
-		$(this).addClass('prescelto');
 		$('#caricaFoto').modal();
 
 	});
@@ -87,8 +71,11 @@ function onSuccessCamera(imageURI)
 	sessionStorage.photoPreview = imageURI;
 	arrayUri.push(sessionStorage.photo);
 	
-	$('#containerFoto .prescelto').attr('src', imageURI);
-	$('#containerFoto .prescelto').removeAttr('prescelto');
+	$('#containerFoto .upload img').attr('src', imageURI);
+	$('#containerFoto img').removeAttr('upload');
+
+	$('#containerFoto').append('<img class="upload" src="img/7_photo.png" />');
+
 	$('#completa').show();
 	
 	alert('Camera ok: '+arrayUri);
@@ -155,8 +142,11 @@ function append_src_img(newURI)
 	sessionStorage.photoPreview = newURI;
 	arrayUri.push(sessionStorage.photo);
 
-	$('#containerFoto .prescelto').attr('src', imageURI);
-	$('#containerFoto .prescelto').removeAttr('prescelto');
+	$('#containerFoto .upload img').attr('src', imageURI);
+	$('#containerFoto img').removeAttr('upload');
+
+	$('#containerFoto').append('<img class="upload" src="img/7_photo.png" />');
+
 	$('#completa').show();
 
 	alert('Galleria ok '+arrayUri);
