@@ -20,7 +20,7 @@ function getTitolo()
 function searchTitolo()
 {
 	popBack();
-	$('h2 span').html(sessionStorage.titleSearch);
+	$('h2 span:nth-of-type(2)').html(sessionStorage.titleSearch);
 
 	//get lista parchi trovati
 	$.ajaxSetup({ cache: false });
@@ -74,7 +74,7 @@ function searchPosizione()
 {
 	popBack();
 
-	$('h2 span').html(sessionStorage.place);
+	$('h2 span:nth-of-type(2)').html(sessionStorage.place);
 
 	distanza = 10;
 
@@ -163,7 +163,7 @@ function appendVicini(data)
 		
 	}
 	$('#parchiVicini').html(listaParchiVicini);
-	$('#contatoreParchi span').html(quantiParchi);
+	$('#contatoreParchi span:first-of-type').html(quantiParchi);
 
 	$('#loader').hide();
 

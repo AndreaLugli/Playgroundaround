@@ -230,16 +230,20 @@ textarea{
 	padding-top:50%;
 	width:100%;
 	height:100%;
+	color:#912A62;
 }
 
 /**************************************MAPPE*/
 #map{
-	background:#f7f4ed url('../img/loader.gif') no-repeat center center;
+	background-color:#f7f4ed;
 	color:#912A62;
 	height:150pt;
 	width:100%;
 	border:2pt solid #27c39e;
 	margin:0;
+}
+#map i{
+	margin-top:50%;
 }
 #formIndirizzo #map{
 	height:150pt;
@@ -247,10 +251,13 @@ textarea{
 	border:3pt solid #27c39e;
 }
 #map1{
-	background:#f7f4ed url('../img/loader.gif') no-repeat center center;
+	background-color:#f7f4ed;
 	color:#912A62;
 	height:100%;
 	margin-bottom:25pt;
+}
+#map1 i{
+	margin-top:50%;
 }
 .imgNuvoletta{
 	width:60pt;

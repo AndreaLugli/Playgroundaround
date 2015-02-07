@@ -2,6 +2,7 @@
 function getMappaParco(lati, longi)
 {	
 	$('#parcoAperto').fadeIn();
+	$('#map').html('');
 	var map = L.map('map').setView([lati, longi], 15);
 
 	//credits mappa
@@ -42,6 +43,7 @@ function initialize_map_generica(lati, longi)
 	centroLat = lati;
 	centroLng = longi;
 
+	$('#map1').html('');
 	map1 = L.map('map1').setView([centroLat, centroLng], 15);
 			
 	var cloudmadeUrl = 'http://{s}.mqcdn.com/tiles/1.0.0/osm/{z}/{x}/{y}.png',
