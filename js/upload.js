@@ -62,25 +62,10 @@ function capturePhoto_camera()
     correctOrientation: true});
 }
 function onSuccessCamera(imageURI)
-{
-	//sessionStorage.photo = imageURI;	
-	//sessionStorage.photoPreview = imageURI;
-	
-	$('#containerFoto .upload').attr('src', imageURI);
-	$('#containerFoto img').removeClass('upload');
-
+{	
 	//caricamento foto
-	uploadPhoto(imageURI);
-	
-	//aggiorno contatore
-	sessionStorage.fotoMancanti = sessionStorage.fotoMancanti-1;
-
-	if(sessionStorage.fotoMancanti != 0){
-		$('#containerFoto').append('<img class="upload" src="img/7_photo.png" />');
-	}
-
-	$('#completa').show();
-	openCaricaFoto();
+	sessionStorage.photo = imageURI;
+	uploadPhoto(sessionStorage.photo);
 }
 
 /******************************CARICAMENTO*/
@@ -129,24 +114,11 @@ function controlloSize(img_size, imageData)
 }
 function controlloOk(newURI)
 {
-	//sessionStorage.photo = newURI;
-	//sessionStorage.photoPreview = newURI;
-
-	$('#containerFoto .upload').attr('src', newURI);
-	$('#containerFoto img').removeClass('upload');
+	sessionStorage.photo = newURI;
 
 	//caricamento foto
-	uploadPhoto(newURI);
+	uploadPhoto(sessionStorage.photo);
 
-	//aggiorno contatore
-	sessionStorage.fotoMancanti = sessionStorage.fotoMancanti-1;
-
-	if(sessionStorage.fotoMancanti != 0){
-		$('#containerFoto').append('<img class="upload" src="img/7_photo.png" />');
-	}
-
-	$('#completa').show();
-	openCaricaFoto();	
 }
 function onFail(message){
 	modalGenerico();
@@ -156,40 +128,44 @@ function onFail(message){
 function uploadPhoto(imageData)
 {
 	$('#cortina').fadeIn();
+
 	var options = new FileUploadOptions();
     options.fileKey="file";
     options.fileName=imageData.substr(imageData.lastIndexOf('/')+1);
     options.mimeType="image/png";
-
     var params = new Object();
     params.name = "file";
-
     options.params = params;
     options.chunkedMode = false;
-
     var ft = new FileTransfer();
-    /*try
-    {*/
-    	ft.upload(imageData, indirizzo+"/upload_parco", successo_upload_foto, fail, options);
-    /*}
-    catch(e)
-    {
-    	modalGenerico();
-    }*/
+
+    ft.upload(imageData, indirizzo+"/upload_parco", successo_upload_foto, fail, options);  
 }
 function fail(error)
 {
 	$('#cortina').fadeOut();
-	alert('sono entrato nel fail');
+	alert(error);
 	modalGenerico();
 }
 
 function successo_upload_foto(r)
 {
-	//alert(r[0].id);
-	alert(r.response);
+	alert(r.response[0].id);
 	/*id_parco = data[0].id;
 	arrayId.push(id_parco);
 	alert(arrayId);*/
+
+	//aggiorno contatore
+	sessionStorage.fotoMancanti = sessionStorage.fotoMancanti-1;
+	if(sessionStorage.fotoMancanti != 0){
+		$('#containerFoto').append('<img class="upload" src="img/7_photo.png" />');
+	}
+
+	$('#containerFoto .upload').attr('src', sessionStorage.photo);
+	$('#containerFoto img').removeClass('upload');
+
+	openCaricaFoto();
+
+	$('#completa').show();
 	$('#cortina').fadeOut();
 }
