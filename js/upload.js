@@ -82,8 +82,10 @@ function onSuccessCamera(imageURI)
 	}
 
 	$('#completa').show();
+	openCaricaFoto();
 	
 	alert('Camera ok: '+arrayUri);
+	alert('Foto mancanti: '+sessionStorage.fotoMancanti);
 }
 
 function capturePhoto()
@@ -135,10 +137,10 @@ function controlloSize(img_size, imageData)
 	}
 }
 
-function URL_success(fileEntry)
+/*function URL_success(fileEntry)
 { 
 	append_src_img(fileEntry.toURL());
-}
+}*/
 
 //Prendi l'uri e appendilo nel box
 function append_src_img(newURI)
@@ -147,7 +149,7 @@ function append_src_img(newURI)
 	sessionStorage.photoPreview = newURI;
 	arrayUri.push(sessionStorage.photo);
 
-	$('#containerFoto .upload').attr('src', imageURI);
+	$('#containerFoto .upload').attr('src', newURI);
 	$('#containerFoto img').removeClass('upload');
 
 	//aggiorno contatore
@@ -158,8 +160,10 @@ function append_src_img(newURI)
 	}
 
 	$('#completa').show();
+	openCaricaFoto();
 
 	alert('Galleria ok '+arrayUri);
+	alert('Foto mancanti: '+sessionStorage.fotoMancanti);
 	
 }
 
