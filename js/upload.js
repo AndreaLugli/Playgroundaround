@@ -2,7 +2,6 @@
 var img_size;
 var arrayId = [];
 
-
 /************************PARCO.HTML*O*INSERISCI*DATI.HTML*/
 //Link di aggiunta foto (nuove o mancanti)
 function goPhotoUpload(provenienza)
@@ -17,7 +16,7 @@ function modalGenerico()
 {
 	scrollAlto();
 	$('#modalErrore .modal-title').html('Ooooooops! Errore imprevisto');
-	$('#modalErrore .modal-body').html('<p>Qualcosa è andato storto nella selezione o nello scatto dell\'immagine.<br />Riprova.</p>');
+	$('#modalErrore .modal-body').html('<p>Qualcosa è andato storto nel caricamento dell\'immagine.<br />Riprova.</p>');
 	$('#modalErrore').modal();
 }
 function modalDimensioni()
@@ -115,7 +114,6 @@ function onSuccess(imageData)
 	}).then(function () {
 		controlloSize(img_size, imageData);
 	});
-	
 }
 //controllo dimensioni immagine
 function controlloSize(img_size, imageData)
@@ -126,10 +124,10 @@ function controlloSize(img_size, imageData)
 		modalDimensioni()
 	}
 	else{	
-		append_src_img(imageData);
+		controlloOk(imageData);
 	}
 }
-function append_src_img(newURI)
+function controlloOk(newURI)
 {
 	//sessionStorage.photo = newURI;
 	//sessionStorage.photoPreview = newURI;
@@ -150,7 +148,9 @@ function append_src_img(newURI)
 	$('#completa').show();
 	openCaricaFoto();	
 }
-function onFail(message){}
+function onFail(message){
+	modalGenerico();
+}
 
 /***********************************UPLOAD*/
 function uploadPhoto(imageData)
@@ -168,24 +168,26 @@ function uploadPhoto(imageData)
     options.chunkedMode = false;
 
     var ft = new FileTransfer();
-    try
-    {
+    /*try
+    {*/
     	ft.upload(imageData, indirizzo+"/upload_parco", successo_upload_foto, fail, options);
-    }
+    /*}
     catch(e)
     {
-    	$('#modalErrore').modal();
-    }
+    	modalGenerico();
+    }*/
 }
 function fail(error)
 {
 	$('#cortina').fadeOut();
-	$('#modalErrore').modal();
+	alert('sono entrato nel fail');
+	modalGenerico();
 }
 
-function successo_upload_foto(data)
+function successo_upload_foto(r)
 {
-	alert(data);
+	//alert(r[0].id);
+	alert(r.response);
 	/*id_parco = data[0].id;
 	arrayId.push(id_parco);
 	alert(arrayId);*/
