@@ -72,9 +72,14 @@ function onSuccessCamera(imageURI)
 	arrayUri.push(sessionStorage.photo);
 	
 	$('#containerFoto .upload').attr('src', imageURI);
-	$('#containerFoto img').removeAttr('upload');
+	$('#containerFoto img').removeClass('upload');
+	
+	//aggiorno contatore
+	sessionStorage.fotoMancanti = sessionStorage.fotoMancanti-1;
 
-	$('#containerFoto').append('<img class="upload" src="img/7_photo.png" />');
+	if(sessionStorage.fotoMancanti != 0){
+		$('#containerFoto').append('<img class="upload" src="img/7_photo.png" />');
+	}
 
 	$('#completa').show();
 	
@@ -143,9 +148,14 @@ function append_src_img(newURI)
 	arrayUri.push(sessionStorage.photo);
 
 	$('#containerFoto .upload').attr('src', imageURI);
-	$('#containerFoto img').removeAttr('upload');
+	$('#containerFoto img').removeClass('upload');
 
-	$('#containerFoto').append('<img class="upload" src="img/7_photo.png" />');
+	//aggiorno contatore
+	sessionStorage.fotoMancanti = sessionStorage.fotoMancanti-1;
+
+	if(sessionStorage.fotoMancanti != 0){
+		$('#containerFoto').append('<img class="upload" src="img/7_photo.png" />');
+	}
 
 	$('#completa').show();
 
