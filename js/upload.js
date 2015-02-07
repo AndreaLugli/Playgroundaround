@@ -71,7 +71,7 @@ function onSuccessCamera(imageURI)
 	sessionStorage.photoPreview = imageURI;
 	arrayUri.push(sessionStorage.photo);
 	
-	$('#containerFoto .upload img').attr('src', imageURI);
+	$('#containerFoto .upload').attr('src', imageURI);
 	$('#containerFoto img').removeAttr('upload');
 
 	$('#containerFoto').append('<img class="upload" src="img/7_photo.png" />');
@@ -142,7 +142,7 @@ function append_src_img(newURI)
 	sessionStorage.photoPreview = newURI;
 	arrayUri.push(sessionStorage.photo);
 
-	$('#containerFoto .upload img').attr('src', imageURI);
+	$('#containerFoto .upload').attr('src', imageURI);
 	$('#containerFoto img').removeAttr('upload');
 
 	$('#containerFoto').append('<img class="upload" src="img/7_photo.png" />');

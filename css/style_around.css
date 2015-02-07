@@ -722,8 +722,9 @@ h2 + h3{
 	font-weight:bold;
 }
 #containerFoto img{
-	width:45%;
+	width:20%;
 	margin:2.5%;
+	border-radius:20pt;
 }
 #containerFoto + button{
 	width:90%;
@@ -737,9 +738,6 @@ h2 + h3{
 	margin:5%;
 	display:block;
 	float:left;
-}
-#caricaFoto span{
-	clear:both;
 	color:black;
 }
 
