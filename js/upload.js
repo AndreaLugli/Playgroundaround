@@ -28,7 +28,7 @@ function modalDimensioni()
 	$('#modalErrore').modal();
 }
 
-
+/*apertura*modale*caricamento*o*scatto*/
 function openPhotoUpload()
 {	
 	openCaricaFoto();
@@ -43,8 +43,6 @@ function openPhotoUpload()
 	else if(sessionStorage.provenienza == 'vecchio')
 	{}*/
 }
-
-
 function openCaricaFoto()
 {
 	$("#containerFoto .upload").click(function()
@@ -54,8 +52,7 @@ function openCaricaFoto()
 	});
 }
 
-
-/****************scatto*o*carico*/
+/***********************************SCATTO*/
 function capturePhoto_camera()
 {
 	$('#caricaFoto').modal('hide');
@@ -65,18 +62,16 @@ function capturePhoto_camera()
     sourceType: Camera.PictureSourceType.CAMERA,
     correctOrientation: true});
 }
-
-//camera - non controllo grandezza immagine
 function onSuccessCamera(imageURI)
 {
-	sessionStorage.photo = imageURI;	
-	sessionStorage.photoPreview = imageURI;
+	//sessionStorage.photo = imageURI;	
+	//sessionStorage.photoPreview = imageURI;
 	
 	$('#containerFoto .upload').attr('src', imageURI);
 	$('#containerFoto img').removeClass('upload');
 
 	//caricamento foto
-	uploadAvatar(sessionStorage.photo);
+	uploadPhoto(imageURI);
 	
 	//aggiorno contatore
 	sessionStorage.fotoMancanti = sessionStorage.fotoMancanti-1;
@@ -87,11 +82,9 @@ function onSuccessCamera(imageURI)
 
 	$('#completa').show();
 	openCaricaFoto();
-	
-	alert('Camera ok: '+arrayUri);
-	alert('Foto mancanti: '+sessionStorage.fotoMancanti);
 }
 
+/******************************CARICAMENTO*/
 function capturePhoto()
 {
 	$('#caricaFoto').modal('hide');
@@ -101,11 +94,8 @@ function capturePhoto()
     sourceType: Camera.PictureSourceType.PHOTOLIBRARY,
     correctOrientation: true});
 }
-
-//gallaria - controllo grandezza immagine
 function onSuccess(imageData)
 {
-	//salvo dimensioni img nella variabile img_size
 	$.when(function(){			
 		window.resolveLocalFileSystemURL(imageData,
 				function(fileEntry) {
@@ -127,32 +117,28 @@ function onSuccess(imageData)
 	});
 	
 }
-
+//controllo dimensioni immagine
 function controlloSize(img_size, imageData)
 {
-	//controllo se immagine troppo grande (> 2,5MB)
+	//controllo se immagine > 2,5MB
 	if(img_size > 2621440)
 	{
-		//modal errore dimensioni
 		modalDimensioni()
 	}
 	else{	
 		append_src_img(imageData);
 	}
 }
-
-//Appendi le anteprime
 function append_src_img(newURI)
 {
-	sessionStorage.photo = newURI;
-	sessionStorage.photoPreview = newURI;
-	arrayUri.push(sessionStorage.photo);
+	//sessionStorage.photo = newURI;
+	//sessionStorage.photoPreview = newURI;
 
 	$('#containerFoto .upload').attr('src', newURI);
 	$('#containerFoto img').removeClass('upload');
 
 	//caricamento foto
-	uploadAvatar(sessionStorage.photo);
+	uploadPhoto(newURI);
 
 	//aggiorno contatore
 	sessionStorage.fotoMancanti = sessionStorage.fotoMancanti-1;
@@ -162,16 +148,12 @@ function append_src_img(newURI)
 	}
 
 	$('#completa').show();
-	openCaricaFoto();
-
-	alert('Galleria ok '+arrayUri);
-	alert('Foto mancanti: '+sessionStorage.fotoMancanti);
-	
+	openCaricaFoto();	
 }
 function onFail(message){}
 
-
-function uploadAvatar(imageData)
+/***********************************UPLOAD*/
+function uploadPhoto(imageData)
 {
 	$('#cortina').fadeIn();
 	var options = new FileUploadOptions();
@@ -188,7 +170,7 @@ function uploadAvatar(imageData)
     var ft = new FileTransfer();
     try
     {
-    	ft.upload(imageData, indirizzo+"/upload_parco", successo_upload_avatar, fail, options);
+    	ft.upload(imageData, indirizzo+"/upload_parco", successo_upload_foto, fail, options);
     }
     catch(e)
     {
@@ -201,10 +183,11 @@ function fail(error)
 	$('#modalErrore').modal();
 }
 
-function successo_upload_avatar(r)
+function successo_upload_foto(data)
 {
-	id_parco = r[0].id;
+	alert(data);
+	/*id_parco = data[0].id;
 	arrayId.push(id_parco);
+	alert(arrayId);*/
 	$('#cortina').fadeOut();
-	alert(arrayId);
 }
