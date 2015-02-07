@@ -148,18 +148,19 @@ function fail(xhr, textStatus, thrownError)
 	ciccia = JSON.stringify(xhr);
 	alert(ciccia);
 
-	alert(xhr);
-	alert(textStatus);
-   	alert(thrownError);
+	$('body').html(ciccia);
 
-	modalGenerico();
+	//modalGenerico();
 }
 
 function successo_upload_foto(data)
 {
 	alert(data.response);
+
 	alert(data.id);
-	alert(data.small_path);
+	alert(data[0].id);
+	alert(data.response[0].id);
+	
 	/*id_parco = data[0].id;
 	arrayId.push(id_parco);
 	alert(arrayId);*/
