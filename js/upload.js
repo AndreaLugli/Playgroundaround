@@ -145,7 +145,11 @@ function fail(xhr, textStatus, thrownError)
 {
 	$('#cortina').fadeOut();
 
-	alert(xhr.status);
+	ciccia = JSON.stringify(xhr);
+	alert(ciccia);
+
+	alert(xhr);
+	alert(textStatus);
    	alert(thrownError);
 
 	modalGenerico();
@@ -154,9 +158,8 @@ function fail(xhr, textStatus, thrownError)
 function successo_upload_foto(data)
 {
 	alert(data.response);
-	alert(data.responseText);
-	alert(data.responseText[0]);
-	alert(data.responseText[0].id);
+	alert(data.id);
+	alert(data.small_path);
 	/*id_parco = data[0].id;
 	arrayId.push(id_parco);
 	alert(arrayId);*/
