@@ -126,7 +126,8 @@ function onFail(message){
 }
 
 /***********************************UPLOAD*/
-function clearCache() {
+function clearCache()
+{
     navigator.camera.cleanup();
 }
 
@@ -136,7 +137,8 @@ function uploadPhoto(imageData)
 	$('#cortina').fadeIn();
 
 	/*****************************/
-	var win = function (r) {
+	var win = function(r)
+	{
         clearCache();
         retries = 0;
         alert('Done!');
@@ -144,16 +146,19 @@ function uploadPhoto(imageData)
         successo_upload_foto(r);
     }
  
-    var fail = function (error) {
+    var fail = function(error)
+    {
         if (retries == 0) {
-            retries ++
+            retries ++;
             setTimeout(function() {
                 uploadPhoto(sessionStorage.photo);
-            }, 1000)
+            }, 1000);
         } else {
             retries = 0;
             clearCache();
-            alert('Ups. Something wrong happens!');
+            alert('Fail!');
+
+            errore_upload_photo(error);
         }
     }
     /*****************************/
@@ -169,14 +174,6 @@ function uploadPhoto(imageData)
     var ft = new FileTransfer();
 
     ft.upload(imageData, indirizzo+"/upload_parco", win, fail, options);  
-}
-function fail(message)
-{
-	$('#cortina').fadeOut();
-
-	alert(message+' '+message.status+' '+message.statusText);
-
-	modalGenerico();
 }
 
 function successo_upload_foto(data)
@@ -202,4 +199,12 @@ function successo_upload_foto(data)
 
 	$('#completa').show();
 	$('#cortina').fadeOut();
+}
+function errore_upload_photo(message)
+{
+	$('#cortina').fadeOut();
+
+	alert(message+' '+message.status+' '+message.statusText);
+
+	modalGenerico();
 }
