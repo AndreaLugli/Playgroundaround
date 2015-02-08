@@ -6,10 +6,9 @@ function getMappaParco(lati, longi)
 	var map = L.map('map').setView([lati, longi], 15);
 
 	//credits mappa
-	L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png').addTo(map);
-	/*L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
+	L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
 	    attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
-	}).addTo(map);*/
+	}).addTo(map);
 
 	//disabilito scroll mappa
 	map.dragging.disable();
@@ -49,9 +48,9 @@ function initialize_map_generica(lati, longi)
 	var cloudmadeUrl = 'http://{s}.mqcdn.com/tiles/1.0.0/osm/{z}/{x}/{y}.png',
 		subDomains = ['otile1','otile2','otile3','otile4'],
 		cloudmadeAttrib = '';
-	/*var cloudmadeUrl = 'http://{s}.mqcdn.com/tiles/1.0.0/osm/{z}/{x}/{y}.png',
+	var cloudmadeUrl = 'http://{s}.mqcdn.com/tiles/1.0.0/osm/{z}/{x}/{y}.png',
 	subDomains = ['otile1','otile2','otile3','otile4'],
-	cloudmadeAttrib = '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors';*/
+	cloudmadeAttrib = '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors';
 	
 	var cloudmade = new L.TileLayer(cloudmadeUrl, {maxZoom: 15, attribution: cloudmadeAttrib, subdomains: subDomains});
 
@@ -114,7 +113,10 @@ function localizzaMap(lati, longi)
 
 	map = L.map('map').setView([lati, longi], 15);
 
-	L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png').addTo(map);
+	//credits mappa
+	L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
+	    attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+	}).addTo(map);
 
 	//disabilito scroll mappa
 	map.dragging.disable();

@@ -73,9 +73,10 @@ function capturePhoto()
 {
 	$('#caricaFoto').modal('hide');
 
-	navigator.camera.getPicture(onSuccess, onFail, { quality: 75,
+	navigator.camera.getPicture(onSuccess, onFail, { quality: 60,
 	destinationType: Camera.DestinationType.FILE_URI,
-    sourceType: Camera.PictureSourceType.PHOTOLIBRARY,
+    //sourceType: Camera.PictureSourceType.PHOTOLIBRARY,
+    sourceType: Camera.PictureSourceType.SAVEDPHOTOALBUM,
     correctOrientation: true});
 }
 function onSuccess(imageData)

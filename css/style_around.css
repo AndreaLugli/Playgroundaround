@@ -40,7 +40,7 @@ hr{
 }
 hr.purpleHr{
     border: 0;
-    height: 1px;
+    height: 3pt;
     background: #912A62;
     background-image: -webkit-linear-gradient(left, #e5e5e5, #912A62, #e5e5e5); 
     background-image:    -moz-linear-gradient(left, #e5e5e5, #912A62, #e5e5e5); 
@@ -49,7 +49,7 @@ hr.purpleHr{
 }
 hr.blueHr{
     border: 0;
-    height: 1px;
+    height: 3pt;
     background: #27c39e;
     background-image: -webkit-linear-gradient(left, #e5e5e5, #27c39e, #e5e5e5); 
     background-image:    -moz-linear-gradient(left, #e5e5e5, #27c39e, #e5e5e5); 
@@ -242,8 +242,11 @@ textarea{
 	border:2pt solid #27c39e;
 	margin:0;
 }
-#map i{
+#map i, #map1 i{
 	margin-top:50%;
+}
+#map a, #map1 a{
+	font-size:xx-small;
 }
 #formIndirizzo #map{
 	height:150pt;
@@ -255,9 +258,6 @@ textarea{
 	color:#912A62;
 	height:100%;
 	margin-bottom:25pt;
-}
-#map1 i{
-	margin-top:50%;
 }
 .imgNuvoletta{
 	width:60pt;
