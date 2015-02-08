@@ -162,20 +162,15 @@ function uploadPhoto(imageData)
 
 function win(data)
 {
-	alert('Done!');
-	
 	risposta = data.response;
-	statusCode = data.responseCode;
-	alert(statusCode);
 	rispostaJson = JSON.parse(risposta);
 	idFoto = rispostaJson[0].id;
+
 	alert(idFoto);
+	arrayId.push(idFoto);
+	alert(arrayId);
 
 	clearCache();
-
-	/*id_parco = data[0].id;
-	arrayId.push(id_parco);
-	alert(arrayId);*/
 
 	//mostro anteprima
 	$('#containerFoto .upload').attr('src', sessionStorage.photo);
@@ -193,23 +188,15 @@ function win(data)
 	$('#completa').show();
 	$('#cortina').fadeOut();
 }
+
 function fail(data)
 {
 	$('#cortina').fadeOut();
 
-	alert('Fail!');
-	alert(data.response);
-	
-	statusCode = data.responseCode;
-	alert(statusCode);
-
-	ciccia = JSON.stringify(data);
-	
-	alert(ciccia);
+	bodyErrore = data.body;
+	alert(bodyErrore);
 
 	clearCache();
-
-	//alert(message+' '+message.status+' '+message.statusText);
 
 	modalGenerico();
 }
