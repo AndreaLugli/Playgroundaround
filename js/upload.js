@@ -163,10 +163,13 @@ function uploadPhoto(imageData)
 function win(data)
 {
 	alert('Done!');
-	alert(data);
-
-	bla=JSON.stringify(data);
-	alert(bla);
+	
+	risposta = data.response;
+	statusCode = data.responseCode;
+	alert(statusCode);
+	rispostaJson = JSON.parse(risposta);
+	idFoto = rispostaJson[0].id;
+	alert(idFoto);
 
 	clearCache();
 
@@ -190,17 +193,21 @@ function win(data)
 	$('#completa').show();
 	$('#cortina').fadeOut();
 }
-function fail(message)
+function fail(data)
 {
-	alert('Fail!');
-
-	clearCache();
-
 	$('#cortina').fadeOut();
 
-	ciccia = JSON.stringify(message);
+	alert('Fail!');
+	alert(data.response);
+	
+	statusCode = data.responseCode;
+	alert(statusCode);
+
+	ciccia = JSON.stringify(data);
 	
 	alert(ciccia);
+
+	clearCache();
 
 	//alert(message+' '+message.status+' '+message.statusText);
 
