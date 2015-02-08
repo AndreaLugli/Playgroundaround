@@ -132,59 +132,39 @@ function clearCache()
     navigator.camera.cleanup();
 }
 
-var retries = 0;
 function uploadPhoto(imageData)
 {
 	$('#cortina').fadeIn();
 
-	/*****************************/
-	var win = function(r)
-	{
-        clearCache();
-        retries = 0;
-        alert('Done!');
-
-        successo_upload_foto(r);
+    //bug galleria - potrebbe non esserci formato foto
+    nomeFile = imageData.substr(imageData.lastIndexOf('/')+1);
+    controlloFormato = nomeFile.split('.');
+    if(controlloFormato == 1)
+    {	
+    	//in caso lo aggiungo
+    	nomeFile = nomeFile+ '.jpg';
     }
- 
-    var fail = function(error)
-    {
-        if (retries == 0) {
-            retries ++;
-            setTimeout(function() {
-                uploadPhoto(sessionStorage.photo);
-            }, 1000);
-        } else {
-            retries = 0;
-            clearCache();
-            alert('Fail!');
-
-            errore_upload_photo(error);
-        }
-    }
-    /*****************************/
 
 	var options = new FileUploadOptions();
     options.fileKey="file";
-    options.fileName=imageData.substr(imageData.lastIndexOf('/')+1);
+    //options.fileName=imageData.substr(imageData.lastIndexOf('/')+1);
+    options.fileName = nomeFile;
     options.mimeType="image/png";
     var params = new Object();
     params.name = "file";
     options.params = params;
     options.chunkedMode = false;
 
-    ciao = imageData.substr(imageData.lastIndexOf('/')+1);
-    alert(ciao);
-    ciao2 = ciao.split('.');
-    alert(ciao2.length);
+    var ft = new FileTransfer();
 
-    /*var ft = new FileTransfer();
-
-    ft.upload(imageData, indirizzo+"/upload_parco", win, fail, options);*/  
+    ft.upload(imageData, indirizzo+"/upload_parco", win, fail, options);
 }
 
-function successo_upload_foto(data)
+function win(data)
 {
+	alert('Done!');
+
+	clearCache();
 	alert(data.response);
 
 	/*id_parco = data[0].id;
@@ -207,8 +187,12 @@ function successo_upload_foto(data)
 	$('#completa').show();
 	$('#cortina').fadeOut();
 }
-function errore_upload_photo(message)
+function fail(message)
 {
+	alert('Fail!');
+
+	clearCache();
+
 	$('#cortina').fadeOut();
 
 	ciccia = JSON.stringify(message);
