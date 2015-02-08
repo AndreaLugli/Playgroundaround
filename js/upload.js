@@ -77,6 +77,7 @@ function capturePhoto()
 	destinationType: Camera.DestinationType.FILE_URI,
     //sourceType: Camera.PictureSourceType.PHOTOLIBRARY,
     sourceType: Camera.PictureSourceType.SAVEDPHOTOALBUM,
+    encodingType: Camera.EncodingType.JPEG,
     correctOrientation: true});
 }
 function onSuccess(imageData)
@@ -172,7 +173,10 @@ function uploadPhoto(imageData)
     options.params = params;
     options.chunkedMode = false;
 
-    alert(imageData);
+    ciao = imageData.substr(imageData.lastIndexOf('/')+1);
+    alert(ciao);
+    ciao2 = ciao.split('.');
+    alert(ciao2.length);
 
     /*var ft = new FileTransfer();
 
