@@ -35,12 +35,16 @@ function openPhotoUpload()
 	//foto mancanti - parco esistente
 	$('h3 span').html(sessionStorage.fotoMancanti);
 
-	$('#containerFoto form').attr('action', indirizzo+'/upload_parco');
-
-	/*if(sessionStorage.provenienza == 'nuovo')
-	{}
+	if(sessionStorage.provenienza == 'nuovo')
+	{
+		//tornare alla pagina di inserimento dati
+		$('#container').append('<button id="completa" style="display:none;" class="btn btn-lg btn-block btn-success" type="button" onClick="window.location=\'inserisci_dati.html\';"><i class="fa fa-check-circle-o"></i> Completa</button>');
+	}
 	else if(sessionStorage.provenienza == 'vecchio')
-	{}*/
+	{
+		//fare chiamata di associazione + andare a pagina di conferma
+		$('#container').append('<button id="completa" style="display:none;" class="btn btn-lg btn-block btn-success" type="button" onClick="window.location=\'inserisci_dati.html\';"><i class="fa fa-check-circle-o"></i> Completa</button>');
+	}
 }
 function openCaricaFoto()
 {

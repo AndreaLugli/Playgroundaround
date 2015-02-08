@@ -40,6 +40,9 @@ function checkAll()
 //rating parco
 function valuta(){
 
+	//posso caricare al massimo 10 foto
+	sessionStorage.fotoMancanti = 10;
+
 	$('#rate i:first-of-type').click(function() {
 
 		sessionStorage.valutazione = 1;
@@ -212,9 +215,6 @@ function getDati()
 	{
 		sessionStorage.handicap = false
 	}
-
-	//posso caricare al massimo 10 foto
-	sessionStorage.fotoMancanti = 10;
 
 	//get input
 	sessionStorage.newTitle = $('#title').val();
