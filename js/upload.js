@@ -139,7 +139,7 @@ function uploadPhoto(imageData)
     //bug galleria - potrebbe non esserci formato foto
     nomeFile = imageData.substr(imageData.lastIndexOf('/')+1);
     controlloFormato = nomeFile.split('.');
-    if(controlloFormato == 1)
+    if(controlloFormato.length == 1)
     {	
     	//in caso lo aggiungo
     	nomeFile = nomeFile+ '.jpg';
@@ -163,9 +163,9 @@ function uploadPhoto(imageData)
 function win(data)
 {
 	alert('Done!');
+	alert(data.response);
 
 	clearCache();
-	alert(data.response);
 
 	/*id_parco = data[0].id;
 	arrayId.push(id_parco);
