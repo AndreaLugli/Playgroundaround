@@ -163,7 +163,10 @@ function uploadPhoto(imageData)
 function win(data)
 {
 	alert('Done!');
-	alert(data.response);
+	alert(data);
+
+	bla=JSON.stringify(data);
+	alert(bla);
 
 	clearCache();
 
