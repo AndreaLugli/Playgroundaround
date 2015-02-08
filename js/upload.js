@@ -172,8 +172,7 @@ function uploadPhoto(imageData)
     options.params = params;
     options.chunkedMode = false;
 
-    cose_a_caso = imageData.substr(imageData.lastIndexOf('/')+1);
-    alert(cose_a_caso);
+    alert(imageData);
 
     /*var ft = new FileTransfer();
 
