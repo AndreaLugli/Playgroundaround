@@ -171,9 +171,13 @@ function uploadPhoto(imageData)
     params.name = "file";
     options.params = params;
     options.chunkedMode = false;
-    var ft = new FileTransfer();
 
-    ft.upload(imageData, indirizzo+"/upload_parco", win, fail, options);  
+    cose_a_caso = imageData.substr(imageData.lastIndexOf('/')+1);
+    alert(cose_a_caso);
+
+    /*var ft = new FileTransfer();
+
+    ft.upload(imageData, indirizzo+"/upload_parco", win, fail, options);*/  
 }
 
 function successo_upload_foto(data)
