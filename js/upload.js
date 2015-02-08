@@ -204,7 +204,11 @@ function errore_upload_photo(message)
 {
 	$('#cortina').fadeOut();
 
-	alert(message+' '+message.status+' '+message.statusText);
+	ciccia = JSON.stringify(message);
+	
+	alert(ciccia);
+
+	//alert(message+' '+message.status+' '+message.statusText);
 
 	modalGenerico();
 }
