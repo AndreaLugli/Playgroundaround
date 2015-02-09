@@ -116,35 +116,51 @@ function appendVicini(data)
 	
 	listaParchiVicini = '';
 
-	for( i=0; i < quantiParchi; i++ ){
+	for( i=0; i < quantiParchi; i++ )
+	{
 
 		servizi = getServizi(jsonVicini[i].picnic, jsonVicini[i].parking, jsonVicini[i].cleaning, jsonVicini[i].fenced_area, jsonVicini[i].toilette, jsonVicini[i].caffe, jsonVicini[i].universally_accessible);
 		voto = getStelline(jsonVicini[i].evaluation);
 
-		if(jsonVicini[i].anteprima_path === null){
+
+		if(jsonVicini[i].anteprima_path === null)
+		{
 			anteprima = "img/logo.jpg";
 		}
 		else{
 			anteprima = indirizzo+'/media/'+jsonVicini[i].anteprima_path;
 		}
+
+
+		name = jsonVicini[i].name;
+		if(name.length >= 30)
+		{
+			name = name.substring(0,29)+' [...]';
+		}
 		
 		//target = jsonVicini[i].age_min+' - '+jsonVicini[i].age_max+' years';
 		target = jsonVicini[i].age_min+'-'+jsonVicini[i].age_max+' anni';
-		if(jsonVicini[i].age_min == 0 && jsonVicini[i].age_max == 0){
+		if(jsonVicini[i].age_min == 0 && jsonVicini[i].age_max == 0)
+		{
 			//target = 'not available';
 			target = '0-99 anni';
 		}
-
 		opening = jsonVicini[i].opening_hours;
-		if(opening.length < 2){
+		if(opening.length < 2)
+		{
 			//opening = 'not available';
 			opening = '0-24';
 		}
+		else if(opening.length >= 16)
+		{
+			opening = opening.substring(0,15)+' [...]';
+		}
+
 
 		listaParchiVicini += '<a class="parco" href="javascript:apriParco('+jsonVicini[i].id+');">'+
 			                    '<img src="'+anteprima+'" onError="this.onerror=null;this.src=\'img/logo.jpg\';"/>'+
 			                   '<span class="desc">'+
-			                        '<p class="titolo">«'+jsonVicini[i].name+'»</p>'+
+			                        '<p class="titolo">«'+name+'»</p>'+
 			                        //'<span class="eta">TARGET: '+target+'</span>'+
 			                        //'<span class="orario">OPENING: '+opening+'</span>'+
 			                        '<span class="eta">ETÀ: '+target+'</span>'+

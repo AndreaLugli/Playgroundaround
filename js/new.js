@@ -89,40 +89,54 @@ function dataExists()
 				break;
 		}
 
-		if(sessionStorage.fenced)
+		if(sessionStorage.fenced === true)
 		{
-			$('.alert:first-of-type input').prop('checked', true);
-			$('.alert:first-of-type').attr('class', 'alert alert-success input-lg');
+			$('#fenced').attr('class', 'alert alert-success input-lg');
+			//$('#fenced').removeClass('alert-danger');
+			//$('#fenced').addClass('alert-success');
+			$('#fenced input').prop('checked', true);
 		}
-		if(sessionStorage.park)
+		if(sessionStorage.park === true)
 		{
-			$('.alert:nth-of-type(2) input').prop('checked', true);
-			$('.alert:nth-of-type(2)').attr('class', 'alert alert-success input-lg');
+			$('#park').attr('class', 'alert alert-success input-lg');
+			//$('#park').removeClass('alert-danger');
+			//$('#park').addClass('alert-success');
+			$('#park input').prop('checked', true);
 		}
-		if(sessionStorage.picnic)
+		if(sessionStorage.picnic === true)
 		{
-			$('.alert:nth-of-type(3) input').prop('checked', true);
-			$('.alert:nth-of-type(3)').attr('class', 'alert alert-success input-lg');
+			$('#picnic').attr('class', 'alert alert-success input-lg');
+			//$('#picnic').removeClass('alert-danger');
+			//$('#picnic').addClass('alert-success');
+			$('#picnic input').prop('checked', true);
 		}
-		if(sessionStorage.snack)
+		if(sessionStorage.snack === true)
 		{
-			$('.alert:nth-of-type(4) input').prop('checked', true);
-			$('.alert:nth-of-type(4)').attr('class', 'alert alert-success input-lg');
+			$('#snack').attr('class', 'alert alert-success input-lg');
+			//$('#snack').removeClass('alert-danger');
+			//$('#snack').addClass('alert-success');
+			$('#snack input').prop('checked', true);
 		}
-		if(sessionStorage.toilette)
+		if(sessionStorage.toilette === true)
 		{
-			$('.alert:nth-of-type(5) input').prop('checked', true);
-			$('.alert:nth-of-type(5)').attr('class', 'alert alert-success input-lg');
+			$('#toilette').attr('class', 'alert alert-success input-lg');
+			//$('#toilette').removeClass('alert-danger');
+			//$('#toilette').addClass('alert-success');
+			$('#toilette input').prop('checked', true);
 		}
-		if(sessionStorage.cleaning)
+		if(sessionStorage.cleaning === true)
 		{
-			$('.alert:nth-of-type(6) input').prop('checked', true);
-			$('.alert:nth-of-type(6)').attr('class', 'alert alert-success input-lg');
+			$('#cleaning').attr('class', 'alert alert-success input-lg');
+			//$('#cleaning').removeClass('alert-danger');
+			//$('#cleaning').addClass('alert-success');
+			$('#cleaning input').prop('checked', true);
 		}
-		if(sessionStorage.handicap)
+		if(sessionStorage.handicap === true)
 		{
-			$('.alert:nth-of-type(7) input').prop('checked', true);
-			$('.alert:nth-of-type(7)').attr('class', 'alert alert-success input-lg');
+			$('#handicap').attr('class', 'alert alert-success input-lg');
+			//$('#handicap').removeClass('alert-danger');
+			//$('#handicap').addClass('alert-success');
+			$('#handicap input').prop('checked', true);
 		}
 	}
 
@@ -212,22 +226,6 @@ function checkAll()
 			$(this).removeClass('alert-danger');
 			$(this).addClass('alert-success');
 		}
-
-		/*var tocheck = $(this).find('input');
-
-		if(tocheck.is(':checked'))
-		{
-			tocheck.prop('checked', false);
-			$(this).removeClass('alert-success');
-			$(this).addClass('alert-danger');
-			//$(this).attr('class', 'alert alert-danger input-lg');
-		}else
-		{
-			tocheck.prop('checked', true);
-			$(this).removeClass('alert-danger');
-			$(this).addClass('alert-success');
-			//$(this).attr('class', 'alert alert-success input-lg');
-		}*/
 	});
 }
 
@@ -292,7 +290,7 @@ function getDati()
 	alert('get');
 
 	//get checkbox
-	if($('#fenced').is(':checked'))
+	if($('#fenced input').is(':checked'))
 	{
 		sessionStorage.fenced = true;
 	}else
@@ -300,7 +298,7 @@ function getDati()
 		sessionStorage.fenced = false
 	}
 
-	if($('#park').is(':checked'))
+	if($('#park input').is(':checked'))
 	{
 		sessionStorage.park = true;
 	}else
@@ -308,7 +306,7 @@ function getDati()
 		sessionStorage.park = false
 	}
 
-	if($('#picnic').is(':checked'))
+	if($('#picnic input').is(':checked'))
 	{
 		sessionStorage.picnic = true;
 	}else
@@ -316,7 +314,7 @@ function getDati()
 		sessionStorage.picnic = false
 	}
 
-	if($('#snack').is(':checked'))
+	if($('#snack input').is(':checked'))
 	{
 		sessionStorage.snack = true;
 	}else
@@ -324,7 +322,7 @@ function getDati()
 		sessionStorage.snack = false
 	}
 
-	if($('#toilette').is(':checked'))
+	if($('#toilette input').is(':checked'))
 	{
 		sessionStorage.toilette = true;
 	}else
@@ -332,7 +330,7 @@ function getDati()
 		sessionStorage.toilette = false
 	}
 
-	if($('#cleaning').is(':checked'))
+	if($('#cleaning input').is(':checked'))
 	{
 		sessionStorage.cleaning = true;
 	}else
@@ -340,7 +338,7 @@ function getDati()
 		sessionStorage.cleaning = false
 	}
 
-	if($('#handicap').is(':checked'))
+	if($('#handicap input').is(':checked'))
 	{
 		sessionStorage.handicap = true;
 	}else
