@@ -175,12 +175,12 @@ function win(data)
 	if(sessionStorage.listaIdFoto)
 	{
 		sessionStorage.listaIdFoto += ','+idFoto;
-		sessionStorage.listaPathFoto += '<img src="'+indirizzo+pathFoto+'"/>';
+		sessionStorage.listaPathFoto += '<img src="'+indirizzo+'/'+pathFoto+'"/>';
 	}
 	else
 	{
 		sessionStorage.listaIdFoto = idFoto;
-		sessionStorage.listaPathFoto = '<img src="'+indirizzo+pathFoto+'"/>';
+		sessionStorage.listaPathFoto = '<img src="'+indirizzo+'/'+pathFoto+'"/>';
 	}
 
 	alert(idFoto);

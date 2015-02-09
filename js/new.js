@@ -89,49 +89,49 @@ function dataExists()
 				break;
 		}
 
-		if(sessionStorage.fenced === true)
+		if(sessionStorage.fenced)
 		{
 			$('#fenced').attr('class', 'alert alert-success input-lg');
 			//$('#fenced').removeClass('alert-danger');
 			//$('#fenced').addClass('alert-success');
 			$('#fenced input').prop('checked', true);
 		}
-		if(sessionStorage.park === true)
+		if(sessionStorage.park)
 		{
 			$('#park').attr('class', 'alert alert-success input-lg');
 			//$('#park').removeClass('alert-danger');
 			//$('#park').addClass('alert-success');
 			$('#park input').prop('checked', true);
 		}
-		if(sessionStorage.picnic === true)
+		if(sessionStorage.picnic)
 		{
 			$('#picnic').attr('class', 'alert alert-success input-lg');
 			//$('#picnic').removeClass('alert-danger');
 			//$('#picnic').addClass('alert-success');
 			$('#picnic input').prop('checked', true);
 		}
-		if(sessionStorage.snack === true)
+		if(sessionStorage.snack)
 		{
 			$('#snack').attr('class', 'alert alert-success input-lg');
 			//$('#snack').removeClass('alert-danger');
 			//$('#snack').addClass('alert-success');
 			$('#snack input').prop('checked', true);
 		}
-		if(sessionStorage.toilette === true)
+		if(sessionStorage.toilette)
 		{
 			$('#toilette').attr('class', 'alert alert-success input-lg');
 			//$('#toilette').removeClass('alert-danger');
 			//$('#toilette').addClass('alert-success');
 			$('#toilette input').prop('checked', true);
 		}
-		if(sessionStorage.cleaning === true)
+		if(sessionStorage.cleaning)
 		{
 			$('#cleaning').attr('class', 'alert alert-success input-lg');
 			//$('#cleaning').removeClass('alert-danger');
 			//$('#cleaning').addClass('alert-success');
 			$('#cleaning input').prop('checked', true);
 		}
-		if(sessionStorage.handicap === true)
+		if(sessionStorage.handicap)
 		{
 			$('#handicap').attr('class', 'alert alert-success input-lg');
 			//$('#handicap').removeClass('alert-danger');
