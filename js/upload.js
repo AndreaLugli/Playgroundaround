@@ -7,7 +7,7 @@ function goPhotoUpload(provenienza)
 {
 	sessionStorage.provenienza = provenienza;
 	
-	if(sessionStorage.provenienza == 'vecchio')
+	if(sessionStorage.provenienza == 'nuovo')
 	{
 		//solo per il nuovo parco, se ho già inserito dati li salvo
 		getDati();
