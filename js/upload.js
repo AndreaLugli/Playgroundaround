@@ -6,8 +6,13 @@ var img_size;
 function goPhotoUpload(provenienza)
 {
 	sessionStorage.provenienza = provenienza;
-	//se ho già inserito dati li salvo
-	getDati();
+	
+	if(sessionStorage.provenienza == 'vecchio')
+	{
+		//solo per il nuovo parco, se ho già inserito dati li salvo
+		getDati();
+	}
+
 	window.location='inserisci_foto.html';
 }
 
