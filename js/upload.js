@@ -1,12 +1,13 @@
 ﻿var newURI;
 var img_size;
-var arrayId = [];
 
 /************************PARCO.HTML*O*INSERISCI*DATI.HTML*/
 //Link di aggiunta foto (nuove o mancanti)
 function goPhotoUpload(provenienza)
 {
 	sessionStorage.provenienza = provenienza;
+	//se ho già inserito dati li salvo
+	getDati();
 	window.location='inserisci_foto.html';
 }
 
@@ -43,7 +44,7 @@ function openPhotoUpload()
 	else if(sessionStorage.provenienza == 'vecchio')
 	{
 		//fare chiamata di associazione + andare a pagina di conferma
-		$('#container').append('<button id="completa" style="display:none;" class="btn btn-lg btn-block btn-success" type="button" onClick="window.location=\'inserisci_dati.html\';"><i class="fa fa-check-circle-o"></i> Completa</button>');
+		$('#container').append('<button id="completa" style="display:none;" class="btn btn-lg btn-block btn-success" type="button" onClick="associaFotoParco();"><i class="fa fa-check-circle-o"></i> Completa</button>');
 	}
 }
 function openCaricaFoto()
@@ -168,13 +169,16 @@ function win(data)
 {
 	risposta = data.response;
 	rispostaJson = JSON.parse(risposta);
+
 	idFoto = rispostaJson[0].id;
-
+	sessionStorage.listaIdFoto += idFoto + ",";
 	alert(idFoto);
-	arrayId.push(idFoto);
-	alert(arrayId);
+	alert(sessionStorage.listaIdFoto);
 
-	clearCache();
+	pathFoto = rispostaJson[0].small_path;
+	sessionStorage.listaPathFoto += '<img src="'+pathFoto+'"/>';
+	alert(pathFoto);
+	alert(sessionStorage.listaPathFoto);
 
 	//mostro anteprima
 	$('#containerFoto .upload').attr('src', sessionStorage.photo);
@@ -187,20 +191,20 @@ function win(data)
 		$('#containerFoto').append('<img class="upload" src="img/7_photo.png" />');
 	}
 
-	openCaricaFoto();
-
 	$('#completa').show();
+	clearCache();
 	$('#cortina').fadeOut();
+
+	openCaricaFoto();
 }
 
 function fail(data)
 {
-	$('#cortina').fadeOut();
-
 	bodyErrore = data.body;
 	alert(bodyErrore);
 
-	clearCache();
-
 	modalGenerico();
+
+	clearCache();
+	$('#cortina').fadeOut();
 }

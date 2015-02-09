@@ -16,33 +16,118 @@ function correggi()
 	});
 }
 
-/***********************INFO*PARCO*/
-//rende pannelli servizi cliccabili
-function checkAll()
+/*****************************************INFO*PARCO*/
+//avvio della pagina
+function openNew()
 {
-	$(".alert").click(function()
-	{
-		var tocheck = $(this).find('input');
-
-		if(tocheck.is(':checked'))
-		{
-			//$(this).find('input').prop('checked', true);
-			tocheck.prop('checked', false);
-			$(this).attr('class', 'alert alert-danger input-lg');
-		}else
-		{
-			tocheck.prop('checked', true);
-			$(this).attr('class', 'alert alert-success input-lg');
-		}
-	});
+	popBack();
+	dataExists();
+	valuta();
+	checkAll();
 }
 
-//rating parco
-function valuta(){
+/*CONTROLLI*E*ATTIVAZIONI*CAMPI*/
 
-	//posso caricare al massimo 10 foto
-	sessionStorage.fotoMancanti = 10;
+//se ho già inserito dei dati, li mostro a video
+function dataExists()
+{
+	//se ho già caricato delle foto
+	if(sessionStorage.listaPathFoto)
+	{	
+		//mostro anteprime
+		$('#uploadedPhoto').html(sessionStorage.listaPathFoto);
+		//nascondo bottone caricamento
+		$('#addPhoto').hide();
+	}
+	else
+	{
+		//posso caricare al massimo 10 foto
+		sessionStorage.fotoMancanti = 10;
+	}
 
+	//se ho già inserito dei dati
+	if(sessionStorage.newTitle)
+	{
+		$('#title').val(sessionStorage.newTitle);
+		$('#opening').val(sessionStorage.newOpening);
+		$('#target_min').val(sessionStorage.newTarget_min);
+		$('#target_max').val(sessionStorage.newTarget_max);
+		$('#description').val(sessionStorage.newDesc);
+		$('#note').val(sessionStorage.note);
+		$('#email').val(sessionStorage.email);
+
+		switch (sessionStorage.valutazione)
+		{
+			case 1:
+				$('#rate i:first-of-type').attr('class', 'fa fa fa-3x fa-star');
+
+				break;
+			case 2:
+				$('#rate i:first-of-type').attr('class', 'fa fa fa-3x fa-star');
+				$('#rate i:nth-of-type(2)').attr('class', 'fa fa fa-3x fa-star');
+				break;
+			case 3:
+				$('#rate i:first-of-type').attr('class', 'fa fa fa-3x fa-star');
+				$('#rate i:nth-of-type(2)').attr('class', 'fa fa fa-3x fa-star');
+				$('#rate i:nth-of-type(3)').attr('class', 'fa fa fa-3x fa-star');
+				break;
+			case 4:
+				$('#rate i:first-of-type').attr('class', 'fa fa fa-3x fa-star');
+				$('#rate i:nth-of-type(2)').attr('class', 'fa fa fa-3x fa-star');
+				$('#rate i:nth-of-type(3)').attr('class', 'fa fa fa-3x fa-star');
+				$('#rate i:nth-of-type(4)').attr('class', 'fa fa fa-3x fa-star');
+				break;
+			case 5:
+				$('#rate i:first-of-type').attr('class', 'fa fa fa-3x fa-star');
+				$('#rate i:nth-of-type(2)').attr('class', 'fa fa fa-3x fa-star');
+				$('#rate i:nth-of-type(3)').attr('class', 'fa fa fa-3x fa-star');
+				$('#rate i:nth-of-type(4)').attr('class', 'fa fa fa-3x fa-star');
+				$('#rate i:nth-of-type(5)').attr('class', 'fa fa fa-3x fa-star');
+				break;
+		}
+
+		if(sessionStorage.fenced)
+		{
+			$('.alert:first-of-type input').prop('checked', true);
+			$('.alert:first-of-type input').attr('class', 'alert alert-success input-lg');
+		}
+		if(sessionStorage.park)
+		{
+			$('.alert:nth-of-type(2) input').prop('checked', true);
+			$('.alert:nth-of-type(2) input').attr('class', 'alert alert-success input-lg');
+		}
+		if(sessionStorage.picnic)
+		{
+			$('.alert:nth-of-type(3) input').prop('checked', true);
+			$('.alert:nth-of-type(3) input').attr('class', 'alert alert-success input-lg');
+		}
+		if(sessionStorage.snack)
+		{
+			$('.alert:nth-of-type(4) input').prop('checked', true);
+			$('.alert:nth-of-type(4) input').attr('class', 'alert alert-success input-lg');
+		}
+		if(sessionStorage.toilette)
+		{
+			$('.alert:nth-of-type(5) input').prop('checked', true);
+			$('.alert:nth-of-type(5) input').attr('class', 'alert alert-success input-lg');
+		}
+		if(sessionStorage.cleaning)
+		{
+			$('.alert:nth-of-type(6) input').prop('checked', true);
+			$('.alert:nth-of-type(6) input').attr('class', 'alert alert-success input-lg');
+		}
+		if(sessionStorage.handicap)
+		{
+			$('.alert:nth-of-type(7) input').prop('checked', true);
+			$('.alert:nth-of-type(7) input').attr('class', 'alert alert-success input-lg');
+		}
+	}
+
+}
+
+//abilito rating parco
+function valuta()
+{
 	$('#rate i:first-of-type').click(function() {
 
 		sessionStorage.valutazione = 1;
@@ -108,8 +193,27 @@ function valuta(){
 	});
 }
 
+//rende pannelli servizi cliccabili
+function checkAll()
+{
+	$(".alert").click(function()
+	{
+		var tocheck = $(this).find('input');
 
-//check dei dati required
+		if(tocheck.is(':checked'))
+		{
+			//$(this).find('input').prop('checked', true);
+			tocheck.prop('checked', false);
+			$(this).attr('class', 'alert alert-danger input-lg');
+		}else
+		{
+			tocheck.prop('checked', true);
+			$(this).attr('class', 'alert alert-success input-lg');
+		}
+	});
+}
+
+/*CAMPI*REQUIRED*/
 function checkRequired()
 {
 	//evidenzio required mancanti (nome, descrizione)
@@ -139,10 +243,9 @@ function checkRequired()
 	}
 	else
 	{
-		getDati();
+		confermaParco();
 	}
 }
-
 //on click tolgo evidenziazione
 function noErrorOnClick()
 {
@@ -156,9 +259,18 @@ function noErrorOnClick()
 	});
 }
 
+/*INVIO*PARCO*/
+function confermaParco()
+{
+	$.when(getDati)
+     .then(inviaDati);
+
+}
 //get di tutti i dati
 function getDati()
 {
+	alert('get');
+
 	//get checkbox
 	if($('#fenced').is(':checked'))
 	{
@@ -239,13 +351,12 @@ function getDati()
 		sessionStorage.newTarget_max = 99;
 	}
 
-	inviaDati();	
-
 }
 
 //invio dati al server
 function inviaDati()
 {
+	alert('invia');
 	alert(sessionStorage.newLati+' '+sessionStorage.newLongi+' '+sessionStorage.newAddress+' '+sessionStorage.newTitle+' '+sessionStorage.newOpening+' '+sessionStorage.newTarget_min+' '+sessionStorage.newTarget_max+' '+sessionStorage.newDesc+' '+sessionStorage.note+' '+sessionStorage.valutazione+' '+sessionStorage.email+' '+sessionStorage.fenced+' '+sessionStorage.picnic+' '+sessionStorage.snack+' '+sessionStorage.park+' '+sessionStorage.toilette+' '+sessionStorage.cleaning+' '+sessionStorage.handicap);
 
 	$.ajax({
@@ -281,8 +392,55 @@ function inviaDati()
 }
 function datiInviati(data)
 {
-	idParco = data;
-	alert(idParco);
+	sessionStorage.idParco = data;
+	alert(sessionStorage.idParco);
 
+	associaFotoParco();
+
+}
+//associo foto al parco appena creato
+function associaFotoParco()
+{
+	$.ajax({
+		type: 'POST',
+		url: indirizzo+'/associa_parco_foto',
+		data: {
+			'id_parco' : sessionStorage.idParco,
+			'foto' : sessionStorage.listaIdFoto
+		},
+		contentType: 'application/x-www-form-urlencoded',
+		error: errorHandler,
+		success: associaOk
+	})
+}
+
+function associaOk()
+{
+	sessionStorage.clear();
 	window.location='inserisci_ok.html';
+}
+
+/**************************************INSERISCI*OK*/
+function openInserisciOk()
+{
+	popHome();
+
+	if(sessionStorage.provenienza == 'nuovo')
+	{
+		$('#parcoInserito').show();
+	}
+	else if(sessionStorage.provenienza == 'vecchio')
+	{
+		$('#fotoInserite').show();	
+	}
+}
+function goHomeInserisciOk()
+{
+	dataClear();
+	window.location='index.html';
+}
+//cancella sessionStorage dopo creazione parco/aggiunta foto
+function dataClear()
+{
+	sessionStorage.clear();
 }

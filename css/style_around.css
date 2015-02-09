@@ -710,6 +710,10 @@ textarea{
 #formInsParco .alert:nth-of-type(11){
 	margin-bottom:2%;
 }
+#uploadedPhoto img{
+	width:18%;
+	margin:1%;
+}
 
 /***************************INSERISCI*FOTO*PARCO*/
 #containerFoto{
