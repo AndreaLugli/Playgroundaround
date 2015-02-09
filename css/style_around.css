@@ -589,6 +589,11 @@ textarea{
 	width:100%;
 }
 
+/**********************************COMMENTA*PARCO*/
+#commenta{
+	height:300px !important;
+}
+
 
 /****************************************CREDITS*/
 #container.credits{
@@ -612,13 +617,17 @@ textarea{
 
 /************************************INSERISCI*OK*/
 #container.ok{
-	padding:15% 5%;
+	padding:15% 10%;
 	color:#f7f4ed;
 	background-color:#27c39e;
 	height:100%;
 }
+#container.ok h2{
+	margin-bottom:10%;
+}
 #container.ok p{
 	text-align:justify;
+	font-size:medium;
 }
 #container.ok img{
 	margin:5%;

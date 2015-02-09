@@ -58,26 +58,29 @@ function dataExists()
 
 		switch (sessionStorage.valutazione)
 		{
-			case 1:
+			case '1':
 				$('#rate i:first-of-type').attr('class', 'fa fa fa-3x fa-star');
-
 				break;
-			case 2:
+
+			case '2':
 				$('#rate i:first-of-type').attr('class', 'fa fa fa-3x fa-star');
 				$('#rate i:nth-of-type(2)').attr('class', 'fa fa fa-3x fa-star');
 				break;
-			case 3:
+
+			case '3':
 				$('#rate i:first-of-type').attr('class', 'fa fa fa-3x fa-star');
 				$('#rate i:nth-of-type(2)').attr('class', 'fa fa fa-3x fa-star');
 				$('#rate i:nth-of-type(3)').attr('class', 'fa fa fa-3x fa-star');
 				break;
-			case 4:
+
+			case '4':
 				$('#rate i:first-of-type').attr('class', 'fa fa fa-3x fa-star');
 				$('#rate i:nth-of-type(2)').attr('class', 'fa fa fa-3x fa-star');
 				$('#rate i:nth-of-type(3)').attr('class', 'fa fa fa-3x fa-star');
 				$('#rate i:nth-of-type(4)').attr('class', 'fa fa fa-3x fa-star');
 				break;
-			case 5:
+
+			case '5':
 				$('#rate i:first-of-type').attr('class', 'fa fa fa-3x fa-star');
 				$('#rate i:nth-of-type(2)').attr('class', 'fa fa fa-3x fa-star');
 				$('#rate i:nth-of-type(3)').attr('class', 'fa fa fa-3x fa-star');
@@ -89,37 +92,37 @@ function dataExists()
 		if(sessionStorage.fenced)
 		{
 			$('.alert:first-of-type input').prop('checked', true);
-			$('.alert:first-of-type input').attr('class', 'alert alert-success input-lg');
+			$('.alert:first-of-type').attr('class', 'alert alert-success input-lg');
 		}
 		if(sessionStorage.park)
 		{
 			$('.alert:nth-of-type(2) input').prop('checked', true);
-			$('.alert:nth-of-type(2) input').attr('class', 'alert alert-success input-lg');
+			$('.alert:nth-of-type(2)').attr('class', 'alert alert-success input-lg');
 		}
 		if(sessionStorage.picnic)
 		{
 			$('.alert:nth-of-type(3) input').prop('checked', true);
-			$('.alert:nth-of-type(3) input').attr('class', 'alert alert-success input-lg');
+			$('.alert:nth-of-type(3)').attr('class', 'alert alert-success input-lg');
 		}
 		if(sessionStorage.snack)
 		{
 			$('.alert:nth-of-type(4) input').prop('checked', true);
-			$('.alert:nth-of-type(4) input').attr('class', 'alert alert-success input-lg');
+			$('.alert:nth-of-type(4)').attr('class', 'alert alert-success input-lg');
 		}
 		if(sessionStorage.toilette)
 		{
 			$('.alert:nth-of-type(5) input').prop('checked', true);
-			$('.alert:nth-of-type(5) input').attr('class', 'alert alert-success input-lg');
+			$('.alert:nth-of-type(5)').attr('class', 'alert alert-success input-lg');
 		}
 		if(sessionStorage.cleaning)
 		{
 			$('.alert:nth-of-type(6) input').prop('checked', true);
-			$('.alert:nth-of-type(6) input').attr('class', 'alert alert-success input-lg');
+			$('.alert:nth-of-type(6)').attr('class', 'alert alert-success input-lg');
 		}
 		if(sessionStorage.handicap)
 		{
 			$('.alert:nth-of-type(7) input').prop('checked', true);
-			$('.alert:nth-of-type(7) input').attr('class', 'alert alert-success input-lg');
+			$('.alert:nth-of-type(7)').attr('class', 'alert alert-success input-lg');
 		}
 	}
 
@@ -198,18 +201,33 @@ function checkAll()
 {
 	$(".alert").click(function()
 	{
-		var tocheck = $(this).find('input');
+		if($('input', this).is(':checked'))
+		{
+			$('input', this).prop('checked', false);
+			$(this).removeClass('alert-success');
+			$(this).addClass('alert-danger');
+		}else
+		{
+			$('input', this).prop('checked', true);
+			$(this).removeClass('alert-danger');
+			$(this).addClass('alert-success');
+		}
+
+		/*var tocheck = $(this).find('input');
 
 		if(tocheck.is(':checked'))
 		{
-			//$(this).find('input').prop('checked', true);
 			tocheck.prop('checked', false);
-			$(this).attr('class', 'alert alert-danger input-lg');
+			$(this).removeClass('alert-success');
+			$(this).addClass('alert-danger');
+			//$(this).attr('class', 'alert alert-danger input-lg');
 		}else
 		{
 			tocheck.prop('checked', true);
-			$(this).attr('class', 'alert alert-success input-lg');
-		}
+			$(this).removeClass('alert-danger');
+			$(this).addClass('alert-success');
+			//$(this).attr('class', 'alert alert-success input-lg');
+		}*/
 	});
 }
 
@@ -329,6 +347,7 @@ function getDati()
 	{
 		sessionStorage.handicap = false
 	}
+	alert('FENCED:'+sessionStorage.fenced+' PARK:'+sessionStorage.park+' PICNIC:'+sessionStorage.picnic+' SNACK:'+sessionStorage.snack+' TOILETTE:'+sessionStorage.toilette+' CLEANING:'+sessionStorage.cleaning+' HANDICAP:'+sessionStorage.handicap);
 
 	//get input
 	sessionStorage.newTitle = $('#title').val();
