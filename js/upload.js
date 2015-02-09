@@ -153,7 +153,6 @@ function uploadPhoto(imageData)
 
 	var options = new FileUploadOptions();
     options.fileKey="file";
-    //options.fileName=imageData.substr(imageData.lastIndexOf('/')+1);
     options.fileName = nomeFile;
     options.mimeType="image/png";
     var params = new Object();
@@ -162,7 +161,6 @@ function uploadPhoto(imageData)
     options.chunkedMode = false;
 
     var ft = new FileTransfer();
-
     ft.upload(imageData, indirizzo+"/upload_parco", win, fail, options);
 }
 
@@ -172,12 +170,21 @@ function win(data)
 	rispostaJson = JSON.parse(risposta);
 
 	idFoto = rispostaJson[0].id;
-	sessionStorage.listaIdFoto += idFoto +',';
+	pathFoto = rispostaJson[0].small_path;
+
+	if(sessionStorage.listaIdFoto)
+	{
+		sessionStorage.listaIdFoto += idFoto+',';
+		sessionStorage.listaPathFoto += '<img src="'+pathFoto+'"/>';
+	}
+	else
+	{
+		sessionStorage.listaIdFoto = idFoto+',';
+		sessionStorage.listaPathFoto = '<img src="'+pathFoto+'"/>';
+	}
+	
 	alert(idFoto);
 	alert(sessionStorage.listaIdFoto);
-
-	pathFoto = rispostaJson[0].small_path;
-	sessionStorage.listaPathFoto += '<img src="'+pathFoto+'"/>';
 	alert(pathFoto);
 	alert(sessionStorage.listaPathFoto);
 
