@@ -78,7 +78,7 @@ function capturePhoto()
 {
 	$('#caricaFoto').modal('hide');
 
-	navigator.camera.getPicture(onSuccess, onFail, { quality: 60,
+	navigator.camera.getPicture(onSuccess, onFail, { quality: 75,
 	destinationType: Camera.DestinationType.FILE_URI,
     //sourceType: Camera.PictureSourceType.PHOTOLIBRARY,
     sourceType: Camera.PictureSourceType.SAVEDPHOTOALBUM,
@@ -127,16 +127,12 @@ function controlloOk(newURI)
 	uploadPhoto(sessionStorage.photo);
 
 }
-function onFail(message){
+function onFail(message)
+{
 	modalGenerico();
 }
 
 /***********************************UPLOAD*/
-function clearCache()
-{
-    navigator.camera.cleanup();
-}
-
 function uploadPhoto(imageData)
 {
 	$('#cortina').fadeIn();
@@ -171,7 +167,7 @@ function win(data)
 	rispostaJson = JSON.parse(risposta);
 
 	idFoto = rispostaJson[0].id;
-	sessionStorage.listaIdFoto += idFoto + ",";
+	sessionStorage.listaIdFoto += idFoto +',';
 	alert(idFoto);
 	alert(sessionStorage.listaIdFoto);
 
@@ -187,12 +183,12 @@ function win(data)
 	//aggiorno contatore
 	sessionStorage.fotoMancanti = sessionStorage.fotoMancanti-1;
 	//controllo se posso aggiungere altre foto
-	if(sessionStorage.fotoMancanti != 0){
+	if(sessionStorage.fotoMancanti != 0)
+	{
 		$('#containerFoto').append('<img class="upload" src="img/7_photo.png" />');
 	}
 
 	$('#completa').show();
-	clearCache();
 	$('#cortina').fadeOut();
 
 	openCaricaFoto();
@@ -203,8 +199,30 @@ function fail(data)
 	bodyErrore = data.body;
 	alert(bodyErrore);
 
-	modalGenerico();
+	//gestisco errori server
+	switch (bodyErrore)
+	{
+		case 'Form non valido':
+			modalGenerico();
+			break;
 
-	clearCache();
+		case 'Peso troppo elevato':
+			modalDimensioni();
+			break;
+
+		case 'Dimensioni elevate':
+			modalDimensioni();
+			break;
+
+		default:
+			modalGenerico();
+	}
+	
 	$('#cortina').fadeOut();
+}
+
+/*******************************CLEANING*/
+function clearCache()
+{
+    navigator.camera.cleanup();
 }

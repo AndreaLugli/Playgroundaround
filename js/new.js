@@ -263,7 +263,9 @@ function noErrorOnClick()
 function confermaParco()
 {
 	$.when(getDati)
-     .then(inviaDati);
+     .then(function () {
+		inviaDati();
+	});
 
 }
 //get di tutti i dati
