@@ -418,7 +418,6 @@ function associaFotoParco()
 
 function associaOk()
 {
-	sessionStorage.clear();
 	window.location='inserisci_ok.html';
 }
 
