@@ -51,10 +51,10 @@ hr.blueHr{
     border: 0;
     height: 3pt;
     background: #27c39e;
-    background-image: -webkit-linear-gradient(left, #e5e5e5, #27c39e, #e5e5e5); 
-    background-image:    -moz-linear-gradient(left, #e5e5e5, #27c39e, #e5e5e5); 
-    background-image:     -ms-linear-gradient(left, #e5e5e5, #27c39e, #e5e5e5); 
-    background-image:      -o-linear-gradient(left, #e5e5e5, #27c39e, #e5e5e5); 
+    background-image: -webkit-linear-gradient(left, #27c39e, #912A62, #27c39e); 
+    background-image:    -moz-linear-gradient(left, #27c39e, #912A62, #27c39e); 
+    background-image:     -ms-linear-gradient(left, #27c39e, #912A62, #27c39e); 
+    background-image:      -o-linear-gradient(left, #27c39e, #912A62, #27c39e); 
 }
 /**************************************TITOLI*/
 h1{			/*titolo index*/
@@ -239,7 +239,6 @@ textarea{
 	color:#912A62;
 	height:150pt;
 	width:100%;
-	border:2pt solid #27c39e;
 	margin:0;
 }
 #map i, #map1 i{
@@ -474,13 +473,25 @@ textarea{
 	margin-left:2pt;
 	border:1pt solid #cccccc;
 }
+#articolo #commentalo{
+	margin:-3% 2.5% 5% 5%;
+	width:42.5%;
+	float:left;
+}
 #clickEng, #clickIta{	/*ita|eng version*/
-	margin:5%;
-	margin-top:-3%;
+	margin:-3% 5% 5% 2.5%;
+	width:42.5%;
 	float:left;
 }
 #address button{	/*come arrivare*/
 	margin-top:2%;
+}
+#comandi{
+	background-color:#27c39e;
+}
+#comandi button{
+	margin:3% 0 4% 0;
+	width:90%;
 }
 
 /*immagini*/
@@ -559,6 +570,15 @@ textarea{
 .flag{
 	margin-right:5%;
 	margin-top:-10pt;
+}
+/*commenti*/
+#descIta ul{
+	margin-top:2%;
+	padding-left:4%;
+}
+#descIta ul li{
+	font-size:small;
+	text-align:left;
 }
 
 /*indirizzo*/

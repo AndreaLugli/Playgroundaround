@@ -327,14 +327,27 @@ function appendParco(data){
 	//nascosto - lo faccio apparire per estetica del caricamento
 	$('#parcoInfo').show();
 
+	//descrizione
 	$('#articolo').html('<p id="descIta"><img class="flag" src="img/flag_ita.png" />'+data.description+'</p><p id="descEng" style="display:none;"><img class="flag" src="img/flag_eng.png" />'+data.description_en+'</p>');
+	$('#articolo').append("<button id='commentalo' class='btn btn-success btn-sm' onClick='window.location=\"commenta_parco.html\";'>Commenta</button>");
 	if(data.description_en.length > 2){
-		$('#articolo').append('<button id="clickEng" class="btn bnt-sm btn-success" onClick="clickEng();"><i class="fa fa-flag-o"></i> English version</button><button id="clickIta" class="btn bnt-sm btn-success" style="display:none;" onClick="clickIta();"><i class="fa fa-flag-o"></i> Versione italiana</button>');
+		$('#articolo').append('<button id="clickEng" class="btn btn-success btn-sm" onClick="clickEng();">English version</button><button id="clickIta" class="btn btn-success btn-sm" style="display:none;" onClick="clickIta();">Versione italiana</button>');
+	}
+	//gestione commenti
+	if(data.commenti)
+	{
+		$('#descIta').append('<ul></ul>');
+
+		$.each(data.commenti, function(i, val)	//i: numero, val: valore
+			{
+				$('#descIta ul').append('<li>'+val.testo+'</li>');
+			});
 	}
 	
-	$('#articolo').append("<a href='commenta_parco.html'><i class='fa fa-2x fa-comment purple'></i></a>");
-	$('#articolo').append("<a href='#'><i class='fa fa-2x fa-suitcase purple'></i></a>");
-
+	//gestione sito esterno
+	if(data.link_esterno){
+		$('#comandi').append("<button class='btn btn-success btn-lg' onClick='window.open(\""+data.link_esterno+"\",\"_blank\",\"location=yes\");'><i class='fa fa-suitcase'></i> Scopri la destinazione</button>");
+	}
 
 	$('#address').html(data.address);
 	$('#address').append("<button class='btn btn-block btn-lg btn-success' onClick='location.href=\"geo:"+sessionStorage.lat+","+sessionStorage.longi+"?q="+data.latitude+","+data.longitude+"\";'><i class='fa fa-compass'></i> Come arrivare</button>");

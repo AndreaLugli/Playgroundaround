@@ -446,24 +446,18 @@ function openInserisciOk()
 	if(sessionStorage.provenienza == 'nuovo')
 	{
 		$('#parcoInserito').show();
+		dataClear();
 	}
 	else if(sessionStorage.provenienza == 'vecchio')
 	{
-		$('#fotoInserite').show();	
+		$('#fotoInserite').show();
 	}
 	else if(sessionStorage.provenienza == 'commento')
 	{
 		$('#commentoInserito').show();	
 	}
 }
-function goHomeInserisciOk()
-{
-	if(sessionStorage.provenienza == 'nuovo' || sessionStorage.provenienza == 'vecchio')
-	{
-		dataClear();
-	}
-	window.location='index.html';
-}
+
 //cancella sessionStorage dopo creazione parco/aggiunta foto
 function dataClear()
 {
@@ -492,7 +486,7 @@ function commentoCheck()
 	}
 
 	//se mancanti blocco
-	if( $("#container.ok .error").length > 0)
+	if( $("#formInsCommento .error").length > 0)
 	{
 		//mostro alert dati mancanti
     	$('#datiMancanti').modal();
