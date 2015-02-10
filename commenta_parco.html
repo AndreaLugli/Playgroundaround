@@ -11,24 +11,52 @@
 
     </head>
   
-    <body >
+    <body onLoad="commentoOpen();">
 
 
         <!--NAVBAR DINAMICA-->
 
-        <div id="container" class="ok">
+        <div id="container">
 
-            <h2>Commenta il parco</h2>
-            <div class="form-group input-group-lg">
-                <textarea id="comment" class="form-control required" placeholder="Scrivi un commento al parco"></textarea>
-            </div>
+            <div id="formInsCommento">
 
-            
+                <h2>Lascia un commento a<br/><span></span></h2>
+
+                <div class="form-group input-group-lg">
+                    <textarea id="comment" class="form-control required" placeholder="Commenta il parco"></textarea>
+                </div>
+
+                <div class="input-group input-group-lg">
+                    <span class="input-group-addon">Email*</span>
+                    <input id="email" type="text" class="form-control" />
+                </div>
+
+                <button id="inviaCommento" class="btn btn-lg btn-block btn-success" type="button" onClick="commentoCheck();"><i class="fa fa-check-circle-o"></i> Completa</button>
+
+            </div>  <!--/FORM-->
 
         </div>  <!--/CONTAINER-->
 
- 
         <div id="bottom"></div>
+
+
+        <!--MODAL DATI OBBLIGATORI-->
+        <div id="datiMancanti" class="modal fade">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                        <h4 class="modal-title">Dati mancanti</h4>
+                    </div>
+                    <div class="modal-body">
+                        <p>Entrambi i campi sono obbligatori e l'indirizzo email deve essere valido.</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-lg btn-block" data-dismiss="modal">Chiudi</button>
+                    </div>
+                </div><!-- /.modal-content -->
+            </div><!-- /.modal-dialog -->
+        </div><!-- /.modal -->
 
         
         
@@ -38,7 +66,6 @@
         
         <script src="js/start.js"></script>
         <script src="js/new.js"></script>
-        <script src="js/upload.js"></script>
 
     </body>
 </html>

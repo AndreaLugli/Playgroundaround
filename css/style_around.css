@@ -754,7 +754,16 @@ h2 + h3{
 	color:black;
 }
 
-/***********************************RICERCA*/
+/***************************INSERISCI*COMMENTO*/
+#formInsCommento{
+	margin:0 5% 10% 5%;
+	width:90%;
+}
+#inviaCommento{
+	margin-top:5%;
+}
+
+/*************************************RICERCA*/
 #container.ricerca h2{
 	padding: 0 5%;
 }

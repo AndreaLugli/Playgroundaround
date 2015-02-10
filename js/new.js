@@ -89,49 +89,49 @@ function dataExists()
 				break;
 		}
 
-		if(sessionStorage.fenced)
+		if(sessionStorage.fenced == 'true')
 		{
 			$('#fenced').attr('class', 'alert alert-success input-lg');
 			//$('#fenced').removeClass('alert-danger');
 			//$('#fenced').addClass('alert-success');
 			$('#fenced input').prop('checked', true);
 		}
-		if(sessionStorage.park)
+		if(sessionStorage.park  == 'true')
 		{
 			$('#park').attr('class', 'alert alert-success input-lg');
 			//$('#park').removeClass('alert-danger');
 			//$('#park').addClass('alert-success');
 			$('#park input').prop('checked', true);
 		}
-		if(sessionStorage.picnic)
+		if(sessionStorage.picnic  == 'true')
 		{
 			$('#picnic').attr('class', 'alert alert-success input-lg');
 			//$('#picnic').removeClass('alert-danger');
 			//$('#picnic').addClass('alert-success');
 			$('#picnic input').prop('checked', true);
 		}
-		if(sessionStorage.snack)
+		if(sessionStorage.snack  == 'true')
 		{
 			$('#snack').attr('class', 'alert alert-success input-lg');
 			//$('#snack').removeClass('alert-danger');
 			//$('#snack').addClass('alert-success');
 			$('#snack input').prop('checked', true);
 		}
-		if(sessionStorage.toilette)
+		if(sessionStorage.toilette  == 'true')
 		{
 			$('#toilette').attr('class', 'alert alert-success input-lg');
 			//$('#toilette').removeClass('alert-danger');
 			//$('#toilette').addClass('alert-success');
 			$('#toilette input').prop('checked', true);
 		}
-		if(sessionStorage.cleaning)
+		if(sessionStorage.cleaning  == 'true')
 		{
 			$('#cleaning').attr('class', 'alert alert-success input-lg');
 			//$('#cleaning').removeClass('alert-danger');
 			//$('#cleaning').addClass('alert-success');
 			$('#cleaning input').prop('checked', true);
 		}
-		if(sessionStorage.handicap)
+		if(sessionStorage.handicap  == 'true')
 		{
 			$('#handicap').attr('class', 'alert alert-success input-lg');
 			//$('#handicap').removeClass('alert-danger');
@@ -451,14 +451,76 @@ function openInserisciOk()
 	{
 		$('#fotoInserite').show();	
 	}
+	else if(sessionStorage.provenienza == 'commento')
+	{
+		$('#commentoInserito').show();	
+	}
 }
 function goHomeInserisciOk()
 {
-	dataClear();
+	if(sessionStorage.provenienza == 'nuovo' || sessionStorage.provenienza == 'vecchio')
+	{
+		dataClear();
+	}
 	window.location='index.html';
 }
 //cancella sessionStorage dopo creazione parco/aggiunta foto
 function dataClear()
 {
 	sessionStorage.clear();
+}
+
+/***********************************COMMENTA*PARCO*/
+function commentoOpen()
+{
+	popBack();
+	$('#formInsCommento h2 span').html(sessionStorage.titoloParco);
+}
+
+function commentoCheck()
+{	
+	commento = $('#comment').val();
+	if(commento.length < 5)
+	{
+		$('#comment').addClass("error");
+	}
+
+	email = $('#email').val();
+	if(email.indexOf('@') === -1 || email.indexOf('.') === -1)
+	{
+		$('#email').addClass("error");
+	}
+
+	//se mancanti blocco
+	if( $("#container.ok .error").length > 0)
+	{
+		//mostro alert dati mancanti
+    	$('#datiMancanti').modal();
+
+    	noErrorOnClick();
+	}
+	else
+	{
+		commentoSend(commento, email);
+	}
+}
+function commentoSend(commento, email)
+{
+	$.ajax({
+		type: 'POST',
+		url: indirizzo+'/invia_commento',
+		data: {
+			'id_parco' : sessionStorage.idParco,
+			'testo' : commento,
+			'email' : email
+		},
+		contentType: 'application/x-www-form-urlencoded',
+		error: errorHandler,
+		success: commentoInviato
+	})
+}
+function commentoInviato()
+{
+	sessionStorage.provenienza = 'commento';
+	window.location='inserisci_ok.html';
 }

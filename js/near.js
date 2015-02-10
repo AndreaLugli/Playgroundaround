@@ -299,7 +299,8 @@ function getInfoParco(){
 function appendParco(data){
 	getMappaParco(data.latitude.toFixed(3), data.longitude.toFixed(3));
 
-	$('#titoloParcoAperto').html('«'+data.name+'»');
+	sessionStorage.titoloParco = '«'+data.name+'»';
+	$('#titoloParcoAperto').html(sessionStorage.titoloParco);
 
 	servizi2 = getServizi(data.picnic, data.parking, data.cleaning, data.fenced_area, data.toilette, data.caffe, data.universally_accessible);
 	voto2 = getStelline(data.evaluation);
