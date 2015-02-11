@@ -5,6 +5,7 @@ document.addEventListener('deviceready', partenza, true);
 //AL CARICAMENTO DELLA PAGINA
 function partenza()
 {	
+	/*DEBUG*/
 	window.onerror = function (message, file, line) {
     	alert("Error in Application: " +
 	        message + ". Source File: " + file + ", Line: " + line);
@@ -24,7 +25,7 @@ function popHome()
           '<a id="logoNav" class="navbar-brand" href="index.html">'+
             '<img alt="brand" src="./img/segnaposto_trasp.png">'+
           '</a>'+
-          '<button type="button" class="btn navbar-btn btn-sm around" onClick="window.location=\'inserisci_coord.html\'"><i class="fa fa-child"></i> Inserisci</button>'+
+          '<button type="button" class="btn navbar-btn btn-sm around" onClick="window.location=\'inserisci_coord.html\'"><i class="fa fa-child"></i> Inserisci parco</button>'+
         '</div>'+
       '</div>'+
     '</nav>');
@@ -40,7 +41,7 @@ function popBack()
           '<a id="logoNav" class="navbar-brand" href="javascript:history.go(-1);">'+
             '<img alt="brand" src="./img/segnaposto_trasp_back.png">'+
           '</a>'+
-          '<button type="button" class="btn navbar-btn btn-sm around" onClick="window.location=\'inserisci_coord.html\'"><i class="fa fa-child"></i> Inserisci</button>'+
+          '<button type="button" class="btn navbar-btn btn-sm around" onClick="window.location=\'inserisci_coord.html\'"><i class="fa fa-child"></i> Inserisci parco</button>'+
         '</div>'+
       '</div>'+
     '</nav>');
@@ -52,7 +53,7 @@ function footerPop()
 {
 	$('#bottom').html('<nav id="footer" class="navbar-fixed-bottom">'+
           '<div class="container">'+
-              '<a href="benvenuto.html">tutorial</a> <a href="credits.html">credits</a>'+
+              '<a href="index.html">home</a> <a href="credits.html">credits</a> <a href="benvenuto.html">tutorial</a>'+
           '</div>'+
         '</nav>');
 }
@@ -74,6 +75,7 @@ function handle_localize(position)
 	sessionStorage.longi = position.coords.longitude.toFixed(3);
 
 	getCover();
+	getPromo();
 
 	//alert('Ti trovi a: LATI:'+sessionStorage.lat+' LONGI:'+sessionStorage.longi);
 }
@@ -86,7 +88,7 @@ function getCover()
 	$.ajax({
 		type:'GET',
 		//url: indirizzo+'get_copertina?lat='+sessionStorage.lat+'&lng='+sessionStorage.longi,
-		url: 'http://app.playgroundaroundthecorner.it/get_copertina?lat='+sessionStorage.lat+'&lng='+sessionStorage.longi,
+		url: indirizzo+'/get_copertina?lat='+sessionStorage.lat+'&lng='+sessionStorage.longi,
 		success: appendCover,
 		error: errorHandler
 	});
@@ -143,6 +145,52 @@ function resolution()
 	//alert('Risoluzione screen: '+sessionStorage.deviceWidth+' '+sessionStorage.deviceHeight);
 }
 
+/*********************CONTENUTI*PROMO*/
+function getPromo()
+{
+	$.ajaxSetup({ cache: false });
+	$.ajax({
+		type:'GET',
+		url: indirizzo+'/get_promo',
+		success: appendPromo,
+		error: errorHandler
+	});	
+}
+function appendPromo(data)
+{
+	for( i=0; i < data.length; i++ )
+	{
+		$('.blo4').attr('href', 'javascript:trackPromo('+data[i].id+',\"'+data[i].url_promo+'\")');
+
+		var img = new Image();
+		var imageSrc = indirizzo+'/media/'+data[i].path;
+		img.onload = function()
+		{
+			$('.blo4').css('background-image', 'url(\''+imageSrc+'\')');
+		};
+		img.src = imageSrc;
+	}
+}
+function trackPromo(id, url)
+{
+	$.ajax({
+		type: 'POST',
+		url: indirizzo+'/click_promo',
+		data: {
+			'id_promo' : id
+		},
+		contentType: 'application/x-www-form-urlencoded',
+		error: errorHandler,
+		success: goPromo(id, url)
+	})
+}
+function goPromo(id, url)
+{
+	window.open(url,'_blank','location=yes');
+}
+
+
+
 /*****************ERRORI*/
 
 function error_localize()
@@ -157,10 +205,10 @@ function modalGPS()
 
 function errorHandler(xhr, textStatus, thrownError)
 {
-	alert("Errore "+xhr.status+" - "+textStatus);
+	//alert("Errore "+xhr.status+" - "+textStatus);
 
-	/*console.log(xhr.status);
+	console.log(xhr.status);
 	console.log(xhr.responseText);
 	console.log(textStatus);
-	console.log(thrownError);*/
+	console.log(thrownError);
 }

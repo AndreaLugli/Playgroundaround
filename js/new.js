@@ -287,8 +287,6 @@ function confermaParco()
 //get di tutti i dati
 function getDati()
 {
-	alert('get');
-
 	//get checkbox
 	if($('#fenced input').is(':checked'))
 	{
@@ -345,7 +343,8 @@ function getDati()
 	{
 		sessionStorage.handicap = false
 	}
-	alert('FENCED:'+sessionStorage.fenced+' PARK:'+sessionStorage.park+' PICNIC:'+sessionStorage.picnic+' SNACK:'+sessionStorage.snack+' TOILETTE:'+sessionStorage.toilette+' CLEANING:'+sessionStorage.cleaning+' HANDICAP:'+sessionStorage.handicap);
+
+	//alert('FENCED:'+sessionStorage.fenced+' PARK:'+sessionStorage.park+' PICNIC:'+sessionStorage.picnic+' SNACK:'+sessionStorage.snack+' TOILETTE:'+sessionStorage.toilette+' CLEANING:'+sessionStorage.cleaning+' HANDICAP:'+sessionStorage.handicap);
 
 	//get input
 	sessionStorage.newTitle = $('#title').val();
@@ -375,8 +374,7 @@ function getDati()
 //invio dati al server
 function inviaDati()
 {
-	alert('invia');
-	alert(sessionStorage.newLati+' '+sessionStorage.newLongi+' '+sessionStorage.newAddress+' '+sessionStorage.newTitle+' '+sessionStorage.newOpening+' '+sessionStorage.newTarget_min+' '+sessionStorage.newTarget_max+' '+sessionStorage.newDesc+' '+sessionStorage.note+' '+sessionStorage.valutazione+' '+sessionStorage.email+' '+sessionStorage.fenced+' '+sessionStorage.picnic+' '+sessionStorage.snack+' '+sessionStorage.park+' '+sessionStorage.toilette+' '+sessionStorage.cleaning+' '+sessionStorage.handicap);
+	//alert(sessionStorage.newLati+' '+sessionStorage.newLongi+' '+sessionStorage.newAddress+' '+sessionStorage.newTitle+' '+sessionStorage.newOpening+' '+sessionStorage.newTarget_min+' '+sessionStorage.newTarget_max+' '+sessionStorage.newDesc+' '+sessionStorage.note+' '+sessionStorage.valutazione+' '+sessionStorage.email+' '+sessionStorage.fenced+' '+sessionStorage.picnic+' '+sessionStorage.snack+' '+sessionStorage.park+' '+sessionStorage.toilette+' '+sessionStorage.cleaning+' '+sessionStorage.handicap);
 
 	$.ajax({
 		type: 'POST',
@@ -412,10 +410,7 @@ function inviaDati()
 function datiInviati(data)
 {
 	sessionStorage.idParco = data;
-	alert(sessionStorage.idParco);
-
 	associaFotoParco();
-
 }
 //associo foto al parco appena creato
 function associaFotoParco()

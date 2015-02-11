@@ -110,9 +110,6 @@ a, a:hover, a:visited, button{
 	color:#f7f4ed;
 	border:1pt solid #912A62;
 }
-.purple{
-	color:#912A62;
-}
 /**************************************INPUT*/
 
 label{
@@ -174,10 +171,9 @@ textarea{
 	margin:5pt;
 }
 #logoNav img{
-	height:25pt;
+	height:22pt;
 	margin-top: -5pt;
 	display:inline;
-	margin-right:5pt;
 }
 
 #container{
@@ -224,6 +220,11 @@ textarea{
 	z-index:99;
 	background-color:#f7f4ed;
 	opacity: 0.7;
+}
+#cortina i{
+	margin-top:70%;
+	color:#912A62;
+	/*padding-top:40%;*/
 }
 #loader{
 	position:absolute;
@@ -324,8 +325,7 @@ textarea{
 	background:#9bcc5f url('../img/3_map.png') center center no-repeat;
 }
 .blo4{
-	/*background:#e45141 url('../img/4_best.png') center center no-repeat;*/
-	background:#e45141 url('../img/promo_content.png') center center no-repeat;
+	background:#e5e5e5 url('../img/promo_content.png') center center no-repeat;
 	background-size: 100%;
 }
 
@@ -449,11 +449,15 @@ textarea{
 }
 
 /*bottoni*/
-#galleria .spacing a{		/*aggiungi foto - ho già foto*/
-	float:right;
-	color:white;
-	padding-right:3%;
-	padding-bottom:3%;
+#galleria button{
+	margin:2%;
+}
+#galleria .siFoto{
+	float:left;
+	margin:2%;
+}
+#galleria .noFoto{
+	text-align:center;
 }
 #articolo a{		/*aggiungi commenti*/
 	float:right;
@@ -490,7 +494,7 @@ textarea{
 	background-color:#27c39e;
 }
 #comandi button{
-	margin:3% 0 4% 0;
+	margin:4% 0;
 	width:90%;
 }
 
@@ -506,10 +510,8 @@ textarea{
 	float:left;
 }
 .tiny{
-	margin-top:20pt;
-	width:15%;
 	margin: 0 1.5%;
-	margin-bottom:-8%;
+	width:15%;
 }
 .spacing, .maxiSpacing{
 	clear:both;
@@ -757,6 +759,11 @@ h2 + h3{
 #containerFoto img{
 	width:30%;
 	margin:1%;
+}
+#containerFoto .uploadButton{
+	display:block;
+	margin:auto;
+	width:30%;
 }
 #containerFoto + button{
 	width:90%;

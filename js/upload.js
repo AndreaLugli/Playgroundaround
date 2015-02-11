@@ -183,21 +183,22 @@ function win(data)
 		sessionStorage.listaPathFoto = '<img src="'+indirizzo+'/media/'+pathFoto+'"/>';
 	}
 
-	alert(idFoto);
+	/*alert(idFoto);
 	alert(sessionStorage.listaIdFoto);
 	alert(pathFoto);
-	alert(sessionStorage.listaPathFoto);
+	alert(sessionStorage.listaPathFoto);*/
 
 	//mostro anteprima
 	$('#containerFoto .upload').attr('src', sessionStorage.photo);
 	$('#containerFoto img').removeClass('upload');
+	$('#containerFoto .uploadButton').hide();
 
 	//aggiorno contatore
 	sessionStorage.fotoMancanti = sessionStorage.fotoMancanti-1;
 	//controllo se posso aggiungere altre foto
 	if(sessionStorage.fotoMancanti != 0)
 	{
-		$('#containerFoto').append('<img class="upload" src="img/7_photo.png" />');
+		$('#containerFoto').append('<img class="upload" src="img/7_photo.png" /><button class="btn btn-md btn-success uploadButton" onClick="$(\'#caricaFoto\').modal();">Scegli</button>');
 	}
 
 	$('#completa').show();
@@ -209,7 +210,7 @@ function win(data)
 function fail(data)
 {
 	bodyErrore = data.body;
-	alert(bodyErrore);
+	//alert(bodyErrore);
 
 	//gestisco errori server
 	switch (bodyErrore)

@@ -232,7 +232,7 @@ function getImgParco(){
 		
 		if ( json.length == 0 )
 		{
-			$('#galleria').append("<div class='maxiSpacing'><a class='centra' href='javascript:goPhotoUpload(\"vecchio\");'><i class='fa fa-2x fa-photo purple'></i></a></div>");
+			$('#galleria').append("<button class='btn btn-md btn-success noFoto' onClick='goPhotoUpload(\"vecchio\");'><i class='fa fa-photo'></i> Aggiungi foto</button>");
 		}
 		else{
 		   
@@ -263,9 +263,9 @@ function getImgParco(){
 
 		$('#galleria img:last-of-type').after('<div class="spacing"></div>');
 
-		if($('#galleria img').length < 10)
+		if($('#galleria img').length < 10 && $('#galleria img').length != 0)
 		{
-			$('#galleria .spacing:last-of-type').append("<a href='javascript:goPhotoUpload(\"vecchio\");'><i class='fa fa-2x fa-photo purple'></i></a>");
+			$('#galleria').append("<button class='btn btn-md btn-success siFoto' onClick='goPhotoUpload(\"vecchio\");'><i class='fa fa-photo'></i> Aggiungi foto</button>");
 		}	
 
 		modalImg();
@@ -329,9 +329,9 @@ function appendParco(data){
 
 	//descrizione
 	$('#articolo').html('<p id="descIta"><img class="flag" src="img/flag_ita.png" />'+data.description+'</p><p id="descEng" style="display:none;"><img class="flag" src="img/flag_eng.png" />'+data.description_en+'</p>');
-	$('#articolo').append("<button id='commentalo' class='btn btn-success btn-sm' onClick='window.location=\"commenta_parco.html\";'>Commenta</button>");
+	$('#articolo').append("<button id='commentalo' class='btn btn-success btn-md' onClick='window.location=\"commenta_parco.html\";'><i class='fa fa-comments'></i> Commenta</button>");
 	if(data.description_en.length > 2){
-		$('#articolo').append('<button id="clickEng" class="btn btn-success btn-sm" onClick="clickEng();">English version</button><button id="clickIta" class="btn btn-success btn-sm" style="display:none;" onClick="clickIta();">Versione italiana</button>');
+		$('#articolo').append('<button id="clickEng" class="btn btn-success btn-md" onClick="clickEng();">English version</button><button id="clickIta" class="btn btn-success btn-md" style="display:none;" onClick="clickIta();">Versione italiana</button>');
 	}
 	//gestione commenti
 	if(data.commenti)
@@ -339,14 +339,14 @@ function appendParco(data){
 		$('#descIta').append('<ul></ul>');
 
 		$.each(data.commenti, function(i, val)	//i: numero, val: valore
-			{
-				$('#descIta ul').append('<li>'+val.testo+'</li>');
-			});
+		{
+			$('#descIta ul').append('<li>'+val.testo+'</li>');
+		});
 	}
 	
 	//gestione sito esterno
 	if(data.link_esterno){
-		$('#comandi').append("<button class='btn btn-success btn-lg' onClick='window.open(\""+data.link_esterno+"\",\"_blank\",\"location=yes\");'><i class='fa fa-suitcase'></i> Scopri la destinazione</button>");
+		$('#comandi').append("<hr class='blueHr'><button class='btn btn-success btn-lg' onClick='window.open(\""+data.link_esterno+"\",\"_blank\",\"location=yes\");'><i class='fa fa-suitcase'></i> Scopri la destinazione</button>");
 	}
 
 	$('#address').html(data.address);

@@ -174,7 +174,6 @@ function codeLatLng(position_lat, position_long)
 	    	$('#prov').val(provincia);
 
 	    	sessionStorage.newAddress = indirizzo+', '+nciv+', '+cap+', '+citta+', '+provincia;
-	    	//alert(sessionStorage.newAddress);
 
 	    	//rimuovo blocchi
 	    	$('input').attr('placeholder','');
@@ -203,7 +202,6 @@ function new_Geocoding()
 	query = new_via+", "+new_civico+", "+new_citta+", "+new_cap;
 
 	sessionStorage.newAddress = query+", "+new_prov;
-	//alert(sessionStorage.newAddress);
 	
 	codeAddress(query);
 }
