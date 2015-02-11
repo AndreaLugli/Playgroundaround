@@ -191,7 +191,7 @@ function win(data)
 	//mostro anteprima
 	$('#containerFoto .upload').attr('src', sessionStorage.photo);
 	$('#containerFoto img').removeClass('upload');
-	$('#containerFoto .uploadButton').hide();
+	$('#containerFoto .uploadButton').prop('disabled', true);
 
 	//aggiorno contatore
 	sessionStorage.fotoMancanti = sessionStorage.fotoMancanti-1;
