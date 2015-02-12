@@ -232,7 +232,7 @@ function getImgParco(){
 		
 		if ( json.length == 0 )
 		{
-			$('#galleria').append("<button class='btn btn-md btn-success noFoto' onClick='goPhotoUpload(\"vecchio\");'><i class='fa fa-photo'></i> Aggiungi foto</button>");
+			$('#galleria').append("<button class='btn btn-md btn-success noFoto' onClick='goPhotoUpload(\"vecchio\");'><i class='fa fa-plus'></i> Inserisci foto</button>");
 		}
 		else{
 		   
@@ -265,7 +265,7 @@ function getImgParco(){
 
 		if($('#galleria img').length < 10 && $('#galleria img').length != 0)
 		{
-			$('#galleria').append("<button class='btn btn-md btn-success siFoto' onClick='goPhotoUpload(\"vecchio\");'><i class='fa fa-photo'></i> Aggiungi foto</button>");
+			$('#galleria').append("<button class='btn btn-md btn-success siFoto' onClick='goPhotoUpload(\"vecchio\");'><i class='fa fa-plus'></i> Aggiungi foto</button>");
 		}	
 
 		modalImg();
@@ -328,7 +328,10 @@ function appendParco(data){
 	$('#parcoInfo').show();
 
 	//descrizione
-	$('#articolo').html('<p id="descIta"><img class="flag" src="img/flag_ita.png" />'+data.description+'</p><p id="descEng" style="display:none;"><img class="flag" src="img/flag_eng.png" />'+data.description_en+'</p>');
+	if(data.description)
+	{
+		$('#articolo').html('<p id="descIta"><img class="flag" src="img/flag_ita.png" />'+data.description+'</p><p id="descEng" style="display:none;"><img class="flag" src="img/flag_eng.png" />'+data.description_en+'</p>');
+	}	
 	$('#articolo').append("<button id='commentalo' class='btn btn-success btn-md' onClick='window.location=\"commenta_parco.html\";'><i class='fa fa-comments'></i> Commenta</button>");
 	if(data.description_en.length > 2){
 		$('#articolo').append('<button id="clickEng" class="btn btn-success btn-md" onClick="clickEng();">English version</button><button id="clickIta" class="btn btn-success btn-md" style="display:none;" onClick="clickIta();">Versione italiana</button>');

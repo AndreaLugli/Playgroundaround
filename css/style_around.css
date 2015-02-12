@@ -478,12 +478,12 @@ textarea{
 	border:1pt solid #cccccc;
 }
 #articolo #commentalo{
-	margin:-3% 2.5% 5% 5%;
+	margin:5% 2.5% 5% 5%;
 	width:42.5%;
 	float:left;
 }
 #clickEng, #clickIta{	/*ita|eng version*/
-	margin:-3% 5% 5% 2.5%;
+	margin:5% 5% 5% 2.5%;
 	width:42.5%;
 	float:left;
 }
@@ -566,7 +566,7 @@ textarea{
 	clear:both;
 	text-align:justify;
 	font-size:small;
-	margin:7% 5%;
+	margin:7% 5% 0 5%;
 	width:90%;
 }
 .flag{
@@ -756,16 +756,19 @@ h2 + h3{
 	margin-top:-2%;
 	font-weight:bold;
 }
-#containerFoto img{
+#containerFoto div{
 	width:30%;
 	margin:1%;
+	float:left;
 }
-#containerFoto .uploadButton{
-	display:block;
-	margin:auto;
-	width:30%;
+#containerFoto div img{
+	width:100%;
+	margin-bottom:10%;
 }
-#containerFoto + button{
+#container div button{
+	width:100%;
+}
+#containerFoto + button{	/*bottone invio*/
 	width:90%;
 	margin-left:5%;
 	margin-bottom:10%;

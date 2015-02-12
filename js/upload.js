@@ -189,16 +189,16 @@ function win(data)
 	alert(sessionStorage.listaPathFoto);*/
 
 	//mostro anteprima
-	$('#containerFoto .upload').attr('src', sessionStorage.photo);
-	$('#containerFoto img').removeClass('upload');
-	$('#containerFoto .uploadButton').prop('disabled', true);
+	$('#containerFoto .upload img').attr('src', sessionStorage.photo);
+	$('#containerFoto .upload button').prop('disabled', true);
+	$('#containerFoto div').removeClass('upload');
 
 	//aggiorno contatore
 	sessionStorage.fotoMancanti = sessionStorage.fotoMancanti-1;
 	//controllo se posso aggiungere altre foto
 	if(sessionStorage.fotoMancanti != 0)
 	{
-		$('#containerFoto').append('<img class="upload" src="img/7_photo.png" /><button class="btn btn-md btn-success uploadButton" onClick="$(\'#caricaFoto\').modal();">Scegli</button>');
+		$('#containerFoto').append('<div class="upload"><img src="img/7_photo.png" /><button class="btn btn-md btn-success" onClick="$(\'#caricaFoto\').modal();">Scegli</button></div>');
 	}
 
 	$('#completa').show();
