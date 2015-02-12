@@ -765,13 +765,12 @@ h2 + h3{
 	width:100%;
 	margin-bottom:10%;
 }
-#container div button{
+#containerFoto div button{
 	width:100%;
 }
 #containerFoto + button{	/*bottone invio*/
 	width:90%;
-	margin-left:5%;
-	margin-bottom:10%;
+	margin:10% 5%;
 }
 
 
