@@ -22,14 +22,15 @@
             <h2>Allega foto al parco</h2>
             <h3>(Puoi sceglierne al massimo <span>#</span>)</h3>
 
-            <div id="containerFoto">
-                
-                <div class="upload">
-                    <img src="img/7_photo.png" />
-                    <button class="btn btn-md btn-success" onClick="$('#caricaFoto').modal();">Scegli</button>
-                </div>
 
+            <hr class="purpleHr" />
+            <div id="containerFoto">
+
+                <button class="btn btn-lg btn-success btn-block" onClick="$('#caricaFoto').modal();"><i class="fa fa-picture-o"></i> Scegli</button>
+                
             </div>
+
+            <hr class="purpleHr" />
 
             <!--GENERO BOTTONE INVIO DINAMICAMENTE-->
 
@@ -68,6 +69,24 @@
                     <div class="modal-body">...</div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-lg btn-default btn-block" data-dismiss="modal">Chiudi</button>
+                    </div>
+                </div><!-- /.modal-content -->
+            </div><!-- /.modal-dialog -->
+        </div><!-- /.modal -->
+
+        <!--MODAL DATI OBBLIGATORI-->
+        <div id="datiMancanti" class="modal fade">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                        <h4 class="modal-title">Dati mancanti</h4>
+                    </div>
+                    <div class="modal-body">
+                        <p>L'indirizzo email è obbligatorio.</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-lg btn-block" data-dismiss="modal">Chiudi</button>
                     </div>
                 </div><!-- /.modal-content -->
             </div><!-- /.modal-dialog -->

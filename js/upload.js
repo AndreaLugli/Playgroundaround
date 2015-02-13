@@ -36,8 +36,6 @@ function modalDimensioni()
 /*apertura*modale*caricamento*o*scatto*/
 function openPhotoUpload()
 {	
-	openCaricaFoto();
-
 	//foto mancanti - parco esistente
 	$('h3 span').html(sessionStorage.fotoMancanti);
 
@@ -49,16 +47,9 @@ function openPhotoUpload()
 	else if(sessionStorage.provenienza == 'vecchio')
 	{
 		//fare chiamata di associazione + andare a pagina di conferma
-		$('#container').append('<button id="completa" style="display:none;" class="btn btn-lg btn-block btn-success" type="button" onClick="associaFotoParco();"><i class="fa fa-check-circle-o"></i> Completa</button>');
+		$('#container').append('<div id="emailFoto" style="display:none;" class="input-group input-group-lg"><span class="input-group-addon">Email*</span><input id="email" type="text" class="form-control" /></div>');
+		$('#container').append('<button id="completa" style="display:none;" class="btn btn-lg btn-block btn-primary" type="button" onClick="caricaParcoEsistente()"><i class="fa fa-check-circle-o"></i> Completa</button>');
 	}
-}
-function openCaricaFoto()
-{
-	$("#containerFoto .upload").click(function()
-	{
-		$('#caricaFoto').modal();
-
-	});
 }
 
 /***********************************SCATTO*/
@@ -189,23 +180,18 @@ function win(data)
 	alert(sessionStorage.listaPathFoto);*/
 
 	//mostro anteprima
-	$('#containerFoto .upload img').attr('src', sessionStorage.photo);
-	$('#containerFoto .upload button').prop('disabled', true);
-	$('#containerFoto .upload').addClass('okUpload');
-	$('#containerFoto .okUpload').removeClass('upload');
+	$('#containerFoto').append('<img src="'+sessionStorage.photo+'" />');
 
 	//aggiorno contatore
 	sessionStorage.fotoMancanti = sessionStorage.fotoMancanti-1;
 	//controllo se posso aggiungere altre foto
-	if(sessionStorage.fotoMancanti != 0)
+	if(sessionStorage.fotoMancanti == 0)
 	{
-		$('#containerFoto').append('<div class="upload"><img src="img/7_photo.png" /><button class="btn btn-md btn-success" onClick="$(\'#caricaFoto\').modal();">Scegli</button></div>');
+		$('#completa').prop('disabled', true);
 	}
 
-	$('#completa').show();
+	$('#completa, #emailFoto').show();
 	$('#cortina').fadeOut();
-
-	openCaricaFoto();
 }
 
 function fail(data)

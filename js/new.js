@@ -407,6 +407,21 @@ function inviaDati()
 	})
 
 }
+
+function caricaParcoEsistente()
+{
+	if($('#email').val().indexOf('@') === -1 || $('#email').val().indexOf('.') === -1)
+	{
+		$('#datiMancanti').modal();
+		$('#email').addClass("error");
+		noErrorOnClick();
+	}
+	else
+	{
+		associaFotoParco();
+	}
+}
+
 function datiInviati(data)
 {
 	sessionStorage.idParco = data;

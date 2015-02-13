@@ -1,17 +1,32 @@
 var indirizzo = 'http://app.playgroundaroundthecorner.it';
+var debug = true;
+
+var deviceType;
 
 document.addEventListener('deviceready', partenza, true);
 
 //AL CARICAMENTO DELLA PAGINA
 function partenza()
 {	
-	/*DEBUG*/
-	window.onerror = function (message, file, line) {
-    	alert("Error in Application: " +
-	        message + ". Source File: " + file + ", Line: " + line);
+	/**********DEV OR DEPLOY**********/
+	if(debug)
+	{
+		//controllo il tipo di device
+		deviceType = (navigator.userAgent.match(/iPad/i))  == "iPad" ? "iOS" : (navigator.userAgent.match(/iPhone/i))  == "iPhone" ? "iOS" : (navigator.userAgent.match(/Android/i)) == "Android" ? "Android" : (navigator.userAgent.match(/Windows Phone/i)) == "Windows Phone" ? "Win" : "null";
+
+		window.onerror = function (message, file, line)
+		{
+	    	alert("Error in Application: " +
+		        message + ". Source File: " + file + ", Line: " + line);
+		}
+
+		//CSS fixes
+		if(deviceType == 'iOS'){
+			$('head').append('<link rel="stylesheet" type="text/css" href="css/style_around_ios.css">');		
+		}
+
 	}
 
-	//document.addEventListener('backbutton', backButtonCallback, true);
 }
 
 
@@ -53,7 +68,7 @@ function footerPop()
 {
 	$('#bottom').html('<nav id="footer" class="navbar-fixed-bottom">'+
           '<div class="container">'+
-              '<a href="index.html">home</a> <a href="credits.html">credits</a> <a href="benvenuto.html">tutorial</a>'+
+              '<a href="benvenuto.html">tutorial</a> | <a href="index.html">home</a> | <a href="credits.html">credits</a>'+
           '</div>'+
         '</nav>');
 }
@@ -64,6 +79,21 @@ function scrollAlto()
 }
 
 /****************LOCALIZZAZIONE*/
+function goHome()
+{
+	popHome();
+
+	if(sessionStorage.lat && sessionStorage.imgPath)
+        {
+            $('#header h2').html(sessionStorage.headTitle);
+            $('#header .imgCover').css('background-image','url('+indirizzo+sessionStorage.imgPath+')');
+            $('#header .imgCover').fadeIn('slow');
+        }
+        else
+        {
+            localize();
+        }
+}
 
 function localize()
 { 

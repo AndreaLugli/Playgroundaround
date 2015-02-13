@@ -20,24 +20,15 @@ var app = {
     initialize: function() {
         this.bindEvents();
 
-        if(sessionStorage.lat && sessionStorage.imgPath)
+        //se non è il primo avvio, non mostro il tutorial
+        if(localStorage.primoAvvio)
         {
-            $('#header h2').html(sessionStorage.headTitle);
-            $('#header .imgCover').css('background-image','url('+indirizzo+sessionStorage.imgPath+')');
-            $('#header .imgCover').fadeIn('slow');
-
-        }else{
-
-            //se non è il primo avvio, non mostro il tutorial
-            if(localStorage.primoAvvio)
-            {
-                localize();
-            }
-            else
-            {
-                localStorage.primoAvvio = 'no';
-                window.location='benvenuto.html';
-            }
+            window.location='index_home.html';
+        }
+        else
+        {
+            localStorage.primoAvvio = 'no';
+            window.location='benvenuto.html';
         }
     },
     

@@ -21,6 +21,9 @@ html, body {
 	color:#27c39e;
 	text-align:center;
 }
+body.riempitivo{
+	background-color: #27c39e;
+}
 
 *{
 	font-family: OpenSans-Regular;
@@ -203,13 +206,13 @@ textarea{
 	line-height:25pt;
 	background-color:#464646;
 	border-top:1pt solid black;
+	text-align:center;
+	margin-left:-2%;
 }
 #footer a, #footer a:visited, #footer a:hover{
 	color:#27c39e;
 	font-size:small;
-}
-#footer a + a{
-	margin-left:20%;
+	padding:0 5%;
 }
 
 /******************************CARICAMENTI*/
@@ -327,7 +330,7 @@ textarea{
 }
 .blo4{
 	background:#e5e5e5 url('../img/promo_content.png') center center no-repeat;
-	background-size: 100%;
+	background-size: 120% auto;
 }
 
 
@@ -757,21 +760,21 @@ h2 + h3{
 	margin-top:-2%;
 	font-weight:bold;
 }
-#containerFoto div{
+h3 + hr{
+	margin-top:20%;
+}
+
+#containerFoto div img{
 	width:30%;
 	margin:1%;
 	float:left;
 }
-#containerFoto div img{
-	width:100%;
-	margin-bottom:10%;
-}
-#containerFoto div button{
-	width:100%;
-}
-#containerFoto + button{	/*bottone invio*/
+#emailFoto, #completa{	/*bottone invio*/
 	width:90%;
 	margin:10% 5%;
+}
+#emailFoto + #completa{
+	margin-top:-7%;
 }
 
 
@@ -860,10 +863,11 @@ body.tutorial p{
 body.tutorial p.center{
 	text-align:center;
 }
-body.tutorial a{
+body.tutorial b{
 	color:#912A62;
 	font-size:large;
 	text-transform:none;
+	font-weight:normal;
 }
 body.tutorial button{
 	width:80%;

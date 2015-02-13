@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>Playground Around The Corner</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+        
+        <link rel="stylesheet" href="css/bootstrap.min.css">
+        <link rel="stylesheet" href="css/style_around.css">
+        <link rel="stylesheet" href="css/font-awesome.min.css">
+
+    </head>
+  
+    <body onload="goHome()">
+
+        <div id="cortina"><i class="fa fa-cog fa-4x fa-spin"></i></div>
+
+        <!--NAVBAR DINAMICA-->
+
+        <div id="container">
+
+            <div id="header">
+                <div class="imgCover" style="display:none;">
+                </div>
+                <h1>Mamma mi porti al parco giochi?</h1>
+            </div>
+
+            <div id="page">
+                <a class="block blo1" href="vicini.html"><span>nei dintorni</span></a>
+                <a class="block blo2" href="ricerca.html"><span>chi cerca trova</span></a>
+                <a class="block blo3" href="mappa.html"><span>sulla mappa</span></a>
+                <a class="block blo4" href=""><span></span></a>
+            </div>            
+        </div>  <!--/CONTAINER-->
+
+        <div id="bottom"></div>
+
+
+        <!--MODAL GPS NON ATTIVO-->
+        <div id="attivaGPS" class="modal fade">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                        <h4 class="modal-title">Richiesto GPS</h4>
+                    </div>
+                    <div class="modal-body">
+                        <p>Per poter utilizzare l'app di PlayGroundAround devi disporre di una connessione ad internet (dati o wifi). Inoltre devi aver attivato il GPS sul dispositivo. Assicurati di averlo fatto (dal menu Impostazioni) e riprova.</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-lg btn-default btn-block" data-dismiss="modal" onClick="location.reload();">Riprova</button>
+                    </div>
+                </div><!-- /.modal-content -->
+            </div><!-- /.modal-dialog -->
+        </div><!-- /.modal -->
+        
+        
+        <script src="js/jquery-1.11.1.min.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+        <script src="cordova.js"></script>
+        
+        <script src="js/index.js"></script>
+        <script src="js/start.js"></script>
+
+    </body>
+</html>
