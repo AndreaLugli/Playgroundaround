@@ -752,8 +752,9 @@ textarea{
 
 /***************************INSERISCI*FOTO*PARCO*/
 #containerFoto{
-	margin:10% 5%;
+	margin:5%;
 	width:90%;
+	display:block;
 }
 h2 + h3{
 	font-size: large;
@@ -763,11 +764,15 @@ h2 + h3{
 h3 + hr{
 	margin-top:20%;
 }
-
+#containerFoto button{
+	margin:5% auto;
+}
 #containerFoto img{
 	width:30%;
 	margin:1%;
-	float:left;
+}
+#containerFoto +hr{
+	clear:both;
 }
 #emailFoto, #completa{	/*bottone invio*/
 	width:90%;
