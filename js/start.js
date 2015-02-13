@@ -75,7 +75,7 @@ function handle_localize(position)
 	sessionStorage.longi = position.coords.longitude.toFixed(3);
 
 	getCover();
-	//getPromo();
+	getPromo();
 
 	//alert('Ti trovi a: LATI:'+sessionStorage.lat+' LONGI:'+sessionStorage.longi);
 }
@@ -100,7 +100,7 @@ function appendCover(data)
 	if(data != 'no_copertina')
 	{
 		//scelgo risoluzione copertina
-		/*if(sessionStorage.deviceHeight <= 1000)
+		if(sessionStorage.deviceHeight <= 1000)
 		{
 			sessionStorage.imgPath = indirizzo+data.small_path;
 		}
@@ -109,13 +109,10 @@ function appendCover(data)
 			sessionStorage.imgPath = indirizzo+data.big_path;
 		}
 		
-		sessionStorage.headTitle = data.descrizione_it;*/
+		sessionStorage.headTitle = data.descrizione_it;
 	}
 
-	//$('#header').css('background-image','url(./img/asini-sentiero-smerillo.jpg)');
-		$('#header h1').html('Monti Sibillini');
-		$('#cortina').fadeOut();
-	//checkCover();
+	checkCover();
 }
 //se abbiamo l'immagine di copertina la facciamo apparire
 function checkCover()
