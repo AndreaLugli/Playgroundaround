@@ -271,8 +271,10 @@ textarea{
 	margin:0;
 	padding:0;
 	border-bottom:3pt solid #27c39e;
-	background: #f6f4ec url('../img/segnaposto.png') center center no-repeat;
-	background-size: auto 30%;
+	background: #f6f4ec url('../img/asini-sentiero-smerillo.jpg') center center no-repeat;
+	/*background: #f6f4ec url('../img/segnaposto.png') center center no-repeat;*/
+	/*background-size: auto 30%;*/
+	background-size:cover;
 }
 #header .imgCover{
 	width:100%;
