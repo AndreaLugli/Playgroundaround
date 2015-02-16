@@ -353,16 +353,17 @@ function appendParco(data){
 	}
 
 	$('#address').html(data.address);
-	
+	//bottone Android
+	$('#address').append("<button class='btn btn-block btn-lg btn-success' onClick='location.href=\"geo:"+sessionStorage.lat+","+sessionStorage.longi+"?q="+data.latitude+","+data.longitude+"\";'><i class='fa fa-compass'></i> Come arrivare</button>");
+
 	if(deviceType == 'iOS')
 	{
-		$('#address').append("<button class='btn btn-block btn-lg btn-success' onClick='window.location=\'maps:saddr="+data.latitude+","+data.longitude+"\''><i class='fa fa-compass'></i> Come arrivare</button>");
+		$("#address button").attr("onClick","window.location = 'maps:saddr="+data.latitude+","+data.longitude+"'");
+		//$("#button_poi").attr("onClick","location.href='http://maps.google.com/maps?ll="+data.latitudine+","+data.longitudine+"'");
+		//$('#address').append("<button class='btn btn-block btn-lg btn-success' onClick='window.location=\'maps:saddr="+data.latitude+","+data.longitude+"\''><i class='fa fa-compass'></i> Come arrivare</button>");
+		//$('#address').append("<button class='btn btn-block btn-lg btn-success' onClick='window.location=\'maps:saddr="+data.latitude+","+data.longitude+"\''><i class='fa fa-compass'></i> Come arrivare</button>");
 		//$('#address').append("<button class='btn btn-block btn-lg btn-success' onClick='window.location=\'maps:q="+data.latitude+","+data.longitude+"\''><i class='fa fa-compass'></i> Come arrivare</button>");
 		//$("#button_poi").attr("onClick","window.location = 'maps:saddr="+data.latitude+","+data.longitude+"'");
-	}
-	else
-	{
-		$('#address').append("<button class='btn btn-block btn-lg btn-success' onClick='location.href=\"geo:"+sessionStorage.lat+","+sessionStorage.longi+"?q="+data.latitude+","+data.longitude+"\";'><i class='fa fa-compass'></i> Come arrivare</button>");
 	}
 
 	//il parco appare nel metodo che crea la mappa
