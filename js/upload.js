@@ -109,6 +109,7 @@ function controlloSize(img_size, imageData)
 	//controllo se immagine > 2,5MB
 	if(img_size > 2621440)
 	{
+		alert('controllo client');
 		modalDimensioni()
 	}
 	else{	

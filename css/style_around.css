@@ -639,6 +639,11 @@ textarea{
 #container.credits img{
 	margin:5%;
 }
+.logoCredits{
+	background-color:#f7f4ed;
+	width:90%;
+	padding: 0 5% 5% 5%;
+}
 
 /************************************INSERISCI*OK*/
 #container.ok{
