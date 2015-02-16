@@ -42,6 +42,7 @@ hr{
 	margin:3pt;
 }
 hr.purpleHr{
+	clear:both;
     border: 0;
     height: 3pt;
     background: #912A62;
@@ -51,6 +52,7 @@ hr.purpleHr{
     background-image:      -o-linear-gradient(left, #e5e5e5, #912A62, #e5e5e5); 
 }
 hr.blueHr{
+	clear:both;
     border: 0;
     height: 3pt;
     background: #27c39e;
@@ -886,4 +888,12 @@ body.tutorial button{
 	width:80%;
 	margin-left:10%;
 	margin-bottom:5%;
+}
+
+#navbar{
+	padding-top:10pt;
+	height:45pt;
+}
+#container{
+	padding-top:40pt;
 }

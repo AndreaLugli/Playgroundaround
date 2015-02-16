@@ -348,7 +348,8 @@ function appendParco(data){
 	}
 	
 	//gestione sito esterno
-	if(data.link_esterno){
+	if(data.link_esterno)
+	{
 		$('#comandi').append("<hr class='blueHr'><button class='btn btn-success btn-lg' onClick='window.open(\""+data.link_esterno+"\",\"_blank\",\"location=yes\");'><i class='fa fa-suitcase'></i> Scopri la destinazione</button>");
 	}
 

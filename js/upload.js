@@ -57,7 +57,7 @@ function capturePhoto_camera()
 {
 	$('#caricaFoto').modal('hide');
 
-	navigator.camera.getPicture(onSuccessCamera, onFail, { quality: 75,
+	navigator.camera.getPicture(onSuccessCamera, onFail, { quality: 50,
 	destinationType: Camera.DestinationType.FILE_URI,
     sourceType: Camera.PictureSourceType.CAMERA,
     correctOrientation: true});
@@ -74,9 +74,8 @@ function capturePhoto()
 {
 	$('#caricaFoto').modal('hide');
 
-	navigator.camera.getPicture(onSuccess, onFail, { quality: 75,
+	navigator.camera.getPicture(onSuccess, onFail, { quality: 50,
 	destinationType: Camera.DestinationType.FILE_URI,
-    //sourceType: Camera.PictureSourceType.PHOTOLIBRARY,
     sourceType: Camera.PictureSourceType.SAVEDPHOTOALBUM,
     encodingType: Camera.EncodingType.JPEG,
     correctOrientation: true});
@@ -109,7 +108,7 @@ function controlloSize(img_size, imageData)
 	//controllo se immagine > 2,5MB
 	if(img_size > 2621440)
 	{
-		alert('controllo client');
+		alert('dimensioni immagine '+img_size);
 		modalDimensioni()
 	}
 	else{	
