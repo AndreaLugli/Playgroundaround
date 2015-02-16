@@ -1,6 +1,8 @@
 /**********************POSIZIONE*PARCO*/
 function openGeo()
 {
+	//per prudenza cancello dati
+	parzialeClear();
 	popBack();
 	//mostra mappa e indirizzo
 	localizzaMap(sessionStorage.lat, sessionStorage.longi);
@@ -447,8 +449,7 @@ function associaFotoParco()
 
 function associaOk()
 {
-	delete sessionStorage.emailParcoEsistente;
-	delete sessionStorage.listaPathFoto;
+	parzialeClear();
 	window.location='inserisci_ok.html';
 }
 
@@ -472,10 +473,17 @@ function openInserisciOk()
 	}
 }
 
-//cancella sessionStorage dopo creazione parco/aggiunta foto
+/******************************CANCELLAZIONE*DATI*/
 function dataClear()
 {
 	sessionStorage.clear();
+}
+function parzialeClear()
+{
+	delete sessionStorage.emailParcoEsistente;
+
+	delete sessionStorage.listaIdFoto;
+	delete sessionStorage.listaPathFoto;
 }
 
 /***********************************COMMENTA*PARCO*/

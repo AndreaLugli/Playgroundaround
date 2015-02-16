@@ -560,10 +560,10 @@ textarea{
 	margin:0;
 }
 
-/*articolo*/
+/*articolo con descrizione parco*/
 #articolo{
-	max-height:200pt;
-	overflow-y:auto;
+	/*max-height:300pt;
+	overflow-y:auto;*/
 }
 #articolo p{
 	clear:both;
