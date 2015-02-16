@@ -418,6 +418,7 @@ function caricaParcoEsistente()
 	}
 	else
 	{
+		sessionStorage.emailParcoEsistente = $('#email').val();
 		associaFotoParco();
 	}
 }
@@ -435,7 +436,8 @@ function associaFotoParco()
 		url: indirizzo+'/associa_parco_foto',
 		data: {
 			'id_parco' : sessionStorage.idParco,
-			'foto' : sessionStorage.listaIdFoto
+			'foto' : sessionStorage.listaIdFoto,
+			'email' : sessionStorage.emailParcoEsistente
 		},
 		contentType: 'application/x-www-form-urlencoded',
 		error: errorHandler,
@@ -445,6 +447,7 @@ function associaFotoParco()
 
 function associaOk()
 {
+	delete sessionStorage.emailParcoEsistente;
 	window.location='inserisci_ok.html';
 }
 
@@ -505,11 +508,6 @@ function commentoCheck()
 	}
 	else
 	{
-		if(!email){
-			email = '';
-			alert('setto email');
-		}
-		alert(email);
 		commentoSend(commento, email);
 	}
 }
