@@ -353,10 +353,11 @@ function appendParco(data){
 	}
 
 	$('#address').html(data.address);
+	
 	if(deviceType == 'iOS')
 	{
-		//$('#address').append("<button class='btn btn-block btn-lg btn-success' onClick='window.location=\'maps:saddr="+data.latitude+","+data.longitude+"\''><i class='fa fa-compass'></i> Come arrivare</button>");
-		$('#address').append("<button class='btn btn-block btn-lg btn-success' onClick='window.location=\'maps:q="+data.latitude+","+data.longitude+"\''><i class='fa fa-compass'></i> Come arrivare</button>");
+		$('#address').append("<button class='btn btn-block btn-lg btn-success' onClick='window.location=\'maps:saddr="+data.latitude+","+data.longitude+"\''><i class='fa fa-compass'></i> Come arrivare</button>");
+		//$('#address').append("<button class='btn btn-block btn-lg btn-success' onClick='window.location=\'maps:q="+data.latitude+","+data.longitude+"\''><i class='fa fa-compass'></i> Come arrivare</button>");
 		//$("#button_poi").attr("onClick","window.location = 'maps:saddr="+data.latitude+","+data.longitude+"'");
 	}
 	else
