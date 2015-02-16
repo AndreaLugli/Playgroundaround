@@ -57,10 +57,12 @@ function capturePhoto_camera()
 {
 	$('#caricaFoto').modal('hide');
 
-	navigator.camera.getPicture(onSuccessCamera, onFail, { quality: 50,
-	destinationType: Camera.DestinationType.FILE_URI,
-    sourceType: Camera.PictureSourceType.CAMERA,
-    correctOrientation: true});
+	navigator.camera.getPicture(onSuccessCamera, onFail, {
+		quality: 45,
+		destinationType: Camera.DestinationType.FILE_URI,
+    	sourceType: Camera.PictureSourceType.CAMERA,
+    	correctOrientation: true
+    });
 }
 function onSuccessCamera(imageURI)
 {	
@@ -74,11 +76,13 @@ function capturePhoto()
 {
 	$('#caricaFoto').modal('hide');
 
-	navigator.camera.getPicture(onSuccess, onFail, { quality: 50,
-	destinationType: Camera.DestinationType.FILE_URI,
-    sourceType: Camera.PictureSourceType.SAVEDPHOTOALBUM,
-    encodingType: Camera.EncodingType.JPEG,
-    correctOrientation: true});
+	navigator.camera.getPicture(onSuccess, onFail, {
+		quality: 45,
+		destinationType: Camera.DestinationType.FILE_URI,
+    	sourceType: Camera.PictureSourceType.SAVEDPHOTOALBUM,
+    	encodingType: Camera.EncodingType.JPEG,
+    	correctOrientation: true
+    });
 }
 function onSuccess(imageData)
 {
@@ -197,7 +201,7 @@ function win(data)
 function fail(data)
 {
 	bodyErrore = data.body;
-	//alert(bodyErrore);
+	alert(bodyErrore);
 
 	//gestisco errori server
 	switch (bodyErrore)
