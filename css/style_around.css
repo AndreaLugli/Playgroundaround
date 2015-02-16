@@ -743,6 +743,10 @@ textarea{
 #formInsParco .alert:nth-of-type(11){
 	margin-bottom:2%;
 }
+#formInsParco #completa{
+	margin-left:0;
+	width:100%;
+}
 #uploadedPhoto img{
 	width:18%;
 	margin:1%;

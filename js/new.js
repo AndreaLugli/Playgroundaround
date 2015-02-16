@@ -431,6 +431,8 @@ function datiInviati(data)
 //associo foto al parco appena creato
 function associaFotoParco()
 {
+	alert(sessionStorage.emailParcoEsistente);
+	
 	$.ajax({
 		type: 'POST',
 		url: indirizzo+'/associa_parco_foto',
