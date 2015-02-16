@@ -168,6 +168,7 @@ textarea{
 	height:25pt;
 	position:fixed;
 	width:100%;
+	border-bottom:none;
 }
 .navbar button{
 	float:right;
@@ -205,7 +206,7 @@ textarea{
 	min-height:25pt;
 	line-height:25pt;
 	background-color:#464646;
-	border-top:1pt solid black;
+	/*border-top:1pt solid black;*/
 	text-align:center;
 	margin-left:-2%;
 }
@@ -329,7 +330,7 @@ textarea{
 	background:#9bcc5f url('../img/3_map.png') center center no-repeat;
 }
 .blo4{
-	background:#e5e5e5 url('../img/promo_content.png') center center no-repeat;
+	background:#e45141 url('../img/promo_content.png') center center no-repeat;
 	background-size: 120% auto;
 }
 

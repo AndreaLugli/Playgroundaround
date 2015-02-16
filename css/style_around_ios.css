@@ -1,8 +1,8 @@
 /*******************iOS************************/
-#container{
-	padding-top:5pt;
-}
 #navbar{
 	padding-top:10pt;
 	height:45pt;
+}
+#container{
+	padding-top:40pt;
 }
