@@ -1,4 +1,8 @@
 /*******************iOS************************/
-body{
-	margin-top:30pt;
+#container{
+	margin-top:10pt;
+}
+#navbar{
+	padding-top:10pt;
+	height:45pt;
 }

@@ -505,6 +505,11 @@ function commentoCheck()
 	}
 	else
 	{
+		if(!email){
+			email = '';
+			alert('setto email');
+		}
+		alert(email);
 		commentoSend(commento, email);
 	}
 }

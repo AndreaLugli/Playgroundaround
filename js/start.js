@@ -210,9 +210,11 @@ function trackPromo(id, url)
 			'id_promo' : id
 		},
 		contentType: 'application/x-www-form-urlencoded',
-		error: errorHandler,
-		success: goPromo(id, url)
+		error: errorHandler
+		//success: goPromo(id, url)
 	})
+
+	goPromo(id, url);
 }
 function goPromo(id, url)
 {

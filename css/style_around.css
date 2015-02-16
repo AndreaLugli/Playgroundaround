@@ -366,7 +366,7 @@ textarea{
 	margin:2pt;
 	height:100pt;
 	line-height:20pt;
-	overflow-y:auto;
+	/*overflow-y:auto;*/
 	background: url("../img/click3.png") no-repeat right 2pt center;
 	background-size:20pt;
 	padding:2% 0;
@@ -399,15 +399,13 @@ textarea{
 	font-size:large;
 }
 .servizi{
-	display:block;
 	background-color:#f7f4ed;
 	text-align:center;
-	width:85%;
-	margin:0 7.5%;
+	padding:1%;
 }
 .servizi i{
 	font-size:large;
-	padding:2%;
+	padding:0.5%;
 }
 .true{
 	color:#31C331;
