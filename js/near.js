@@ -334,7 +334,7 @@ function appendParco(data){
 	}	
 	$('#articolo').append("<button id='commentalo' class='btn btn-success btn-md' onClick='window.location=\"commenta_parco.html\";'><i class='fa fa-comments'></i> Commenta</button>");
 	if(data.description_en.length > 2){
-		$('#articolo').append('<button id="clickEng" class="btn btn-success btn-md" onClick="clickEng();">English version</button><button id="clickIta" class="btn btn-success btn-md" style="display:none;" onClick="clickIta();">Versione italiana</button>');
+		$('#articolo').append('<button id="clickEng" class="btn btn-success btn-md" onClick="clickEng();">Eng version</button><button id="clickIta" class="btn btn-success btn-md" style="display:none;" onClick="clickIta();">Versione ita</button>');
 	}
 	//gestione commenti
 	if(data.commenti)
@@ -353,7 +353,16 @@ function appendParco(data){
 	}
 
 	$('#address').html(data.address);
-	$('#address').append("<button class='btn btn-block btn-lg btn-success' onClick='location.href=\"geo:"+sessionStorage.lat+","+sessionStorage.longi+"?q="+data.latitude+","+data.longitude+"\";'><i class='fa fa-compass'></i> Come arrivare</button>");
+	if(deviceType == 'iOS')
+	{
+		//$('#address').append("<button class='btn btn-block btn-lg btn-success' onClick='window.location=\'maps:saddr="+data.latitude+","+data.longitude+"\''><i class='fa fa-compass'></i> Come arrivare</button>");
+		$('#address').append("<button class='btn btn-block btn-lg btn-success' onClick='window.location=\'maps:q="+data.latitude+","+data.longitude+"\''><i class='fa fa-compass'></i> Come arrivare</button>");
+		//$("#button_poi").attr("onClick","window.location = 'maps:saddr="+data.latitude+","+data.longitude+"'");
+	}
+	else
+	{
+		$('#address').append("<button class='btn btn-block btn-lg btn-success' onClick='location.href=\"geo:"+sessionStorage.lat+","+sessionStorage.longi+"?q="+data.latitude+","+data.longitude+"\";'><i class='fa fa-compass'></i> Come arrivare</button>");
+	}
 
 	//il parco appare nel metodo che crea la mappa
 	$('#loader').hide();
