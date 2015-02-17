@@ -214,9 +214,9 @@ function fail(data)
 			modalDimensioni();
 			break;
 
-		case 'Dimensioni elevate':
+		/*case 'Dimensioni elevate':
 			modalDimensioni();
-			break;
+			break;*/
 
 		default:
 			modalGenerico();

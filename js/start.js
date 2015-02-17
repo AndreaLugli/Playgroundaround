@@ -8,11 +8,11 @@ document.addEventListener('deviceready', partenza, true);
 //AL CARICAMENTO DELLA PAGINA
 function partenza()
 {	
-	/**********DEV OR DEPLOY**********/
+	/**********DEV OR DEPLOY*********/
 	if(debug)
 	{
 		//controllo il tipo di device
-		deviceType = (navigator.userAgent.match(/iPad/i))  == "iPad" ? "iOS" : (navigator.userAgent.match(/iPhone/i))  == "iPhone" ? "iOS" : (navigator.userAgent.match(/Android/i)) == "Android" ? "Android" : (navigator.userAgent.match(/Windows Phone/i)) == "Windows Phone" ? "Win" : "null";
+		//deviceType = (navigator.userAgent.match(/iPad/i))  == "iPad" ? "iOS" : (navigator.userAgent.match(/iPhone/i))  == "iPhone" ? "iOS" : (navigator.userAgent.match(/Android/i)) == "Android" ? "Android" : (navigator.userAgent.match(/Windows Phone/i)) == "Windows Phone" ? "Win" : "null";
 
 		window.onerror = function (message, file, line)
 		{
@@ -21,12 +21,27 @@ function partenza()
 		}
 
 		//CSS fixes
-		if(deviceType == 'iOS'){
+		/*if(deviceType == 'iOS'){
 			$('head').append('<link rel="stylesheet" type="text/css" href="css/style_around_ios.css">');		
-		}
+		}*/
 
 	}
+	/*******************************/
 
+	document.addEventListener('backbutton', gestioneBackbutton, true);
+}
+
+/*****************************GESTIONE*TASTI*FISICI*/
+function gestioneBackbutton()
+{
+	if($.mobile.activePage.is('#index_home'))
+	{
+        navigator.app.exitApp();
+    }
+    else
+    {
+        navigator.app.backHistory();
+    }
 }
 
 
@@ -37,7 +52,7 @@ function popHome()
 	$('body').prepend('<nav id="navbar" class="navbar navbar-inverse navbar-static-top" role="navigation">'+
       '<div class="container">'+
         '<div class="navbar-header">'+
-          '<a id="logoNav" class="navbar-brand" href="index.html">'+
+          '<a id="logoNav" class="navbar-brand" href="index_home.html">'+
             '<img alt="brand" src="./img/segnaposto_trasp.png">'+
           '</a>'+
           '<button type="button" class="btn navbar-btn btn-sm around" onClick="window.location=\'inserisci_coord.html\'"><i class="fa fa-plus"></i> Nuovo parco</button>'+
@@ -54,6 +69,22 @@ function popBack()
       '<div class="container">'+
         '<div class="navbar-header">'+
           '<a id="logoNav" class="navbar-brand" href="javascript:history.go(-1);">'+
+            '<img alt="brand" src="./img/segnaposto_trasp_back.png">'+
+          '</a>'+
+          '<button type="button" class="btn navbar-btn btn-sm around" onClick="window.location=\'inserisci_coord.html\'"><i class="fa fa-plus"></i> Nuovo parco</button>'+
+        '</div>'+
+      '</div>'+
+    '</nav>');
+
+	footerPop();
+}
+function popBackHome()
+{
+	//logo con freccia + pagina home
+	$('body').prepend('<nav id="navbar" class="navbar navbar-inverse navbar-static-top" role="navigation">'+
+      '<div class="container">'+
+        '<div class="navbar-header">'+
+          '<a id="logoNav" class="navbar-brand" href="index_home.html">'+
             '<img alt="brand" src="./img/segnaposto_trasp_back.png">'+
           '</a>'+
           '<button type="button" class="btn navbar-btn btn-sm around" onClick="window.location=\'inserisci_coord.html\'"><i class="fa fa-plus"></i> Nuovo parco</button>'+
