@@ -34,6 +34,7 @@ function partenza()
 /*****************************GESTIONE*TASTI*FISICI*/
 function gestioneBackbutton()
 {	
+	var title = jQuery(document).attr('title');
 	
 	switch(title)
 	{
@@ -86,6 +87,7 @@ function gestioneBackbutton()
 function popHome()
 {
 	var title = jQuery(document).attr('title');
+
 	//logo normale + refresh pagina
 	$('body').prepend('<nav id="navbar" class="navbar navbar-inverse navbar-static-top" role="navigation">'+
       '<div class="container">'+
