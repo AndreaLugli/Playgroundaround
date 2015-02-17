@@ -38,12 +38,12 @@ function gestioneBackbutton()
 
 	if(title == 'Playground | index_home')
 	{
-		if(confirm('Sicuro di voler uscire dall\'app?') == true)
+		if(confirm({'title':'Abbandona Playground','message':'Sicuro di voler uscire dall\'app?'}) == true)
 		{
             navigator.app.exitApp();
         }
     }
-    else if(title == 'Playground | inserisci_ok')
+    else if(title == 'Playground | inserisci_ok' || title == 'Playground | credits')
     {
     	window.location='index_home.html';
     }
