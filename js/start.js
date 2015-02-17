@@ -34,6 +34,8 @@ function partenza()
 /*****************************GESTIONE*TASTI*FISICI*/
 function gestioneBackbutton()
 {
+	var title = jQuery(document).attr('title');
+
 	if(title == 'Playground | index_home')
 	{
 		if(confirm('Sicuro di voler uscire dall\'app?') == true)
@@ -55,8 +57,6 @@ function gestioneBackbutton()
 /*********************STRUTTURA*/
 function popHome()
 {
-	var title = jQuery(document).attr('title');
-
 	//logo normale + refresh pagina
 	$('body').prepend('<nav id="navbar" class="navbar navbar-inverse navbar-static-top" role="navigation">'+
       '<div class="container">'+
@@ -73,8 +73,6 @@ function popHome()
 }
 function popBack()
 {
-	var title = jQuery(document).attr('title');
-
 	//logo con freccia + pagina back
 	$('body').prepend('<nav id="navbar" class="navbar navbar-inverse navbar-static-top" role="navigation">'+
       '<div class="container">'+
@@ -91,8 +89,6 @@ function popBack()
 }
 function popBackHome()
 {
-	var title = jQuery(document).attr('title');
-    
 	//logo con freccia + pagina home
 	$('body').prepend('<nav id="navbar" class="navbar navbar-inverse navbar-static-top" role="navigation">'+
       '<div class="container">'+
