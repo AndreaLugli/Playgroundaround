@@ -14,11 +14,11 @@ function partenza()
 		//controllo il tipo di device
 		deviceType = (navigator.userAgent.match(/iPad/i))  == "iPad" ? "iOS" : (navigator.userAgent.match(/iPhone/i))  == "iPhone" ? "iOS" : (navigator.userAgent.match(/Android/i)) == "Android" ? "Android" : (navigator.userAgent.match(/Windows Phone/i)) == "Windows Phone" ? "Win" : "null";
 
-		window.onerror = function (message, file, line)
+		/*window.onerror = function (message, file, line)
 		{
 	    	alert("Error in Application: " +
 		        message + ". Source File: " + file + ", Line: " + line);
-		}
+		}*/
 
 		//CSS fixes
 		if(deviceType == 'iOS'){
@@ -38,7 +38,7 @@ function gestioneBackbutton()
 
 	if(title == 'Playground | index_home')
 	{
-		if(confirm({'title':'Abbandona Playground','message':'Sicuro di voler uscire dall\'app?'}) == true)
+		if(confirm('Sicuro di voler uscire da Playground?') == true)
 		{
             navigator.app.exitApp();
         }
@@ -254,9 +254,9 @@ function trackPromo(id, url)
 		//success: goPromo(id, url)
 	})
 
-	goPromo(id, url);
+	goPromo(url);
 }
-function goPromo(id, url)
+function goPromo(url)
 {
 	window.open(url,'_blank','location=yes');
 }
