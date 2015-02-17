@@ -14,11 +14,11 @@ function partenza()
 		//controllo il tipo di device
 		deviceType = (navigator.userAgent.match(/iPad/i))  == "iPad" ? "iOS" : (navigator.userAgent.match(/iPhone/i))  == "iPhone" ? "iOS" : (navigator.userAgent.match(/Android/i)) == "Android" ? "Android" : (navigator.userAgent.match(/Windows Phone/i)) == "Windows Phone" ? "Win" : "null";
 
-		/*window.onerror = function (message, file, line)
+		window.onerror = function (message, file, line)
 		{
 	    	alert("Error in Application: " +
 		        message + ". Source File: " + file + ", Line: " + line);
-		}*/
+		}
 
 		//CSS fixes
 		if(deviceType == 'iOS'){
@@ -33,10 +33,34 @@ function partenza()
 
 /*****************************GESTIONE*TASTI*FISICI*/
 function gestioneBackbutton()
-{
-	var title = jQuery(document).attr('title');
+{	
+	
+	switch(title)
+	{
+	    case 'Playground | index_home':
+	        if(confirm('Sicuro di voler uscire da Playground?') == true)
+			{
+	            navigator.app.exitApp();
+	        }
+	        break;
 
-	if(title == 'Playground | index_home')
+	    case 'Playground | inserisci_ok':
+	        window.location='index_home.html';
+	        break;
+
+	    case 'Playground | credits':
+	        window.location='index_home.html';
+	        break;
+
+	    case 'Playground | inserisci_dati':
+	        window.location='inserisci_coord.html';
+	        break;
+
+	    default:
+	        navigator.app.backHistory();
+	}
+
+	/*if(title == 'Playground | index_home')
 	{
 		if(confirm('Sicuro di voler uscire da Playground?') == true)
 		{
@@ -47,16 +71,21 @@ function gestioneBackbutton()
     {
     	window.location='index_home.html';
     }
+	else if(title == 'Playground | inserisci_dati')
+	{
+		window.location='inserisci_coord.html';
+	}
 	else
     {
         navigator.app.backHistory();
-    }
+    }*/
 }
 
 
 /*********************STRUTTURA*/
 function popHome()
 {
+	var title = jQuery(document).attr('title');
 	//logo normale + refresh pagina
 	$('body').prepend('<nav id="navbar" class="navbar navbar-inverse navbar-static-top" role="navigation">'+
       '<div class="container">'+
@@ -73,6 +102,7 @@ function popHome()
 }
 function popBack()
 {
+	var title = jQuery(document).attr('title');
 	//logo con freccia + pagina back
 	$('body').prepend('<nav id="navbar" class="navbar navbar-inverse navbar-static-top" role="navigation">'+
       '<div class="container">'+
@@ -85,21 +115,14 @@ function popBack()
       '</div>'+
     '</nav>');
 
-	footerPop();
-}
-function popBackHome()
-{
-	//logo con freccia + pagina home
-	$('body').prepend('<nav id="navbar" class="navbar navbar-inverse navbar-static-top" role="navigation">'+
-      '<div class="container">'+
-        '<div class="navbar-header">'+
-          '<a id="logoNav" class="navbar-brand" href="index_home.html">'+
-            '<img alt="brand" src="./img/segnaposto_trasp_back.png">'+
-          '</a>'+
-          '<button type="button" class="btn navbar-btn btn-sm around" onClick="window.location=\'inserisci_coord.html\'"><i class="fa fa-plus"></i> Nuovo parco</button>'+
-        '</div>'+
-      '</div>'+
-    '</nav>');
+    if(title == 'Playground | inserisci_ok' || title == 'Playground | credits')
+    {
+    	$('#logoNav').attr('href', 'index_home.html');
+    }
+    else if(title == 'Playground | inserisci_dati')
+    {
+    	$('#logoNav').attr('href', 'inserisci_coord.html');
+    }
 
 	footerPop();
 }

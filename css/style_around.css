@@ -133,7 +133,7 @@ textarea{
 	clear:both;
 }
 .input-group-addon{
-	width:27%;
+	width:30%;
 	text-align:left;
 	background-color:#27c39e;
 	color:#f7f4ed;
@@ -411,13 +411,14 @@ textarea{
 	padding:0.5%;
 }
 .true{
-	color:#31C331;
-	/*color:#B1E2E4;*/
+	color:#27c39e;
+	/*color:#31C331;*/
 }
 .false{
-	color:#AC131C;
-	/*color:#22433B;*/
+	color:#e85a5c;
+	/*color:#AC131C;*/
 }
+/*#e85a5c rosso | #548fba blu | #34b6ae verde*/
 
 /*switch*raggio*/
 #interruttore{
@@ -746,6 +747,9 @@ textarea{
 	margin:1%;
 	padding:2.5%;
 	text-align:left;
+}
+#formInsParco .alert input{
+	display:none;
 }
 #formInsParco .alert:nth-of-type(11){
 	margin-bottom:2%;

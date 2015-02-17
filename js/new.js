@@ -94,50 +94,43 @@ function dataExists()
 		if(sessionStorage.fenced == 'true')
 		{
 			$('#fenced').attr('class', 'alert alert-success input-lg');
-			//$('#fenced').removeClass('alert-danger');
-			//$('#fenced').addClass('alert-success');
+			$('#fenced i').prop('class', 'fa fa-check-square-o');
 			$('#fenced input').prop('checked', true);
 		}
 		if(sessionStorage.park  == 'true')
 		{
 			$('#park').attr('class', 'alert alert-success input-lg');
-			//$('#park').removeClass('alert-danger');
-			//$('#park').addClass('alert-success');
+			$('#park i').prop('class', 'fa fa-check-square-o');
 			$('#park input').prop('checked', true);
 		}
 		if(sessionStorage.picnic  == 'true')
 		{
 			$('#picnic').attr('class', 'alert alert-success input-lg');
-			//$('#picnic').removeClass('alert-danger');
-			//$('#picnic').addClass('alert-success');
+			$('#picnic i').prop('class', 'fa fa-check-square-o');
 			$('#picnic input').prop('checked', true);
 		}
 		if(sessionStorage.snack  == 'true')
 		{
 			$('#snack').attr('class', 'alert alert-success input-lg');
-			//$('#snack').removeClass('alert-danger');
-			//$('#snack').addClass('alert-success');
+			$('#snack i').prop('class', 'fa fa-check-square-o');
 			$('#snack input').prop('checked', true);
 		}
 		if(sessionStorage.toilette  == 'true')
 		{
 			$('#toilette').attr('class', 'alert alert-success input-lg');
-			//$('#toilette').removeClass('alert-danger');
-			//$('#toilette').addClass('alert-success');
+			$('#toilette i').prop('class', 'fa fa-check-square-o');
 			$('#toilette input').prop('checked', true);
 		}
 		if(sessionStorage.cleaning  == 'true')
 		{
 			$('#cleaning').attr('class', 'alert alert-success input-lg');
-			//$('#cleaning').removeClass('alert-danger');
-			//$('#cleaning').addClass('alert-success');
+			$('#cleaning i').prop('class', 'fa fa-check-square-o');
 			$('#cleaning input').prop('checked', true);
 		}
 		if(sessionStorage.handicap  == 'true')
 		{
 			$('#handicap').attr('class', 'alert alert-success input-lg');
-			//$('#handicap').removeClass('alert-danger');
-			//$('#handicap').addClass('alert-success');
+			$('#handicap i').prop('class', 'fa fa-check-square-o');
 			$('#handicap input').prop('checked', true);
 		}
 	}
@@ -215,6 +208,7 @@ function valuta()
 //rende pannelli servizi cliccabili
 function checkAll()
 {
+
 	$(".alert").click(function()
 	{
 		if($('input', this).is(':checked'))
@@ -222,11 +216,13 @@ function checkAll()
 			$('input', this).prop('checked', false);
 			$(this).removeClass('alert-success');
 			$(this).addClass('alert-danger');
+			$('i', this).prop('class', 'fa fa-square-o');
 		}else
 		{
 			$('input', this).prop('checked', true);
 			$(this).removeClass('alert-danger');
 			$(this).addClass('alert-success');
+			$('i', this).prop('class', 'fa fa-check-square-o');
 		}
 	});
 }
@@ -456,7 +452,7 @@ function associaOk()
 /**************************************INSERISCI*OK*/
 function openInserisciOk()
 {
-	popHome();
+	popBack();
 
 	if(sessionStorage.provenienza == 'nuovo')
 	{
