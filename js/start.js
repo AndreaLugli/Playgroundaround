@@ -12,7 +12,7 @@ function partenza()
 	if(debug)
 	{
 		//controllo il tipo di device
-		//deviceType = (navigator.userAgent.match(/iPad/i))  == "iPad" ? "iOS" : (navigator.userAgent.match(/iPhone/i))  == "iPhone" ? "iOS" : (navigator.userAgent.match(/Android/i)) == "Android" ? "Android" : (navigator.userAgent.match(/Windows Phone/i)) == "Windows Phone" ? "Win" : "null";
+		deviceType = (navigator.userAgent.match(/iPad/i))  == "iPad" ? "iOS" : (navigator.userAgent.match(/iPhone/i))  == "iPhone" ? "iOS" : (navigator.userAgent.match(/Android/i)) == "Android" ? "Android" : (navigator.userAgent.match(/Windows Phone/i)) == "Windows Phone" ? "Win" : "null";
 
 		window.onerror = function (message, file, line)
 		{
@@ -21,9 +21,9 @@ function partenza()
 		}
 
 		//CSS fixes
-		/*if(deviceType == 'iOS'){
+		if(deviceType == 'iOS'){
 			$('head').append('<link rel="stylesheet" type="text/css" href="css/style_around_ios.css">');		
-		}*/
+		}
 
 	}
 	/*******************************/
@@ -34,11 +34,18 @@ function partenza()
 /*****************************GESTIONE*TASTI*FISICI*/
 function gestioneBackbutton()
 {
-	if($.mobile.activePage.is('#index_home'))
+	if(title == 'Playground | index_home')
 	{
-        navigator.app.exitApp();
+		if(confirm('Sicuro di voler uscire dall\'app?') == true)
+		{
+            navigator.app.exitApp();
+        }
     }
-    else
+    else if(title == 'Playground | inserisci_ok')
+    {
+    	window.location='index_home.html';
+    }
+	else
     {
         navigator.app.backHistory();
     }
@@ -48,6 +55,8 @@ function gestioneBackbutton()
 /*********************STRUTTURA*/
 function popHome()
 {
+	var title = jQuery(document).attr('title');
+
 	//logo normale + refresh pagina
 	$('body').prepend('<nav id="navbar" class="navbar navbar-inverse navbar-static-top" role="navigation">'+
       '<div class="container">'+
@@ -64,6 +73,8 @@ function popHome()
 }
 function popBack()
 {
+	var title = jQuery(document).attr('title');
+
 	//logo con freccia + pagina back
 	$('body').prepend('<nav id="navbar" class="navbar navbar-inverse navbar-static-top" role="navigation">'+
       '<div class="container">'+
@@ -80,6 +91,8 @@ function popBack()
 }
 function popBackHome()
 {
+	var title = jQuery(document).attr('title');
+    
 	//logo con freccia + pagina home
 	$('body').prepend('<nav id="navbar" class="navbar navbar-inverse navbar-static-top" role="navigation">'+
       '<div class="container">'+
