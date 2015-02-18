@@ -39,7 +39,7 @@ function gestioneBackbutton()
 	switch(title)
 	{
 	    case 'Playground | index_home':
-	        if(confirm('Sicuro di voler uscire da Playground?') == true)
+	        if(confirm('Sei sicuro di voler uscire da Playground?') == true)
 			{
 	            navigator.app.exitApp();
 	        }
