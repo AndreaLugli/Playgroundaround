@@ -74,19 +74,28 @@
 
 
     <!-- Icon -->
-    <icon src="res/icon/icon.png" />
+    
+    <!--<platform name="android">
+        <icon src="www/res/icon/android/icon-36-ldpi.png"   gap:qualifier="ldpi" />
+        <icon src="www/res/icon/android/icon-48-mdpi.png"   gap:qualifier="mdpi" />
+        <icon src="www/res/icon/android/icon-72-hdpi.png"   gap:qualifier="hdpi" />
+        <icon src="www/res/icon/android/icon-96-xhdpi.png"  gap:qualifier="xhdpi" />
+    </platform>
 
-    <!--<icon src="www/res/icon/android/icon-36-ldpi.png"   gap:platform="android"    gap:qualifier="ldpi" />
-    <icon src="www/res/icon/android/icon-48-mdpi.png"   gap:platform="android"    gap:qualifier="mdpi" />
-    <icon src="www/res/icon/android/icon-72-hdpi.png"   gap:platform="android"    gap:qualifier="hdpi" />
-    <icon src="www/res/icon/android/icon-96-xhdpi.png"  gap:platform="android"    gap:qualifier="xhdpi" />-->
+    <platform name="ios">
+        <icon src="www/res/icon/ios/icon-57.png"        width="57" height="57" />
+        <icon src="www/res/icon/ios/icon-72.png"        width="72" height="72" />
+        <icon src="www/res/icon/ios/icon-57-2x.png"     width="114" height="114" />
+        <icon src="www/res/icon/ios/icon-72-2x.png"     width="144" height="144" />
+    </platform>-->
 
-    <!--<icon src="www/res/icon/ios/icon-57.png"            gap:platform="ios"        width="57" height="57" />
-    <icon src="www/res/icon/ios/icon-72.png"            gap:platform="ios"        width="72" height="72" />
-    <icon src="www/res/icon/ios/icon-57-2x.png"         gap:platform="ios"        width="114" height="114" />
-    <icon src="www/res/icon/ios/icon-72-2x.png"         gap:platform="ios"        width="144" height="144" />-->
+    <platform name="wp8">
+        <!--<icon src="res/icon/win/logo.png" width="99" height="99" />-->
+        <!-- tile image -->
+        <icon src="res/icon/win/logo.png" width="159" height="159" />
+     </platform>
 
-    <icon src="res/icon/win/logo.png" width="150" height="150" />
+     <icon src="res/icon/icon.png" />
     
 
     <!-- Splash screen -->
