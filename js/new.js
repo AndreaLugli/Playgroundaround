@@ -1,9 +1,9 @@
 /**********************POSIZIONE*PARCO*/
-function openGeo()
+function openGeo(back)
 {
 	//per prudenza cancello dati
 	parzialeClear();
-	popBack();
+	popBack(back);
 	//mostra mappa e indirizzo
 	localizzaMap(sessionStorage.lat, sessionStorage.longi);
 	codeLatLng(sessionStorage.lat, sessionStorage.longi);
@@ -20,9 +20,9 @@ function correggi()
 
 /*****************************************INFO*PARCO*/
 //avvio della pagina
-function openNew()
+function openNew(back)
 {
-	popBack();
+	popBack(back);
 	dataExists();
 	valuta();
 	checkAll();
@@ -450,9 +450,9 @@ function associaOk()
 }
 
 /**************************************INSERISCI*OK*/
-function openInserisciOk()
+function openInserisciOk(back)
 {
-	popBack();
+	popBack(back);
 
 	if(sessionStorage.provenienza == 'nuovo')
 	{
@@ -483,9 +483,9 @@ function parzialeClear()
 }
 
 /***********************************COMMENTA*PARCO*/
-function commentoOpen()
+function commentoOpen(back)
 {
-	popBack();
+	popBack(back);
 	$('#formInsCommento h2 span').html(sessionStorage.titoloParco);
 }
 

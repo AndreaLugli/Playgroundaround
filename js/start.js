@@ -53,6 +53,10 @@ function gestioneBackbutton()
 	        window.location='index_home.html';
 	        break;
 
+	    case 'Playground | inserisci_coord':
+	        window.location='index_home.html';
+	        break;
+
 	    case 'Playground | inserisci_dati':
 	        window.location='inserisci_coord.html';
 	        break;
@@ -61,25 +65,6 @@ function gestioneBackbutton()
 	        navigator.app.backHistory();
 	}
 
-	/*if(title == 'Playground | index_home')
-	{
-		if(confirm('Sicuro di voler uscire da Playground?') == true)
-		{
-            navigator.app.exitApp();
-        }
-    }
-    else if(title == 'Playground | inserisci_ok' || title == 'Playground | credits')
-    {
-    	window.location='index_home.html';
-    }
-	else if(title == 'Playground | inserisci_dati')
-	{
-		window.location='inserisci_coord.html';
-	}
-	else
-    {
-        navigator.app.backHistory();
-    }*/
 }
 
 
@@ -93,7 +78,7 @@ function popHome()
       '<div class="container">'+
         '<div class="navbar-header">'+
           '<a id="logoNav" class="navbar-brand" href="index_home.html">'+
-            '<img alt="brand" src="./img/segnaposto_trasp.png">'+
+            '<img alt="brand" src="./img/logo_nav.png">'+
           '</a>'+
           '<button type="button" class="btn navbar-btn btn-sm around" onClick="window.location=\'inserisci_coord.html\'"><i class="fa fa-plus"></i> Nuovo parco</button>'+
         '</div>'+
@@ -102,29 +87,28 @@ function popHome()
 
 	footerPop();
 }
-function popBack()
+//specificare logo e pagina a cui direzionare il tasto indietro
+function popBack(back)
 {
 	var title = jQuery(document).attr('title');
+
+	if(!back)
+	{
+		back = 'javascript:history.go(-1)';
+	}
+
 	//logo con freccia + pagina back
 	$('body').prepend('<nav id="navbar" class="navbar navbar-inverse navbar-static-top" role="navigation">'+
       '<div class="container">'+
         '<div class="navbar-header">'+
-          '<a id="logoNav" class="navbar-brand" href="javascript:history.go(-1);">'+
-            '<img alt="brand" src="./img/segnaposto_trasp_back.png">'+
+          '<a id="logoNav" class="navbar-brand" href="'+back+'">'+
+          //'<a id="logoNav" class="navbar-brand" href="javascript:history.go(-1);">'+
+            '<img alt="brand" src="./img/logo_nav_back.png">'+
           '</a>'+
           '<button type="button" class="btn navbar-btn btn-sm around" onClick="window.location=\'inserisci_coord.html\'"><i class="fa fa-plus"></i> Nuovo parco</button>'+
         '</div>'+
       '</div>'+
     '</nav>');
-
-    if(title == 'Playground | inserisci_ok' || title == 'Playground | credits')
-    {
-    	$('#logoNav').attr('href', 'index_home.html');
-    }
-    else if(title == 'Playground | inserisci_dati')
-    {
-    	$('#logoNav').attr('href', 'inserisci_coord.html');
-    }
 
 	footerPop();
 }
@@ -133,7 +117,7 @@ function footerPop()
 {
 	$('#bottom').html('<nav id="footer" class="navbar-fixed-bottom">'+
           '<div class="container">'+
-              '<a href="benvenuto.html">tutorial</a> | <a href="index.html"><b><i class="fa fa-home"></i></b></a> | <a href="credits.html">credits</a>'+
+              '<a href="benvenuto.html">tutorial</a> | <a href="index_home.html"><b><i class="fa fa-home"></i></b></a> | <a href="credits.html">credits</a>'+
           '</div>'+
         '</nav>');
 }

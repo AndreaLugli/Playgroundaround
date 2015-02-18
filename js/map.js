@@ -32,8 +32,9 @@ function getMappaParco(lati, longi)
 
 
 /***************GET MAPPA GENERICA*(MAPPA.HTML)*/
-function getMappaGenerica()
+function getMappaGenerica(back)
 {
+	popBack(back);
 	initialize_map_generica(sessionStorage.lat, sessionStorage.longi);
 
 }

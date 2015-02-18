@@ -17,9 +17,9 @@ function getTitolo()
 	}
 }
 //on load ricerca per nome (trovati.html) 
-function searchTitolo()
+function searchTitolo(back)
 {
-	popBack();
+	popBack(back);
 	$('h2 span:nth-of-type(2)').html(sessionStorage.titleSearch);
 
 	//get lista parchi trovati
@@ -70,9 +70,9 @@ function getPosto()
 	
 }
 //on load ricerca per posizione (trovati.html) 
-function searchPosizione()
+function searchPosizione(back)
 {
-	popBack();
+	popBack(back);
 
 	$('h2 span:nth-of-type(2)').html(sessionStorage.place);
 
@@ -91,9 +91,9 @@ function searchPosizione()
 
 /********************GET*PARCHI*VICINI*(VICINI.HTML)*/
 //onload pagina
-function openVicini()
+function openVicini(back)
 {
-	popBack();
+	popBack(back);
 	$('#loader').show();
 	listaVicini(3);
 }

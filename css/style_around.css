@@ -278,7 +278,7 @@ textarea{
 	padding:0;
 	border-bottom:3pt solid #27c39e;
 	/*background: #f6f4ec url('../img/asini-sentiero-smerillo.jpg') center center no-repeat;*/
-	background: #f6f4ec url('../img/segnaposto.png') center center no-repeat;
+	background: #f6f4ec url('../img/logo.png') center center no-repeat;
 	background-size: auto 30%;
 }
 #header .imgCover{
@@ -286,7 +286,7 @@ textarea{
 	height:100%;
 	margin:0;
 	padding:0;
-	background: #f6f4ec url('../img/segnaposto.png') center center no-repeat;
+	background: #f6f4ec url('../img/logo.png') center center no-repeat;
 	background-size:cover;
 }
 #header h1{
