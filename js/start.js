@@ -24,8 +24,22 @@ function partenza()
 		if(deviceType == 'iOS'){
 			$('head').append('<link rel="stylesheet" type="text/css" href="css/style_around_ios.css">');		
 		}
+		else if(deviceType == 'Win'){
+			$('head').append('<link rel="stylesheet" type="text/css" href="css/style_around_win.css">');		
+		}
 
 	}
+
+	/*********BUGFIX NAVBAR*********/
+	var $body = jQuery('#footer'); 
+
+	$(document)
+	.on('focus', 'input', function(e) {
+		$body.addClass('fixfixed');
+	})
+	.on('blur', 'input', function(e) {
+		$body.removeClass('fixfixed');
+	});
 	/*******************************/
 
 	document.addEventListener('backbutton', gestioneBackbutton, true);

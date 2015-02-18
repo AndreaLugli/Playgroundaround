@@ -1,0 +1,13 @@
+/*******************Win********************/
+html, body {
+	height:90%;
+}
+
+.navbar {
+	height:30pt;
+}
+#footer{
+	max-height:5%;
+	min-height:30pt;
+	line-height:30pt;
+}

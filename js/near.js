@@ -354,12 +354,19 @@ function appendParco(data){
 	}
 
 	$('#address').html(data.address);
+
 	//bottone Android
 	$('#address').append("<button class='btn btn-block btn-lg btn-success' onClick='location.href=\"geo:"+sessionStorage.lat+","+sessionStorage.longi+"?q="+data.latitude+","+data.longitude+"\";'><i class='fa fa-compass'></i> Come arrivare</button>");
 
+	//bottone iOS
 	if(deviceType == 'iOS')
 	{
 		$("#address button").attr("onClick","window.location = 'maps:daddr="+data.latitude+","+data.longitude+"'");
+	}
+	//bottone Win
+	else if(deviceType == 'Win')
+	{
+		$("#address button").hide();
 	}
 
 	//il parco appare nel metodo che crea la mappa

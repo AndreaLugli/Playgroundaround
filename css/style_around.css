@@ -179,6 +179,7 @@ textarea{
 #logoNav img{
 	height:22pt;
 	margin-top: -5pt;
+	margin-left:-7pt;
 	display:inline;
 }
 
@@ -216,6 +217,11 @@ textarea{
 	color:#27c39e;
 	font-size:small;
 	padding:0 5%;
+}
+
+/*Per fixare bug navbar*/
+#footer .fixfixed{ 
+    position: absolute; 
 }
 
 /******************************CARICAMENTI*/
