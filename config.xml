@@ -90,9 +90,8 @@
     </platform>-->
 
     <platform name="wp8">
-        <!--<icon src="res/icon/win/logo.png" width="99" height="99" />-->
-        <!-- tile image -->
-        <icon src="res/icon/win/logo.png" width="159" height="159" />
+        <icon src="res/icon/win/logo_99.png" width="99" height="99" />
+        <icon src="res/icon/win/logo_159.png" width="159" height="159" /> <!-- tile image -->
      </platform>
 
      <icon src="res/icon/icon.png" />

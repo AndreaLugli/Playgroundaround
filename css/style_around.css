@@ -148,6 +148,7 @@ textarea{
 /*************************************MODALI*/
 .modal{
 	color:black;
+	padding-top:5%;
 }
 .modal-body p{
 	text-align:justify;
@@ -430,6 +431,12 @@ textarea{
 	margin:-1% 5%;
 	width:90%;
 	position:relative;
+}
+
+#up{
+	display:block;
+	margin-top:4%;
+	margin-bottom:8%;
 }
 
 /****************************NO*RISULTATI*/

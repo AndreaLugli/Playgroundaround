@@ -178,6 +178,10 @@ function appendVicini(data)
 		listaParchiVicini = '<div id="noPark" href="inserisci_coord.html"><img src="img/dondolo.png"/></div>';
 		
 	}
+	else
+	{
+		listaParchiVicini += '<a id="up" class="btn btn-lg btn-block btn-success" type="button" href="#top"><i class="fa fa-arrow-circle-up"></i></a>';
+	}
 	$('#parchiVicini').html(listaParchiVicini);
 	$('#contatoreParchi span:first-of-type').html(quantiParchi);
 
