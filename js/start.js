@@ -31,7 +31,7 @@ function partenza()
 	}
 
 	/*********BUGFIX NAVBAR*********/
-	var $body = jQuery('#footer'); 
+	var $body = jQuery('#bottom'); 
 
 	$(document)
 	.on('focus', 'input', function(e) {

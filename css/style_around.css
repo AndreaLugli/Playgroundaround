@@ -204,6 +204,10 @@ textarea{
 	padding:0;
 	background-color:#464646;
 }
+/*Per fixare bug navbar*/
+#bottom .fixfixed{ 
+    position: absolute; 
+}
 #footer{
 	max-height:3%;
 	min-height:25pt;
@@ -217,11 +221,6 @@ textarea{
 	color:#27c39e;
 	font-size:small;
 	padding:0 5%;
-}
-
-/*Per fixare bug navbar*/
-#footer .fixfixed{ 
-    position: absolute; 
 }
 
 /******************************CARICAMENTI*/
@@ -649,9 +648,7 @@ textarea{
 	margin:5%;
 }
 .logoCredits{
-	background-color:#f7f4ed;
-	width:80%;
-	padding: 0 10% 5% 10%;
+	width:70%;
 }
 
 /************************************INSERISCI*OK*/

@@ -25,7 +25,9 @@
     <!-- permessi individuali -->
     <preference name="orientation" value="portrait" />
     <preference name="target-device"              value="universal" /> 
-    <preference name="fullscreen"                 value="false" />
+
+    <preference name="fullscreen"                 value="true" />
+    
     <preference name="webviewbounce"              value="true" />
     <preference name="prerendered-icon"           value="true" />           
     <preference name="stay-in-webview"            value="false" />
@@ -88,6 +90,7 @@
     <gap:splash gap:density="mdpi" gap:platform="android" src="res/new_screen/640x940.png" />
     <gap:splash gap:density="hdpi" gap:platform="android" src="res/new_screen/600x1024.png" />
     <gap:splash gap:density="xhdpi" gap:platform="android" src="res/new_screen/1600x2560.png" />
+
     <gap:splash src="res/new_screen/320x480.png" gap:platform="ios" width="320" height="480" />
     <gap:splash src="res/new_screen/640x960.png" gap:platform="ios" width="640" height="960" />
     <gap:splash src="res/new_screen/640x1136.png" gap:platform="ios" width="640" height="1136" />
@@ -95,6 +98,8 @@
     <gap:splash src="res/new_screen/750x1334.png" gap:platform="ios" width="750" height="1334" />
     <gap:splash src="res/new_screen/1536x2048.png" gap:platform="ios" width="1536" height="2048" />
     <gap:splash src="res/new_screen/1242x2208.png" gap:platform="ios" width="1242" height="2208" />
+
+    <gap:splash src="res/new_screen/splash.jpg" gap:platform="winphone" />
 
 
     <access origin="*"/>
