@@ -47,7 +47,7 @@ function openPhotoUpload()
 	else if(sessionStorage.provenienza == 'vecchio')
 	{
 		//fare chiamata di associazione + andare a pagina di conferma
-		$('#container').append('<div id="emailFoto" style="display:none;" class="input-group input-group-lg"><span class="input-group-addon">Email*</span><input id="email" type="text" class="form-control" /></div>');
+		$('#container').append('<div id="emailFoto" style="display:none;" class="input-group input-group-lg"><span class="input-group-addon">Email*</span><input id="email" type="email" class="form-control" /></div>');
 		$('#container').append('<button id="completa" style="display:none;" class="btn btn-lg btn-block btn-primary" type="button" onClick="caricaParcoEsistente()"><i class="fa fa-check-circle-o"></i> Completa</button>');
 	}
 }
@@ -135,7 +135,13 @@ function onFail(message)
 /***********************************UPLOAD*/
 function uploadPhoto(imageData)
 {
+	//mostro caricamento
 	$('#cortina').fadeIn();
+	if(deviceType == 'Win')
+	{
+		$('#container').hide();
+		$('#navbar').hide();
+	}
 
     //bug galleria - potrebbe non esserci formato foto
     nomeFile = imageData.substr(imageData.lastIndexOf('/')+1);
@@ -195,6 +201,13 @@ function win(data)
 	}
 
 	$('#completa, #emailFoto').show();
+
+	//rimuovo caricamento
+	if(deviceType == 'Win')
+	{
+		$('#container').show();
+		$('#navbar').show();
+	}
 	$('#cortina').fadeOut();
 }
 
@@ -214,14 +227,17 @@ function fail(data)
 			modalDimensioni();
 			break;
 
-		/*case 'Dimensioni elevate':
-			modalDimensioni();
-			break;*/
-
 		default:
 			modalGenerico();
 	}
 	
+	//rimuovo caricamento
+	if(deviceType == 'Win')
+	{
+		$('#container').show();
+		$('#navbar').show();
+
+	}
 	$('#cortina').fadeOut();
 }
 
