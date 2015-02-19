@@ -813,6 +813,7 @@ h3 + hr{
 	display:block;
 	float:left;
 	color:black;
+	text-align:center;
 }
 
 /***************************INSERISCI*COMMENTO*/
