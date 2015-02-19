@@ -219,13 +219,17 @@ function apriParco(id)
 
 /**********************OPEN*PARCO*(PARCO.HTML)*/
 //onload pagina
-function getParco(){
+function getParco()
+{
+	sessionStorage.provenienza = 'vecchio';
+	
 	getImgParco();
 	getInfoParco();
 }
 
 //get immagini parco
-function getImgParco(){
+function getImgParco()
+{
 	url = indirizzo+'/get_immagini?id='+sessionStorage.idParco;
 		
 	$.ajaxSetup({ cache: false });
