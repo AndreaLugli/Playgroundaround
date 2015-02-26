@@ -41,11 +41,15 @@ function openPhotoUpload()
 
 	if(sessionStorage.provenienza == 'nuovo')
 	{
+		popBack('inserisci_dati.html');
+
 		//tornare alla pagina di inserimento dati
 		$('#container').append('<button id="completa" style="display:none;" class="btn btn-lg btn-block btn-success" type="button" onClick="window.location=\'inserisci_dati.html\';"><i class="fa fa-check-circle-o"></i> Completa</button>');
 	}
 	else if(sessionStorage.provenienza == 'vecchio')
 	{
+		popBack();
+
 		//fare chiamata di associazione + andare a pagina di conferma
 		$('#container').append('<div id="emailFoto" style="display:none;" class="input-group input-group-lg"><span class="input-group-addon">Email*</span><input id="email" type="email" class="form-control" /></div>');
 		$('#container').append('<button id="completa" style="display:none;" class="btn btn-lg btn-block btn-primary" type="button" onClick="caricaParcoEsistente()"><i class="fa fa-check-circle-o"></i> Completa</button>');

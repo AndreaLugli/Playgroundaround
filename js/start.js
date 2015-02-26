@@ -170,8 +170,8 @@ function handle_localize(position)
 	sessionStorage.lat = position.coords.latitude.toFixed(3);
 	sessionStorage.longi = position.coords.longitude.toFixed(3);
 
-	getCover();
 	getPromo();
+	getCover();
 
 	//alert('Ti trovi a: LATI:'+sessionStorage.lat+' LONGI:'+sessionStorage.longi);
 }
