@@ -59,7 +59,7 @@ function initialize_map_generica(lati, longi)
 	marker.bindPopup("<p style='font-size:small'>Ti trovi qui</p>")
 			.openPopup();
 
-	L.circle([lati, longi], 30000).addTo(map1);
+	//L.circle([lati, longi], 30000).addTo(map1);
 
 	//get lista parchi vicini
 	mappaVicini();
