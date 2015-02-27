@@ -466,3 +466,11 @@
 	-webkit-border-radius: 2px;
 	        border-radius: 2px;
 	}
+
+
+
+/*FIX**/
+.leaflet-map-pane img {
+  max-width: none;
+  max-height: none;
+}
