@@ -6,9 +6,13 @@ function getMappaParco(lati, longi)
 	var map = L.map('map').setView([lati, longi], 15);
 
 	//credits mappa
-	L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
-	    attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
-	}).addTo(map);
+	L.tileLayer('https://{s}.tiles.mapbox.com/v3/{id}/{z}/{x}/{y}.png', {
+			maxZoom: 18,
+			attribution: 'Data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a>, ' +
+				'<a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
+				'Imagery © <a href="http://mapbox.com">Mapbox</a>',
+			id: 'examples.map-i875mjb7'
+		}).addTo(map);
 
 	//disabilito scroll mappa
 	map.dragging.disable();
@@ -40,25 +44,18 @@ function getMappaGenerica(back)
 }
 function initialize_map_generica(lati, longi)
 {		
-	centroLat = lati;
-	centroLng = longi;
-
 	$('#map1').html('');
-	map1 = L.map('map1').setView([centroLat, centroLng], 15);
-			
-	var cloudmadeUrl = 'http://{s}.mqcdn.com/tiles/1.0.0/osm/{z}/{x}/{y}.png',
-		subDomains = ['otile1','otile2','otile3','otile4'],
-		cloudmadeAttrib = '';
-	var cloudmadeUrl = 'http://{s}.mqcdn.com/tiles/1.0.0/osm/{z}/{x}/{y}.png',
-	subDomains = ['otile1','otile2','otile3','otile4'],
-	cloudmadeAttrib = '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors';
-	
-	var cloudmade = new L.TileLayer(cloudmadeUrl, {maxZoom: 15, attribution: cloudmadeAttrib, subdomains: subDomains});
+	map1 = L.map('map1').setView([lati, longi], 15);	
 
-	cloudmade.addTo(map1);		
+	L.tileLayer('https://{s}.tiles.mapbox.com/v3/{id}/{z}/{x}/{y}.png', {
+			maxZoom: 18,
+			attribution: 'Data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a>, ' +
+				'<a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
+				'Imagery © <a href="http://mapbox.com">Mapbox</a>',
+			id: 'examples.map-i875mjb7'
+		}).addTo(map1);
 
-	var marker = L.marker([centroLat, centroLng]).addTo(map1);
-	//marker.bindPopup("<p style='font-size:small'>You\'re here</p>")
+	var marker = L.marker([lati, longi]).addTo(map1);
 	marker.bindPopup("<p style='font-size:small'>Ti trovi qui</p>")
 			.openPopup();
 
@@ -115,9 +112,13 @@ function localizzaMap(lati, longi)
 	map = L.map('map').setView([lati, longi], 15);
 
 	//credits mappa
-	L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
-	    attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
-	}).addTo(map);
+	L.tileLayer('https://{s}.tiles.mapbox.com/v3/{id}/{z}/{x}/{y}.png', {
+			maxZoom: 18,
+			attribution: 'Data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a>, ' +
+				'<a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
+				'Imagery © <a href="http://mapbox.com">Mapbox</a>',
+			id: 'examples.map-i875mjb7'
+		}).addTo(map);
 
 	//disabilito scroll mappa
 	map.dragging.disable();
