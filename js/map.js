@@ -5,14 +5,13 @@ function getMappaParco(lati, longi)
 	$('#map').html('');
 	var map = L.map('map').setView([lati, longi], 15);
 
-	//credits mappa
-	L.tileLayer('https://{s}.tiles.mapbox.com/v3/{id}/{z}/{x}/{y}.png', {
-			maxZoom: 18,
-			attribution: 'Data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a>, ' +
-				'<a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
-				'Imagery © <a href="http://mapbox.com">Mapbox</a>',
-			id: 'examples.map-i875mjb7'
-		}).addTo(map);
+	var cloudmadeUrl = 'http://{s}.mqcdn.com/tiles/1.0.0/osm/{z}/{x}/{y}.png',
+		subDomains = ['otile1','otile2','otile3','otile4'],
+		cloudmadeAttrib = '<a href="http://open.mapquest.co.uk" target="_blank">MapQuest</a>, <a href="http://www.openstreetmap.org/" target="_blank">OpenStreetMap</a>, <a href="http://creativecommons.org/licenses/by-sa/2.0/" target="_blank">CC-BY-SA</a>';
+	 
+	var cloudmade = new L.TileLayer(cloudmadeUrl, {maxZoom: 18, attribution: cloudmadeAttrib, subdomains: subDomains});
+
+	cloudmade.addTo(map);
 
 	//disabilito scroll mappa
 	map.dragging.disable();
@@ -45,15 +44,15 @@ function getMappaGenerica(back)
 function initialize_map_generica(lati, longi)
 {		
 	$('#map1').html('');
-	map1 = L.map('map1').setView([lati, longi], 15);	
+	map1 = L.map('map1').setView([lati, longi], 15);
 
-	L.tileLayer('https://{s}.tiles.mapbox.com/v3/{id}/{z}/{x}/{y}.png', {
-			maxZoom: 18,
-			attribution: 'Data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a>, ' +
-				'<a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
-				'Imagery © <a href="http://mapbox.com">Mapbox</a>',
-			id: 'examples.map-i875mjb7'
-		}).addTo(map1);
+	var cloudmadeUrl = 'http://{s}.mqcdn.com/tiles/1.0.0/osm/{z}/{x}/{y}.png',
+		subDomains = ['otile1','otile2','otile3','otile4'],
+		cloudmadeAttrib = '<a href="http://open.mapquest.co.uk" target="_blank">MapQuest</a>, <a href="http://www.openstreetmap.org/" target="_blank">OpenStreetMap</a>, <a href="http://creativecommons.org/licenses/by-sa/2.0/" target="_blank">CC-BY-SA</a>';
+	 
+	var cloudmade = new L.TileLayer(cloudmadeUrl, {maxZoom: 18, attribution: cloudmadeAttrib, subdomains: subDomains});
+
+	cloudmade.addTo(map1);
 
 	var marker = L.marker([lati, longi]).addTo(map1);
 	marker.bindPopup("<p style='font-size:small'>Ti trovi qui</p>")
@@ -113,14 +112,13 @@ function localizzaMap(lati, longi)
 
 	map = L.map('map').setView([lati, longi], 15);
 
-	//credits mappa
-	L.tileLayer('https://{s}.tiles.mapbox.com/v3/{id}/{z}/{x}/{y}.png', {
-			maxZoom: 18,
-			attribution: 'Data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a>, ' +
-				'<a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
-				'Imagery © <a href="http://mapbox.com">Mapbox</a>',
-			id: 'examples.map-i875mjb7'
-		}).addTo(map);
+	var cloudmadeUrl = 'http://{s}.mqcdn.com/tiles/1.0.0/osm/{z}/{x}/{y}.png',
+		subDomains = ['otile1','otile2','otile3','otile4'],
+		cloudmadeAttrib = '<a href="http://open.mapquest.co.uk" target="_blank">MapQuest</a>, <a href="http://www.openstreetmap.org/" target="_blank">OpenStreetMap</a>, <a href="http://creativecommons.org/licenses/by-sa/2.0/" target="_blank">CC-BY-SA</a>';
+	 
+	var cloudmade = new L.TileLayer(cloudmadeUrl, {maxZoom: 18, attribution: cloudmadeAttrib, subdomains: subDomains});
+
+	cloudmade.addTo(map);
 
 	//disabilito scroll mappa
 	map.dragging.disable();
