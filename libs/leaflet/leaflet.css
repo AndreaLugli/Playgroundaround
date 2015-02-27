@@ -471,6 +471,6 @@
 
 /*FIX**/
 .leaflet-map-pane img {
-  max-width: none;
-  max-height: none;
+  max-width:none;
+  max-height:none;
 }
