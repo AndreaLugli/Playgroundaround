@@ -816,6 +816,12 @@ h3 + hr{
 	text-align:center;
 }
 
+.alert-success{
+	margin-top:20pt;
+	margin-left:5%;
+	width:90%;
+}
+
 /***************************INSERISCI*COMMENTO*/
 #formInsCommento{
 	margin:0 5% 10% 5%;

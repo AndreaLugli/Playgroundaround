@@ -342,7 +342,7 @@ function appendParco(data){
 	}	
 	$('#articolo').append("<button id='commentalo' class='btn btn-success btn-md' onClick='window.location=\"commenta_parco.html\";'><i class='fa fa-comments'></i> Commenta</button>");
 	if(data.description_en.length > 2){
-		$('#articolo').append('<button id="clickEng" class="btn btn-success btn-md" onClick="clickEng();">Eng version</button><button id="clickIta" class="btn btn-success btn-md" style="display:none;" onClick="clickIta();">Versione ita</button>');
+		$('#articolo').append('<button id="clickEng" class="btn btn-success btn-md" onClick="clickEng();">English</button><button id="clickIta" class="btn btn-success btn-md" style="display:none;" onClick="clickIta();">Italiano</button>');
 	}
 	//gestione commenti
 	if(data.commenti)
