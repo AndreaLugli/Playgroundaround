@@ -54,7 +54,7 @@ function initialize_map_generica(lati, longi)
 
 	cloudmade.addTo(map1);
 
-	map.touchZoom.disable();
+	map1.touchZoom.disable();
 
 	var marker = L.marker([lati, longi]).addTo(map1);
 	marker.bindPopup("<p style='font-size:small'>Ti trovi qui</p>")
