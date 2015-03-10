@@ -115,6 +115,11 @@ a, a:hover, a:visited, button{
 	color:#f7f4ed;
 	border:1pt solid #912A62;
 }
+.btn-success:disabled{
+    background-color:#A36085;
+	color:#f7f4ed;
+	border:1pt solid #A36085;
+}
 /**************************************INPUT*/
 
 label{
@@ -817,14 +822,13 @@ h3 + hr{
 }
 
 #autorizzazione{
-	margin-top:20pt;
-	margin-left:5%;
+	margin:20pt 5%;
 	width:90%;
+	display:none;
 }
 #autorizzazione input{
 	display:none;
 }
-
 
 
 /***************************INSERISCI*COMMENTO*/
