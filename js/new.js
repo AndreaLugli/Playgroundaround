@@ -469,6 +469,31 @@ function associaOk()
 	window.location='inserisci_ok.html';
 }
 
+//checkbox autorizzazione
+function checkPermission()
+{
+	$("#autorizzazione").click(function()
+	{
+		if($('input', this).is(':checked'))
+		{
+			$('input', this).prop('checked', false);
+			$(this).removeClass('alert-success');
+			$(this).addClass('alert-danger');
+			$('i', this).prop('class', 'fa fa-square-o');
+
+			$('#completa').attr('disabled', 'disabled');
+		}else
+		{
+			$('input', this).prop('checked', true);
+			$(this).removeClass('alert-danger');
+			$(this).addClass('alert-success');
+			$('i', this).prop('class', 'fa fa-check-square-o');
+
+			$('#completa').removeAttr('disabled');
+		}
+	});
+}
+
 /**************************************INSERISCI*OK*/
 function openInserisciOk(back)
 {
