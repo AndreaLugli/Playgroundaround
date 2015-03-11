@@ -824,10 +824,16 @@ h3 + hr{
 #autorizzazione{
 	margin:20pt 5%;
 	width:90%;
-	display:none;
 }
 #autorizzazione input{
 	display:none;
+}
+#autorizzazione p{
+	font-size:x-small;
+	text-align:justify;
+}
+#autorizzazione p i{
+	margin-right:5pt;
 }
 
 
