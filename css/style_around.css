@@ -790,7 +790,7 @@ h2 + h3{
 	font-weight:bold;
 }
 h3 + hr{
-	margin-top:20%;
+	margin-top:10%;
 }
 #containerFoto button{
 	margin:5% auto;
@@ -829,8 +829,8 @@ h3 + hr{
 	display:none;
 }
 #autorizzazione p{
-	font-size:x-small;
 	text-align:justify;
+	font-size:small;
 }
 #autorizzazione p i{
 	margin-right:5pt;
