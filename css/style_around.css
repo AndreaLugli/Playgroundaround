@@ -143,6 +143,7 @@ textarea{
 	background-color:#27c39e;
 	color:#f7f4ed;
 	font-size:medium;
+	height:46px !important; /*input bugfix*/
 }
 
 .error{
