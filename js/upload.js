@@ -54,6 +54,8 @@ function openPhotoUpload()
 		$('#container').append('<div id="emailFoto" style="display:none;" class="input-group input-group-lg"><span class="input-group-addon">Email*</span><input id="email" type="email" class="form-control" /></div>');
 		$('#container').append('<button id="completaFoto" style="display:none; margin-bottom:50pt;" class="btn btn-lg btn-block btn-success" type="button" onClick="caricaParcoEsistente()" disabled="disabled"><i class="fa fa-check-circle-o"></i> Completa</button>');
 	}
+
+	checkPermission();
 }
 
 /***********************************SCATTO*/
@@ -169,7 +171,6 @@ function uploadPhoto(imageData)
 
     $('#autorizzazione').show();
 	$('#completaFoto, #emailFoto').show();
-	checkPermission();
 }
 
 function win(data)
