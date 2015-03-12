@@ -166,6 +166,10 @@ function uploadPhoto(imageData)
 
     var ft = new FileTransfer();
     ft.upload(imageData, indirizzo+"/upload_parco", win, fail, options);
+
+    $('#autorizzazione').show();
+	$('#completaFoto, #emailFoto').show();
+	checkPermission();
 }
 
 function win(data)
@@ -209,13 +213,9 @@ function win(data)
 		$('#container').show();
 		$('#navbar').show();
 	}
-
-	$('#autorizzazione').show();
-	$('#completaFoto, #emailFoto').show();
 	
 	$('#cortina').fadeOut();
 
-	checkPermission();
 }
 
 function fail(data)
