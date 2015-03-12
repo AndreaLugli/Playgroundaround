@@ -481,7 +481,7 @@ function checkPermission()
 			$(this).addClass('alert-danger');
 			$('i', this).prop('class', 'fa fa-square-o');
 
-			$('#completa').attr('disabled', 'disabled');
+			$('#completaFoto').attr('disabled', 'disabled');
 		}else
 		{
 			$('input', this).prop('checked', true);
@@ -489,7 +489,7 @@ function checkPermission()
 			$(this).addClass('alert-success');
 			$('i', this).prop('class', 'fa fa-check-square-o');
 
-			$('#completa').removeAttr('disabled');
+			$('#completaFoto').removeAttr('disabled');
 		}
 	});
 }

@@ -802,12 +802,9 @@ h3 + hr{
 #containerFoto +hr{
 	clear:both;
 }
-#emailFoto, #completa{	/*bottone invio*/
+#emailFoto, #completaFoto{	/*bottone invio*/
 	width:90%;
-	margin:10% 5%;
-}
-#emailFoto + #completa{
-	margin-top:-7%;
+	margin:5%;
 }
 
 
