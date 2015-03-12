@@ -18,26 +18,26 @@
         <div id="container" class="ricerca">
             
             <h2 id="primo">Cerca per luogo</h2>
-            <form>
+            <form action="javascript:getPosto();">
                 
                 <div class="input-group input-group-lg">
                     <input id="positionSearch" type="text" class="form-control input-lg" />
                 </div>
 
-                <button id="okLuogo"class="btn btn-lg btn-success" type="button" onClick="getPosto();"><i class="fa fa-search"></i> Cerca</button>
+                <button id="okLuogo"class="btn btn-lg btn-success" type="submit"><i class="fa fa-search"></i> Cerca</button>
 
             </form>
 
             <hr class="purpleHr">
             
             <h2 id="secondo">Cerca per nome</h2>
-            <form>
+            <form action="javascript:getTitolo();">
 
                 <div class="input-group input-group-lg">
                     <input id="titleSearch" type="text" class="form-control" placeholder="Inserisci una parola chiave" />
                 </div>
 
-                <button id="okTitolo" class="btn btn-lg btn-success" type="button" onClick="getTitolo();"><i class="fa fa-search"></i> Cerca</button>
+                <button id="okTitolo" class="btn btn-lg btn-success" type="submit"><i class="fa fa-search"></i> Cerca</button>
 
             </form>
 
