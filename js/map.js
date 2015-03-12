@@ -31,12 +31,12 @@ function getMappaParco(lati, longi)
 
 	//poi parco
 	L.marker([lati, longi], {icon: greenPoi}).addTo(map)
-	    .bindPopup('<p style="font-size:small">Sono il parco</p>');	
+	    .bindPopup('<p style="font-size:small">Ecco il parco</p>')
+	    .openPopup();	
 
 	//poi mia posizione
 	L.marker([sessionStorage.lat, sessionStorage.longi], {icon: purplePoi}).addTo(map)
-	.bindPopup('<p style="font-size:small">Tu sei qui</p>')
-	.openPopup();	
+	.bindPopup('<p style="font-size:small">Tu sei qui</p>');	
 }
 
 
@@ -136,7 +136,7 @@ function creaPOI(lat, lng, testo)
 		iconAnchor:   [25, 41],
 		popupAnchor:  [-12.5, -35]
 	});
-	
+
 	punto = L.marker([lat, lng], {icon: greenPoi}).addTo(map).bindPopup(testo)
 	.openPopup();
 
