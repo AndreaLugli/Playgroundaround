@@ -261,7 +261,8 @@ function checkRequired()
     	noErrorOnClick();
 	}
 	else
-	{
+	{	
+		$('#cortina').fadeIn();
 		confermaParco();
 	}
 }
@@ -434,6 +435,8 @@ function caricaParcoEsistente()
 
 function datiInviati(data)
 {
+	alert('dati inviati '+data);
+
 	sessionStorage.idParco = data;
 	//se non ho caricato foto
 	if(sessionStorage.listaIdFoto)
@@ -463,8 +466,9 @@ function associaFotoParco()
 	})
 }
 
-function associaOk()
+function associaOk(data)
 {
+	alert('immagini associate '+data);
 	parzialeClear();
 	window.location='inserisci_ok.html';
 }
