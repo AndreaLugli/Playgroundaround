@@ -474,8 +474,11 @@ function checkPermission()
 {
 	$("#autorizzazione").click(function()
 	{
+		alert('click');
 		if($('input', this).is(':checked'))
 		{
+			alert('A checkato');
+
 			$('input', this).prop('checked', false);
 			$(this).removeClass('alert-success');
 			$(this).addClass('alert-danger');
@@ -484,6 +487,8 @@ function checkPermission()
 			$('#completaFoto').attr('disabled', 'disabled');
 		}else
 		{
+			alert('B non checkato');
+
 			$('input', this).prop('checked', true);
 			$(this).removeClass('alert-danger');
 			$(this).addClass('alert-success');

@@ -70,10 +70,6 @@ function capturePhoto_camera()
 }
 function onSuccessCamera(imageURI)
 {	
-	$('#autorizzazione').show();
-	$('#completaFoto, #emailFoto').show();
-	checkPermission();
-
 	//caricamento foto
 	sessionStorage.photo = imageURI;
 	uploadPhoto(sessionStorage.photo);
@@ -130,15 +126,9 @@ function controlloSize(img_size, imageData)
 }
 function controlloOk(newURI)
 {
-	$('#autorizzazione').show();
-	$('#completaFoto, #emailFoto').show();
-	checkPermission();
-
-	sessionStorage.photo = newURI;
-
 	//caricamento foto
+	sessionStorage.photo = newURI;
 	uploadPhoto(sessionStorage.photo);
-
 }
 function onFail(message)
 {
@@ -220,7 +210,11 @@ function win(data)
 		$('#navbar').show();
 	}
 
+	$('#autorizzazione').show();
+	$('#completaFoto, #emailFoto').show();
+	
 	$('#cortina').fadeOut();
+
 	checkPermission();
 }
 
