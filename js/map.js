@@ -1,3 +1,15 @@
+//Poi personalizzati
+var greenPoi = L.icon({
+	iconUrl: 'img/greenPoi.png',
+	iconAnchor:   [25, 41],
+	popupAnchor:  [-12.5, -35]
+});
+var purplePoi = L.icon({
+	iconUrl: 'img/purplePoi.png',
+	iconAnchor:   [25, 41],
+	popupAnchor:  [-12.5, -35]
+});
+
 /***************GET MAPPA*(PARCO.HTML)*/
 function getMappaParco(lati, longi)
 {	
@@ -9,28 +21,22 @@ function getMappaParco(lati, longi)
 		subDomains = ['otile1','otile2','otile3','otile4'],
 		cloudmadeAttrib = '<a href="http://open.mapquest.co.uk" target="_blank">MapQuest</a>, <a href="http://www.openstreetmap.org/" target="_blank">OpenStreetMap</a>, <a href="http://creativecommons.org/licenses/by-sa/2.0/" target="_blank">CC-BY-SA</a>';
 	 
-	var cloudmade = new L.TileLayer(cloudmadeUrl, {maxZoom: 18, attribution: cloudmadeAttrib, subdomains: subDomains});
+	var cloudmade = new L.TileLayer(cloudmadeUrl, {minZoom: 12, maxZoom: 18, noWrap:true, reuseTiles: true,attribution: cloudmadeAttrib, subdomains: subDomains});
 
 	cloudmade.addTo(map);
 
-	//disabilito scroll mappa
+	//scroll mappa e pinch2zoom disattivati
 	map.dragging.disable();
-
-	//icona personalizzata poi parco
-	var greenIcon = L.icon({
-		iconUrl: 'img/poi.png',
-		iconAnchor:   [25, 41], // point of the icon which will correspond to marker's location
-		popupAnchor:  [-12.5, -35] // point from which the popup should open relative to the iconAnchor
-	});
+	map.touchZoom.disable();
 
 	//poi parco
-	L.marker([lati, longi], {icon: greenIcon}).addTo(map)
-	    //.bindPopup('<p style="font-size:small">The park in here</p>');
-	    .bindPopup('<p style="font-size:small">Questo è il parco</p>');	
+	L.marker([lati, longi], {icon: greenPoi}).addTo(map)
+	    .bindPopup('<p style="font-size:small">Sono il parco</p>');	
 
 	//poi mia posizione
-	L.marker([sessionStorage.lat, sessionStorage.longi]).addTo(map)
-	.bindPopup('<p style="font-size:small">Ti trovi qui</p>');	
+	L.marker([sessionStorage.lat, sessionStorage.longi], {icon: purplePoi}).addTo(map)
+	.bindPopup('<p style="font-size:small">Tu sei qui</p>')
+	.openPopup();	
 }
 
 
@@ -50,17 +56,16 @@ function initialize_map_generica(lati, longi)
 		subDomains = ['otile1','otile2','otile3','otile4'],
 		cloudmadeAttrib = '<a href="http://open.mapquest.co.uk" target="_blank">MapQuest</a>, <a href="http://www.openstreetmap.org/" target="_blank">OpenStreetMap</a>, <a href="http://creativecommons.org/licenses/by-sa/2.0/" target="_blank">CC-BY-SA</a>';
 	 
-	var cloudmade = new L.TileLayer(cloudmadeUrl, {minZoom: 12, maxZoom: 17, noWrap:true, reuseTiles: true, attribution: cloudmadeAttrib, subdomains: subDomains});
+	var cloudmade = new L.TileLayer(cloudmadeUrl, {minZoom: 12, maxZoom: 18, noWrap:true, reuseTiles: true, attribution: cloudmadeAttrib, subdomains: subDomains});
 
 	cloudmade.addTo(map1);
 
+	//pinch2zoom disattivato
 	map1.touchZoom.disable();
 
-	var marker = L.marker([lati, longi]).addTo(map1);
-	marker.bindPopup("<p style='font-size:small'>Ti trovi qui</p>")
+	var marker = L.marker([lati, longi], {icon: purplePoi}).addTo(map1);
+	marker.bindPopup("<p style='font-size:small'>Tu sei qui</p>")
 			.openPopup();
-
-	//L.circle([lati, longi], 30000).addTo(map1);
 
 	//get lista parchi vicini
 	mappaVicini();
@@ -80,12 +85,6 @@ function mappaVicini()
 }
 function appendMappa(data)
 {
-	//icona personalizzata parchi
-	var greenIcon = L.icon({
-		iconUrl: 'img/poi.png',
-		iconAnchor:   [25, 41], // point of the icon which will correspond to marker's location
-		popupAnchor:  [-12.5, -35] // point from which the popup should open relative to the iconAnchor
-	});
 
 	//incollo i parchi
 	$.each(data, function(i, item) {
@@ -99,7 +98,7 @@ function appendMappa(data)
 			anteprimina = indirizzo+'/media/'+item.anteprima_path;
 		}
 
-    	var parchetto = L.marker([latitude, longitude], {icon: greenIcon}).addTo(map1);
+    	var parchetto = L.marker([latitude, longitude], {icon: greenPoi}).addTo(map1);
     	parchetto.bindPopup("<center><a href='javascript:apriParco("+item.id+")'><img class='imgNuvoletta' src='"+anteprimina+"' onError='this.onerror=null;this.src=\"./img/logo.jpg\";' /></a></center><button class='btn btn-sm around' onClick='apriParco("+item.id+")'>"+item.name+"</button>");
 	});
 }
@@ -118,19 +117,29 @@ function localizzaMap(lati, longi)
 		subDomains = ['otile1','otile2','otile3','otile4'],
 		cloudmadeAttrib = '<a href="http://open.mapquest.co.uk" target="_blank">MapQuest</a>, <a href="http://www.openstreetmap.org/" target="_blank">OpenStreetMap</a>, <a href="http://creativecommons.org/licenses/by-sa/2.0/" target="_blank">CC-BY-SA</a>';
 	 
-	var cloudmade = new L.TileLayer(cloudmadeUrl, {maxZoom: 18, attribution: cloudmadeAttrib, subdomains: subDomains});
+	var cloudmade = new L.TileLayer(cloudmadeUrl, {minZoom: 12, maxZoom: 18, noWrap:true, reuseTiles: true, attribution: cloudmadeAttrib, subdomains: subDomains});
 
 	cloudmade.addTo(map);
 
-	//disabilito scroll mappa
+	//scroll mappa e pinch2zoom disattivati
 	map.dragging.disable();
+	map.touchZoom.disable();
 
-	parchetto = creaPOI(lati,longi,"<p style='font-size:small'>Questo è il parco</p>");
+	parchetto = creaPOI(lati,longi,"<p style='font-size:small'>Si trova qui?</p>");
 	map.panTo(new L.LatLng(lati, longi));
 }
 
-function creaPOI(lat,lng, testo) {	
-	punto = L.marker([lat, lng]).addTo(map).bindPopup(testo);
+function creaPOI(lat, lng, testo)
+{
+	var greenPoi = L.icon({
+		iconUrl: 'img/greenPoi.png',
+		iconAnchor:   [25, 41],
+		popupAnchor:  [-12.5, -35]
+	});
+	
+	punto = L.marker([lat, lng], {icon: greenPoi}).addTo(map).bindPopup(testo)
+	.openPopup();
+
 	return punto
 }
 
