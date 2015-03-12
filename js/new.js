@@ -435,7 +435,7 @@ function caricaParcoEsistente()
 
 function datiInviati(data)
 {
-	alert('dati inviati '+data);
+	//alert('dati inviati '+data);
 
 	sessionStorage.idParco = data;
 	//se non ho caricato foto
@@ -468,7 +468,7 @@ function associaFotoParco()
 
 function associaOk(data)
 {
-	alert('immagini associate '+data);
+	//alert('immagini associate '+data);
 	parzialeClear();
 	window.location='inserisci_ok.html';
 }
@@ -478,10 +478,10 @@ function checkPermission()
 {
 	$("#autorizzazione").click(function()
 	{
-		alert('click');
+		//alert('click');
 		if($('input', this).is(':checked'))
 		{
-			alert('A checkato');
+			//alert('A checkato');
 
 			$('input', this).prop('checked', false);
 			$(this).removeClass('alert-success');
@@ -491,7 +491,7 @@ function checkPermission()
 			$('#completaFoto').attr('disabled', 'disabled');
 		}else
 		{
-			alert('B non checkato');
+			//alert('B non checkato');
 
 			$('input', this).prop('checked', true);
 			$(this).removeClass('alert-danger');

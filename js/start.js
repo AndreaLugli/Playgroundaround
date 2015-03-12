@@ -303,7 +303,7 @@ function modalGPS()
 
 function errorHandler(xhr, textStatus, thrownError)
 {
-	alert("Errore "+xhr.status+" "+xhr.responseText+" - "+textStatus);
+	//alert("Errore "+xhr.status+" "+xhr.responseText+" - "+textStatus);
 
 	console.log(xhr.status);
 	console.log(xhr.responseText);
