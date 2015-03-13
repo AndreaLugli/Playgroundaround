@@ -1,5 +1,6 @@
 var indirizzo = 'http://app.playgroundaroundthecorner.it';
-var debug = true;
+//var debug = true;
+var debug = false;
 
 var deviceType;
 
@@ -21,12 +22,12 @@ function partenza()
 		}
 
 		//CSS fixes
-		if(deviceType == 'iOS'){
+		/*if(deviceType == 'iOS'){
 			$('head').append('<link rel="stylesheet" type="text/css" href="css/style_around_ios.css">');		
 		}
 		else if(deviceType == 'Win'){
 			$('head').append('<link rel="stylesheet" type="text/css" href="css/style_around_win.css">');		
-		}
+		}*/
 
 	}
 
