@@ -4,7 +4,9 @@
 <widget xmlns     = "http://www.w3.org/ns/widgets"
         xmlns:gap = "http://phonegap.com/ns/1.0"
         id        = "it.scalebox.playgroundapp"
-        version   = "3.0.0">
+        version   = "3.0"
+        versionCode="3000"
+        >
 
     <name>Playground App</name>
     <description>
