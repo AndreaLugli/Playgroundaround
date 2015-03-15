@@ -9,12 +9,14 @@ document.addEventListener('deviceready', partenza, true);
 //AL CARICAMENTO DELLA PAGINA
 function partenza()
 {	
+	//controllo il tipo di device
+	deviceType = (navigator.userAgent.match(/iPad/i))  == "iPad" ? "iOS" : (navigator.userAgent.match(/iPhone/i))  == "iPhone" ? "iOS" : (navigator.userAgent.match(/Android/i)) == "Android" ? "Android" : (navigator.userAgent.match(/Windows Phone/i)) == "Windows Phone" ? "Win" : "null";
+	//alert(device.platform);
+	//"Android" | "iOS" | "Win32NT"
+
 	/**********DEV OR DEPLOY*********/
 	if(debug)
 	{
-		//controllo il tipo di device
-		deviceType = (navigator.userAgent.match(/iPad/i))  == "iPad" ? "iOS" : (navigator.userAgent.match(/iPhone/i))  == "iPhone" ? "iOS" : (navigator.userAgent.match(/Android/i)) == "Android" ? "Android" : (navigator.userAgent.match(/Windows Phone/i)) == "Windows Phone" ? "Win" : "null";
-
 		window.onerror = function (message, file, line)
 		{
 	    	alert("Error in Application: " +
