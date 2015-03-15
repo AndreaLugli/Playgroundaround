@@ -1,8 +1,9 @@
 var indirizzo = 'http://app.playgroundaroundthecorner.it';
 //var debug = true;
-var debug = false;
+var debug = true;
 
-var deviceType;
+var deviceType = device.platform;
+//"Android" | "iOS" | "Win32NT"
 
 document.addEventListener('deviceready', partenza, true);
 
@@ -10,9 +11,10 @@ document.addEventListener('deviceready', partenza, true);
 function partenza()
 {	
 	//controllo il tipo di device
-	deviceType = (navigator.userAgent.match(/iPad/i))  == "iPad" ? "iOS" : (navigator.userAgent.match(/iPhone/i))  == "iPhone" ? "iOS" : (navigator.userAgent.match(/Android/i)) == "Android" ? "Android" : (navigator.userAgent.match(/Windows Phone/i)) == "Windows Phone" ? "Win" : "null";
-	//alert(device.platform);
-	//"Android" | "iOS" | "Win32NT"
+	/*deviceType = (navigator.userAgent.match(/iPad/i))  == "iPad" ? "iOS" :
+	(navigator.userAgent.match(/iPhone/i))  == "iPhone" ? "iOS" :
+	(navigator.userAgent.match(/Android/i)) == "Android" ? "Android" :
+	(navigator.userAgent.match(/Windows Phone/i)) == "Windows Phone" ? "Win" : "null";*/
 
 	/**********DEV OR DEPLOY*********/
 	if(debug)
@@ -23,13 +25,15 @@ function partenza()
 		        message + ". Source File: " + file + ", Line: " + line);
 		}
 
+		alert(device.platform);
+
 		//CSS fixes
-		/*if(deviceType == 'iOS'){
+		if(deviceType == 'iOS'){
 			$('head').append('<link rel="stylesheet" type="text/css" href="css/style_around_ios.css">');		
 		}
-		else if(deviceType == 'Win'){
+		else if(deviceType == 'Win32NT' || deviceType == 'WinCE'){
 			$('head').append('<link rel="stylesheet" type="text/css" href="css/style_around_win.css">');		
-		}*/
+		}
 
 	}
 

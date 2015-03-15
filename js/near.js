@@ -372,7 +372,7 @@ function appendParco(data){
 		$("#address button").attr("onClick","window.location = 'maps:daddr="+data.latitude+","+data.longitude+"'");
 	}
 	//bottone Win
-	else if(deviceType == 'Win')
+	else if(deviceType == 'Win32NT' || deviceType == 'WinCE')
 	{
 		$("#address button").hide();
 	}
