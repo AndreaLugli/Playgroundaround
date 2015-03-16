@@ -369,7 +369,8 @@ function appendParco(data){
 	//bottone iOS
 	if(deviceType == 'iOS')
 	{
-		$("#address button").attr("onClick","window.location = 'maps:q="+data.latitude+","+data.longitude+"'");
+		$("#address button").attr("onClick","window.location='maps:q="+data.latitude+","+data.longitude+"'");
+		alert(data.latitude+" "+data.longitude);
 	}
 	//bottone Win
 	else if(deviceType == 'Win32NT' || deviceType == 'WinCE')

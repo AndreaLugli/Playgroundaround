@@ -1,6 +1,6 @@
 var indirizzo = 'http://app.playgroundaroundthecorner.it';
 //var debug = true;
-var debug = false;
+var debug = true;
 
 var deviceType = device.platform;
 //"Android" | "iOS" | "Win32NT"
