@@ -373,7 +373,7 @@ function appendParco(data){
 		alert(data.latitude+" "+data.longitude);
 	}
 	//bottone Win
-	else if(deviceType == 'Win32NT' || deviceType == 'WinCE')
+	else if(deviceType == 'Win')
 	{
 		$("#address button").hide();
 	}

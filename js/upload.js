@@ -142,7 +142,7 @@ function uploadPhoto(imageData)
 {
 	//mostro caricamento
 	$('#cortina').fadeIn();
-	if(deviceType == 'Win32NT' || deviceType == 'WinCE')
+	if(deviceType == 'Win')
 	{
 		$('#container').hide();
 		$('#navbar').hide();
@@ -209,7 +209,7 @@ function win(data)
 	}
 
 	//rimuovo caricamento
-	if(deviceType == 'Win32NT' || deviceType == 'WinCE')
+	if(deviceType == 'Win')
 	{
 		$('#container').show();
 		$('#navbar').show();
@@ -240,7 +240,7 @@ function fail(data)
 	}
 	
 	//rimuovo caricamento
-	if(deviceType == 'Win32NT' || deviceType == 'WinCE')
+	if(deviceType == 'Win')
 	{
 		$('#container').show();
 		$('#navbar').show();
