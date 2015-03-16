@@ -100,9 +100,6 @@
     <icon src="res/icon/iOS/Icon-Small-50.png" gap:platform="ios" width="50" height="50" />
     <icon src="res/icon/iOS/Icon-Small-50@2x.png" gap:platform="ios" width="100" height="100" />
 
-    <!------------------>
-
-
     
 
     <!-- Splash screen -->
