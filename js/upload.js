@@ -45,6 +45,7 @@ function openPhotoUpload()
 
 		//tornare alla pagina di inserimento dati
 		$('#container').append('<button id="completaFoto" style="display:none; margin-bottom:50pt;" class="btn btn-lg btn-block btn-success" type="button" onClick="window.location=\'inserisci_dati.html\';" disabled="disabled"><i class="fa fa-check-circle-o"></i> Completa</button>');
+		$('#container').append('<div class="maxiSpacing"></div><div class="maxiSpacing"></div>');
 	}
 	else if(sessionStorage.provenienza == 'vecchio')
 	{
@@ -53,6 +54,7 @@ function openPhotoUpload()
 		//fare chiamata di associazione + andare a pagina di conferma
 		$('#container').append('<div id="emailFoto" style="display:none;" class="input-group input-group-lg"><span class="input-group-addon">Email*</span><input id="email" type="email" class="form-control" /></div>');
 		$('#container').append('<button id="completaFoto" style="display:none; margin-bottom:50pt;" class="btn btn-lg btn-block btn-success" type="button" onClick="caricaParcoEsistente()" disabled="disabled"><i class="fa fa-check-circle-o"></i> Completa</button>');
+		$('#container').append('<div class="maxiSpacing"></div><div class="maxiSpacing"></div>');
 	}
 
 	checkPermission();

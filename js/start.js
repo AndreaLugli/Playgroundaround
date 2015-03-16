@@ -1,5 +1,5 @@
 var indirizzo = 'http://app.playgroundaroundthecorner.it';
-var debug = true;
+var debug = false;
 
 var deviceType;
 
@@ -14,11 +14,12 @@ function partenza()
 	(navigator.userAgent.match(/Android/i)) == "Android" ? "Android" :
 	(navigator.userAgent.match(/Windows Phone/i)) == "Windows Phone" ? "Win" : "null";*/
 	deviceType = device.platform;
-	alert(deviceType);
 
 	/**********DEV OR DEPLOY*********/
 	if(debug)
 	{
+		//alert(deviceType);
+
 		window.onerror = function (message, file, line)
 		{
 	    	alert("Error in Application: " +
