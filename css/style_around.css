@@ -543,7 +543,7 @@ textarea{
 	padding:1%;
 }
 .maxiSpacing{
-	padding:3%;
+	padding:5%;
 }
 
 /*informazioni*/
@@ -928,7 +928,6 @@ body.tutorial button{
 }
 #container{
 	padding-top:40pt;
-	padding-bottom:20pt;
 }
 body.tutorial{
 	padding-top:20pt;
