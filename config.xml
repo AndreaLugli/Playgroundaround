@@ -5,7 +5,7 @@
         xmlns:gap = "http://phonegap.com/ns/1.0"
         id        = "it.socialcities.playgroundapp"
         version   = "3.0"
-        versionCode="3000"
+        versionCode="3001"
         >
 
     <name>Playground App</name>
