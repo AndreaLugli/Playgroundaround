@@ -145,10 +145,6 @@ function goHome()
 
 	if(sessionStorage.lat && sessionStorage.imgPath)
         {
-            //$('#header h2').html(sessionStorage.headTitle);
-            //$('#header .imgCover').css('background-image','url('+indirizzo+sessionStorage.imgPath+')');
-            //$('#header .imgCover').fadeIn('slow');
-            
             getPromo();
             checkCover();
         }

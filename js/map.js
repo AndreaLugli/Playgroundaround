@@ -122,7 +122,7 @@ function localizzaMap(lati, longi)
 	cloudmade.addTo(map);
 
 	//scroll mappa e pinch2zoom disattivati
-	map.dragging.disable();
+	//map.dragging.disable();
 	map.touchZoom.disable();
 
 	parchetto = creaPOI(lati,longi,"<p style='font-size:small'>Si trova qui?</p>");

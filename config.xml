@@ -29,8 +29,8 @@
     <preference name="orientation" value="portrait" />
     <preference name="target-device"              value="universal" /> 
 
-    <preference name="fullscreen"                 value="false" />      <!--FALSE PER TUTTO IL RESTO-->
-    <!--<preference name="fullscreen"                 value="true" />               TRUE PER WINDOWS-->
+    <!--<preference name="fullscreen"              value="false" /> FALSE PER GLI ALTRI-->
+    <preference name="fullscreen"                  value="true" />
     
     <preference name="webviewbounce"              value="true" />
     <preference name="prerendered-icon"           value="true" />           

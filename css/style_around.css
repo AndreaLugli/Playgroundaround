@@ -72,7 +72,6 @@ h1{			/*titolo index*/
 	color: #f7f4ed;
 	text-transform:uppercase;
 	background-color:#27c39e;
-	opacity:0.9;
 }
 h2, h2 span{	/*titoli pagine*/
 	font-size:x-large;
@@ -99,6 +98,7 @@ a, a:hover, a:visited, button{
 	font-weight:bold;
 	max-width:150pt;
 	overflow:hidden;
+	font-size:small !important;
 }
 .btn-default, .btn-default:hover, .btn-default:focus{
 	background-color:#f7f4ed;
@@ -183,6 +183,7 @@ textarea{
 .navbar button{
 	float:right;
 	margin:5pt;
+	font-size:small !important;
 }
 #logoNav img{
 	height:22pt;
@@ -920,3 +921,4 @@ body.tutorial button{
 	width:80%;
 	margin-left:10%;
 	margin-bottom:5%;
+}
