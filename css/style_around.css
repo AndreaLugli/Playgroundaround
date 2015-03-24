@@ -169,6 +169,7 @@ textarea{
 #navbar{
 	top:0;
 	z-index:99;
+	background-color:#464646;
 }
 .navbar {
 	color:#27c39e !important;
@@ -919,16 +920,4 @@ body.tutorial button{
 	width:80%;
 	margin-left:10%;
 	margin-bottom:5%;
-}
-
-/*******************iOS********************/
-#navbar{
-	padding-top:10pt;
-	height:45pt;
-}
-#container{
-	padding-top:40pt;
-}
-body.tutorial{
-	padding-top:20pt;
 }

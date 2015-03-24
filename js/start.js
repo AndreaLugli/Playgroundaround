@@ -8,18 +8,9 @@ document.addEventListener('deviceready', partenza, true);
 //AL CARICAMENTO DELLA PAGINA
 function partenza()
 {	
-	//controllo il tipo di device
-	/*deviceType = (navigator.userAgent.match(/iPad/i))  == "iPad" ? "iOS" :
-	(navigator.userAgent.match(/iPhone/i))  == "iPhone" ? "iOS" :
-	(navigator.userAgent.match(/Android/i)) == "Android" ? "Android" :
-	(navigator.userAgent.match(/Windows Phone/i)) == "Windows Phone" ? "Win" : "null";*/
-	deviceType = device.platform;
-
 	/**********DEV OR DEPLOY*********/
 	if(debug)
 	{
-		//alert(deviceType);
-
 		window.onerror = function (message, file, line)
 		{
 	    	alert("Error in Application: " +
@@ -27,10 +18,10 @@ function partenza()
 		}
 
 		//CSS fixes
-		if(deviceType == 'iOS'){
+		if(sessionStorage.device == 'iOS'){
 			$('head').append('<link rel="stylesheet" type="text/css" href="css/style_around_ios.css">');		
 		}
-		else if(deviceType == 'Win32NT' || deviceType == 'WinCE'){
+		else if(sessionStorage.device == 'Win32NT'){
 			$('head').append('<link rel="stylesheet" type="text/css" href="css/style_around_win.css">');		
 		}
 
@@ -100,7 +91,7 @@ function popHome()
           '<a id="logoNav" class="navbar-brand" href="index_home.html">'+
             '<img alt="brand" src="./img/logo_nav.png">'+
           '</a>'+
-          '<button type="button" class="btn navbar-btn btn-sm around" onClick="window.location=\'inserisci_coord.html\'"><i class="fa fa-plus"></i> Nuovo parco</button>'+
+          '<button type="button" class="btn navbar-btn btn-sm around" onClick="window.location=\'inserisci_coord.html\'"><i class="fa fa-plus"></i> Nuovo</button>'+
         '</div>'+
       '</div>'+
     '</nav>');
@@ -125,7 +116,7 @@ function popBack(back)
           //'<a id="logoNav" class="navbar-brand" href="javascript:history.go(-1);">'+
             '<img alt="brand" src="./img/logo_nav_back.png">'+
           '</a>'+
-          '<button type="button" class="btn navbar-btn btn-sm around" onClick="window.location=\'inserisci_coord.html\'"><i class="fa fa-plus"></i> Nuovo parco</button>'+
+          '<button type="button" class="btn navbar-btn btn-sm around" onClick="window.location=\'inserisci_coord.html\'"><i class="fa fa-plus"></i> Nuovo</button>'+
         '</div>'+
       '</div>'+
     '</nav>');

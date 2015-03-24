@@ -17,7 +17,8 @@
  * under the License.
  */
 var app = {
-    initialize: function() {
+    initialize: function()
+    {
         this.bindEvents();
 
         //se non è il primo avvio, non mostro il tutorial
@@ -32,11 +33,16 @@ var app = {
         }
     },
     
-    bindEvents: function() {
+    bindEvents: function()
+    {
         document.addEventListener('deviceready', this.onDeviceReady, false);
     },
     
-    onDeviceReady: function() {
+    onDeviceReady: function()
+    {
         $.support.cors = true;
+        
+        //quale OS ho in uso?
+        sessionStorage.device = device.platform;
     },
 };

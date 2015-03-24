@@ -76,7 +76,7 @@ function searchPosizione(back)
 
 	$('h2 span:nth-of-type(2)').html(sessionStorage.place);
 
-	distanza = 10;
+	distanza = 16;
 
 	//get lista parchi trovati
 	$.ajaxSetup({ cache: false });
@@ -95,7 +95,7 @@ function openVicini(back)
 {
 	popBack(back);
 	$('#loader').show();
-	listaVicini(3);
+	listaVicini(8);
 }
 function listaVicini(distanza)
 {
@@ -133,9 +133,9 @@ function appendVicini(data)
 
 
 		name = jsonVicini[i].name;
-		if(name.length >= 30)
+		if(name.length >= 20)
 		{
-			name = name.substring(0,29)+' [...]';
+			name = name.substring(0,19)+' [...]';
 		}
 		
 		//target = jsonVicini[i].age_min+' - '+jsonVicini[i].age_max+' years';
@@ -197,7 +197,7 @@ function allargaRaggio()
 	$('#loader').show();
 	$('#interruttore').html('<i class="fa fa-compass"></i> Restringi la ricerca');
 	$('#interruttore').attr('onClick', 'restringiRaggio();');
-	listaVicini(10);
+	listaVicini(16);
 }
 function restringiRaggio()
 {
@@ -206,7 +206,7 @@ function restringiRaggio()
 	$('#loader').show();
 	$('#interruttore').html('<i class="fa fa-compass"></i> Allarga la ricerca');
 	$('#interruttore').attr('onClick', 'allargaRaggio();');
-	listaVicini(3);
+	listaVicini(8);
 }
 
 //onclick parco
@@ -367,12 +367,12 @@ function appendParco(data){
 	$('#address').append("<button class='btn btn-block btn-lg btn-success' onClick='location.href=\"geo:"+sessionStorage.lat+","+sessionStorage.longi+"?q="+data.latitude+","+data.longitude+"\";'><i class='fa fa-compass'></i> Come arrivare</button>");
 
 	//bottone iOS
-	if(deviceType == 'iOS')
+	if(sessionStorage.device == 'iOS')
 	{
 		$("#address button").attr("onClick","window.location='maps:q="+data.latitude+","+data.longitude+"'");
 	}
 	//bottone Win
-	else if(deviceType == 'Win32NT' || deviceType == 'WinCE')
+	else if(sessionStorage.device == 'Win32NT')
 	{
 		$("#address button").hide();
 	}
