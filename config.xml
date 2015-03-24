@@ -3,9 +3,9 @@
 <!-- config.xml reference: https://build.phonegap.com/docs/config-xml -->
 <widget xmlns     = "http://www.w3.org/ns/widgets"
         xmlns:gap = "http://phonegap.com/ns/1.0"
-        id        = "it.scalebox.playgroundapp"
+        id        = "it.socialcities.playgroundapp"
         version   = "3.0"
-        versionCode="3000"
+        versionCode="3001"
         >
 
     <name>Playground App</name>
