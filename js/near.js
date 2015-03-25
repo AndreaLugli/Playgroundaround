@@ -40,19 +40,6 @@ function autocompletamento()
 
 	var autocomplete = new google.maps.places.Autocomplete((document.getElementById('positionSearch')));
 
-	/****************/
-	$('#positionSearch').keyup(function(e) {
-    var container = $('.pac-container').first();
-	    if (container.offset().top > $(this).offset().top + $(this).outerHeight()) {
-	      container.offset(
-	        {
-	          top: $(this).offset().top + $(this).outerHeight()
-	        }
-	      );
-	    }
-	  });
-	/*****************/
-
 	$('#cortina').fadeOut();
 	 
 	google.maps.event.addListener(autocomplete, 'place_changed', function() {
@@ -62,6 +49,20 @@ function autocompletamento()
 		sessionStorage.latiSearch = place.geometry.location.lat();
 		sessionStorage.longiSearch = place.geometry.location.lng();
 	});
+
+	/****************/
+	$('#positionSearch').keyup(function(e)
+	{
+    	var gContainer = $('.pac-container').first();
+	    if (gContainer.offset().top > $(this).offset().top + $(this).outerHeight())
+	    {
+	    	gContainer.offset({
+	          top: $(this).offset().top + $(this).outerHeight()
+	        });
+	    }
+	});
+	/*****************/
+
 }
 function getPosto()
 {
