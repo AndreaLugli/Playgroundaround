@@ -39,18 +39,21 @@ function autocompletamento()
 	$('input').val('');
 
 	var input = (document.getElementById('positionSearch')); 
-	var autocomplete = new google.maps.places.Autocomplete(input);
 
-	/*IE fix*/
-	var fixEutocompleteInterval = window.setInterval(function(){
-	    var $container = $('body > .pac-container');
-	    if ($container.length == 0) return;
-	    // Move the autocomplete element just below the input.
-	    $container.appendTo($('#address').parent());
-	    // The fix is finished, stop working.
-	    window.clearInterval(fixEutocompleteInterval);
-	}, 500);
-	/*IE fix*/
+	/****************/
+	$('#positionSearch').keyup(function(e) {
+    var container = $('.pac-container').first();
+	    if (container.offset().top > $(this).offset().top + $(this).outerHeight()) {
+	      container.offset(
+	        {
+	          top: $(this).offset().top + $(this).outerHeight()
+	        }
+	      );
+	    }
+	  });
+	/*****************/
+
+	var autocomplete = new google.maps.places.Autocomplete(input);
 
 	$('#cortina').fadeOut();
 	 

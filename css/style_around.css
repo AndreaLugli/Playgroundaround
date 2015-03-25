@@ -881,13 +881,7 @@ h3 + hr{
 	 margin:10% 0 8% 0;
 }
 
-/*panel google - fix IE*/
-#address_container {
-    position: relative;
-}
-.pac-container {
-    position: absolute !important;
-}
+/*panel google*/
 .pac-container div{
 	padding:10pt 3pt !important;
 }
