@@ -557,7 +557,7 @@ textarea{
 	clear:both;
 }
 #parcoInfo div{
-	width:100%;
+	width:96%;
 	padding:0;
 	margin:2%;
 	clear:both;
@@ -567,6 +567,7 @@ textarea{
 }
 #parcoInfo div:nth-of-type(2) span{
 	display:block;
+	margin:4pt auto;
 }
 #parcoInfo div:nth-of-type(3){
 	margin:-2pt;

@@ -314,21 +314,29 @@ function appendParco(data){
 	voto2 = getStelline(data.evaluation);
 
 	target2 = data.age_min+'-'+data.age_max+' anni';
-	if(data.age_min == 0 && data.age_max == 0){
+	if(data.age_min == 0 && data.age_max == 0)
+	{
 		//target2 = 'not available';
 		target2 = '0-99 anni';
 	}
 	opening2 = data.opening_hours;
-	if(opening2.length < 2){
+	if(opening2.length < 2)
+	{
 		//opening2 = 'not available';
 		opening2 = '0-24';
 	}
+	other2 = '<b>NOTE:</b> '+data.other;
+	if(other2.length < 14)
+	{
+		other2 = '';
+	}
+
 	
 	//servizi
 	$('#parcoInfo div:first-of-type').html('<button class="btn btn-block btn-default" onClick="modalServizi();">'+servizi2+'</button>');
 	//età | orario
 	//$('#parcoInfo div:nth-of-type(2)').html('<span>TARGET: '+target2+'</span><span>OPENING: '+opening2+'</span>');
-	$('#parcoInfo div:nth-of-type(2)').html('<span>ETÀ: '+target2+'</span><span>ORARIO APERTURA: '+opening2+'</span>');
+	$('#parcoInfo div:nth-of-type(2)').html('<span><b>ETÀ:</b> '+target2+'</span><span><b>ORARIO APERTURA:</b> '+opening2+'</span><span>'+other2+'</span>');
 	//rating
 	$('#parcoInfo div:nth-of-type(3)').html(voto2);
 
