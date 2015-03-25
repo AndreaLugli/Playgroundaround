@@ -15,13 +15,13 @@ function partenza()
 		        message + ". Source File: " + file + ", Line: " + line);
 		}
 
-		alert(sessionStorage.os);
+		alert(sessionStorage.dispositivo);
 
 		//CSS fixes
-		if(sessionStorage.os == 'iOS'){
+		if(sessionStorage.dispositivo == 'iOS'){
 			$('head').append('<link rel="stylesheet" type="text/css" href="css/style_around_ios.css">');		
 		}
-		else if(sessionStorage.os == 'Win'){
+		else if(sessionStorage.dispositivo == 'Win32NT'){
 			$('head').append('<link rel="stylesheet" type="text/css" href="css/style_around_win.css">');		
 		}
 

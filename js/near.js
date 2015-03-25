@@ -3,7 +3,7 @@ function openRicerca()
 {
 	popBack('index_home.html');
 
-	if(sessionStorage.os != 'Win')
+	if(sessionStorage.dispositivo != 'Win32NT')
 	{
 		autocompletamento();
 	}
@@ -98,7 +98,7 @@ function searchPosizione(back)
 	//get lista parchi trovati
 	$.ajaxSetup({ cache: false });
 
-	if(sessionStorage.os != 'Win')
+	if(sessionStorage.dispositivo != 'Win32NT')
 	{
 		$.ajax({
 			type: 'GET',
@@ -406,11 +406,11 @@ function appendParco(data){
 	$('#address').append("<button class='btn btn-block btn-lg btn-success' onClick='location.href=\"geo:"+sessionStorage.lat+","+sessionStorage.longi+"?q="+data.latitude+","+data.longitude+"\";'><i class='fa fa-compass'></i> Come arrivare</button>");
 
 	//bottone iOS
-	if(sessionStorage.os == 'iOS')
+	if(sessionStorage.dispositivo == 'iOS')
 	{
 		$("#address button").attr("onClick","window.location='maps:q="+data.latitude+","+data.longitude+"'");
 	}
-	else if(sessionStorage.os == 'Win')
+	else if(sessionStorage.dispositivo == 'Win32NT')
 	{
 		//bottone Win
 		$("#address button").hide();
