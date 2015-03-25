@@ -41,6 +41,17 @@ function autocompletamento()
 	var input = (document.getElementById('positionSearch')); 
 	var autocomplete = new google.maps.places.Autocomplete(input);
 
+	/*IE fix*/
+	var fixEutocompleteInterval = window.setInterval(function(){
+	    var $container = $('body > .pac-container');
+	    if ($container.length == 0) return;
+	    // Move the autocomplete element just below the input.
+	    $container.appendTo($('#address').parent());
+	    // The fix is finished, stop working.
+	    window.clearInterval(fixEutocompleteInterval);
+	}, 500);
+	/*IE fix*/
+
 	$('#cortina').fadeOut();
 	 
 	google.maps.event.addListener(autocomplete, 'place_changed', function() {
