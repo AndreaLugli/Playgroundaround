@@ -3,7 +3,7 @@ function openRicerca()
 {
 	popBack('index_home.html');
 
-	if(sessionStorage.device != ''Win32NT'')
+	if(sessionStorage.device != 'Win32NT')
 	{
 		autocompletamento();
 	}
