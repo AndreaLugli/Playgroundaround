@@ -3,7 +3,7 @@ function openRicerca()
 {
 	popBack('index_home.html');
 
-	if(sessionStorage.device != 'Win32NT')
+	if(sessionStorage.os != 'Win32NT')
 	{
 		autocompletamento();
 	}
@@ -98,7 +98,7 @@ function searchPosizione(back)
 	//get lista parchi trovati
 	$.ajaxSetup({ cache: false });
 
-	if(sessionStorage.device != 'Win32NT')
+	if(sessionStorage.os != 'Win32NT')
 	{
 		$.ajax({
 			type: 'GET',
@@ -111,7 +111,7 @@ function searchPosizione(back)
 
 		$.ajax({
 			type: 'GET',
-			url: indirizzo+'ricerca_nome_indirizzo?testo='+sessionStorage.place,		
+			url: indirizzo+'/ricerca_nome_indirizzo?testo='+sessionStorage.place,		
 			success: appendVicini,
 			error: errorHandler
 		});
@@ -406,11 +406,11 @@ function appendParco(data){
 	$('#address').append("<button class='btn btn-block btn-lg btn-success' onClick='location.href=\"geo:"+sessionStorage.lat+","+sessionStorage.longi+"?q="+data.latitude+","+data.longitude+"\";'><i class='fa fa-compass'></i> Come arrivare</button>");
 
 	//bottone iOS
-	if(sessionStorage.device == 'iOS')
+	if(sessionStorage.os == 'iOS')
 	{
 		$("#address button").attr("onClick","window.location='maps:q="+data.latitude+","+data.longitude+"'");
 	}
-	else if(sessionStorage.device == 'Win32NT')
+	else if(sessionStorage.os == 'Win32NT')
 	{
 		//bottone Win
 		$("#address button").hide();

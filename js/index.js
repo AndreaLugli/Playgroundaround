@@ -43,6 +43,6 @@ var app = {
         $.support.cors = true;
         
         //quale OS ho in uso?
-        sessionStorage.device = device.platform;
+        sessionStorage.os = device.platform;
     },
 };
