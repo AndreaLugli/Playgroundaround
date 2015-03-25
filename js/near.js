@@ -1,3 +1,20 @@
+/************************************************RICERCA*/
+function openRicerca()
+{
+	popBack('index_home.html');
+
+	if(sessionStorage.device != ''Win32NT'')
+	{
+		autocompletamento();
+	}
+	else{
+		$('#positionSearch').attr('placeholder', 'Inserisci una località');
+		$('#cortina').fadeOut();
+	}
+
+}
+
+
 /*****************************************RICERCA*TITOLO*/
 function getTitolo()
 {
@@ -50,19 +67,6 @@ function autocompletamento()
 		sessionStorage.longiSearch = place.geometry.location.lng();
 	});
 
-	/****************/
-	$('#positionSearch').keyup(function(e)
-	{
-    	var gContainer = $('.pac-container').first();
-	    if (gContainer.offset().top > $(this).offset().top + $(this).outerHeight())
-	    {
-	    	gContainer.offset({
-	          top: $(this).offset().top + $(this).outerHeight()
-	        });
-	    }
-	});
-	/*****************/
-
 }
 function getPosto()
 {
@@ -93,12 +97,26 @@ function searchPosizione(back)
 
 	//get lista parchi trovati
 	$.ajaxSetup({ cache: false });
-	$.ajax({
-		type: 'GET',
-		url: indirizzo+'/search_near?lat='+sessionStorage.latiSearch+'&lng='+sessionStorage.longiSearch+'&distanza='+distanza,		
-		success: appendVicini,
-		error: errorHandler
-	});
+
+	if(sessionStorage.device != 'Win32NT')
+	{
+		$.ajax({
+			type: 'GET',
+			url: indirizzo+'/search_near?lat='+sessionStorage.latiSearch+'&lng='+sessionStorage.longiSearch+'&distanza='+distanza,		
+			success: appendVicini,
+			error: errorHandler
+		});
+	}
+	else{	//winphone ha una ricerca del luogo ad hoc
+
+		$.ajax({
+			type: 'GET',
+			url: indirizzo+'ricerca_nome_indirizzo?testo='+sessionStorage.place,		
+			success: appendVicini,
+			error: errorHandler
+		});
+
+	}
 }
 
 
@@ -392,9 +410,9 @@ function appendParco(data){
 	{
 		$("#address button").attr("onClick","window.location='maps:q="+data.latitude+","+data.longitude+"'");
 	}
-	//bottone Win
 	else if(sessionStorage.device == 'Win32NT')
 	{
+		//bottone Win
 		$("#address button").hide();
 	}
 
