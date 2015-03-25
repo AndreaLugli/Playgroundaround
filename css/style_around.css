@@ -881,6 +881,11 @@ h3 + hr{
 	 margin:10% 0 8% 0;
 }
 
+/*panel google*/
+.pac-container div{
+	padding:10pt 3pt !important;
+}
+
 /*******************************TROVATI*/
 #trovati{
 	margin-top:5%;
