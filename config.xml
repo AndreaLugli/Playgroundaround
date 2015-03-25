@@ -40,7 +40,7 @@
     <preference name="android-minSdkVersion"      value="7" />
     <preference name="android-installLocation"    value="auto" />
 
-    <preference name="StatusBarStyle" value="lightcontent" />  <!--plugin statusbar iOS-->
+    <!--<preference name="StatusBarStyle" value="lightcontent" />-->
     <preference name="deployment-target" value="7.0" />
     <preference name="EnableViewportScale" value="true"/>
     <preference name="MediaPlaybackRequiresUserAction" value="true"/>
@@ -68,9 +68,7 @@
     <gap:plugin name="org.apache.cordova.splashscreen" />
     <gap:plugin name="org.apache.cordova.file-transfer" />
     <gap:plugin name="org.apache.cordova.camera" />
-    <gap:plugin name="org.apache.cordova.splashscreen" />
-
-    <gap:plugin name="org.apache.cordova.statusbar" version="0.1.4" />
+    <!--<gap:plugin name="org.apache.cordova.statusbar" version="0.1.4" />-->
 
 
     <!-- Icons-->

@@ -44,7 +44,7 @@ var app = {
         
         //quale OS ho in uso?
         sessionStorage.dispositivo = device.platform;
-        if(device.platform === undefined)
+        if(typeof sessionStorage.dispositivo === "undefined")
         {
             sessionStorage.dispositivo = 'Win32NT';
         }

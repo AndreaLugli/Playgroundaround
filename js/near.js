@@ -3,7 +3,7 @@ function openRicerca()
 {
 	popBack('index_home.html');
 
-	if(sessionStorage.dispositivo != 'Win32NT')
+	if(sessionStorage.dispositivo == 'Android' || sessionStorage.dispositivo == 'iOS')
 	{
 		autocompletamento();
 	}
@@ -98,7 +98,7 @@ function searchPosizione(back)
 	//get lista parchi trovati
 	$.ajaxSetup({ cache: false });
 
-	if(sessionStorage.dispositivo != 'Win32NT')
+	if(sessionStorage.dispositivo == 'Android' || sessionStorage.dispositivo == 'iOS')
 	{
 		$.ajax({
 			type: 'GET',
