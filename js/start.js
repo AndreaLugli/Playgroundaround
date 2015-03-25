@@ -21,7 +21,7 @@ function partenza()
 		if(sessionStorage.os == 'iOS'){
 			$('head').append('<link rel="stylesheet" type="text/css" href="css/style_around_ios.css">');		
 		}
-		else if(sessionStorage.os == 'Win32NT'){
+		else if(sessionStorage.os == 'Win'){
 			$('head').append('<link rel="stylesheet" type="text/css" href="css/style_around_win.css">');		
 		}
 

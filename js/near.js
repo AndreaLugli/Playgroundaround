@@ -3,7 +3,7 @@ function openRicerca()
 {
 	popBack('index_home.html');
 
-	if(sessionStorage.os != 'Win32NT')
+	if(sessionStorage.os != 'Win')
 	{
 		autocompletamento();
 	}
@@ -98,7 +98,7 @@ function searchPosizione(back)
 	//get lista parchi trovati
 	$.ajaxSetup({ cache: false });
 
-	if(sessionStorage.os != 'Win32NT')
+	if(sessionStorage.os != 'Win')
 	{
 		$.ajax({
 			type: 'GET',
@@ -410,7 +410,7 @@ function appendParco(data){
 	{
 		$("#address button").attr("onClick","window.location='maps:q="+data.latitude+","+data.longitude+"'");
 	}
-	else if(sessionStorage.os == 'Win32NT')
+	else if(sessionStorage.os == 'Win')
 	{
 		//bottone Win
 		$("#address button").hide();
