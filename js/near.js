@@ -38,7 +38,7 @@ function autocompletamento()
 	//quando ricarico la pagina azzero
 	$('input').val('');
 
-	var input = (document.getElementById('positionSearch')); 
+	var autocomplete = new google.maps.places.Autocomplete((document.getElementById('positionSearch')));
 
 	/****************/
 	$('#positionSearch').keyup(function(e) {
@@ -52,8 +52,6 @@ function autocompletamento()
 	    }
 	  });
 	/*****************/
-
-	var autocomplete = new google.maps.places.Autocomplete(input);
 
 	$('#cortina').fadeOut();
 	 
