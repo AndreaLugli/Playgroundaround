@@ -15,13 +15,13 @@ function partenza()
 		        message + ". Source File: " + file + ", Line: " + line);
 		}
 
-		alert(sessionStorage.dispositivo);
+		alert(localStorage.dispositivo);
 
 		//CSS fixes
-		if(sessionStorage.dispositivo == 'iOS'){
+		if(localStorage.dispositivo == 'iOS'){
 			$('head').append('<link rel="stylesheet" type="text/css" href="css/style_around_ios.css">');		
 		}
-		else if(sessionStorage.dispositivo == 'Win'){
+		else if(localStorage.dispositivo == 'Win'){
 			$('head').append('<link rel="stylesheet" type="text/css" href="css/style_around_win.css">');		
 		}
 
@@ -141,9 +141,6 @@ function scrollAlto()
 /****************LOCALIZZAZIONE*/
 function goHome()
 {
-	//quale OS ho in uso?
-    sessionStorage.dispositivo = (navigator.userAgent.match(/iPad/i))  == "iPad" ? "iOS" : (navigator.userAgent.match(/iPhone/i))  == "iPhone" ? "iOS" : (navigator.userAgent.match(/Android/i)) == "Android" ? "Android" : (navigator.userAgent.match(/Windows Phone/i)) == "Windows Phone" ? "Win" : "null";
-   
 	popHome();
 
 	if(sessionStorage.lat && sessionStorage.imgPath)
