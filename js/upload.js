@@ -200,7 +200,8 @@ function win(data)
 	alert(sessionStorage.listaPathFoto);*/
 
 	//mostro anteprima
-	$('#containerFoto').append('<img src="'+sessionStorage.photo+'" />');
+	//$('#containerFoto').append('<img src="'+sessionStorage.photo+'" />');
+	$('#containerFoto div').html(sessionStorage.listaPathFoto);
 
 	//aggiorno contatore
 	sessionStorage.fotoMancanti = sessionStorage.fotoMancanti-1;

@@ -939,3 +939,6 @@ body.tutorial button{
 .btn{
 	font-size:large;
 }
+#loader i{
+	font-size:40pt;
+}
