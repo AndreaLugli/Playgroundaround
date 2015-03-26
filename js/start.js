@@ -72,6 +72,14 @@ function gestioneBackbutton()
 	        window.location='inserisci_coord.html';
 	        break;
 
+	    case 'Playground | commenta_parco':
+	        window.location='index_home.html';
+	        break;
+
+	    case 'Playground | inserisci_foto':
+	        window.location='index_home.html';
+	        break;
+
 	    default:
 	        navigator.app.backHistory();
 	}

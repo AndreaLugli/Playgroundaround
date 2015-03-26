@@ -945,3 +945,6 @@ body.tutorial button{
 #address, #articolo p, #parcoInfo span{
 	font-size:large;
 }
+#footer a, #page span{
+	font-size:medium;
+}
