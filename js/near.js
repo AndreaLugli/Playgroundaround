@@ -410,7 +410,7 @@ function appendParco(data){
 	{
 		$("#address button").attr("onClick","window.location='maps:q="+data.latitude+","+data.longitude+"'");
 	}
-	else if(sessionStorage.dispositivo == 'Win32NT')
+	else if(sessionStorage.dispositivo == 'Win')
 	{
 		//bottone Win
 		$("#address button").hide();

@@ -16,12 +16,13 @@ function partenza()
 		}
 
 		alert(sessionStorage.dispositivo);
+		alert(sessionStorage.dispositivo1);
 
 		//CSS fixes
 		if(sessionStorage.dispositivo == 'iOS'){
 			$('head').append('<link rel="stylesheet" type="text/css" href="css/style_around_ios.css">');		
 		}
-		else if(sessionStorage.dispositivo == 'Win32NT'){
+		else if(sessionStorage.dispositivo == 'Win'){
 			$('head').append('<link rel="stylesheet" type="text/css" href="css/style_around_win.css">');		
 		}
 
