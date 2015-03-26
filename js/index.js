@@ -41,14 +41,5 @@ var app = {
     onDeviceReady: function()
     {
         $.support.cors = true;
-        
-        sessionStorage.dispositivo1 = device.platform;
-        if(typeof sessionStorage.dispositivo1 === undefined)
-        {
-            sessionStorage.dispositivo1 = 'Win32NT';
-        }
-
-        //quale OS ho in uso?
-        sessionStorage.dispositivo = (navigator.userAgent.match(/iPad/i))  == "iPad" ? "iOS" : (navigator.userAgent.match(/iPhone/i))  == "iPhone" ? "iOS" : (navigator.userAgent.match(/Android/i)) == "Android" ? "Android" : (navigator.userAgent.match(/Windows Phone/i)) == "Windows Phone" ? "Win" : "null";
     },
 };

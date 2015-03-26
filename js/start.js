@@ -16,7 +16,6 @@ function partenza()
 		}
 
 		alert(sessionStorage.dispositivo);
-		alert(sessionStorage.dispositivo1);
 
 		//CSS fixes
 		if(sessionStorage.dispositivo == 'iOS'){
@@ -142,6 +141,9 @@ function scrollAlto()
 /****************LOCALIZZAZIONE*/
 function goHome()
 {
+	//quale OS ho in uso?
+    sessionStorage.dispositivo = (navigator.userAgent.match(/iPad/i))  == "iPad" ? "iOS" : (navigator.userAgent.match(/iPhone/i))  == "iPhone" ? "iOS" : (navigator.userAgent.match(/Android/i)) == "Android" ? "Android" : (navigator.userAgent.match(/Windows Phone/i)) == "Windows Phone" ? "Win" : "null";
+   
 	popHome();
 
 	if(sessionStorage.lat && sessionStorage.imgPath)
