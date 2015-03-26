@@ -71,7 +71,7 @@ function autocompletamento()
 function getPosto()
 {
 	sessionStorage.place = $('#positionSearch').val();
-	if(sessionStorage.place.length > 5)
+	if(sessionStorage.place.length > 3)
 	{
 		window.location='trovati_posizione.html';
 		
