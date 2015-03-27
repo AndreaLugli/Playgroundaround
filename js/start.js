@@ -1,5 +1,5 @@
 var indirizzo = 'http://app.playgroundaroundthecorner.it';
-var debug = false;
+var debug = true;
 
 document.addEventListener('deviceready', partenza, true);
 
@@ -15,7 +15,7 @@ function partenza()
 		        message + ". Source File: " + file + ", Line: " + line);
 		}
 
-		alert(localStorage.dispositivo);
+		//alert(localStorage.dispositivo);
 
 		//CSS fixes
 		if(localStorage.dispositivo == 'iOS'){

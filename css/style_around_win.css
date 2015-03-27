@@ -8,5 +8,14 @@
 	line-height:30pt;
 }
 .btn{
-	font-size:x-large;
+	font-size:large;
+}
+#loader i, #map i, #map1 i{
+	font-size:40pt;
+}
+#address, #articolo p, #parcoInfo span{
+	font-size:large;
+}
+#footer a, #page span{
+	font-size:medium;
 }
