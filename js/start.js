@@ -289,6 +289,20 @@ function goPromo(url)
 }
 
 
+/*****************GESTIONE*LINGUA*/
+function checkLanguage() 
+{
+	navigator.globalization.getPreferredLanguage(
+		function (language){    
+			alert('lingua: ' + language.value + '\n')
+		},
+		function (){
+			alert('Errore lingua\n')
+		}
+    );
+}
+
+
 
 /*****************ERRORI*/
 

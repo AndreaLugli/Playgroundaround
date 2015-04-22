@@ -180,8 +180,8 @@ textarea{
 	width:100%;
 	border-bottom:none;
 }
-.navbar button{
-	float:right;
+.navbar button.around{
+	float:right !important;
 	margin:5pt;
 	font-size:small !important;
 }
@@ -356,7 +356,8 @@ textarea{
 	padding:5%;
 }
 
-.parco, .parco:hover, .parco:visited, .parco:focus{
+.parco, .parco:hover, .parco:visited, .parco:focus,
+.parcoPromo, .parcoPromo:hover, .parcoPromo:visited, .parcoPromo:focus{
 	display:block;
 	height:100pt;
 	width:100%;
@@ -364,10 +365,10 @@ textarea{
 	color:#f7f4ed;
 	background:#27c39e url("../img/fune.png") no-repeat left bottom;
 }
-.parco:last-of-type{
+.parco:last-of-type, .parcoPromo:last-of-type{
 	margin-bottom:18pt;
 }
-.parco img{
+.parco img, .parcoPromo img{
 	display:block;
 	margin:5pt;
 	margin-top:25pt;
@@ -447,6 +448,42 @@ textarea{
 }
 
 /**********************PROMOZIONALI*VICINI*/
+.parcoPromo, .parcoPromo:hover, .parcoPromo:visited, .parcoPromo:focus{
+	background-color:#17755d;
+	position:relative;
+}
+.parcoPromo .desc{
+	background: url("../img/click2.png") no-repeat right 2pt center;
+	display:block;
+	margin:2pt;
+	height:100pt;
+	line-height:20pt;
+	background-size:20pt;
+	padding:5% 0;
+	padding-right:20pt;
+}
+.parcoPromo .promoRibbon{
+	display:inline;
+	position:absolute;
+	float:left;
+	/*top:-44pt;
+	left:-22pt;*/
+	top:-20pt;
+	left:-10pt;
+	border:none;
+	-moz-transform: scaleX(-1);
+    -o-transform: scaleX(-1);
+    -webkit-transform: scaleX(-1);
+    transform: scaleX(-1);
+    filter: FlipH;
+    -ms-filter: "FlipH";
+}
+.parcoPromo .tipo{
+	padding-top:5pt;
+	display:block;
+	font-size:small;
+	color:#27c39e;
+}
 
 
 

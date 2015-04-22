@@ -1,5 +1,7 @@
 function tutorial() {
 
+	checkLanguage();
+
 	$("#owl-demo").owlCarousel(
 	{
 		navigation : false, // Show next and prev buttons

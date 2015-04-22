@@ -188,7 +188,7 @@ function appendVicini(data)
 		}
 
 
-		listaParchiVicini += '<a class="parco" href="javascript:apriParco('+jsonVicini[i].id+');">'+
+		/*listaParchiVicini += '<a class="parco" href="javascript:apriParco('+jsonVicini[i].id+');">'+
 			                    '<img src="'+anteprima+'" onError="this.onerror=null;this.src=\'img/logo.jpg\';"/>'+
 			                   '<span class="desc">'+
 			                        '<p class="titolo">«'+name+'»</p>'+
@@ -198,6 +198,16 @@ function appendVicini(data)
 			                        '<span class="orario">ORARIO: '+opening+'</span>'+
 			                        '<span class="voto">'+voto+'</span>'+
 			                        '<span class="servizi">'+servizi+'</span>'+
+			                    '</span>'+
+			                '</a>';*/
+
+		//PROMO
+		listaParchiVicini += '<a class="parcoPromo" href="javascript:apriParco('+jsonVicini[i].id+');">'+
+			                    '<img class="promoRibbon" src="./img/promo_ribbon.png"/>'+
+			                    '<img src="'+anteprima+'" onError="this.onerror=null;this.src=\'img/logo.jpg\';"/>'+
+			                   '<span class="desc">'+
+			                        '<p class="titolo">«'+name+'»</p>'+
+			                        '<span class="tipo">Struttura con playground</span>'+
 			                    '</span>'+
 			                '</a>';
 	}
