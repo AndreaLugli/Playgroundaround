@@ -292,16 +292,12 @@ function goPromo(url)
 /*****************GESTIONE*LINGUA*/
 function checkLanguage() 
 {
-	navigator.globalization.getPreferredLanguage(
-		function (language){    
-			alert('lingua: ' + language.value + '\n')
-		},
-		function (){
-			alert('Errore lingua\n')
-		}
-    );
+    navigator.globalization.getPreferredLanguage(getLanguage, errorHandler);
 }
-
+function getLanguage(language)
+{
+	alert('language: ' + language.value + '\n');
+}
 
 
 /*****************ERRORI*/
