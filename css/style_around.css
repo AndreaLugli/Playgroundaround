@@ -383,7 +383,6 @@ textarea{
 	margin:2pt;
 	height:100pt;
 	line-height:20pt;
-	/*overflow-y:auto;*/
 	background: url("../img/click3.png") no-repeat right 2pt center;
 	background-size:20pt;
 	padding:2% 0;
@@ -447,6 +446,10 @@ textarea{
 	margin-bottom:8%;
 }
 
+/**********************PROMOZIONALI*VICINI*/
+
+
+
 /****************************NO*RISULTATI*/
 #noPark{
 	display:block;
@@ -468,6 +471,7 @@ textarea{
 	width:90%;
 	background-color:#27c39e;
 	color:#f7f4ed;
+	position:relative;	/*mi serve per il pos absolute del fiocco*/
 }
 #titoloParcoAperto{
 	margin:5% 5% -3% 5%;
@@ -581,12 +585,6 @@ textarea{
 	line-height:32pt;
 	margin:0;
 }
-
-/*articolo con descrizione parco*/
-#articolo{
-	/*max-height:300pt;
-	overflow-y:auto;*/
-}
 #articolo p{
 	clear:both;
 	text-align:justify;
@@ -635,12 +633,43 @@ textarea{
 #modalImg img{
 	width:100%;
 }
+#promoRibbon, #tipo{
+	display:none;
+}
+
+/***********************PROMOZIONALE*PARCO*APERTO*/
+#parcoAperto.promo,
+#parcoAperto.promo #comandi,
+#parcoAperto.promo #address{
+	background-color:#17755d;
+}
+#parcoAperto.promo #promoRibbon{
+	display:inline;
+	position:absolute;
+	float:right;
+	top:-40pt;
+	right:-40pt;
+}
+#parcoAperto.promo #parcoInfo div,
+#parcoAperto.promo #parcoInfo .purpleHr{
+	display:none;
+}
+#parcoAperto.promo #parcoInfo #tipo{
+	display:block;
+	font-weight:bold;
+}
+
+#parcoAperto.promo hr.blueHr{	/*dentro a #comandi*/
+	background-image: -webkit-linear-gradient(left, #17755d, #27c39e, #17755d); 
+    background-image:    -moz-linear-gradient(left, #17755d, #27c39e, #17755d); 
+    background-image:     -ms-linear-gradient(left, #17755d, #27c39e, #17755d); 
+    background-image:      -o-linear-gradient(left, #17755d, #27c39e, #17755d); 
+}
 
 /**********************************COMMENTA*PARCO*/
 #commenta{
 	height:300px !important;
 }
-
 
 /****************************************CREDITS*/
 #container.credits{

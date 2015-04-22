@@ -9,9 +9,11 @@
         >
 
     <name>Playground Around</name>
+
     <description>
         Playground Around The Corner App - www.playgroundaroundthecorner.it
     </description>
+    
     <author email="info@socialcities.it" href="www.socialcities.it">
         SocialCities s.r.l.
     </author>
@@ -20,44 +22,44 @@
     <content src="index.html" />
     <access origin="*" subdomains="true" />
     
-    <preference name="phonegap-version" value="3.6.3" />
+
+    <preference name="phonegap-version" value="3.7.0" />
     <preference name="permissions" value="none" />
-    <preference name="orientation" value="portrait" />
-    <preference name="target-device"              value="universal" /> 
 
-    <preference name="fullscreen"              value="false" />
-    <!--<preference name="fullscreen"                  value="true" /> TRUE PER WIN -->
-    
-    <preference name="webviewbounce"              value="true" />
-    <preference name="prerendered-icon"           value="true" />           
-    <preference name="stay-in-webview"            value="false" />
-    <preference name="ios-statusbarstyle"         value="black-opaque" />
-    <preference name="detect-data-types"          value="true" />
-    <preference name="exit-on-suspend"            value="false" />
-    <preference name="show-splash-screen-spinner" value="true" />
-    <preference name="auto-hide-splash-screen"    value="true" />
-    <preference name="disable-cursor"             value="false" />
-    <preference name="android-minSdkVersion"      value="7" />
-    <preference name="android-installLocation"    value="auto" />
+    <!-- Preferenze -->
+    <preference name="fullscreen"                           value="false" /> <!--TRUE PER WIN -->-->
+    <preference name="orientation"                          value="portrait" />
+    <preference name="target-device"                        value="universal" /> 
+    <preference name="webviewbounce"                        value="true" />
+    <preference name="prerendered-icon"                     value="true" />           
+    <preference name="stay-in-webview"                      value="false" />
+    <preference name="ios-statusbarstyle"                   value="black-opaque" />
+    <preference name="detect-data-types"                    value="true" />
+    <preference name="exit-on-suspend"                      value="false" />
+    <preference name="show-splash-screen-spinner"           value="true" />
+    <preference name="auto-hide-splash-screen"              value="true" />
+    <preference name="disable-cursor"                       value="false" />
+    <preference name="android-minSdkVersion"                value="7" />
+    <preference name="android-installLocation"              value="auto" />
+    <preference name="deployment-target"                    value="7.0" />
 
-    <!--<preference name="StatusBarStyle" value="lightcontent" />-->
-    <preference name="deployment-target" value="7.0" />
-    <preference name="EnableViewportScale" value="true"/>
-    <preference name="MediaPlaybackRequiresUserAction" value="true"/>
-    <preference name="AllowInlineMediaPlayback" value="true"/>
-    <preference name="BackupWebStorage" value="local"/>
-    <preference name="TopActivityIndicator" value="white"/>
-    <preference name="KeyboardDisplayRequiresUserAction" value="false"/>
-    <preference name="SuppressesIncrementalRendering" value="true"/>
-    <preference name="GapBetweenPages" value="0"/>
-    <preference name="PageLength" value="0"/>
-    <preference name="PaginationBreakingMode" value="page"/>
-    <preference name="PaginationMode" value="unpaginated"/>
-    <preference name="UIWebViewDecelerationSpeed" value="fast" />   
-    <preference name="DisallowOverscroll" value="true" />
-    <preference name="UIWebViewBounce" value="false" /> 
-    <preference name="AutoHideSplashScreen" value="true" /> 
-    <preference name="iosExtraFilesystems" value="library,library-nosync,documents,documents-nosync,cache,bundle,root" /> 
+    <preference name="StatusBarStyle"                       value="lightcontent" />
+    <preference name="EnableViewportScale"                  value="true"/>
+    <preference name="MediaPlaybackRequiresUserAction"      value="true"/>
+    <preference name="AllowInlineMediaPlayback"             value="true"/>
+    <preference name="BackupWebStorage"                     value="local"/>
+    <preference name="TopActivityIndicator"                 value="white"/>
+    <preference name="KeyboardDisplayRequiresUserAction"    value="false"/>
+    <preference name="SuppressesIncrementalRendering"       value="true"/>
+    <preference name="GapBetweenPages"                      value="0"/>
+    <preference name="PageLength"                           value="0"/>
+    <preference name="PaginationBreakingMode"               value="page"/>
+    <preference name="PaginationMode"                       value="unpaginated"/>
+    <preference name="UIWebViewDecelerationSpeed"           value="fast" />   
+    <preference name="DisallowOverscroll"                   value="true" />
+    <preference name="UIWebViewBounce"                      value="false" /> 
+    <preference name="AutoHideSplashScreen"                 value="true" /> 
+    <preference name="iosExtraFilesystems"                  value="library,library-nosync,documents,documents-nosync,cache,bundle,root" /> 
 
 
     <!-- Plugins -->
@@ -68,49 +70,47 @@
     <gap:plugin name="org.apache.cordova.splashscreen" />
     <gap:plugin name="org.apache.cordova.file-transfer" />
     <gap:plugin name="org.apache.cordova.camera" />
-    <!--<gap:plugin name="org.apache.cordova.statusbar" version="0.1.4" />-->
+    <gap:plugin name="org.apache.cordova.statusbar"         version="0.1.4" />
 
 
     <!-- Icons-->
-    
     <icon src="res/icon/icon.png" />
         
-    <!-- Icone iOS  -->
-    <icon src="res/icon/iOS/Icon@3x.png" gap:platform="ios" width="180" height="180" />
-    <icon src="res/icon/iOS/Icon-40.png" gap:platform="ios" width="40" height="40" />
-    <icon src="res/icon/iOS/Icon-40@2x.png" gap:platform="ios" width="80" height="80" />
-    <icon src="res/icon/iOS/Icon-40@3x.png" gap:platform="ios" width="120" height="120" />
-    <icon src="res/icon/iOS/Icon-60.png" gap:platform="ios" width="60" height="60" />
-    <icon src="res/icon/iOS/Icon-76.png" gap:platform="ios" width="76" height="76" />
-    <icon src="res/icon/iOS/Icon-76@2x.png" gap:platform="ios" width="152" height="152" />
-    <icon src="res/icon/iOS/Icon-Small.png" gap:platform="ios" width="29" height="29" />
-    <icon src="res/icon/iOS/Icon-Small@2x.png" gap:platform="ios" width="58" height="58" />
-    <icon src="res/icon/iOS/Icon-Small@3x.png" gap:platform="ios" width="87" height="87" />
+    <icon src="res/icon/iOS/Icon@3x.png"            gap:platform="ios" width="180" height="180" />
+    <icon src="res/icon/iOS/Icon-40.png"            gap:platform="ios" width="40" height="40" />
+    <icon src="res/icon/iOS/Icon-40@2x.png"         gap:platform="ios" width="80" height="80" />
+    <icon src="res/icon/iOS/Icon-40@3x.png"         gap:platform="ios" width="120" height="120" />
+    <icon src="res/icon/iOS/Icon-60.png"            gap:platform="ios" width="60" height="60" />
+    <icon src="res/icon/iOS/Icon-76.png"            gap:platform="ios" width="76" height="76" />
+    <icon src="res/icon/iOS/Icon-76@2x.png"         gap:platform="ios" width="152" height="152" />
+    <icon src="res/icon/iOS/Icon-Small.png"         gap:platform="ios" width="29" height="29" />
+    <icon src="res/icon/iOS/Icon-Small@2x.png"      gap:platform="ios" width="58" height="58" />
+    <icon src="res/icon/iOS/Icon-Small@3x.png"      gap:platform="ios" width="87" height="87" />
 
-    <icon src="res/icon/iOS/Icon.png" gap:platform="ios" width="57" height="57" />
-    <icon src="res/icon/iOS/Icon@2x.png" gap:platform="ios" width="114" height="114" />
-    <icon src="res/icon/iOS/Icon-72.png" gap:platform="ios" width="72" height="72" />
-    <icon src="res/icon/iOS/Icon-72@2x.png" gap:platform="ios" width="144" height="144" />
-    <icon src="res/icon/iOS/Icon-Small-50.png" gap:platform="ios" width="50" height="50" />
-    <icon src="res/icon/iOS/Icon-Small-50@2x.png" gap:platform="ios" width="100" height="100" />
+    <icon src="res/icon/iOS/Icon.png"               gap:platform="ios" width="57" height="57" />
+    <icon src="res/icon/iOS/Icon@2x.png"            gap:platform="ios" width="114" height="114" />
+    <icon src="res/icon/iOS/Icon-72.png"            gap:platform="ios" width="72" height="72" />
+    <icon src="res/icon/iOS/Icon-72@2x.png"         gap:platform="ios" width="144" height="144" />
+    <icon src="res/icon/iOS/Icon-Small-50.png"      gap:platform="ios" width="50" height="50" />
+    <icon src="res/icon/iOS/Icon-Small-50@2x.png"   gap:platform="ios" width="100" height="100" />
 
     
 
     <!-- Splash screen -->
-    <gap:splash gap:density="ldpi" gap:platform="android" src="res/new_screen/480x640.png" />
-    <gap:splash gap:density="mdpi" gap:platform="android" src="res/new_screen/640x940.png" />
-    <gap:splash gap:density="hdpi" gap:platform="android" src="res/new_screen/600x1024.png" />
+    <gap:splash gap:density="ldpi"  gap:platform="android" src="res/new_screen/480x640.png" />
+    <gap:splash gap:density="mdpi"  gap:platform="android" src="res/new_screen/640x940.png" />
+    <gap:splash gap:density="hdpi"  gap:platform="android" src="res/new_screen/600x1024.png" />
     <gap:splash gap:density="xhdpi" gap:platform="android" src="res/new_screen/1600x2560.png" />
 
-    <gap:splash src="res/new_screen/320x480.png" gap:platform="ios" width="320" height="480" />
-    <gap:splash src="res/new_screen/640x960.png" gap:platform="ios" width="640" height="960" />
-    <gap:splash src="res/new_screen/640x1136.png" gap:platform="ios" width="640" height="1136" />
-    <gap:splash src="res/new_screen/768x1024.png" gap:platform="ios" width="768" height="1024" />
-    <gap:splash src="res/new_screen/750x1334.png" gap:platform="ios" width="750" height="1334" />
-    <gap:splash src="res/new_screen/1536x2048.png" gap:platform="ios" width="1536" height="2048" />
-    <gap:splash src="res/new_screen/1242x2208.png" gap:platform="ios" width="1242" height="2208" />
+    <gap:splash src="res/new_screen/320x480.png"    gap:platform="ios" width="320" height="480" />
+    <gap:splash src="res/new_screen/640x960.png"    gap:platform="ios" width="640" height="960" />
+    <gap:splash src="res/new_screen/640x1136.png"   gap:platform="ios" width="640" height="1136" />
+    <gap:splash src="res/new_screen/768x1024.png"   gap:platform="ios" width="768" height="1024" />
+    <gap:splash src="res/new_screen/750x1334.png"   gap:platform="ios" width="750" height="1334" />
+    <gap:splash src="res/new_screen/1536x2048.png"  gap:platform="ios" width="1536" height="2048" />
+    <gap:splash src="res/new_screen/1242x2208.png"  gap:platform="ios" width="1242" height="2208" />
 
-    <gap:splash src="res/new_screen/splash.jpg" gap:platform="winphone" />
+    <gap:splash src="res/new_screen/splash.jpg"     gap:platform="winphone" />
 
 
     <access origin="*"/>
@@ -118,19 +118,19 @@
 
     <!-- Custom URL Schema -->
     <gap:plugin name="nl.x-services.plugins.launchmyapp">
-    <param name="URL_SCHEME" value="playground" />
+        <param name="URL_SCHEME" value="playground" />
     </gap:plugin>
+
     <gap:url-scheme name="it.scalebox.playgroundapp" role="None">
-      <scheme>playground</scheme>
+        <scheme>playground</scheme>
     </gap:url-scheme>
     
     <!--Versioning iOS con versione-->
     <gap:config-file platform="ios" parent="CFBundleShortVersionString"> 
         <string>300</string> 
     </gap:config-file>
-    <gap:config-file platform="ios" parent="NSLocationWhenInUseUsageDescription" overwrite="false"> 
-    </gap:config-file> 
-    <gap:config-file platform="ios" parent="NSLocationAlwaysUsageDescription" overwrite="false"> 
-    </gap:config-file> 
+
+    <gap:config-file platform="ios" parent="NSLocationWhenInUseUsageDescription" overwrite="false"> </gap:config-file> 
+    <gap:config-file platform="ios" parent="NSLocationAlwaysUsageDescription" overwrite="false"> </gap:config-file> 
 
 </widget>
