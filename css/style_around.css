@@ -459,7 +459,7 @@ textarea{
 	height:100pt;
 	line-height:20pt;
 	background-size:20pt;
-	padding:5% 0;
+	padding:10% 0;
 	padding-right:20pt;
 }
 .parcoPromo .promoRibbon{
@@ -482,7 +482,6 @@ textarea{
 	padding-top:5pt;
 	display:block;
 	font-size:small;
-	color:#27c39e;
 }
 
 
@@ -694,6 +693,7 @@ textarea{
 #parcoAperto.promo #parcoInfo #tipo{
 	display:block;
 	font-weight:bold;
+	text-transform: uppercase;
 }
 
 #parcoAperto.promo hr.blueHr{	/*dentro a #comandi*/
@@ -989,6 +989,9 @@ body.tutorial b{
 }
 body.tutorial button{
 	width:80%;
-	margin-left:10%;
 	margin-bottom:5%;
+}
+body.tutorial .ita, #owl-demo .item .ita,
+body.tutorial .eng, #owl-demo .item .eng{
+	display:none;
 }

@@ -187,29 +187,32 @@ function appendVicini(data)
 			opening = opening.substring(0,15)+' [...]';
 		}
 
+		//GESTIONE PARCHI PREMIUM
+		if(jsonVicini[i].promozionale == true){
+			//PARCO PROMO
+			listaParchiVicini += 	'<a class="parcoPromo" href="javascript:apriParco('+jsonVicini[i].id+');">'+
+					                    '<img class="promoRibbon" src="./img/promo_ribbon.png"/>'+
+					                    '<img src="'+anteprima+'" onError="this.onerror=null;this.src=\'img/logo.jpg\';"/>'+
+					                   	'<span class="desc">'+
+					                        '<p class="titolo">«'+name+'»</p>'+
+					                        '<span class="tipo">'+jsonVicini[i].tipo_struttura+'</span>'+
+					                    '</span>'+
+					                '</a>';
+		}
+		else{
+			//PARCO STANDARD
+			listaParchiVicini += 	'<a class="parco" href="javascript:apriParco('+jsonVicini[i].id+');">'+
+					                   '<img src="'+anteprima+'" onError="this.onerror=null;this.src=\'img/logo.jpg\';"/>'+
+					                   '<span class="desc">'+
+					                        '<p class="titolo">«'+name+'»</p>'+
+					                        '<span class="eta">ETÀ: '+target+'</span>'+
+					                        '<span class="orario">ORARIO: '+opening+'</span>'+
+					                        '<span class="voto">'+voto+'</span>'+
+					                        '<span class="servizi">'+servizi+'</span>'+
+					                    '</span>'+
+					                '</a>';
+		}
 
-		/*listaParchiVicini += '<a class="parco" href="javascript:apriParco('+jsonVicini[i].id+');">'+
-			                    '<img src="'+anteprima+'" onError="this.onerror=null;this.src=\'img/logo.jpg\';"/>'+
-			                   '<span class="desc">'+
-			                        '<p class="titolo">«'+name+'»</p>'+
-			                        //'<span class="eta">TARGET: '+target+'</span>'+
-			                        //'<span class="orario">OPENING: '+opening+'</span>'+
-			                        '<span class="eta">ETÀ: '+target+'</span>'+
-			                        '<span class="orario">ORARIO: '+opening+'</span>'+
-			                        '<span class="voto">'+voto+'</span>'+
-			                        '<span class="servizi">'+servizi+'</span>'+
-			                    '</span>'+
-			                '</a>';*/
-
-		//PROMO
-		listaParchiVicini += '<a class="parcoPromo" href="javascript:apriParco('+jsonVicini[i].id+');">'+
-			                    '<img class="promoRibbon" src="./img/promo_ribbon.png"/>'+
-			                    '<img src="'+anteprima+'" onError="this.onerror=null;this.src=\'img/logo.jpg\';"/>'+
-			                   '<span class="desc">'+
-			                        '<p class="titolo">«'+name+'»</p>'+
-			                        '<span class="tipo">Struttura con playground</span>'+
-			                    '</span>'+
-			                '</a>';
 	}
 
 	//se nessun parco nelle vicinanze
@@ -348,6 +351,14 @@ function getInfoParco(){
 function appendParco(data){
 	getMappaParco(data.latitude.toFixed(3), data.longitude.toFixed(3));
 
+	if(data.promozionale == true){
+		$('#parcoAperto').addClass('promo');
+		$('body').css('overflow-x', 'hidden');
+
+		$('#tipo').html(data.tipo_struttura);
+
+	}
+
 	sessionStorage.titoloParco = '«'+data.name+'»';
 	$('#titoloParcoAperto').html(sessionStorage.titoloParco);
 
@@ -408,6 +419,9 @@ function appendParco(data){
 	if(data.link_esterno)
 	{
 		$('#comandi').append("<hr class='blueHr'><button class='btn btn-success btn-lg' onClick='window.open(\""+data.link_esterno+"\",\"_blank\",\"location=yes\");'><i class='fa fa-suitcase'></i> Scopri la destinazione</button>");
+		if(data.promozionale == true){
+			$('#comandi .btn').html('<i class="fa fa-suitcase"></i> Visita il sito');
+		}
 	}
 
 	$('#address').html(data.address);

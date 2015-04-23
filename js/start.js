@@ -292,11 +292,16 @@ function goPromo(url)
 /*****************GESTIONE*LINGUA*/
 function checkLanguage() 
 {
-    navigator.globalization.getPreferredLanguage(getLanguage, errorHandler);
-}
-function getLanguage(language)
-{
-	alert('language: ' + language.value + '\n');
+    sessionStorage.userLang = navigator.language || navigator.userLanguage;
+    //alert(sessionStorage.userLang);
+
+    if(sessionStorage.userLang == "it-it" || sessionStorage.userLang == "it-IT" || sessionStorage.userLang == "it")
+    {
+    	$('body.tutorial .ita, #owl-demo .item .ita').show();
+    }else
+    {
+    	$('body.tutorial .eng, #owl-demo .item .eng').show();
+    }
 }
 
 
