@@ -54,11 +54,13 @@ var app = {
 
 function localizeFast()
 {
+    alert('almeno ci entro');
+
     navigator.geolocation.getCurrentPosition(
         //Successo
         function(pos) {
-            sessionStorage.lat = pos.coords.latitude.toFixed(3);
-            sessionStorage.longi = pos.coords.longitude.toFixed(3);
+            sessionStorage.lat = pos.coords.latitude; //.toFixed(3);
+            sessionStorage.longi = pos.coords.longitude; //.toFixed(3);
             //latitude = pos.coords.latitude;
             //longitude = pos.coords.longitude;
             alert(sessionStorage.lat);
