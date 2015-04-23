@@ -151,23 +151,18 @@ function goHome()
 {
 	popHome();
 
-	getPromo();
-	getCover();
-
-	/*if(sessionStorage.lat && sessionStorage.imgPath)
+	if(sessionStorage.lat && sessionStorage.imgPath)
         {
             getPromo();
             checkCover();
         }
         else
         {
-            //localize();
-            getPromo();
-			getCover();
-        }*/
+            localize();
+        }
 }
 
-/*function localize()
+function localize()
 { 
 	var wathcID = navigator.geolocation.getCurrentPosition(handle_localize, error_localize, {enableHighAccuracy: false, maximumAge: 300000, timeout: 10000});
 }
@@ -180,7 +175,7 @@ function handle_localize(position)
 	getCover();
 
 	//alert('Ti trovi a: LATI:'+sessionStorage.lat+' LONGI:'+sessionStorage.longi);
-}*/
+}
 
 function getCover()
 {

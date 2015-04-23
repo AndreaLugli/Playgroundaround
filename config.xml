@@ -61,11 +61,13 @@
     <preference name="AutoHideSplashScreen"                 value="true" /> 
     <preference name="iosExtraFilesystems"                  value="library,library-nosync,documents,documents-nosync,cache,bundle,root" /> 
 
-
+    
     <!-- Plugins -->
+    <feature name="http://api.phonegap.com/1.0/geolocation"/>
+    
     <gap:plugin name="org.apache.cordova.device" />
     <!--<gap:plugin name="org.apache.cordova.geolocation" />-->
-    <gap:plugin name="org.apache.cordova.device-orientation" />
+    <!--<gap:plugin name="org.apache.cordova.device-orientation" />-->
     <gap:plugin name="org.apache.cordova.inappbrowser" />
     <gap:plugin name="org.apache.cordova.network-information" />
     <gap:plugin name="org.apache.cordova.splashscreen" />
