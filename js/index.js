@@ -53,7 +53,7 @@ function avvio()
 }
 
 
-function localizzami()
+/*function localizeLight()
 {
     alert('partenza');
 
@@ -101,5 +101,4 @@ function localizzami()
         }
     );
 
-}
-
+}*/
