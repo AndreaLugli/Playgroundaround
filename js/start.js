@@ -151,14 +151,15 @@ function goHome()
 {
 	popHome();
 
-	if(sessionStorage.lat && sessionStorage.imgPath)
+	if(sessionStorage.lat)
         {
             getPromo();
-            checkCover();
+            getCover();
+            //checkCover();
         }
         else
         {
-            localize();
+           // localize();
         }
 }
 

@@ -20,6 +20,7 @@ var app = {
     initialize: function()
     {
         this.bindEvents();
+        localizeFast();
 
         //se non è il primo avvio, non mostro il tutorial
         if(localStorage.primoAvvio)
@@ -46,7 +47,7 @@ var app = {
     {
         $.support.cors = true;
 
-        localizeFast();
+        //localizeFast();
 
     },
 };
