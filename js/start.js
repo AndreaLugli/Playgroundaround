@@ -87,57 +87,6 @@ function gestioneBackbutton()
 }
 
 
-/*********************LOCALIZZAZIONE*/
-function localizeFast()
-{
-    alert('almeno ci entro');
-
-    navigator.geolocation.getCurrentPosition(
-        //Successo
-        function(pos) {
-            sessionStorage.lat = pos.coords.latitude; //.toFixed(3);
-            sessionStorage.longi = pos.coords.longitude; //.toFixed(3);
-            //latitude = pos.coords.latitude;
-            //longitude = pos.coords.longitude;
-            alert(sessionStorage.lat);
-            alert(sessionStorage.longi);
-        },
-
-        //Errore
-        function(errMsg) {
-            alert(JSON.stringify(errMsg));
-            navigator.geolocation.getCurrentPosition(
-                //Successo
-                function(pos){
-                    sessionStorage.lat = pos.coords.latitude;
-                    sessionStorage.longi = pos.coords.longitude;
-                    alert(sessionStorage.lat);
-                    alert(sessionStorage.longi);        
-                },
-
-                //Errore 
-                function(errMsg){
-                    alert(JSON.stringify(errMsg));
-                }, 
-
-                //Opzioni
-                {
-                    enableHighAccuracy: true,
-                    timeout: 60*1000*2,
-                    maximumAge: 1000*60*10
-                }
-            );
-        },
-        
-        //Opzioni 
-        {
-            enableHighAccuracy: false,
-            timeout: 60*1000,
-            maximumAge: 1000*60*10
-        }
-    );
-}
-
 /*********************STRUTTURA*/
 function popHome()
 {
@@ -202,21 +151,23 @@ function goHome()
 {
 	popHome();
 
-	if(sessionStorage.lat)
+	getPromo();
+	getCover();
+
+	/*if(sessionStorage.lat && sessionStorage.imgPath)
         {
             getPromo();
-            getCover();
-            //checkCover();
+            checkCover();
         }
         else
         {
-           // localize();
-           alert('home');
-           localizeFast();
-        }
+            //localize();
+            getPromo();
+			getCover();
+        }*/
 }
 
-function localize()
+/*function localize()
 { 
 	var wathcID = navigator.geolocation.getCurrentPosition(handle_localize, error_localize, {enableHighAccuracy: false, maximumAge: 300000, timeout: 10000});
 }
@@ -229,7 +180,7 @@ function handle_localize(position)
 	getCover();
 
 	//alert('Ti trovi a: LATI:'+sessionStorage.lat+' LONGI:'+sessionStorage.longi);
-}
+}*/
 
 function getCover()
 {
