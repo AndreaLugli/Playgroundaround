@@ -160,6 +160,8 @@ function goHome()
         else
         {
            // localize();
+           alert('home');
+           localizeFast();
         }
 }
 
