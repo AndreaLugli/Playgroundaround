@@ -21,13 +21,13 @@ function getMappaParco(lati, longi)
 		subDomains = ['otile1','otile2','otile3','otile4'],
 		cloudmadeAttrib = '<a href="http://open.mapquest.co.uk" target="_blank">MapQuest</a>, <a href="http://www.openstreetmap.org/" target="_blank">OpenStreetMap</a>, <a href="http://creativecommons.org/licenses/by-sa/2.0/" target="_blank">CC-BY-SA</a>';
 	 
-	var cloudmade = new L.TileLayer(cloudmadeUrl, {minZoom: 12, maxZoom: 18, noWrap:true, reuseTiles: true,attribution: cloudmadeAttrib, subdomains: subDomains});
+	var cloudmade = new L.TileLayer(cloudmadeUrl, {minZoom: 12, maxZoom: 18, noWrap:true, reuseTiles: true, attribution: cloudmadeAttrib, subdomains: subDomains});
 
 	cloudmade.addTo(map);
 
 	//scroll mappa e pinch2zoom disattivati
 	map.dragging.disable();
-	map.touchZoom.disable();
+	//map.touchZoom.disable();
 
 	//poi parco
 	L.marker([lati, longi], {icon: greenPoi}).addTo(map)
@@ -61,7 +61,7 @@ function initialize_map_generica(lati, longi)
 	cloudmade.addTo(map1);
 
 	//pinch2zoom disattivato
-	map1.touchZoom.disable();
+	//map1.touchZoom.disable();
 
 	var marker = L.marker([lati, longi], {icon: purplePoi}).addTo(map1);
 	marker.bindPopup("<p style='font-size:small'>Tu sei qui</p>")

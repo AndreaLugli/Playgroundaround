@@ -283,6 +283,10 @@ textarea{
 	width:60pt;
 	margin-bottom:10pt;
 }
+/*******************************MAPPA*FIX*/
+.leaflet-tile-container img {
+	-webkit-backface-visibility: hidden;
+}
 
 /***********************************INDEX*/
 #header{
