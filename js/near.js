@@ -290,7 +290,7 @@ function getImgParco()
 			$.each(json, function(i, val)	//i: numero, val: valore
 			{
 				pathImgParcoAperto = indirizzo+'/media/'+val;
-				$('#galleria').append('<img src="'+pathImgParcoAperto+'" onError="this.onerror=null;this.src=\'img/logo.jpg\';" />');
+				$('#galleria').append('<img src="'+pathImgParcoAperto+'" class="img-thumbnail" onError="this.onerror=null;this.src=\'img/logo.jpg\';" />');
 			});
 		}
 		  

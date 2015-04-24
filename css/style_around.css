@@ -569,17 +569,20 @@ textarea{
 /*immagini*/
 .big{
 	width:50%;
+	height:auto;
 	margin:2%;
 	float:left;
 }
 .small{
 	width:21%;
-	margin:4% 2% 0 0;
+	height:auto;
+	margin:3% 2% 0 0;
 	float:left;
 }
 .tiny{
-	margin: 0 1.5%;
 	width:15%;
+	height:auto;
+	margin: 0 1.5%;
 }
 .spacing, .maxiSpacing{
 	clear:both;
