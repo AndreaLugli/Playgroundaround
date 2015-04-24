@@ -575,12 +575,14 @@ textarea{
 }
 .small{
 	width:21%;
+	max-height:45pt;
 	height:auto;
 	margin:3% 2% 0 0;
 	float:left;
 }
 .tiny{
 	width:15%;
+	max-height:30pt;
 	height:auto;
 	margin: 0 1.5%;
 }
