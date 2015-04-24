@@ -56,7 +56,7 @@ function initialize_map_generica(lati, longi)
 		subDomains = ['otile1','otile2','otile3','otile4'],
 		cloudmadeAttrib = '<a href="http://open.mapquest.co.uk" target="_blank">MapQuest</a>, <a href="http://www.openstreetmap.org/" target="_blank">OpenStreetMap</a>, <a href="http://creativecommons.org/licenses/by-sa/2.0/" target="_blank">CC-BY-SA</a>';
 	 
-	var cloudmade = new L.TileLayer(cloudmadeUrl, {minZoom: 12, maxZoom: 18, noWrap:true, reuseTiles: true, attribution: cloudmadeAttrib, subdomains: subDomains});
+	var cloudmade = new L.TileLayer(cloudmadeUrl, {minZoom: 10, maxZoom: 18, noWrap:true, reuseTiles: true, attribution: cloudmadeAttrib, subdomains: subDomains});
 
 	cloudmade.addTo(map1);
 
@@ -123,7 +123,7 @@ function localizzaMap(lati, longi)
 
 	//scroll mappa e pinch2zoom disattivati
 	//map.dragging.disable();
-	map.touchZoom.disable();
+	//map.touchZoom.disable();
 
 	parchetto = creaPOI(lati,longi,"<p style='font-size:small'>Si trova qui?</p>");
 	map.panTo(new L.LatLng(lati, longi));
