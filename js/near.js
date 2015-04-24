@@ -11,7 +11,6 @@ function openRicerca()
 		$('#positionSearch').attr('placeholder', 'Inserisci una località');
 		$('#cortina').fadeOut();
 	}
-
 }
 
 

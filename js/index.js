@@ -1,35 +1,3 @@
-/*var app = {
-    initialize: function()
-    {
-        this.bindEvents();
-
-        //se non è il primo avvio, non mostro il tutorial
-        if(localStorage.primoAvvio)
-        {
-            window.location='index_home.html';
-        }
-        else
-        {
-            localStorage.primoAvvio = 'no';
-
-            //quale OS ho in uso?
-            localStorage.dispositivo = (navigator.userAgent.match(/iPad/i))  == "iPad" ? "iOS" : (navigator.userAgent.match(/iPhone/i))  == "iPhone" ? "iOS" : (navigator.userAgent.match(/Android/i)) == "Android" ? "Android" : (navigator.userAgent.match(/Windows Phone/i)) == "Windows Phone" ? "Win" : "null";
-   
-            window.location='benvenuto.html';
-        }
-    },
-    
-    bindEvents: function()
-    {
-        document.addEventListener('deviceready', this.onDeviceReady, false);
-    },
-    
-    onDeviceReady: function()
-    {
-        $.support.cors = true;
-    },
-};*/
-
 document.addEventListener("deviceready", avvio, false);
 
 function avvio()
