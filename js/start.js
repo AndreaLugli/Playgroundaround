@@ -293,13 +293,15 @@ function goPromo(url)
 function checkLanguage() 
 {
     sessionStorage.userLang = navigator.language || navigator.userLanguage;
-    //alert(sessionStorage.userLang);
+    alert(sessionStorage.userLang);
 
     if(sessionStorage.userLang == "it-it" || sessionStorage.userLang == "it-IT" || sessionStorage.userLang == "it")
     {
+    	//alert('ita');
     	$('body.tutorial .ita, #owl-demo .item .ita').show();
     }else
     {
+    	//alert('eng');
     	$('body.tutorial .eng, #owl-demo .item .eng').show();
     }
 }
