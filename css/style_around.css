@@ -1004,3 +1004,16 @@ body.tutorial .ita, #owl-demo .item .ita,
 body.tutorial .eng, #owl-demo .item .eng{
 	display:none;
 }
+
+
+/*******************iOS********************/
+#navbar{
+	padding-top:10pt;
+	height:45pt;
+}
+#container{
+	padding-top:40pt;
+}
+body.tutorial{
+	padding-top:20pt;
+}

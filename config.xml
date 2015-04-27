@@ -121,16 +121,15 @@
     </gap:plugin>
 
     <!--Android e Win-->
-    <gap:url-scheme name="it.socialcities.playgroundapp" role="None"> 
-        <scheme>playground</scheme>
-    </gap:url-scheme>
-    
-    <!--IOS-->
-    <!--<gap:url-scheme name="it.scalebox.playgroundapp" role="None">
+    <!--<gap:url-scheme name="it.socialcities.playgroundapp" role="None"> 
         <scheme>playground</scheme>
     </gap:url-scheme>-->
     
-    <!--Versioning iOS con versione-->
+    <!--IOS-->
+    <gap:url-scheme name="it.scalebox.playgroundapp" role="None">
+        <scheme>playground</scheme>
+    </gap:url-scheme>
+    
     <gap:config-file platform="ios" parent="CFBundleShortVersionString"> 
         <string>302</string> 
     </gap:config-file>
