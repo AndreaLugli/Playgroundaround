@@ -1004,26 +1004,3 @@ body.tutorial .ita, #owl-demo .item .ita,
 body.tutorial .eng, #owl-demo .item .eng{
 	display:none;
 }
-
-
-/*******************Win********************/
-.navbar {
-	height:30pt;
-}
-#footer{
-	max-height:5%;
-	min-height:30pt;
-	line-height:30pt;
-}
-.btn{
-	font-size:large;
-}
-#loader i, #map i, #map1 i{
-	font-size:40pt;
-}
-#address, #articolo p, #parcoInfo span{
-	font-size:large;
-}
-#footer a, #page span{
-	font-size:medium;
-}
