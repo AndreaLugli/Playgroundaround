@@ -222,7 +222,7 @@ function checkRequired()
 	}
 
 	//se mancanti blocco
-	if( $("#formInsParco .error").length > 0 || ("#formInsParco .error2").length > 0)
+	if( $("#formInsParco .error").length > 0 || $("#formInsParco .error2").length > 0)
 	{
 		//mostro alert dati mancanti
    		scrollAlto();
