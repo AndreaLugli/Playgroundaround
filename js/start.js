@@ -86,6 +86,36 @@ function gestioneBackbutton()
 
 }
 
+/**************************LINK*/
+function openLink(page)
+{
+	switch(page)
+	{
+		case 'privacy':
+
+	    var ref = window.open('https://www.iubenda.com/privacy-policy/959947', '_blank', 'location=yes');
+
+	    break;
+
+	    case 'playground':
+
+	    var ref = window.open('http://www.playgroundaroundthecorner.it', '_blank', 'location=yes');
+
+	    break;
+
+	    case 'sc':
+
+	    var ref = window.open('http://socialcities.it/', '_blank', 'location=yes');
+
+	    break;
+	}
+}
+
+function openLinkEsterno(link)
+{
+	var ref = window.open(link, '_blank', 'location=yes');
+}
+
 
 /*********************STRUTTURA*/
 function popHome()

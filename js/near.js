@@ -417,7 +417,7 @@ function appendParco(data){
 	//gestione sito esterno
 	if(data.link_esterno)
 	{
-		$('#comandi').append("<hr class='blueHr'><button class='btn btn-success btn-lg' onClick='window.open(\""+data.link_esterno+"\",\"_blank\",\"location=yes\");'><i class='fa fa-suitcase'></i> Scopri la destinazione</button>");
+		$('#comandi').append("<hr class='blueHr'><button class='btn btn-success btn-lg' onClick='openLinkEsterno(\""+data.link_esterno+"\");'><i class='fa fa-suitcase'></i> Scopri la destinazione</button>");
 		if(data.promozionale == true){
 			$('#comandi .btn').html('<i class="fa fa-suitcase"></i> Visita il sito');
 		}

@@ -150,6 +150,9 @@ textarea{
 	background-color: #fc8181;
 	color:#f7f4ed;
 }
+.error2{
+	border:3pt solid #fc8181;
+}
 
 /*************************************MODALI*/
 .modal{
@@ -911,6 +914,9 @@ h3 + hr{
 }
 #policy a{
 	font-size:small;
+	color:#912A62;
+}
+.modal a{
 	color:#912A62;
 }
 #autorizzazione input, #promo input, #policy input{

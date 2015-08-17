@@ -216,8 +216,13 @@ function checkRequired()
 	    }
 	});
 
+	if(sessionStorage.consensoPrivacy != 'True')
+	{
+		$('#policy').addClass("error2");
+	}
+
 	//se mancanti blocco
-	if( $("#formInsParco .error").length > 0 || sessionStorage.consensoPrivacy != 'True')
+	if( $("#formInsParco .error").length > 0 || ("#formInsParco .error2").length > 0)
 	{
 		//mostro alert dati mancanti
    		scrollAlto();
@@ -241,6 +246,10 @@ function noErrorOnClick()
 	$('#email').focus(function()
 	{	
 		$(this).removeClass("error");
+	});
+	$('#policy').click(function()
+	{	
+		$(this).removeClass("error2");
 	});
 }
 
@@ -358,9 +367,9 @@ function getDati()
 //invio dati al server
 function inviaDati()
 {
-	alert(sessionStorage.newLati+' '+sessionStorage.newLongi+' '+sessionStorage.newAddress+' '+sessionStorage.newTitle+' '+sessionStorage.newOpening+' '+sessionStorage.newTarget_min+' '+sessionStorage.newTarget_max+' '+sessionStorage.newDesc+' '+sessionStorage.note+' '+sessionStorage.valutazione+' '+sessionStorage.email+' '+sessionStorage.fenced+' '+sessionStorage.picnic+' '+sessionStorage.snack+' '+sessionStorage.park+' '+sessionStorage.toilette+' '+sessionStorage.cleaning+' '+sessionStorage.handicap);
+	//alert(sessionStorage.newLati+' '+sessionStorage.newLongi+' '+sessionStorage.newAddress+' '+sessionStorage.newTitle+' '+sessionStorage.newOpening+' '+sessionStorage.newTarget_min+' '+sessionStorage.newTarget_max+' '+sessionStorage.newDesc+' '+sessionStorage.note+' '+sessionStorage.valutazione+' '+sessionStorage.email+' '+sessionStorage.fenced+' '+sessionStorage.picnic+' '+sessionStorage.snack+' '+sessionStorage.park+' '+sessionStorage.toilette+' '+sessionStorage.cleaning+' '+sessionStorage.handicap);
 
-	/*$.ajax({
+	$.ajax({
 		type: 'POST',
 		url: indirizzo+'/inserimento_parco',
 		data: {
@@ -388,7 +397,7 @@ function inviaDati()
 		contentType: 'application/x-www-form-urlencoded',
 		error: errorHandler,
 		success: datiInviati
-	})*/
+	})
 
 }
 
