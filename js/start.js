@@ -1,5 +1,5 @@
 var indirizzo = 'http://app.playgroundaroundthecorner.it';
-var debug = true;
+var debug = false;
 
 document.addEventListener('deviceready', partenza, true);
 
