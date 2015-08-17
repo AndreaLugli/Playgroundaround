@@ -422,8 +422,11 @@ function datiInviati(data)
 {
 	//alert('dati inviati '+data);
 
-	sessionStorage.idParco = data.id;
-	sessionStorage.successParco = data.testo;
+	for( i=0; i < data.length; i++ )
+	{
+		sessionStorage.idParco = data[i].id;
+		sessionStorage.successParco = data[i].testo;
+	}	
 
 	//se non ho caricato foto
 	if(sessionStorage.listaIdFoto)
