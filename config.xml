@@ -31,7 +31,7 @@
 
 
     <!-- Preferenze -->
-    <preference name="fullscreen"                           value="false" /> <!--TRUE PER WIN -->
+    <preference name="fullscreen"                           value="true" /> <!--TRUE PER WIN -->
     <preference name="orientation"                          value="portrait" />
     <preference name="target-device"                        value="universal" /> 
     <preference name="webviewbounce"                        value="true" />
@@ -68,7 +68,6 @@
     
     <!-- Plugins -->
     <gap:plugin name="org.apache.cordova.core.geolocation" />  
-    <!--<gap:plugin name="org.apache.cordova.geolocation" />-->
     <gap:plugin name="org.apache.cordova.device" />
     <gap:plugin name="org.apache.cordova.inappbrowser" />
     <gap:plugin name="org.apache.cordova.network-information" />
@@ -123,14 +122,14 @@
     </gap:plugin>
 
     <!--Android e Win-->
-    <!--<gap:url-scheme name="it.socialcities.playgroundapp" role="None"> 
-        <scheme>playground</scheme>
-    </gap:url-scheme>-->
-    
-    <!--IOS-->
-    <gap:url-scheme name="it.scalebox.playgroundapp" role="None">
+    <gap:url-scheme name="it.socialcities.playgroundapp" role="None"> 
         <scheme>playground</scheme>
     </gap:url-scheme>
+    
+    <!--IOS-->
+    <!--<gap:url-scheme name="it.scalebox.playgroundapp" role="None">
+        <scheme>playground</scheme>
+    </gap:url-scheme>-->
     
     <gap:config-file platform="ios" parent="CFBundleShortVersionString"> 
         <string>321</string> 
