@@ -499,7 +499,8 @@ function openInserisciOk(back)
 	{
 		$('#parcoInserito span').html(sessionStorage.successParco);
 		$('#parcoInserito').show();
-		dataClear();
+
+		//dataClear();
 	}
 	else if(sessionStorage.provenienza == 'vecchio')
 	{
