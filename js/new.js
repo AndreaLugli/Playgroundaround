@@ -421,12 +421,9 @@ function caricaParcoEsistente()
 function datiInviati(data)
 {
 	//alert('dati inviati '+data);
-
-	for( i=0; i < data.length; i++ )
-	{
-		sessionStorage.idParco = data[i].id;
-		sessionStorage.successParco = data[i].testo;
-	}	
+	dataJson = JSON.parse(data);
+	sessionStorage.idParco = dataJson.id;
+	sessionStorage.successParco = dataJson.testo;
 
 	//se non ho caricato foto
 	if(sessionStorage.listaIdFoto)
