@@ -99,8 +99,8 @@ function dataExists()
 //abilito rating parco
 function valuta()
 {
-	$('#rate i:first-of-type').click(function() {
-
+	$('#rate i:first-of-type').click(function()
+	{
 		sessionStorage.valutazione = 1;
 
 		//accesi
@@ -112,8 +112,8 @@ function valuta()
 		$('#rate i:nth-of-type(5)').attr('class', 'fa fa fa-3x fa-star-o');
 	});
 
-	$('#rate i:nth-of-type(2)').click(function() {
-
+	$('#rate i:nth-of-type(2)').click(function()
+	{
 		sessionStorage.valutazione = 2;
 
 		//accesi
@@ -125,8 +125,8 @@ function valuta()
 		$('#rate i:nth-of-type(5)').attr('class', 'fa fa fa-3x fa-star-o');
 	});
 
-	$('#rate i:nth-of-type(3)').click(function() {
-
+	$('#rate i:nth-of-type(3)').click(function()
+	{
 		sessionStorage.valutazione = 3;
 
 		//accesi
@@ -138,8 +138,8 @@ function valuta()
 		$('#rate i:nth-of-type(5)').attr('class', 'fa fa fa-3x fa-star-o');
 	});
 
-	$('#rate i:nth-of-type(4)').click(function() {
-
+	$('#rate i:nth-of-type(4)').click(function()
+	{
 		sessionStorage.valutazione = 4;
 
 		//accesi
@@ -151,8 +151,8 @@ function valuta()
 		$('#rate i:nth-of-type(5)').attr('class', 'fa fa fa-3x fa-star-o');
 	});
 
-	$('#rate i:nth-of-type(5)').click(function() {
-
+	$('#rate i:nth-of-type(5)').click(function()
+	{
 		sessionStorage.valutazione = 5;
 
 		//accesi
@@ -201,7 +201,8 @@ function checkAll()
 function checkRequired()
 {
 	//evidenzio required mancanti (nome, descrizione)
-	$('.required').each(function() {
+	$('.required').each(function()
+	{
 	    if($(this).val().length < 5)
 	    { 
 	    	$(this).addClass("error");
@@ -257,7 +258,7 @@ function noErrorOnClick()
 function confermaParco()
 {
 	$.when(getDati())
-     .then(function () {
+     .then(function (){
 		inviaDati();
 	});
 
@@ -496,7 +497,7 @@ function openInserisciOk(back)
 
 	if(sessionStorage.provenienza == 'nuovo')
 	{
-		$('#parcoInserito span').(sessionStorage.successParco);
+		$('#parcoInserito span').html(sessionStorage.successParco);
 		$('#parcoInserito').show();
 		dataClear();
 	}
