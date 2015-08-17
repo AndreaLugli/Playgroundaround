@@ -65,25 +65,25 @@ function dataExists()
 		{
 			case '1':
 				$('#rate i:first-of-type').attr('class', 'fa fa fa-3x fa-star');
-				break;
+			break;
 
 			case '2':
 				$('#rate i:first-of-type').attr('class', 'fa fa fa-3x fa-star');
 				$('#rate i:nth-of-type(2)').attr('class', 'fa fa fa-3x fa-star');
-				break;
+			break;
 
 			case '3':
 				$('#rate i:first-of-type').attr('class', 'fa fa fa-3x fa-star');
 				$('#rate i:nth-of-type(2)').attr('class', 'fa fa fa-3x fa-star');
 				$('#rate i:nth-of-type(3)').attr('class', 'fa fa fa-3x fa-star');
-				break;
+			break;
 
 			case '4':
 				$('#rate i:first-of-type').attr('class', 'fa fa fa-3x fa-star');
 				$('#rate i:nth-of-type(2)').attr('class', 'fa fa fa-3x fa-star');
 				$('#rate i:nth-of-type(3)').attr('class', 'fa fa fa-3x fa-star');
 				$('#rate i:nth-of-type(4)').attr('class', 'fa fa fa-3x fa-star');
-				break;
+			break;
 
 			case '5':
 				$('#rate i:first-of-type').attr('class', 'fa fa fa-3x fa-star');
@@ -91,56 +91,9 @@ function dataExists()
 				$('#rate i:nth-of-type(3)').attr('class', 'fa fa fa-3x fa-star');
 				$('#rate i:nth-of-type(4)').attr('class', 'fa fa fa-3x fa-star');
 				$('#rate i:nth-of-type(5)').attr('class', 'fa fa fa-3x fa-star');
-				break;
+			break;
 		}
-
-		/*if(sessionStorage.fenced == 'True')
-		{	
-			alert('ci entro fenced');
-			//$('#fenced').removeClass('alert-danger');
-			//$('#fenced').addClass('alert-success');
-			$('#fenced').attr('class', 'alert alert-success input-lg');
-			$('#fenced i').prop('class', 'fa fa-check-square-o');
-			$('#fenced input').prop('checked', true);
-		}
-		if(sessionStorage.park  == 'True')
-		{
-			$('#park').attr('class', 'alert alert-success input-lg');
-			$('#park i').prop('class', 'fa fa-check-square-o');
-			$('#park input').prop('checked', true);
-		}
-		if(sessionStorage.picnic  == 'True')
-		{
-			$('#picnic').attr('class', 'alert alert-success input-lg');
-			$('#picnic i').prop('class', 'fa fa-check-square-o');
-			$('#picnic input').prop('checked', true);
-		}
-		if(sessionStorage.snack  == 'True')
-		{
-			$('#snack').attr('class', 'alert alert-success input-lg');
-			$('#snack i').prop('class', 'fa fa-check-square-o');
-			$('#snack input').prop('checked', true);
-		}
-		if(sessionStorage.toilette  == 'True')
-		{
-			$('#toilette').attr('class', 'alert alert-success input-lg');
-			$('#toilette i').prop('class', 'fa fa-check-square-o');
-			$('#toilette input').prop('checked', true);
-		}
-		if(sessionStorage.cleaning  == 'True')
-		{
-			$('#cleaning').attr('class', 'alert alert-success input-lg');
-			$('#cleaning i').prop('class', 'fa fa-check-square-o');
-			$('#cleaning input').prop('checked', true);
-		}
-		if(sessionStorage.handicap  == 'True')
-		{
-			$('#handicap').attr('class', 'alert alert-success input-lg');
-			$('#handicap i').prop('class', 'fa fa-check-square-o');
-			$('#handicap input').prop('checked', true);
-		}*/
 	}
-
 }
 
 //abilito rating parco
@@ -230,6 +183,18 @@ function checkAll()
 			$('i', this).prop('class', 'fa fa-check-square-o');
 		}
 	});
+
+	$("#policy").click(function()
+	{
+		if($('input', this).is(':checked'))
+		{
+			sessionStorage.consensoPrivacy = 'True';
+		}else
+		{
+			sessionStorage.consensoPrivacy = 'False';
+		}
+	});
+
 }
 
 /*CAMPI*REQUIRED*/
@@ -252,7 +217,7 @@ function checkRequired()
 	});
 
 	//se mancanti blocco
-	if( $("#formInsParco .error").length > 0)
+	if( $("#formInsParco .error").length > 0 || sessionStorage.consensoPrivacy != 'True')
 	{
 		//mostro alert dati mancanti
    		scrollAlto();
@@ -365,6 +330,15 @@ function getDati()
 	sessionStorage.note = ''+$('#note').val();
 	sessionStorage.email = $('#email').val();
 
+	//get condizioni
+	if($('#promo input').is(':checked'))
+	{
+		sessionStorage.promo = 'True';
+	}else
+	{
+		sessionStorage.promo = 'False';
+	}
+
 	//completo se dati mancanti
 	if(sessionStorage.newOpening == '')
 	{
@@ -384,9 +358,9 @@ function getDati()
 //invio dati al server
 function inviaDati()
 {
-	//alert(sessionStorage.newLati+' '+sessionStorage.newLongi+' '+sessionStorage.newAddress+' '+sessionStorage.newTitle+' '+sessionStorage.newOpening+' '+sessionStorage.newTarget_min+' '+sessionStorage.newTarget_max+' '+sessionStorage.newDesc+' '+sessionStorage.note+' '+sessionStorage.valutazione+' '+sessionStorage.email+' '+sessionStorage.fenced+' '+sessionStorage.picnic+' '+sessionStorage.snack+' '+sessionStorage.park+' '+sessionStorage.toilette+' '+sessionStorage.cleaning+' '+sessionStorage.handicap);
+	alert(sessionStorage.newLati+' '+sessionStorage.newLongi+' '+sessionStorage.newAddress+' '+sessionStorage.newTitle+' '+sessionStorage.newOpening+' '+sessionStorage.newTarget_min+' '+sessionStorage.newTarget_max+' '+sessionStorage.newDesc+' '+sessionStorage.note+' '+sessionStorage.valutazione+' '+sessionStorage.email+' '+sessionStorage.fenced+' '+sessionStorage.picnic+' '+sessionStorage.snack+' '+sessionStorage.park+' '+sessionStorage.toilette+' '+sessionStorage.cleaning+' '+sessionStorage.handicap);
 
-	$.ajax({
+	/*$.ajax({
 		type: 'POST',
 		url: indirizzo+'/inserimento_parco',
 		data: {
@@ -414,7 +388,7 @@ function inviaDati()
 		contentType: 'application/x-www-form-urlencoded',
 		error: errorHandler,
 		success: datiInviati
-	})
+	})*/
 
 }
 

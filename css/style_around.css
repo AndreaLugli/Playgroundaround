@@ -895,16 +895,28 @@ h3 + hr{
 	text-align:center;
 }
 
-#autorizzazione{
+#autorizzazione, #promo, #policy{
 	margin:20pt 5%;
 	width:90%;
 	text-align:justify;
 	font-size:small;
 }
-#autorizzazione input{
+#promo, #policy{
+	margin:20pt 5%;
+	width:98% !important;
+	font-size:small;
+}
+#promo{
+	margin-bottom:8pt !important;
+}
+#policy a{
+	font-size:small;
+	color:#912A62;
+}
+#autorizzazione input, #promo input, #policy input{
 	display:none;
 }
-#autorizzazione i{
+#autorizzazione i, #promo i, #policy i{
 	margin-right:5pt;
 }
 
