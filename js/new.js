@@ -342,10 +342,10 @@ function getDati()
 	//get condizioni
 	if($('#promo input').is(':checked'))
 	{
-		sessionStorage.promo = 'True';
+		sessionStorage.promo_email = 'True';
 	}else
 	{
-		sessionStorage.promo = 'False';
+		sessionStorage.promo_email = 'False';
 	}
 
 	//completo se dati mancanti
@@ -371,7 +371,7 @@ function inviaDati()
 
 	$.ajax({
 		type: 'POST',
-		url: indirizzo+'/inserimento_parco',
+		url: indirizzo+'/inserimento_parco_2',
 		data: {
 			'name' : sessionStorage.newTitle,
 			'indirizzo' : sessionStorage.newAddress,
@@ -392,6 +392,7 @@ function inviaDati()
 			'other' : sessionStorage.note,
 			'evaluation' : sessionStorage.valutazione,
 			'email' : sessionStorage.email,
+			'promo_email' : sessionStorage.promo_email,
 			'promozionale' : 'false'
 		},
 		contentType: 'application/x-www-form-urlencoded',
@@ -420,7 +421,9 @@ function datiInviati(data)
 {
 	//alert('dati inviati '+data);
 
-	sessionStorage.idParco = data;
+	sessionStorage.idParco = data.id;
+	sessionStorage.successParco = data.testo;
+
 	//se non ho caricato foto
 	if(sessionStorage.listaIdFoto)
 	{
@@ -493,6 +496,7 @@ function openInserisciOk(back)
 
 	if(sessionStorage.provenienza == 'nuovo')
 	{
+		$('#parcoInserito span').(sessionStorage.successParco);
 		$('#parcoInserito').show();
 		dataClear();
 	}
