@@ -31,7 +31,7 @@
 
 
     <!-- Preferenze -->
-    <preference name="fullscreen"                           value="true" /> <!--TRUE PER WIN -->
+    <preference name="fullscreen"                           value="false" /> <!--TRUE PER WIN -->
     <preference name="orientation"                          value="portrait" />
     <preference name="target-device"                        value="universal" /> 
     <preference name="webviewbounce"                        value="true" />
