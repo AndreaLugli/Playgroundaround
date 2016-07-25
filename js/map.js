@@ -17,9 +17,9 @@ function getMappaParco(lati, longi)
 	$('#map').html('');
 	var map = L.map('map').setView([lati, longi], 15);
 
-	var cloudmadeUrl = 'http://{s}.mqcdn.com/tiles/1.0.0/osm/{z}/{x}/{y}.png',
-		subDomains = ['otile1','otile2','otile3','otile4'],
-		cloudmadeAttrib = '<a href="http://open.mapquest.co.uk" target="_blank">MapQuest</a>, <a href="http://www.openstreetmap.org/" target="_blank">OpenStreetMap</a>, <a href="http://creativecommons.org/licenses/by-sa/2.0/" target="_blank">CC-BY-SA</a>';
+	var cloudmadeUrl = 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
+		subDomains = ['a', 'b', 'c'],
+		cloudmadeAttrib = 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors';				
 	 
 	var cloudmade = new L.TileLayer(cloudmadeUrl, {minZoom: 12, maxZoom: 18, noWrap:true, reuseTiles: true, attribution: cloudmadeAttrib, subdomains: subDomains});
 
@@ -52,10 +52,10 @@ function initialize_map_generica(lati, longi)
 	$('#map1').html('');
 	map1 = L.map('map1').setView([lati, longi], 15);
 
-	var cloudmadeUrl = 'http://{s}.mqcdn.com/tiles/1.0.0/osm/{z}/{x}/{y}.png',
-		subDomains = ['otile1','otile2','otile3','otile4'],
-		cloudmadeAttrib = '<a href="http://open.mapquest.co.uk" target="_blank">MapQuest</a>, <a href="http://www.openstreetmap.org/" target="_blank">OpenStreetMap</a>, <a href="http://creativecommons.org/licenses/by-sa/2.0/" target="_blank">CC-BY-SA</a>';
-	 
+	var cloudmadeUrl = 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
+		subDomains = ['a', 'b', 'c'],
+		cloudmadeAttrib = 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors';		
+
 	var cloudmade = new L.TileLayer(cloudmadeUrl, {minZoom: 10, maxZoom: 18, noWrap:true, reuseTiles: true, attribution: cloudmadeAttrib, subdomains: subDomains});
 
 	cloudmade.addTo(map1);
@@ -113,10 +113,10 @@ function localizzaMap(lati, longi)
 
 	map = L.map('map').setView([lati, longi], 15);
 
-	var cloudmadeUrl = 'http://{s}.mqcdn.com/tiles/1.0.0/osm/{z}/{x}/{y}.png',
-		subDomains = ['otile1','otile2','otile3','otile4'],
-		cloudmadeAttrib = '<a href="http://open.mapquest.co.uk" target="_blank">MapQuest</a>, <a href="http://www.openstreetmap.org/" target="_blank">OpenStreetMap</a>, <a href="http://creativecommons.org/licenses/by-sa/2.0/" target="_blank">CC-BY-SA</a>';
-	 
+	var cloudmadeUrl = 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
+		subDomains = ['a', 'b', 'c'],
+		cloudmadeAttrib = 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors';	
+			 
 	var cloudmade = new L.TileLayer(cloudmadeUrl, {minZoom: 12, maxZoom: 18, noWrap:true, reuseTiles: true, attribution: cloudmadeAttrib, subdomains: subDomains});
 
 	cloudmade.addTo(map);
